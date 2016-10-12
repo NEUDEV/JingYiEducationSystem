@@ -1,5 +1,7 @@
 package com.JES.dao.impl;
 
-public class agentimpl {
+import com.JES.dao.agentdao;
+
+public class agentimpl implements agentdao{
 
 }

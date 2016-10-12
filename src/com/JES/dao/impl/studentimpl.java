@@ -1,5 +1,7 @@
 package com.JES.dao.impl;
 
-public class studentimpl {
+import com.JES.dao.studentdao;
+
+public class studentimpl implements studentdao{
 
 }

@@ -1,5 +1,7 @@
 package com.JES.dao.impl;
 
-public class seletionimpl {
+import com.JES.dao.selectiondao;
+
+public class seletionimpl implements selectiondao{
 
 }
