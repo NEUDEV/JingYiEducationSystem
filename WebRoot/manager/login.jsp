@@ -12,18 +12,18 @@
 		<div class="row clearfix">
 			<div class="col-md-12 column">
 				<form class="form-horizontal" role="form"
-					action="<%=basePath%>Manager/MangaerLogin_login.action"
+					action="<%=basePath%>Manager/ManagerLogin_login.action"
 					method="post">
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-2 control-label">账户名</label>
 						<div class="col-sm-10">
-							<input class="form-control" id="inputEmail3" type="text" />
+							<input class="form-control" name="mname" type="text" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="inputPassword3" class="col-sm-2 control-label">密码</label>
 						<div class="col-sm-10">
-							<input class="form-control" id="inputPassword3" type="password" />
+							<input class="form-control" name="password" type="password" />
 						</div>
 					</div>
 					<div class="form-group">

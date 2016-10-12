@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-	<package name="manager" extends="struts-default" namespace="/CreditCard">
-		<action name="*_*" class="com.ob.action.{1}Action" method="{2}">
-			
+	<package name="manager" extends="struts-default" namespace="/Manager">
+		<action name="*_*" class="com.JES.action.{1}Action" method="{2}">
+			<!-- 管理员登录 -->
+			<result name="managerLoginSuccess">/index.jsp</result>
+			<result name="managerLoginFailed">/manager/login.jsp</result>
 		</action>
 	</package>
 
