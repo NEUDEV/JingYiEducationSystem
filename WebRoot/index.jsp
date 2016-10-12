@@ -15,84 +15,154 @@
 <script src="<%=basePath%>resource/ie10-viewport-bug-workaround.js"></script>
 </head>
 <body>
-	<div class="container-fluid">
-		<div class="row-fluid">
-			<div class="span12">
-				<div class="navbar">
-					<div class="navbar-inner">
-						<div class="container-fluid">
-							<a class="btn btn-navbar"
-								data-target=".navbar-responsive-collapse" data-toggle="collapse"></a>
-							<a class="brand" href="#">鲸艺教育</a>
-							<div class="nav-collapse collapse navbar-responsive-collapse">
-								<ul class="nav">
-									<li><a href="#">链接</a></li>
-									<li><a href="#">链接</a></li>
-									<li class="dropdown"><a class="dropdown-toggle"
-										data-toggle="dropdown" href="#">下拉菜单</a>
-										<ul class="dropdown-menu">
-											<li><a href="#">下拉导航1</a></li>
-											<li><a href="#">下拉导航2</a></li>
-											<li><a href="#">其他</a></li>
-											<li class="divider"></li>
-											<li class="nav-header">标签</li>
-											<li><a href="#">链接1</a></li>
-											<li><a href="#">链接2</a></li>
-										</ul></li>
-								</ul>
-								<ul class="nav pull-right">
-									<li><a href="#">右边链接</a></li>
-									<li class="divider-vertical"></li>
-									<li class="dropdown"><a class="dropdown-toggle"
-										data-toggle="dropdown" href="#">下拉菜单</a>
-										<ul class="dropdown-menu">
-											<li><a href="#">下拉导航1</a></li>
-											<li><a href="#">下拉导航2</a></li>
-											<li><a href="#">其他</a></li>
-											<li class="divider"></li>
-											<li><a href="#">链接3</a></li>
-										</ul></li>
-								</ul>
-							</div>
-
-						</div>
-					</div>
-
+	<div class="container">
+		<div class="row clearfix">
+			<div class="col-md-12 column">
+				<nav class="navbar navbar-default" role="navigation">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse"
+						data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span><span
+							class="icon-bar"></span><span class="icon-bar"></span><span
+							class="icon-bar"></span>
+					</button>
+					<strong><a class="navbar-brand" href="#">鲸艺教育</a></strong>
 				</div>
-				<div class="row-fluid">
-					<div class="span3">
-						<div class="accordion" id="accordion-624141">
-							<div class="accordion-group">
-								<div class="accordion-heading">
-									<a class="accordion-toggle" data-parent="#accordion-624141"
-										data-toggle="collapse" href="#accordion-element-220884">我的佣金</a>
+
+				<div class="collapse navbar-collapse"
+					id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#">Link</a></li>
+						<li><a href="#">Link</a></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+								<li class="divider"></li>
+								<li><a href="#">One more separated link</a></li>
+							</ul></li>
+					</ul>
+					<form class="navbar-form navbar-left" role="search">
+						<div class="form-group">
+							<input class="form-control" type="text" />
+						</div>
+						<button type="submit" class="btn btn-default">Submit</button>
+					</form>
+					<ul class="nav navbar-nav navbar-right">
+						<li><a href="#">Link</a></li>
+						<li class="dropdown"><a href="#" class="dropdown-toggle"
+							data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
+							<ul class="dropdown-menu">
+								<li><a href="#">Action</a></li>
+								<li><a href="#">Another action</a></li>
+								<li><a href="#">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a href="#">Separated link</a></li>
+							</ul></li>
+					</ul>
+				</div>
+
+				</nav>
+				<div class="row clearfix">
+					<div class="col-md-2 column">
+						<div class="panel-group" id="panel-699072">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<a class="panel-title collapsed" data-toggle="collapse"
+										data-parent="#panel-699072" href="#panel-element-16476">我的佣金</a>
 								</div>
-								<div class="accordion-body in collapse"
-									id="accordion-element-220884">
-									<div class="accordion-inner">我的佣金</div>
+								<div id="panel-element-16476" class="panel-collapse collapse">
+									<div class="panel-body">我的佣金</div>
+									<div class="panel-body">结算记录</div>
 								</div>
 							</div>
-							<div class="accordion-group">
-								<div class="accordion-heading">
-									<a class="accordion-toggle collapsed"
-										data-parent="#accordion-624141" data-toggle="collapse"
-										href="#accordion-element-339731">我的业绩</a>
+
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<a class="panel-title" data-toggle="collapse"
+										data-parent="#panel-699072" href="#panel-element-724199">我的业绩</a>
 								</div>
-								<div class="accordion-body collapse"
-									id="accordion-element-339731">
-									<div class="accordion-inner">业绩订单</div>
+								<div id="panel-element-724199" class="panel-collapse in">
+									<div class="panel-body">业绩订单</div>
+									<div class="panel-body">班长订单</div>
+									<div class="panel-body">业绩汇总</div>
+									<div class="panel-body">我的工单</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<a class="panel-title" data-toggle="collapse"
+										data-parent="#panel-699072" href="#panel-element-724200">我的学员</a>
+								</div>
+								<div id="panel-element-724200" class="panel-collapse in">
+									<div class="panel-body">我的学员</div>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<a class="panel-title" data-toggle="collapse"
+										data-parent="#panel-699072" href="#panel-element-724201">我的团队</a>
+								</div>
+								<div id="panel-element-724201" class="panel-collapse in">
+									<div class="panel-body">我的推广员</div>
+								</div>
+							</div>
+
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<a class="panel-title collapsed" data-toggle="collapse"
+										data-parent="#panel-699072" href="#panel-element-16477">我的账户</a>
+								</div>
+								<div id="panel-element-16477" class="panel-collapse collapse">
+									<div class="panel-body">个人信息</div>
+									<div class="panel-body">银行信息</div>
+									<div class="panel-body">手机验证</div>
+									<div class="panel-body">修改密码</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="span9">
-						<table class="table table-bordered">
+					<div class="col-md-10 column">
+						<nav class="navbar navbar-default navbar-static-top"
+							role="navigation">
+						<div class="collapse navbar-collapse"
+							id="bs-example-navbar-collapse-1">
+							<ul class="nav navbar-nav">
+								<li class="dropdown"><a href="#" class="dropdown-toggle"
+									data-toggle="dropdown">学员UID<strong class="caret"></strong></a>
+									<ul class="dropdown-menu">
+										<li><a href="#">学员UID</a></li>
+										<li><a href="#">用户名</a></li>
+										<li><a href="#">真实姓名</a></li>
+										<li><a href="#">手机号</a></li>
+										<li><a href="#">QQ</a></li>
+										<li><a href="#">邮箱</a></li>
+									</ul></li>
+							</ul>
+							<form class="navbar-form navbar-left" role="search">
+								<div class="form-group">
+									<input class="form-control" type="text" />
+								</div>
+								<button type="submit" class="btn btn-default">Submit</button>
+							</form>
+						</div>
+
+						</nav>
+						<table class="table">
 							<thead>
 								<tr>
-									<th>序号</th>
 									<th>UID</th>
 									<th>用户名</th>
 									<th>姓名</th>
+									<th>手机号</th>
+									<th>QQ</th>
+									<th>邮箱</th>
+									<th>注册时间</th>
+									<th>最后登录时间</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -100,7 +170,7 @@
 									<td>1</td>
 									<td>TB - Monthly</td>
 									<td>01/04/2012</td>
-									<td>Defa</td>
+									<td>Default</td>
 								</tr>
 								<tr class="success">
 									<td>1</td>
