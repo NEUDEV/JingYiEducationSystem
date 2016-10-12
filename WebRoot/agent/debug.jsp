@@ -1,18 +1,11 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ include file="/index.jsp"%>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<script src="<%=basePath%>resource/jquery/jquery.min.js"></script>
-<link href="<%=basePath%>resource/css/bootstrap.min.css"
-	rel="stylesheet">
-<script src="<%=basePath%>resource/js/bootstrap.min.js"></script>
-<script src="<%=basePath%>resource/ie10-viewport-bug-workaround.js"></script>
+
 </head>
 <body>
 	<div class="container">
