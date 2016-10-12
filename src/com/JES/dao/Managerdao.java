@@ -6,6 +6,6 @@ import com.JES.model.Manager;
 
 @Transactional
 public interface Managerdao {
-	private String getMname(Manager manager);
-	private String getPassword(Manager manager);
+	public String getMname(Manager manager);
+	public String getPassword(Manager manager);
 }
