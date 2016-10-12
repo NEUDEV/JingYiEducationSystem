@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC  
+        '-//Hibernate/Hibernate Mapping DTD 3.0//EN'  
+        'http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd'>  
+<hibernate-mapping>  
+	<class name="com.JES.model.student" table="student">
+		<id name="uid" column="uid"  type="java.lang.String">
+			<generator class="assigned"></generator>
+		</id>
+		<property  name="uname" column="uname" type="java.lang.String"></property >
+		<property  name="name" column="name" type="java.lang.String"></property >
+		<property  name="phone" column="phone" type="java.lang.String"></property >
+		<property  name="qq" column="qq" type="java.lang.String"></property >
+		<property  name="email" column="email" type="java.lang.String"></property >
+		<property  name="mid" column="mid" type="java.lang.String"></property >
+	</class>
+	<class name="com.JES.model.agent" table="agent">
+		<id name="uid" column="uid"  type="java.lang.String">
+			<generator class="assigned"></generator>
+		</id>
+		<property  name="aname" column="aname" type="java.lang.String"></property >
+		<property  name="name" column="name" type="java.lang.String"></property >
+		<property  name="phone" column="phone" type="java.lang.String"></property >
+		<property  name="qq" column="qq" type="java.lang.String"></property >
+		<property  name="password" column="password" type="java.lang.String"></property >
+		<property  name="aid" column="aid" type="java.lang.String"></property >
+		<property  name="idcard" column="idcard" type="java.lang.String"></property >
+		<property  name="cname" column="cname" type="java.lang.String"></property >
+		<property  name="bank" column="bank" type="java.lang.String"></property >
+		<property  name="account" column="account" type="java.lang.String"></property >
+		<property  name="role" column="role" type="java.lang.String"></property >
+		<property  name="mannager" column="mannager" type="java.lang.String"></property >
+	</class>
+	<class name="com.JES.model.manager" table="manager">
+		<id name="uid" column="uid"  type="java.lang.String">
+			<generator class="assigned"></generator>
+		</id>
+		<property  name="mname" column="mname" type="java.lang.String"></property >
+		<property  name="password" column="password" type="java.lang.String"></property >
+	</class>
+</hibernate-mapping> 
