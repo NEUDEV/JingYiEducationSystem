@@ -38,4 +38,19 @@
 		<property  name="mname" column="mname" type="java.lang.String"></property >
 		<property  name="password" column="password" type="java.lang.String"></property >
 	</class>
+	
+	<class name="com.JES.model.selection" table="selection">
+		<id name="id" column="id"  type="java.lang.String">
+			<generator class="assigned"></generator>
+		</id>
+		<property  name="uid" column="uid" type="java.lang.String"></property >
+		<property  name="cid" column="cid" type="java.lang.String"></property >
+	</class>
+	
+	<class name="com.JES.model.course" table="course">
+		<id name="cid" column="cid"  type="java.lang.String">
+			<generator class="assigned"></generator>
+		</id>
+		<property  name="cname" column="cname" type="java.lang.String"></property >
+	</class>
 </hibernate-mapping> 
