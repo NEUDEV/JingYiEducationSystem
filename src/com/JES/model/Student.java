@@ -2,7 +2,7 @@ package com.JES.model;
 
 import java.sql.Date;
 
-public class student {
+public class Student {
 	private String uid;
 	private String uname;
 	private String name;

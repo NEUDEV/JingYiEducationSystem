@@ -1,7 +1,7 @@
 package com.JES.dao.impl;
 
-import com.JES.dao.coursedao;
+import com.JES.dao.Coursedao;
 
-public class courseimpl implements coursedao{
+public class courseimpl implements Coursedao{
 
 }

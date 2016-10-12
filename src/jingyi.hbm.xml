@@ -3,7 +3,7 @@
         '-//Hibernate/Hibernate Mapping DTD 3.0//EN'  
         'http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd'>  
 <hibernate-mapping>  
-	<class name="com.JES.model.student" table="student">
+	<class name="com.JES.model.Student" table="student">
 		<id name="uid" column="uid"  type="java.lang.String">
 			<generator class="assigned"></generator>
 		</id>
@@ -14,7 +14,7 @@
 		<property  name="email" column="email" type="java.lang.String"></property >
 		<property  name="mid" column="mid" type="java.lang.String"></property >
 	</class>
-	<class name="com.JES.model.agent" table="agent">
+	<class name="com.JES.model.Agent" table="agent">
 		<id name="uid" column="uid"  type="java.lang.String">
 			<generator class="assigned"></generator>
 		</id>
@@ -31,7 +31,7 @@
 		<property  name="role" column="role" type="java.lang.String"></property >
 		<property  name="mannager" column="mannager" type="java.lang.String"></property >
 	</class>
-	<class name="com.JES.model.manager" table="manager">
+	<class name="com.JES.model.Manager" table="manager">
 		<id name="uid" column="uid"  type="java.lang.String">
 			<generator class="assigned"></generator>
 		</id>
@@ -39,7 +39,7 @@
 		<property  name="password" column="password" type="java.lang.String"></property >
 	</class>
 	
-	<class name="com.JES.model.selection" table="selection">
+	<class name="com.JES.model.Selection" table="selection">
 		<id name="id" column="id"  type="java.lang.String">
 			<generator class="assigned"></generator>
 		</id>
@@ -47,7 +47,7 @@
 		<property  name="cid" column="cid" type="java.lang.String"></property >
 	</class>
 	
-	<class name="com.JES.model.course" table="course">
+	<class name="com.JES.model.Course" table="course">
 		<id name="cid" column="cid"  type="java.lang.String">
 			<generator class="assigned"></generator>
 		</id>

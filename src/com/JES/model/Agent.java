@@ -1,6 +1,6 @@
 package com.JES.model;
 
-public class agent {
+public class Agent {
 	private String uid;
 	private String aname;
 	private String name;

@@ -1,7 +1,7 @@
 package com.JES.dao.impl;
 
-import com.JES.dao.managerdao;
+import com.JES.dao.Managerdao;
 
-public class managerimpl implements managerdao{
+public class managerimpl implements Managerdao{
 
 }

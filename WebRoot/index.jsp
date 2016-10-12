@@ -35,7 +35,7 @@
 						<li class="dropdown"><a href="#" class="dropdown-toggle"
 							data-toggle="dropdown">登录<strong class="caret"></strong></a>
 							<ul class="dropdown-menu">
-								<li><a href="<%=basePath%>mannager/login.jsp">管理员登录</a></li>
+								<li><a href="<%=basePath%>manager/login.jsp">管理员登录</a></li>
 								<li><a href="#">代理商登录</a></li>
 							</ul></li>
 					</ul>

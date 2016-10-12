@@ -1,6 +1,6 @@
 package com.JES.model;
 
-public class manager {
+public class Manager {
 	private String uid;
 	private String mname;
 	private String password;

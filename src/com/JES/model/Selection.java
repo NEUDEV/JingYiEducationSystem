@@ -1,6 +1,6 @@
 package com.JES.model;
 
-public class selection {
+public class Selection {
 	private String id;
 	private String uid;
 	private String cid;

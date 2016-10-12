@@ -1,6 +1,6 @@
 package com.JES.model;
 
-public class course {
+public class Course {
 	private String cid;
 	private String cname;
 	public String getCid() {
