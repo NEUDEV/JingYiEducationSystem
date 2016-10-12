@@ -1,5 +1,11 @@
 package com.JES.dao;
 
-public interface Managerdao {
+import org.springframework.transaction.annotation.Transactional;
 
+import com.JES.model.Manager;
+
+@Transactional
+public interface Managerdao {
+	private String getMname(Manager manager);
+	private String getPassword(Manager manager);
 }
