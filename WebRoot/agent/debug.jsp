@@ -31,7 +31,7 @@
 										data-parent="#panel-699072" href="#panel-element-724199">我的业绩</a>
 								</div>
 								<div id="panel-element-724199" class="panel-collapse in">
-									<div class="panel-body">业绩订单</div>
+									<div class="panel-body"><a href="#">业绩订单</a></div>
 									<div class="panel-body">班长订单</div>
 									<div class="panel-body">业绩汇总</div>
 									<div class="panel-body">我的工单</div>
@@ -75,19 +75,15 @@
 							role="navigation">
 						<div class="collapse navbar-collapse"
 							id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav">
-								<li class="dropdown"><a href="#" class="dropdown-toggle"
-									data-toggle="dropdown">学员UID<strong class="caret"></strong></a>
-									<ul class="dropdown-menu">
-										<li><a href="#">学员UID</a></li>
-										<li><a href="#">用户名</a></li>
-										<li><a href="#">真实姓名</a></li>
-										<li><a href="#">手机号</a></li>
-										<li><a href="#">QQ</a></li>
-										<li><a href="#">邮箱</a></li>
-									</ul></li>
-							</ul>
 							<form class="navbar-form navbar-left" role="search">
+								<select name="selectCd" class="form-control">
+									<option>学员UID</option>
+									<option>用户名</option>
+									<option>真实姓名</option>
+									<option>手机号</option>
+									<option>QQ</option>
+									<option>邮箱</option>
+								</select>
 								<div class="form-group">
 									<input class="form-control" type="text" />
 								</div>
