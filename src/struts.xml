@@ -4,7 +4,7 @@
 	<package name="manager" extends="struts-default" namespace="/Manager">
 		<action name="*_*" class="com.JES.action.{1}Action" method="{2}">
 			<!-- 管理员登录 -->
-			<result name="managerLoginSuccess">/index.jsp</result>
+			<result name="managerLoginSuccess">/manager/managerMemu.jsp</result>
 			<result name="managerLoginFailed">/manager/login.jsp</result>
 		</action>
 	</package>

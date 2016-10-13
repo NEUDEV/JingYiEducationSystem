@@ -31,6 +31,7 @@ public class ManagerLoginAction extends SuperAction implements
 			return "managerLoginSuccess";
 		}
 		
+		request.setAttribute("info", "用户名或密码错误！");
 		return "managerLoginFailed";
 	}
 	
