@@ -35,6 +35,7 @@ public class StudentDAO {
 	public static final String QQ = "qq";
 	public static final String EMAIL = "email";
 	public static final String MID = "mid";
+	public static final String SIGN = "sign";
 
 	private SessionFactory sessionFactory;
 
@@ -136,6 +137,10 @@ public class StudentDAO {
 
 	public List findByMid(Object mid) {
 		return findByProperty(MID, mid);
+	}
+	
+	public List findBySign(Object sign) {
+		return findByProperty(SIGN, sign);
 	}
 
 	public List findAll() {

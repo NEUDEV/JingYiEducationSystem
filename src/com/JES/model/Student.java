@@ -10,6 +10,7 @@ public class Student {
 	private String qq;
 	private String email;
 	private String mid;
+	private String sign;
 	public String getUid() {
 		return uid;
 	}
@@ -51,6 +52,12 @@ public class Student {
 	}
 	public void setMid(String mid) {
 		this.mid = mid;
+	}
+	public String getSign() {
+		return sign;
+	}
+	public void setSign(String sign) {
+		this.sign = sign;
 	}
 	
 	

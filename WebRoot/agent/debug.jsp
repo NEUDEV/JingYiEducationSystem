@@ -104,6 +104,7 @@
 									<th>手机号</th>
 									<th>QQ</th>
 									<th>邮箱</th>
+									<th>状态</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -119,6 +120,7 @@
 									<td><%=list.get(i).getPhone()%></td>
 									<td><%=list.get(i).getQq()%></td>
 									<td><%=list.get(i).getEmail()%></td>
+									<td><%=list.get(i).getSign()%></td>
 								</tr>
 								<%
 									}

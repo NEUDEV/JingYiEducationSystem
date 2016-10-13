@@ -22,5 +22,8 @@
 			<result name="show">/agent/debug.jsp</result>
 			<result name="noshow">/test.jsp</result>
 		</action>
+		<action name="AgentAddStudentsAction" class="com.JES.action.AgentAddStuAction" method="AddStudent">
+			<result name="haveadd">/agent/studentAdmit.jsp</result>
+		</action>
 	</package>
 </struts>    

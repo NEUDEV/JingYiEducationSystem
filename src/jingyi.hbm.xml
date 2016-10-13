@@ -13,6 +13,7 @@
 		<property  name="qq" column="qq" type="java.lang.String"></property >
 		<property  name="email" column="email" type="java.lang.String"></property >
 		<property  name="mid" column="mid" type="java.lang.String"></property >
+		<property  name="sign" column="sign" type="java.lang.String"></property >
 	</class>
 	<class name="com.JES.model.Agent" table="agent">
 		<id name="uid" column="uid"  type="java.lang.String">

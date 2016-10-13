@@ -74,11 +74,15 @@
 					</div>
 					
 					<div class="col-md-10 column">
-						<form action="<%=basePath%>Manager/ManagerAgentRegister_register.action"
+						<form action="AgentAddStudentsAction.action"
 					id="form" method="post">
 					<div class="form-group">
+						<label for="uid">学员UID</label><input class="form-control"
+							id="uid" type="text" name="uid" />
+					</div>
+					<div class="form-group">
 						<label for="aname">账户名</label><input class="form-control"
-							id="aname" type="text" name="aname" />
+							id="aname" type="text" name="uname" />
 					</div>
 					<div class="form-group">
 						<label for="name">姓名</label><input class="form-control" id="name"
