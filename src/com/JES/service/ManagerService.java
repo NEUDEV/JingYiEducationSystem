@@ -4,18 +4,18 @@ import java.util.List;
 
 import javax.security.auth.message.callback.PrivateKeyCallback.Request;
 
-import com.JES.dao.Managerdao;
+import com.JES.dao.ManagerDAO;
 import com.JES.model.Manager;
 
 public class ManagerService {
-	private Managerdao managerdao;
+	private ManagerDAO ManagerDAO;
 
-	public Managerdao getManagerdao() {
-		return managerdao;
+	public ManagerDAO getManagerdao() {
+		return ManagerDAO;
 	}
 
-	public void setManagerdao(Managerdao managerdao) {
-		this.managerdao = managerdao;
+	public void setManagerdao(ManagerDAO ManagerDAO) {
+		this.ManagerDAO = ManagerDAO;
 	}
 
 	/**
@@ -26,7 +26,7 @@ public class ManagerService {
 	 * @return ÊÇ·ñµÇÂ½³É¹¦¡£
 	 */
 	public boolean isLoginSuccess(Manager manager) {
-		List resultList = managerdao.findByMname(manager);
+		List resultList = ManagerDAO.findByMname(manager);
 		
 
 		if (resultList.size() != 0) {

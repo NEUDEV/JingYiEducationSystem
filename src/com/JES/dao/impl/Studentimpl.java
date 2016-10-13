@@ -4,10 +4,9 @@ import java.util.List;
 
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
 
-import com.JES.dao.Studentdao;
 import com.JES.model.Student;
 
-public class Studentimpl extends HibernateDaoSupport implements Studentdao{
+public class Studentimpl extends HibernateDaoSupport{
 	@SuppressWarnings("unchecked")
 	public List<Student> searchStudent(String type,String value){
 		String act="from Student s where ";

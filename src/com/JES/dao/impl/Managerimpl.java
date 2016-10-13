@@ -8,10 +8,9 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Example;
 
-import com.JES.dao.Managerdao;
 import com.JES.model.Manager;
 
-public class Managerimpl implements Managerdao{
+public class Managerimpl{
 
 	private SessionFactory sessionFactory;
 
@@ -23,7 +22,6 @@ public class Managerimpl implements Managerdao{
 		return sessionFactory.getCurrentSession();
 	}
 	
-	@Override
 	public void save(Manager manager) {
 		try {
 			getCurrentSession().save(manager);
@@ -32,7 +30,6 @@ public class Managerimpl implements Managerdao{
 		}
 	}
 	
-	@Override
 	public void delete(Manager manager) {
 		try {
 			getCurrentSession().delete(manager);
@@ -41,7 +38,6 @@ public class Managerimpl implements Managerdao{
 		}
 	}
 	
-	@Override
 	public List findByMname(Manager manager) {
 		try {
 			List results = getCurrentSession()
@@ -53,7 +49,6 @@ public class Managerimpl implements Managerdao{
 		}
 	}
 	
-	@Override
 	public String getMname(Manager manager) {
 		Session session = sessionFactory.openSession();
 		Transaction ts = session.beginTransaction();
@@ -67,7 +62,6 @@ public class Managerimpl implements Managerdao{
 		return null;
 	}
 
-	@Override
 	public String getPassword(Manager manager) {
 		Session session = sessionFactory.openSession();
 		Transaction ts = session.beginTransaction();
