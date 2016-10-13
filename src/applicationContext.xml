@@ -14,7 +14,7 @@
 			value="jdbc:mysql://localhost:3306/jingyieducationsystem">
 		</property>
 		<property name="username" value="root"></property>
-		<property name="password" value="root"></property>
+		<property name="password" value="wuyuhui1020"></property>
 	</bean>
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
@@ -40,21 +40,40 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 	<tx:annotation-driven transaction-manager="transactionManager" />
-
+	
+	<!-- dao -->
+	
 	<bean id="managerdao" class="com.JES.dao.impl.Managerimpl">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
 	
+	<bean id="studentdao" class="com.JES.dao.impl.Studentimpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<bean id="agentdao" class="com.JES.dao.impl.Agentimpl">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
+	
+	<!-- service -->
+	
 	<bean id="managerService" class="com.JES.service.ManagerService"
 		scope="prototype">
 		<property name="managerdao" ref="managerdao"></property>
 	</bean>
 	
+	<bean id="agentservice" class="com.JES.service.AgentService"></bean>
+	
+	<!-- action -->
+	
 	<bean id="managerAction" class="com.JES.action.ManagerLoginAction"
 		scope="prototype">
 		<property name="managerService" ref="managerService"></property>
 	</bean>
+	
+	
+	
 	
 </beans>

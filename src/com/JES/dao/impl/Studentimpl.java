@@ -12,7 +12,7 @@ public class Studentimpl extends HibernateDaoSupport implements Studentdao{
 	public List<Student> searchStudent(String type,String value){
 		String act="from Student s where ";
 		switch(type){
-		case "用户UID":act+="s.uid=?";return (List<Student>)(getHibernateTemplate().find(act, value));
+		case "学员UID":act+="s.uid=?";return (List<Student>)(getHibernateTemplate().find(act, value));
 		case "用户名":act+="s.uname";return (List<Student>)(getHibernateTemplate().find(act, value));
 		case "真实姓名":act+="s.name";return (List<Student>)(getHibernateTemplate().find(act, value));
 		case "手机号":act+="s.phone";return (List<Student>)(getHibernateTemplate().find(act, value));

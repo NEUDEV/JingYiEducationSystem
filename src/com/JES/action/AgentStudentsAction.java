@@ -30,10 +30,9 @@ public class AgentStudentsAction extends SuperAction{
 		this.agentservice = agentservice;
 	}
 	
-	@SuppressWarnings("unused")
 	public String Mystudents(){
 		List<Student> listofstudents = new ArrayList<Student>();
-		listofstudents.addAll(agentservice.searchStudents(searchtype, searchvalue));
+		listofstudents=agentservice.searchStudents(searchtype, searchvalue);
 		if(listofstudents!=null){
 			request.setAttribute("mystudent", listofstudents);
 			return "show";

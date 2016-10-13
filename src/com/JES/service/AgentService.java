@@ -30,7 +30,7 @@ public class AgentService {
 
 	public List<Student> searchStudents(String type,String value){
 		List<Student> listofstudent = new ArrayList<Student>();
-		if(listofstudent.addAll(studentdao.searchStudent(type,value))) 
+		if((listofstudent=studentdao.searchStudent(type,value))!=null) 
 			return listofstudent;
 		return null;
 	}

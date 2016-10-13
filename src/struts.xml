@@ -9,5 +9,10 @@
 		</action>
 	</package>
 
-	
+	<package name="agent" extends="struts-default" namespace="/agent">
+		<action name="AgentStudentsAction" class="com.JES.action.AgentStudentsAction" method="Mystudents">
+			<result name="show">/agent/debug.jsp</result>
+			<result name="noshow">/test.jsp</result>
+		</action>
+	</package>
 </struts>    
