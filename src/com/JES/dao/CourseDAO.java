@@ -22,7 +22,7 @@ import com.JES.model.Course;
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see com.JES.dao.Course
+ * @see com.JES.model.Course
  * @author MyEclipse Persistence Tools
  */
 @Transactional
@@ -71,7 +71,7 @@ public class CourseDAO {
 		log.debug("getting Course instance with id: " + id);
 		try {
 			Course instance = (Course) getCurrentSession().get(
-					"com.JES.dao.Course", id);
+					"com.JES.model.Course", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -83,7 +83,7 @@ public class CourseDAO {
 		log.debug("finding Course instance by example");
 		try {
 			List results = getCurrentSession()
-					.createCriteria("com.JES.dao.Course")
+					.createCriteria("com.JES.model.Course")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());

@@ -64,8 +64,7 @@
 		</property>
 	</bean>
 	<bean id="StudentDAO" class="com.JES.dao.StudentDAO">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
+		<property name="sessionFactory"><ref bean="sessionFactory" />
 		</property>
 	</bean>
 
@@ -75,7 +74,10 @@
 		scope="prototype">
 	</bean>
 
-	<bean id="agentservice" class="com.JES.service.AgentService"></bean>
+	<bean id="agentservice" class="com.JES.service.AgentService">
+		<property name="studentDAO"><ref bean="StudentDAO" />
+		</property>
+	</bean>
 
 	<!-- action -->
 

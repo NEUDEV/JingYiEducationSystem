@@ -10,7 +10,7 @@ import com.JES.model.Student;
 
 public class AgentService {
 	private AgentDAO agentdao;
-	private StudentDAO StudentDAO;
+	private StudentDAO studentDAO;
 
 	public AgentDAO getAgentdao() {
 		return agentdao;
@@ -19,19 +19,27 @@ public class AgentService {
 	public void setAgentdao(AgentDAO agentdao) {
 		this.agentdao = agentdao;
 	}
-	
-	public StudentDAO getStudentdao() {
-		return StudentDAO;
+
+	public StudentDAO getStudentDAO() {
+		return studentDAO;
 	}
 
-	public void setStudentdao(StudentDAO StudentDAO) {
-		this.StudentDAO = StudentDAO;
+	public void setStudentDAO(StudentDAO studentDAO) {
+		this.studentDAO = studentDAO;
 	}
 
+
+	@SuppressWarnings("unchecked")
 	public List<Student> searchStudents(String type,String value){
-//		List<Student> listofstudent = new ArrayList<Student>();
-//		if((listofstudent=StudentDAO.searchStudent(type,value))!=null) 
-//			return listofstudent;
+		List<Student> slist=new ArrayList<Student>();
+		switch(type){
+		case "学员UID":slist.add(studentDAO.findById(value));return slist;
+		case "用户名":return (List<Student>) studentDAO.findByUname(value);
+		case "真实姓名":return (List<Student>) studentDAO.findByName(value);
+		case "手机号":return (List<Student>) studentDAO.findByPhone(value);
+		case "QQ":return (List<Student>) studentDAO.findByQq(value);
+		case "邮箱":return (List<Student>) studentDAO.findByEmail(value);
+		}
 		return null;
 	}
 }

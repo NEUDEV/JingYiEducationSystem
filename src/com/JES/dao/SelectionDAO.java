@@ -22,7 +22,7 @@ import com.JES.model.Selection;
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see com.JES.dao.Selection
+ * @see com.JES.model.Selection
  * @author MyEclipse Persistence Tools
  */
 @Transactional
@@ -73,7 +73,7 @@ public class SelectionDAO {
 		log.debug("getting Selection instance with id: " + id);
 		try {
 			Selection instance = (Selection) getCurrentSession().get(
-					"com.JES.dao.Selection", id);
+					"com.JES.model.Selection", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -85,7 +85,7 @@ public class SelectionDAO {
 		log.debug("finding Selection instance by example");
 		try {
 			List results = getCurrentSession()
-					.createCriteria("com.JES.dao.Selection")
+					.createCriteria("com.JES.model.Selection")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());
