@@ -32,7 +32,9 @@ public class ManagerAgentRegisterAction extends SuperAction implements
 			return "regesterFail";
 		} 
 		
-		if ("1级代理商".equals(role)) {
+		if ("鲸艺代理商".equals(role)) {
+			agent.setRole("0");
+		} else if ("1级代理商".equals(role)) {
 			agent.setRole("1");
 		} else if ("2级代理商".equals(role)) {
 			agent.setRole("2");
