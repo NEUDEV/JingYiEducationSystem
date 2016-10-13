@@ -1,14 +1,28 @@
 package com.JES.action;
 
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
 
+import org.apache.struts2.ServletActionContext;
 import org.hibernate.validator.constraints.Email;
 
 import com.JES.dao.StudentDAO;
 import com.JES.model.Student;
 import com.JES.service.AgentService;
+import com.JES.service.StudentService;
 
 public class AgentAddStuAction extends SuperAction{
+	private String id;
+	private InputStream inputStream;
+	
 	private String uid;
 	private String uname;
 	private String name;
@@ -16,7 +30,15 @@ public class AgentAddStuAction extends SuperAction{
 	private String qq;
 	private String email;
 	private AgentService agentservice;
+	private StudentService studentservice;
 	
+	
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public String getUid() {
 		return uid;
 	}
@@ -59,7 +81,16 @@ public class AgentAddStuAction extends SuperAction{
 	public void setAgentservice(AgentService agentservice) {
 		this.agentservice = agentservice;
 	}
+	public StudentService getStudentservice() {
+		return studentservice;
+	}
+	public void setStudentservice(StudentService studentservice) {
+		this.studentservice = studentservice;
+	}
 	
+	public InputStream getInputStream() {  
+        return inputStream;  
+    }
 	public String AddStudent(){
 		Student student=new Student();
 		//String mid=(String)session.getAttribute("");
@@ -80,5 +111,12 @@ public class AgentAddStuAction extends SuperAction{
 		JOptionPane.showMessageDialog(null, "录入失败,可能该学员已经被录入！","提示",  JOptionPane.WARNING_MESSAGE);
 		return "haveadd";
 		}
+	}
+	
+	public void cheakUid() throws IOException{
+		if(studentservice.cheakId(id)) 
+			inputStream = new ByteArrayInputStream("block".getBytes("utf-8"));
+		else inputStream = new ByteArrayInputStream("none".getBytes("utf-8"));
+		
 	}
 }

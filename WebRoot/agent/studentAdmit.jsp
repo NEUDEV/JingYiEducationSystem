@@ -5,7 +5,42 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<script type="text/javascript">
 
+var xmlHttp=null;
+
+function showHint(str)
+{
+if (str.length==0)
+  { 
+  document.getElementById("errms").style.display="none";
+  return;
+  }
+try
+  {// Firefox, Opera 8.0+, Safari, IE7
+  xmlHttp=new XMLHttpRequest();
+  }
+catch(e)
+  {// Old IE
+  try
+    {
+    xmlHttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+  catch(e)
+    {
+    alert ("你的浏览器版本太旧!");
+    return;  
+    }
+  }
+  
+    document.getElementById("errms").style.display=xmlHttp.responseText;
+	//document.getElementById("errms").innerHTML=xmlHttp.responseText;
+ 
+var url="/JingYiEducationSystem/agent/cheakuid.action?id="+str;
+xmlHttp.open("GET",url,true);
+xmlHttp.send();
+}
+</script> 
 </head>
 <body>
 	<div class="container">
@@ -77,8 +112,9 @@
 						<form action="AgentAddStudentsAction.action"
 					id="form" method="post">
 					<div class="form-group">
-						<label for="uid">学员UID</label><input class="form-control"
-							id="uid" type="text" name="uid" />
+						<label for="uid">学员UID</label>
+						<!-- <label id="errms" style="color:#FF0000;display:none">(该学员已被录入)</label> -->
+						<input class="form-control" id="uid" type="text" name="uid" onblur="showHint(this.value)"/>
 					</div>
 					<div class="form-group">
 						<label for="aname">账户名</label><input class="form-control"
@@ -93,8 +129,8 @@
 							type="text" name="qq" />
 					</div>
 					<div class="form-group">
-						<label for="phone">电话</label><input class="form-control"
-							id="phone" type="text" name="phone" />
+						<label for="phone">电话</label>
+						<input class="form-control" id="phone" type="text" name="phone" />
 					</div>
 					<div class="form-group">
 						<label for="email">邮箱</label><input class="form-control"

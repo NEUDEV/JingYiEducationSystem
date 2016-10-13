@@ -80,6 +80,11 @@
 		<property name="studentDAO"><ref bean="StudentDAO" />
 		</property>
 	</bean>
+	
+	<bean id="studentservice" class="com.JES.service.StudentService">
+		<property name="studentDAO"><ref bean="StudentDAO" />
+		</property>
+	</bean>
 
 	<!-- action -->
 

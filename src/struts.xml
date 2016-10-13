@@ -25,5 +25,8 @@
 		<action name="AgentAddStudentsAction" class="com.JES.action.AgentAddStuAction" method="AddStudent">
 			<result name="haveadd">/agent/studentAdmit.jsp</result>
 		</action>
+		<action name="cheakuid" class="com.JES.action.AgentAddStuAction" method="cheakUid">
+		</action>
+		
 	</package>
 </struts>    
