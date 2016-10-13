@@ -31,8 +31,8 @@ public class AgentService {
 	public List<Student> searchStudents(String type, String value) {
 		List<Student> slist = new ArrayList<Student>();
 		switch (type) {
-		case "学员UID":
-			slist.add(studentDAO.findById(value));
+		case "学员UID":Student student=studentDAO.findById(value);
+			if(student!=null) slist.add(student);
 			return slist;
 		case "用户名":
 			return (List<Student>) studentDAO.findByUname(value);
