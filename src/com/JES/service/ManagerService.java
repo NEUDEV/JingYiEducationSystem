@@ -1,5 +1,6 @@
 package com.JES.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -11,7 +12,7 @@ import com.JES.model.Manager;
 public class ManagerService {
 	private ManagerDAO managerDAO;
 	private AgentDAO agentDAO;
-	
+
 	public ManagerDAO getManagerDAO() {
 		return managerDAO;
 	}
@@ -67,10 +68,34 @@ public class ManagerService {
 		return false;
 	}
 
+	/**
+	 * 代理商注册。
+	 * 
+	 * @param agent
+	 */
 	public void agentRegister(Agent agent) {
 		String uid = UUID.randomUUID().toString();
 		agent.setUid(uid);
 		agentDAO.save(agent);
+	}
+
+	public ArrayList<Agent> getAgents() {
+		return (ArrayList<Agent>) agentDAO.findAll();
+	}
+
+	public ArrayList<Agent> search(String searchType, String searchValue) {
+		
+		if ("账户名".equals(searchType)) {
+			return (ArrayList<Agent>)agentDAO.findByAname(searchValue);
+		} else if ("姓名".equals(searchType)) {
+			return (ArrayList<Agent>)agentDAO.findByName(searchValue);
+		} else if ("手机号".equals(searchType)) {
+			return (ArrayList<Agent>)agentDAO.findByPhone(searchValue);
+		} else if ("QQ".equals(searchType)) {
+			return (ArrayList<Agent>)agentDAO.findByQq(searchValue);
+		}
+		
+		return new ArrayList<Agent>();
 	}
 
 }

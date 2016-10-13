@@ -26,7 +26,7 @@
 							class="icon-bar"></span><span class="icon-bar"></span><span
 							class="icon-bar"></span>
 					</button>
-					<strong><a class="navbar-brand" href="#">鲸艺教育</a></strong>
+					<strong><a class="navbar-brand" href="<%=basePath%>manager/chooseAgentAdmit.jsp">鲸艺教育</a></strong>
 				</div>
 
 				<div class="collapse navbar-collapse"

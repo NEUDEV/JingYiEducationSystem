@@ -20,7 +20,7 @@
 							</div>
 							<div id="panel-element-24469" class="panel-collapse collapse in">
 								<div class="panel-body">
-									<a href="<%=basePath%>manager/chooseAgentAdmit.jsp">登记代理商</a>
+									<a href="<%=basePath%>Manager/ManagerAgentManage_display.action">代理商管理</a>
 								</div>
 								<div class="panel-body">
 									<a href="<%=basePath%>manager/agentRegister.jsp">开设代理商账户</a>

@@ -33,11 +33,11 @@ public class ManagerAgentRegisterAction extends SuperAction implements
 		} 
 		
 		if ("鲸艺代理商".equals(role)) {
-			agent.setRole("0");
+			agent.setRole("鲸艺代理商");
 		} else if ("1级代理商".equals(role)) {
-			agent.setRole("1");
+			agent.setRole("1级代理商");
 		} else if ("2级代理商".equals(role)) {
-			agent.setRole("2");
+			agent.setRole("2级代理商");
 		}
 		
 		managerService.agentRegister(agent);

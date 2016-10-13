@@ -7,8 +7,12 @@
 			<result name="managerLoginSuccess">/manager/managerMemu.jsp</result>
 			<result name="managerLoginFailed">/manager/login.jsp</result>
 			
+			<!-- ManagerAgentRegister -->
 			<result name="regesterSuccess">/manager/managerMemu.jsp</result>
 			<result name="regesterFail">/manager/agentRegister.jsp</result>
+			
+			<!-- ManagerAgentManage -->
+			<result name="display">/manager/chooseAgentAdmit.jsp</result>
 			
 		</action>
 	</package>

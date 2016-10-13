@@ -20,7 +20,7 @@
 							</div>
 							<div id="panel-element-24469" class="panel-collapse collapse in">
 								<div class="panel-body">
-									<a href="<%=basePath%>manager/chooseAgentAdmit.jsp">登记代理商</a>
+									<a href="<%=basePath%>Manager/ManagerAgentManage_display.action">代理商管理</a>
 								</div>
 								<div class="panel-body">
 									<a href="<%=basePath%>manager/agentRegister.jsp">开设代理商账户</a>
@@ -64,34 +64,44 @@
 				<div class="collapse navbar-collapse"
 					id="bs-example-navbar-collapse-1">
 					<form class="navbar-form navbar-left" role="search"
-						action="AgentStudentsAction.action" method="post">
-						<select name="searchtype" class="form-control">
+						action="<%=basePath%>Manager/ManagerAgentManage_searchAgent.action" method="post">
+						<select name="searchType" class="form-control">
 							<option>账户名</option>
 							<option>姓名</option>
 							<option>手机号</option>
+							<option>QQ</option>
 						</select>
 						<div class="form-group">
-							<input class="form-control" name="searchvalue" type="text" />
+							<input class="form-control" name="searchValue" type="text" />
 						</div>
 						<button type="submit" class="btn btn-default">查找</button>
 					</form>
 				</div>
 				</nav>
-				<table class="table">
+				<table class="table table table-bordered">
 					<thead>
 						<tr>
 							<th>账户名</th>
 							<th>姓名</th>
 							<th>手机号</th>
 							<th>QQ</th>
-							<th>邮箱</th>
+							<th>代理商类别</th>
+							<th>操作</th>
 						</tr>
 					</thead>
 					<tbody>
-					
+						<c:forEach items="${request.agentList}" var="agent">
+							<tr>
+								<td>${agent.aname}</td>
+								<td>${agent.name}</td>
+								<td>${agent.phone}</td>
+								<td>${agent.qq}</td>
+								<td>${agent.role}</td>
+								<td> </td>
+							</tr>
+						</c:forEach>
 					</tbody>
 				</table>
-
 			</div>
 		</div>
 </body>
