@@ -22,7 +22,7 @@ import com.JES.model.Agent;
  * provides additional information for how to configure it for the desired type
  * of transaction control.
  * 
- * @see com.JES.dao.Agent
+ * @see com.JES.model.Agent
  * @author MyEclipse Persistence Tools
  */
 @Transactional
@@ -82,7 +82,7 @@ public class AgentDAO {
 		log.debug("getting Agent instance with id: " + id);
 		try {
 			Agent instance = (Agent) getCurrentSession().get(
-					"com.JES.dao.Agent", id);
+					"com.JES.model.Agent", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -94,7 +94,7 @@ public class AgentDAO {
 		log.debug("finding Agent instance by example");
 		try {
 			List results = getCurrentSession()
-					.createCriteria("com.JES.dao.Agent")
+					.createCriteria("com.JES.model.Agent")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());

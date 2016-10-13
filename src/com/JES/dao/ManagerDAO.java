@@ -22,7 +22,7 @@ import com.JES.model.Manager;
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see com.JES.dao.Manager
+ * @see com.JES.model.Manager
  * @author MyEclipse Persistence Tools
  */
 @Transactional
@@ -72,7 +72,7 @@ public class ManagerDAO {
 		log.debug("getting Manager instance with id: " + id);
 		try {
 			Manager instance = (Manager) getCurrentSession().get(
-					"com.JES.dao.Manager", id);
+					"com.JES.model.Manager", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -84,7 +84,7 @@ public class ManagerDAO {
 		log.debug("finding Manager instance by example");
 		try {
 			List results = getCurrentSession()
-					.createCriteria("com.JES.dao.Manager")
+					.createCriteria("com.JES.model.Manager")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());

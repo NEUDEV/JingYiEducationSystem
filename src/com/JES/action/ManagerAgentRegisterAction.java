@@ -24,19 +24,21 @@ public class ManagerAgentRegisterAction extends SuperAction implements
 		String role = request.getParameter("selectRole");
 		System.out.println(role);
 		
-//		if (managerService.isExistAgent(agent)) {
-//			request.setAttribute("info", "代理商账号已存在！");
-//			return "regesterFail";
-//		} else if (!agent.getPassword().equals(confirmPassword)) {
-//			request.setAttribute("info", "两次密码不一致！");
-//			return "regesterFail";
-//		} 
+		if (managerService.isExistAgent(agent)) {
+			request.setAttribute("info", "代理商账号已存在！");
+			return "regesterFail";
+		} else if (!agent.getPassword().equals(confirmPassword)) {
+			request.setAttribute("info", "两次密码不一致！");
+			return "regesterFail";
+		} 
 		
 		if ("1级代理商".equals(role)) {
 			agent.setRole("1");
 		} else if ("2级代理商".equals(role)) {
 			agent.setRole("2");
 		}
+		
+		managerService.agentRegister(agent);
 		
 		return "regesterSuccess";
 	}

@@ -65,27 +65,25 @@
 					</div>
 					<div class="form-group">
 						<label for="qq">qq</label><input class="form-control" id="qq"
-							type="text" name="qq" />
+							type="number" name="qq" />
 					</div>
 					<div class="form-group">
 						<label for="phone">电话</label><input class="form-control"
-							id="phone" type="text" name="phone" />
+							id="phone" type="number" name="phone" size="11"/>
 					</div>
 					<div class="form-group">
 						<label for="email">邮箱</label><input class="form-control"
 							id="email" type="email" name="email" />
 					</div>
 					<div class="form-group">
-						<label for="chPassword">登录密码:</label> <input class="form-control"
-							id="chPassword" type="password" name="chPassword" />
+						<label for="Password">登录密码:</label> <input class="form-control"
+							id="chPassword" type="password" name="password" />
 					</div>
 					<div class="form-group">
 						<label for="confirmPassword">密码确认:</label> <input
 							class="form-control" id="confirmPassword" type="password"
 							name="confirmPassword" />
 					</div>
-					<div class="col-md-12 column">${request.info}</div>
-
 					<div class="form-group">
 						<label for="role">选择代理商级别:</label> <select name="selectRole"
 							class="form-control">
@@ -93,6 +91,7 @@
 							<option>2级代理商</option>
 						</select>
 					</div>
+					<div class="col-md-12 column">${request.info}</div>
 					<button type="submit" class="btn btn-default">提交</button>
 				</form>
 			</div>
