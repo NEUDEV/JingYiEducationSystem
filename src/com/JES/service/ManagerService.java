@@ -36,7 +36,7 @@ public class ManagerService {
 	 * @return ÊÇ·ñµÇÂ½³É¹¦¡£
 	 */
 	public boolean isLoginSuccess(Manager manager) {
-		List resultList = managerDAO.findByMname(manager);
+		List resultList = managerDAO.findByMname(manager.getMname());
 
 		if (resultList.size() != 0) {
 			Manager result = (Manager) resultList.get(0);
@@ -60,7 +60,7 @@ public class ManagerService {
 	public boolean isExistAgent(Agent agent) {
 		List results = agentDAO.findByAname(agent.getAname());
 
-		if (results.size() == 0) {
+		if (results.size() != 0) {
 			return true;
 		}
 
@@ -70,6 +70,7 @@ public class ManagerService {
 	public void agentRegister(Agent agent) {
 		String uid = UUID.randomUUID().toString();
 		agent.setUid(uid);
+		agentDAO.save(agent);
 	}
 
 }

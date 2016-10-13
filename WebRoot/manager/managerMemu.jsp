@@ -23,7 +23,7 @@
 									<a href="#">登记代理商</a>
 								</div>
 								<div class="panel-body">
-									<a href="#">开设代理商账户</a>
+									<a href="<%=basePath%>manager/agentRegister.jsp">开设代理商账户</a>
 								</div>
 							</div>
 						</div>
