@@ -38,7 +38,9 @@
 								<li><a href="<%=basePath%>manager/login.jsp">管理员登录</a></li>
 								<li><a href="#">代理商登录</a></li>
 							</ul></li>
+							<li><a href="<%=basePath%>agent/debug.jsp">代理商</a></li>
 					</ul>
+						
 				</div>
 
 				</nav>
