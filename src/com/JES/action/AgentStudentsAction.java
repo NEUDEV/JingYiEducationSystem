@@ -1,5 +1,9 @@
 package com.JES.action;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import com.JES.model.Student;
 import com.JES.service.AgentService;
 
 @SuppressWarnings("serial")
@@ -26,7 +30,14 @@ public class AgentStudentsAction extends SuperAction{
 		this.agentservice = agentservice;
 	}
 	
+	@SuppressWarnings("unused")
 	public String Mystudents(){
-		return "show";
+		List<Student> listofstudents = new ArrayList<Student>();
+		listofstudents.addAll(agentservice.searchStudents(searchtype, searchvalue));
+		if(listofstudents!=null){
+			request.setAttribute("mystudent", listofstudents);
+			return "show";
+		}
+		return "noshow";
 	}
 }

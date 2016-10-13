@@ -1,6 +1,8 @@
 package com.JES.service;
 
-import javax.security.auth.message.callback.PrivateKeyCallback.Request;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import com.JES.dao.Agentdao;
 import com.JES.dao.Studentdao;
@@ -26,14 +28,10 @@ public class AgentService {
 		this.studentdao = studentdao;
 	}
 
-/*	public Student searchStudents(String type,String value){
-		switch(type){
-		case "用户UID":;break;
-		case "用户名":;break;
-		case "真实姓名":;break;
-		case "手机号":;break;
-		case "QQ":;break;
-		case "邮箱":;break;
-		}
-	}*/
+	public List<Student> searchStudents(String type,String value){
+		List<Student> listofstudent = new ArrayList<Student>();
+		if(listofstudent.addAll(studentdao.searchStudent(type,value))) 
+			return listofstudent;
+		return null;
+	}
 }
