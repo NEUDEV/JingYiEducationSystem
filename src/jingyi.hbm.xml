@@ -32,8 +32,8 @@
         <property name="stuid" type="java.lang.String">
             <column name="stuid" length="45" />
         </property>
-        <property name="from" type="java.lang.String">
-            <column name="from" length="45" />
+        <property name="sfrom" type="java.lang.String">
+            <column name="sfrom" length="45" />
         </property>
         <property name="mark" type="java.lang.Integer">
             <column name="mark" />

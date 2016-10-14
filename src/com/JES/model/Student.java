@@ -12,7 +12,7 @@ public class Student {
 	private String mid;
 	private String sign;
 	private String stuid;
-	private String from;
+	private String sfrom;
 	private Integer mark;
 	private Date intime;
 	public String getUid() {
@@ -70,11 +70,11 @@ public class Student {
 	public void setStuid(String stuid) {
 		this.stuid = stuid;
 	}
-	public String getFrom() {
-		return from;
+	public String getSfrom() {
+		return sfrom;
 	}
-	public void setFrom(String from) {
-		this.from = from;
+	public void setSfrom(String sfrom) {
+		this.sfrom = sfrom;
 	}
 	public Integer getMark() {
 		return mark;
