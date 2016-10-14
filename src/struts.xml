@@ -22,7 +22,6 @@
 			<result name="studentsDisplay">/manager/divideStudent/divideStudent.jsp</result>
 			
 			
-			
 		</action>
 	</package>
 

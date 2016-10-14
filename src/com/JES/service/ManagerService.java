@@ -103,7 +103,7 @@ public class ManagerService {
 	public ArrayList<Student> getJingyiStudents() {
 		ArrayList<Student> students = new ArrayList<Student>();
 		
-//		students = (ArrayList<Student>) studentDAO.
+		students = (ArrayList<Student>) studentDAO.findByMsign("鲸艺代理商");
 		
 		return students;
 	}
