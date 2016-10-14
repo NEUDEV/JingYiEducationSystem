@@ -21,10 +21,11 @@ public class Student {
 	public void setUid(String uid) {
 		this.uid = uid;
 	}
-	public String getUname() {
+	
+	public String getMsign() {
 		return msign;
 	}
-	public void setUname(String msign) {
+	public void setMsign(String msign) {
 		this.msign = msign;
 	}
 	public String getName() {
