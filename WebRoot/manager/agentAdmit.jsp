@@ -76,10 +76,6 @@
 							id="phone" type="number" name="phone" size="11" />
 					</div>
 					<div class="form-group">
-						<label for="email">邮箱</label><input class="form-control"
-							id="email" type="email" name="email" />
-					</div>
-					<div class="form-group">
 						<label for="role">变更代理商级别:</label> <select name="selectRole"
 							class="form-control">
 							<option>鲸艺代理商</option>

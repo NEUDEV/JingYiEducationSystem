@@ -1,7 +1,5 @@
 package com.JES.action;
 
-import org.hibernate.hql.internal.ast.tree.DisplayableNode;
-
 import com.JES.model.Agent;
 import com.JES.service.ManagerService;
 import com.opensymphony.xwork2.ModelDriven;
@@ -30,11 +28,35 @@ public class ManagerAgentManageAction extends SuperAction implements
 		request.setAttribute("agentList", managerService.getAgents());
 		return "display";
 	}
-
+	
+	/**
+	 * 查询代理商。
+	 * @return
+	 */
 	public String searchAgent() {
 		request .setAttribute("agentList", managerService.search(request.getParameter("searchType"), request.getParameter("searchValue")));
 		
 		return "display";
+	}
+	
+	public String toChange() {
+		String uid = request.getParameter("uid");
+		session.setAttribute("uid", uid);
+		
+		return "toChange";
+	}
+	
+	public String toDelete() {
+		String uid = request.getParameter("uid");
+		session.setAttribute("uid", uid);
+		session.setAttribute("agent", managerService.getAgentByID(uid));
+		request.setAttribute("agent", managerService.getAgentByID(uid));
+		return "toDelete";
+	}
+	
+	public String delete() {
+		managerService.deleteAgent((Agent)session.getAttribute("agent"));
+		return "agentDeleteSuccess";
 	}
 
 	@Override

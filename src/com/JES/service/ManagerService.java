@@ -97,5 +97,13 @@ public class ManagerService {
 		
 		return new ArrayList<Agent>();
 	}
+	
+	public Agent getAgentByID(String uid) {
+		return agentDAO.findById(uid);
+	}
+	
+	public void deleteAgent(Agent agent) {
+		agentDAO.delete(agent);
+	}
 
 }

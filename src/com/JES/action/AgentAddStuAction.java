@@ -12,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.swing.JOptionPane;
 
 import org.apache.struts2.ServletActionContext;
-import org.hibernate.validator.constraints.Email;
 
 import com.JES.dao.StudentDAO;
 import com.JES.model.Student;

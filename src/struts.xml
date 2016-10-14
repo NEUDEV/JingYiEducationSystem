@@ -13,6 +13,10 @@
 			
 			<!-- ManagerAgentManage -->
 			<result name="display">/manager/chooseAgentAdmit.jsp</result>
+			<result name="toDelete">/manager/managerDeleteAgent.jsp</result>
+			<result name="agentDeleteSuccess">/manager/managerDeleteAgentSuccess.jsp</result>
+			
+			
 			
 		</action>
 	</package>

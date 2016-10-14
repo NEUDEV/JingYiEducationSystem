@@ -79,10 +79,6 @@
 							id="phone" type="number" name="phone" size="11" />
 					</div>
 					<div class="form-group">
-						<label for="email">邮箱</label><input class="form-control"
-							id="email" type="email" name="email" />
-					</div>
-					<div class="form-group">
 						<label for="Password">登录密码:</label> <input class="form-control"
 							id="chPassword" type="password" name="password" />
 					</div>
