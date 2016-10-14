@@ -58,6 +58,28 @@ public class ManagerAgentManageAction extends SuperAction implements
 		managerService.deleteAgent((Agent)session.getAttribute("agent"));
 		return "agentDeleteSuccess";
 	}
+	
+	public String change() {
+		agent.setUid(request.getParameter("uid"));
+		
+		if (managerService.isExistAgent(agent)) {
+			request.setAttribute("info", "账号已存在。");
+			return "agentChangeFaild";
+		}
+		
+		String role = request.getParameter("selectRole");
+		if ("鲸艺代理商".equals(role)) {
+			agent.setRole("鲸艺代理商");
+		} else if ("1级代理商".equals(role)) {
+			agent.setRole("1级代理商");
+		} else if ("2级代理商".equals(role)) {
+			agent.setRole("2级代理商");
+		}
+		
+		request.setAttribute("agent", agent);
+		managerService.changeAgent(agent);
+		return "agentChangeSuccess";
+	}
 
 	@Override
 	public Agent getModel() {

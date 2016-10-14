@@ -65,7 +65,7 @@
 					<dd>代理商${agent.aname} 删除成功</dd>
 				</dl>
 
-				<a type="button" href="<%=basePath%>manager/managerMemu.jsp">返回</a>
+				<a class="btn btn-default" href="<%=basePath%>manager/managerMemu.jsp">返回</a>
 			</div>
 		</div>
 </body>

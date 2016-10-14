@@ -56,58 +56,22 @@
 			<div class="col-md-10 column">
 				<ul class="breadcrumb">
 					<li><a href="<%=basePath%>/index.jsp">主页</a></li>
-					<li class="active">选择代理商</li>
-					<li><a href="#">登记代理商信息</a></li>
-					<li><a href="#">登记成功</a></li>
+					<li><a href="#">代理商管理</a></li>
+					<li class="active">删除代理商</li>
+					<li><a href="#">删除成功</a></li>
 				</ul>
-				<nav class="navbar navbar-default navbar-static-top"
-					role="navigation">
-				<div class="collapse navbar-collapse"
-					id="bs-example-navbar-collapse-1">
-					<form class="navbar-form navbar-left" role="search"
-						action="<%=basePath%>Manager/ManagerAgentManage_searchAgent.action"
-						method="post">
-						<select name="searchType" class="form-control">
-							<option>账户名</option>
-							<option>姓名</option>
-							<option>手机号</option>
-							<option>QQ</option>
-						</select>
-						<div class="form-group">
-							<input class="form-control" name="searchValue" type="text" />
-						</div>
-						<button type="submit" class="btn btn-default">查找</button>
-					</form>
-				</div>
-				</nav>
-				<table class="table table table-bordered">
-					<thead>
-						<tr>
-							<th>账户名</th>
-							<th>姓名</th>
-							<th>手机号</th>
-							<th>QQ</th>
-							<th>代理商类别</th>
-							<th>操作</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${request.agentList}" var="agent">
-							<tr>
-								<td>${agent.aname}</td>
-								<td>${agent.name}</td>
-								<td>${agent.phone}</td>
-								<td>${agent.qq}</td>
-								<td>${agent.role}</td>
-								<td><a
-									href="<%=basePath%>manager/mangerAdmitAgent.jsp?uid=${agent.uid}">修改
-								</a> <a
-									href="<%=basePath%>Manager/ManagerAgentManage_toDelete.action?uid=${agent.uid}">删除
-								</a></td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+
+				<dl>
+					<dt>修改后代理商信息：</dt>
+					</br>
+					<dd>账号： ${agent.aname}</dd>
+					<dd>姓名： ${agent.name}</dd>
+					<dd>QQ： ${agent.qq}</dd>
+					<dd>手机号： ${agent.phone}</dd>
+					<dd>代理商类别： ${agent.role}</dd>
+				</dl>
+
+				<a class="btn btn-default" href="<%=basePath%>manager/managerMemu.jsp">返回</a>
 			</div>
 		</div>
 </body>

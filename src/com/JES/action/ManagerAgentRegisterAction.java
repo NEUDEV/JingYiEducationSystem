@@ -22,7 +22,7 @@ public class ManagerAgentRegisterAction extends SuperAction implements
 	public String register() {
 		String confirmPassword = request.getParameter("confirmPassword");
 		String role = request.getParameter("selectRole");
-		System.out.println(role);
+		agent.setUid("");
 		
 		if (managerService.isExistAgent(agent)) {
 			request.setAttribute("info", "代理商账号已存在！");

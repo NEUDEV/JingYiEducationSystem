@@ -62,6 +62,12 @@ public class ManagerService {
 		List results = agentDAO.findByAname(agent.getAname());
 
 		if (results.size() != 0) {
+			
+			Agent a = (Agent)results.get(0);
+			if (agent.getUid().equals(a.getUid())) {
+				return false;
+			}
+			
 			return true;
 		}
 
@@ -104,6 +110,10 @@ public class ManagerService {
 	
 	public void deleteAgent(Agent agent) {
 		agentDAO.delete(agent);
+	}
+	
+	public void changeAgent(Agent agent) {
+		agentDAO.merge(agent);
 	}
 
 }

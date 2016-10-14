@@ -20,8 +20,7 @@
 							</div>
 							<div id="panel-element-24469" class="panel-collapse collapse in">
 								<div class="panel-body">
-									<a
-										href="<%=basePath%>Manager/ManagerAgentManage_display.action">代理商管理</a>
+									<a href="<%=basePath%>Manager/ManagerAgentManage_display.action">代理商管理</a>
 								</div>
 								<div class="panel-body">
 									<a href="<%=basePath%>manager/agentRegister.jsp">开设代理商账户</a>
@@ -56,58 +55,41 @@
 			<div class="col-md-10 column">
 				<ul class="breadcrumb">
 					<li><a href="<%=basePath%>/index.jsp">主页</a></li>
-					<li class="active">选择代理商</li>
-					<li><a href="#">登记代理商信息</a></li>
-					<li><a href="#">登记成功</a></li>
+					<li class="active">注册代理商</li>
+					<li><a href="#">注册成功</a></li>
 				</ul>
-				<nav class="navbar navbar-default navbar-static-top"
-					role="navigation">
-				<div class="collapse navbar-collapse"
-					id="bs-example-navbar-collapse-1">
-					<form class="navbar-form navbar-left" role="search"
-						action="<%=basePath%>Manager/ManagerAgentManage_searchAgent.action"
-						method="post">
-						<select name="searchType" class="form-control">
-							<option>账户名</option>
-							<option>姓名</option>
-							<option>手机号</option>
-							<option>QQ</option>
+
+				<form
+					action="<%=basePath%>Manager/ManagerAgentManage_change.action?uid=<%=request.getParameter("uid")%>"
+					id="form" method="post">
+					<div class="form-group">
+						<label for="aname">账户名</label><input class="form-control"
+							id="aname" type="text" name="aname" />
+					</div>
+					<div class="form-group">
+						<label for="name">姓名</label><input class="form-control" id="name"
+							type="text" name="name" />
+					</div>
+					<div class="form-group">
+						<label for="qq">qq</label><input class="form-control" id="qq"
+							type="number" name="qq" />
+					</div>
+					<div class="form-group">
+						<label for="phone">电话</label><input class="form-control"
+							id="phone" type="number" name="phone" size="11" />
+					</div>
+					<div class="form-group">
+						<label for="role">选择代理商级别:</label> <select name="selectRole"
+							class="form-control">
+							<option>鲸艺代理商</option>
+							<option>1级代理商</option>
+							<option>2级代理商</option>
 						</select>
-						<div class="form-group">
-							<input class="form-control" name="searchValue" type="text" />
-						</div>
-						<button type="submit" class="btn btn-default">查找</button>
-					</form>
-				</div>
-				</nav>
-				<table class="table table table-bordered">
-					<thead>
-						<tr>
-							<th>账户名</th>
-							<th>姓名</th>
-							<th>手机号</th>
-							<th>QQ</th>
-							<th>代理商类别</th>
-							<th>操作</th>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${request.agentList}" var="agent">
-							<tr>
-								<td>${agent.aname}</td>
-								<td>${agent.name}</td>
-								<td>${agent.phone}</td>
-								<td>${agent.qq}</td>
-								<td>${agent.role}</td>
-								<td><a
-									href="<%=basePath%>manager/mangerAdmitAgent.jsp?uid=${agent.uid}">修改
-								</a> <a
-									href="<%=basePath%>Manager/ManagerAgentManage_toDelete.action?uid=${agent.uid}">删除
-								</a></td>
-							</tr>
-						</c:forEach>
-					</tbody>
-				</table>
+					</div>
+					
+					<div class="col-md-12 column">${request.info}</div>
+					<button type="submit" class="btn btn-default">提交</button>
+				</form>
 			</div>
 		</div>
 </body>
