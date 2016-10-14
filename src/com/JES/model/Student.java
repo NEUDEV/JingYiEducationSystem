@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class Student {
 	private String uid;
-	private String uname;
+	private String msign;
 	private String name;
 	private String phone;
 	private String qq;
@@ -22,10 +22,10 @@ public class Student {
 		this.uid = uid;
 	}
 	public String getUname() {
-		return uname;
+		return msign;
 	}
-	public void setUname(String uname) {
-		this.uname = uname;
+	public void setUname(String msign) {
+		this.msign = msign;
 	}
 	public String getName() {
 		return name;

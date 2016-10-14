@@ -8,8 +8,8 @@
             <column name="uid" />
             <generator class="assigned" />
         </id>
-        <property name="uname" type="java.lang.String">
-            <column name="uname" />
+        <property name="msign" type="java.lang.String">
+            <column name="msign" />
         </property>
         <property name="name" type="java.lang.String">
             <column name="name" />
