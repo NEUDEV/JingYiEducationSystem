@@ -5,12 +5,15 @@
 <html>
 <head>
 <title>管理员菜单</title>
+<link href="<%=basePath%>resource/css/dashboard.css" rel="stylesheet">
+<script src="<%=basePath%>resource/js/warning.js"></script>
 </head>
 
 <body>
-	<div class="container">
-		<div class="row clearfix">
-			<div class="col-md-2 column">
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar">
 				<div class="sidebar-nav">
 					<div class="panel-group" id="panel-659100">
 						<div class="panel panel-default">
@@ -52,8 +55,8 @@
 					</div>
 				</div>
 			</div>
-			<div class="col-md-10 column"></div>
 		</div>
 	</div>
+
 </body>
 </html>
