@@ -4,16 +4,43 @@
         'http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd'>  
 <hibernate-mapping>  
 	<class name="com.JES.model.Student" table="student">
-		<id name="uid" column="uid"  type="java.lang.String">
-			<generator class="assigned"></generator>
-		</id>
-		<property  name="uname" column="uname" type="java.lang.String"></property >
-		<property  name="name" column="name" type="java.lang.String"></property >
-		<property  name="phone" column="phone" type="java.lang.String"></property >
-		<property  name="qq" column="qq" type="java.lang.String"></property >
-		<property  name="email" column="email" type="java.lang.String"></property >
-		<property  name="mid" column="mid" type="java.lang.String"></property >
-		<property  name="sign" column="sign" type="java.lang.String"></property >
+		<id name="uid" type="java.lang.String">
+            <column name="uid" />
+            <generator class="assigned" />
+        </id>
+        <property name="uname" type="java.lang.String">
+            <column name="uname" />
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="name" />
+        </property>
+        <property name="phone" type="java.lang.String">
+            <column name="phone" />
+        </property>
+        <property name="qq" type="java.lang.String">
+            <column name="qq" />
+        </property>
+        <property name="weixin" type="java.lang.String">
+            <column name="weixin" />
+        </property>
+        <property name="mid" type="java.lang.String">
+            <column name="mid" />
+        </property>
+        <property name="sign" type="java.lang.String">
+            <column name="sign" />
+        </property>
+        <property name="stuid" type="java.lang.String">
+            <column name="stuid" length="45" />
+        </property>
+        <property name="from" type="java.lang.String">
+            <column name="from" length="45" />
+        </property>
+        <property name="mark" type="java.lang.Integer">
+            <column name="mark" />
+        </property>
+        <property name="intime" type="java.util.Date">
+            <column name="intime" length="10" />
+        </property>
 	</class>
 	<class name="com.JES.model.Agent" table="agent">
 		<id name="uid" column="uid"  type="java.lang.String">

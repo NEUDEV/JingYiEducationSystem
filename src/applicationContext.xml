@@ -24,7 +24,7 @@
 		<property name="mappingResources">
 			<list>
 				<value>jingyi.hbm.xml</value>
-			</list>
+				<value>debug/Student.hbm.xml</value></list>
 		</property>
 		<property name="hibernateProperties">
 			<props>

@@ -98,7 +98,6 @@ public class AgentAddStuAction extends SuperAction{
 		student.setName(name);
 		student.setPhone(phone);
 		student.setQq(qq);
-		student.setEmail(email);
 		//student.setMid(mid);
 		student.setMid("Œ“");
 		student.setSign("Œ¥…Û∫À");

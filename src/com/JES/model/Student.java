@@ -8,9 +8,13 @@ public class Student {
 	private String name;
 	private String phone;
 	private String qq;
-	private String email;
+	private String weixin;
 	private String mid;
 	private String sign;
+	private String stuid;
+	private String from;
+	private Integer mark;
+	private Date intime;
 	public String getUid() {
 		return uid;
 	}
@@ -41,12 +45,6 @@ public class Student {
 	public void setQq(String qq) {
 		this.qq = qq;
 	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
 	public String getMid() {
 		return mid;
 	}
@@ -58,6 +56,36 @@ public class Student {
 	}
 	public void setSign(String sign) {
 		this.sign = sign;
+	}
+	public String getWeixin() {
+		return weixin;
+	}
+	public void setWeixin(String weixin) {
+		this.weixin = weixin;
+	}
+	public String getStuid() {
+		return stuid;
+	}
+	public void setStuid(String stuid) {
+		this.stuid = stuid;
+	}
+	public String getFrom() {
+		return from;
+	}
+	public void setFrom(String from) {
+		this.from = from;
+	}
+	public Integer getMark() {
+		return mark;
+	}
+	public void setMark(Integer mark) {
+		this.mark = mark;
+	}
+	public Date getIntime() {
+		return intime;
+	}
+	public void setIntime(Date intime) {
+		this.intime = intime;
 	}
 	
 	

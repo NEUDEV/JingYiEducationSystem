@@ -42,8 +42,6 @@ public class AgentService {
 			return (List<Student>) studentDAO.findByPhone(value);
 		case "QQ":
 			return (List<Student>) studentDAO.findByQq(value);
-		case "” œ‰":
-			return (List<Student>) studentDAO.findByEmail(value);
 		}
 		return null;
 	}
