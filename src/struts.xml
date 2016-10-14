@@ -32,8 +32,14 @@
 		<action name="AgentAddStudentsAction" class="com.JES.action.AgentAddStuAction" method="AddStudent">
 			<result name="haveadd">/agent/studentAdmit.jsp</result>
 		</action>
-		<action name="cheakuid" class="com.JES.action.AgentAddStuAction" method="cheakUid">
-		</action>
 		
 	</package>
+	
+	<package name="ajax" extends="json-default">  
+        <action name="cheakuid" class="com.JES.action.AgentAddStuAction" method="cheakUid">  
+            <!-- <result>/agent/studentAdmit.jsp</result> -->  
+            <result name="SUCCESS" type="json">    
+            </result>  
+        </action>  
+    </package>  
 </struts>    

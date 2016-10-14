@@ -21,7 +21,7 @@ import com.JES.service.StudentService;
 public class AgentAddStuAction extends SuperAction{
 	private String id;
 	private InputStream inputStream;
-	
+	private String result;
 	private String uid;
 	private String uname;
 	private String name;
@@ -112,10 +112,10 @@ public class AgentAddStuAction extends SuperAction{
 		}
 	}
 	
-	public void cheakUid() throws IOException{
+	public String cheakUid() throws IOException{
 		if(studentservice.cheakId(id)) 
-			inputStream = new ByteArrayInputStream("block".getBytes("utf-8"));
-		else inputStream = new ByteArrayInputStream("none".getBytes("utf-8"));
-		
+			this.result="block";
+		else this.result="block";
+		return "SUCCESS";
 	}
 }
