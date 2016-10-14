@@ -5,40 +5,31 @@
 <html>
 <head>
 <title>管理员登录</title>
+<link href="<%=basePath%>resource/css/signin.css" rel="stylesheet">
 </head>
 
 <body>
 	<div class="container">
 		<div class="row clearfix">
 			<div class="col-md-12 column">
-				<form class="form-horizontal" role="form"
+				<form class="form-signin" role="form"
 					action="<%=basePath%>Manager/ManagerLogin_login.action"
 					method="post">
-					<div class="form-group">
-						<label for="inputEmail3" class="col-sm-2 control-label">账户名</label>
-						<div class="col-sm-10">
-							<input class="form-control" name="mname" type="text" />
-						</div>
+					<h3 class="form-signin-heading">管理员登录</h3>
+					
+					<input class="form-control" placeholder="账号名" required=""
+						autofocus="" type="text" name="mname"> <input
+						class="form-control" placeholder="密码" required="" type="password"
+						name="password">
+					<div class="checkbox">
+						<label> <input value="remember-me" type="checkbox">
+							记住我
+						</label>
 					</div>
-					<div class="form-group">
-						<label for="inputPassword3" class="col-sm-2 control-label">密码</label>
-						<div class="col-sm-10">
-							<input class="form-control" name="password" type="password" />
-						</div>
+					<div class="row clearfix">
+						<div class="col-md-12 column">${request.info}</div>
 					</div>
-					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-10">
-							<div class="checkbox">
-								<label><input type="checkbox" />记住密码</label>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-12 column">${request.info}</div>
-					<div class="form-group">
-						<div class="col-sm-offset-2 col-sm-10">
-							<button type="submit" class="btn btn-default">登录</button>
-						</div>
-					</div>
+					<button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
 				</form>
 			</div>
 		</div>
