@@ -6,12 +6,15 @@ import java.util.UUID;
 
 import com.JES.dao.AgentDAO;
 import com.JES.dao.ManagerDAO;
+import com.JES.dao.StudentDAO;
 import com.JES.model.Agent;
 import com.JES.model.Manager;
+import com.JES.model.Student;
 
 public class ManagerService {
 	private ManagerDAO managerDAO;
 	private AgentDAO agentDAO;
+	private StudentDAO studentDAO;
 
 	public ManagerDAO getManagerDAO() {
 		return managerDAO;
@@ -27,6 +30,14 @@ public class ManagerService {
 
 	public void setAgentDAO(AgentDAO agentDAO) {
 		this.agentDAO = agentDAO;
+	}
+	
+	public StudentDAO getStudentDAO() {
+		return studentDAO;
+	}
+
+	public void setStudentDAO(StudentDAO studentDAO) {
+		this.studentDAO = studentDAO;
 	}
 
 	/**
@@ -87,6 +98,14 @@ public class ManagerService {
 
 	public ArrayList<Agent> getAgents() {
 		return (ArrayList<Agent>) agentDAO.findAll();
+	}
+	
+	public ArrayList<Student> getJingyiStudents() {
+		ArrayList<Student> students = new ArrayList<Student>();
+		
+		students = (ArrayList<Student>) studentDAO.
+		
+		return students;
 	}
 
 	public ArrayList<Agent> search(String searchType, String searchValue) {

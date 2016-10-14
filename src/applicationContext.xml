@@ -74,6 +74,7 @@
 		scope="prototype">
 		<property name="managerDAO" ref="ManagerDAO"></property>
 		<property name="agentDAO" ref="AgentDAO"></property>
+		<property name="studentDAO" ref="StudentDAO"></property>
 	</bean>
 
 	<bean id="agentservice" class="com.JES.service.AgentService">

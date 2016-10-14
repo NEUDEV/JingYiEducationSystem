@@ -47,7 +47,7 @@
 							</div>
 							<div id="panel-element-936975" class="panel-collapse collapse">
 								<div class="panel-body">
-									<a href="#">划分学员</a>
+									<a href="<%=basePath%>Manager/ManagerDivideStudent_display.action">划分学员</a>
 								</div>
 							</div>
 						</div>

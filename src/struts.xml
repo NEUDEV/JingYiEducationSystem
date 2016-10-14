@@ -12,12 +12,14 @@
 			<result name="regesterFail">/manager/agentRegister.jsp</result>
 			
 			<!-- ManagerAgentManage -->
-			<result name="display">/manager/chooseAgentAdmit.jsp</result>
+			<result name="agentsDisplay">/manager/chooseAgentAdmit.jsp</result>
 			<result name="toDelete">/manager/managerDeleteAgent.jsp</result>
 			<result name="agentDeleteSuccess">/manager/managerDeleteAgentSuccess.jsp</result>
 			<result name="agentChangeFaild">/manager/mangerAdmitAgent.jsp</result>
 			<result name="agentChangeSuccess">/manager/mangerAdmitSuccess.jsp</result>
 			
+			<!-- ManagerDivideStudent -->
+			<result name="studentsDisplay">/manager/divideStudent/divideStudent.jsp</result>
 			
 			
 			
