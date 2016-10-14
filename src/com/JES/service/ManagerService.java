@@ -103,7 +103,7 @@ public class ManagerService {
 	public ArrayList<Student> getJingyiStudents() {
 		ArrayList<Student> students = new ArrayList<Student>();
 		
-		students = (ArrayList<Student>) studentDAO.
+//		students = (ArrayList<Student>) studentDAO.
 		
 		return students;
 	}

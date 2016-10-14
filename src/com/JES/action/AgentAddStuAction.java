@@ -94,7 +94,6 @@ public class AgentAddStuAction extends SuperAction{
 		Student student=new Student();
 		//String mid=(String)session.getAttribute("");
 		student.setUid(uid);
-		student.setUname(uname);
 		student.setName(name);
 		student.setPhone(phone);
 		student.setQq(qq);

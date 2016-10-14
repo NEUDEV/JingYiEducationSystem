@@ -34,8 +34,6 @@ public class AgentService {
 		case "学员UID":Student student=studentDAO.findById(value);
 			if(student!=null) slist.add(student);
 			return slist;
-		case "用户名":
-			return (List<Student>) studentDAO.findByUname(value);
 		case "真实姓名":
 			return (List<Student>) studentDAO.findByName(value);
 		case "手机号":
