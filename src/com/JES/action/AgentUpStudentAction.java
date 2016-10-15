@@ -26,7 +26,7 @@ public class AgentUpStudentAction extends ActionSupport{
 	private String fileFileName;
 	private String fileContentType;
 	
-	private AgentService agentService;
+	private AgentService agentservice;
 	
 	public String getQq() {
 		return qq;
@@ -77,11 +77,15 @@ public class AgentUpStudentAction extends ActionSupport{
 		this.fileContentType = fileContentType;
 	}
 	
-	public AgentService getAgentService() {
-		return agentService;
+	
+	public AgentService getAgentservice() {
+		return agentservice;
 	}
-	public void setAgentService(AgentService agentService) {
-		this.agentService = agentService;
+	public void setAgentservice(AgentService agentservice) {
+		this.agentservice = agentservice;
+	}
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 	public String execute() throws Exception{
 	File uploadFile=new File(ServletActionContext.getServletContext().getRealPath("uploadFile"));
@@ -96,7 +100,7 @@ public class AgentUpStudentAction extends ActionSupport{
 	upstudent.setPhone(phone);
 	upstudent.setQq(qq);
 	upstudent.setWeixin(weixin);
-	agentService.upPhoto(input, (int) file.length(), upstudent);
+	agentservice.upPhoto(input, (int) file.length(), upstudent);
 	return "success";
 	}
 }
