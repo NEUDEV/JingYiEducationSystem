@@ -108,17 +108,47 @@
             <column name="noteid" length="45" />
             <generator class="assigned" />
         </id>
-        <property name="notetime" type="java.util.Date">
-            <column name="notetime" length="10" />
+        <property name="notetime" type="java.lang.String">
+            <column name="notetime" length="45" />
         </property>
         <property name="note" type="java.lang.String">
             <column name="note" />
         </property>
-        <property name="warntime" type="java.util.Date">
-            <column name="warntime" length="10" />
-        </property>
         <property name="agentid" type="java.lang.String">
             <column name="agentid" length="45" />
+        </property>
+    </class>
+    <class name="com.JES.model.Report" table="report" catalog="jingyieducationsystem">
+        <id name="reportid" type="java.lang.String">
+            <column name="reportid" />
+            <generator class="assigned" />
+        </id>
+        <property name="informalstu" type="java.lang.Integer">
+            <column name="informalstu" />
+        </property>
+        <property name="platestu" type="java.lang.Integer">
+            <column name="platestu" />
+        </property>
+        <property name="typefacestu" type="java.lang.Integer">
+            <column name="typefacestu" />
+        </property>
+        <property name="brandstu" type="java.lang.Integer">
+            <column name="brandstu" />
+        </property>
+        <property name="fullstu" type="java.lang.Integer">
+            <column name="fullstu" />
+        </property>
+        <property name="illustration" type="java.lang.Integer">
+            <column name="illustration" />
+        </property>
+        <property name="onlinestu" type="java.lang.Integer">
+            <column name="onlinestu" />
+        </property>
+        <property name="lifetimestu" type="java.lang.Integer">
+            <column name="lifetimestu" />
+        </property>
+        <property name="transrate" type="java.lang.Double">
+            <column name="transrate" precision="22" scale="0" />
         </property>
     </class>
 </hibernate-mapping> 

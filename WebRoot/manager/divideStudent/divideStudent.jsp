@@ -15,58 +15,8 @@
 			<li><a href="#">划分</a></li>
 			<li><a href="#">划分成功</a></li>
 		</ul>
-		<nav class="navbar navbar-default navbar-static-top" role="navigation">
-		<div class="collapse navbar-collapse"
-			id="bs-example-navbar-collapse-1">
-			<form class="navbar-form navbar-left" role="search"
-				action="<%=basePath%>Manager/ManagerDivideStudent_searchStudent.action"
-				method="post">
-				<select name="searchType" class="form-control">
-					<option>UID</option>
-					<option>姓名</option>
-					<option>手机号</option>
-					<option>QQ</option>
-				</select>
-				<div class="form-group">
-					<input class="form-control" name="searchValue" type="text" />
-				</div>
-				<button type="submit" class="btn btn-default">查找鲸艺学员</button>
-			</form>
-		</div>
-		</nav>
-
-		<a>请选择鲸艺代理商学员：</a>
-		<input type="button" class="btn btn-default " value="选择完成"
-			onclick="document.getElementById('selectStudentForm').submit();" style="margin-right;"/><br>
-
-		<form action="<%=basePath%>Manager/ManagerDivideStudent_selectJingyiStudent.action"
-			method="post" id="selectStudentForm">
-			<table class="table table table-bordered">
-				<thead>
-					<tr>
-						<th>UID</th>
-						<th>姓名</th>
-						<th>手机号</th>
-						<th>QQ</th>
-						<th>代理商类别</th>
-						<th>操作</th>
-					</tr>
-				</thead>
-				<tbody>
-					<c:forEach items="${request.studentList}" var="student">
-						<tr>
-							<td>${student.uid}</td>
-							<td>${student.name}</td>
-							<td>${student.phone}</td>
-							<td>${student.qq}</td>
-							<td>${student.msign}</td>
-							<td><label><input name="check" type="checkbox"
-									value="${student.uid}" /></label></td>
-						</tr>
-					</c:forEach>
-				</tbody>
-			</table>
-		</form>
+		
+		
 	</div>
 </body>
 </html>

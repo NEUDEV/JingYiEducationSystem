@@ -1,6 +1,5 @@
 package com.JES.dao;
 
-import java.util.Date;
 import java.util.List;
 
 import org.hibernate.LockOptions;
@@ -13,33 +12,32 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.JES.model.Student;
+import com.JES.model.Report;
 
 /**
  * A data access object (DAO) providing persistence and search support for
- * Student entities. Transaction control of the save(), update() and delete()
+ * Report entities. Transaction control of the save(), update() and delete()
  * operations can directly support Spring container-managed transactions or they
  * can be augmented to handle user-managed Spring transactions. Each of these
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see com.JES.model.Student
+ * @see com.JES.model.Report
  * @author MyEclipse Persistence Tools
  */
 @Transactional
-public class StudentDAO {
-	private static final Logger log = LoggerFactory.getLogger(StudentDAO.class);
+public class ReportDAO {
+	private static final Logger log = LoggerFactory.getLogger(ReportDAO.class);
 	// property constants
-	public static final String MSIGN = "msign";
-	public static final String NAME = "name";
-	public static final String PHONE = "phone";
-	public static final String QQ = "qq";
-	public static final String WEIXIN = "weixin";
-	public static final String MID = "mid";
-	public static final String SIGN = "sign";
-	public static final String STUID = "stuid";
-	public static final String SFROM = "sfrom";
-	public static final String MARK = "mark";
+	public static final String INFORMALSTU = "informalstu";
+	public static final String PLATESTU = "platestu";
+	public static final String TYPEFACESTU = "typefacestu";
+	public static final String BRANDSTU = "brandstu";
+	public static final String FULLSTU = "fullstu";
+	public static final String ILLUSTRATION = "illustration";
+	public static final String ONLINESTU = "onlinestu";
+	public static final String LIFETIMESTU = "lifetimestu";
+	public static final String TRANSRATE = "transrate";
 
 	private SessionFactory sessionFactory;
 
@@ -55,8 +53,8 @@ public class StudentDAO {
 		// do nothing
 	}
 
-	public void save(Student transientInstance) {
-		log.debug("saving Student instance");
+	public void save(Report transientInstance) {
+		log.debug("saving Report instance");
 		try {
 			getCurrentSession().save(transientInstance);
 			log.debug("save successful");
@@ -66,8 +64,8 @@ public class StudentDAO {
 		}
 	}
 
-	public void delete(Student persistentInstance) {
-		log.debug("deleting Student instance");
+	public void delete(Report persistentInstance) {
+		log.debug("deleting Report instance");
 		try {
 			getCurrentSession().delete(persistentInstance);
 			log.debug("delete successful");
@@ -77,11 +75,11 @@ public class StudentDAO {
 		}
 	}
 
-	public Student findById(java.lang.String id) {
-		log.debug("getting Student instance with id: " + id);
+	public Report findById(java.lang.String id) {
+		log.debug("getting Report instance with id: " + id);
 		try {
-			Student instance = (Student) getCurrentSession().get(
-					"com.JES.model.Student", id);
+			Report instance = (Report) getCurrentSession().get("com.JES.model.Report",
+					id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -89,10 +87,10 @@ public class StudentDAO {
 		}
 	}
 
-	public List findByExample(Student instance) {
-		log.debug("finding Student instance by example");
+	public List findByExample(Report instance) {
+		log.debug("finding Report instance by example");
 		try {
-			List results = getCurrentSession().createCriteria("com.JES.model.Student")
+			List results = getCurrentSession().createCriteria("com.JES.model.Report")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());
@@ -104,10 +102,10 @@ public class StudentDAO {
 	}
 
 	public List findByProperty(String propertyName, Object value) {
-		log.debug("finding Student instance with property: " + propertyName
+		log.debug("finding Report instance with property: " + propertyName
 				+ ", value: " + value);
 		try {
-			String queryString = "from Student as model where model."
+			String queryString = "from Report as model where model."
 					+ propertyName + "= ?";
 			Query queryObject = getCurrentSession().createQuery(queryString);
 			queryObject.setParameter(0, value);
@@ -118,50 +116,46 @@ public class StudentDAO {
 		}
 	}
 
-	public List findByMsign(Object msign) {
-		return findByProperty(MSIGN, msign);
+	public List findByInformalstu(Object informalstu) {
+		return findByProperty(INFORMALSTU, informalstu);
 	}
 
-	public List findByName(Object name) {
-		return findByProperty(NAME, name);
+	public List findByPlatestu(Object platestu) {
+		return findByProperty(PLATESTU, platestu);
 	}
 
-	public List findByPhone(Object phone) {
-		return findByProperty(PHONE, phone);
+	public List findByTypefacestu(Object typefacestu) {
+		return findByProperty(TYPEFACESTU, typefacestu);
 	}
 
-	public List findByQq(Object qq) {
-		return findByProperty(QQ, qq);
+	public List findByBrandstu(Object brandstu) {
+		return findByProperty(BRANDSTU, brandstu);
 	}
 
-	public List findByWeixin(Object weixin) {
-		return findByProperty(WEIXIN, weixin);
+	public List findByFullstu(Object fullstu) {
+		return findByProperty(FULLSTU, fullstu);
 	}
 
-	public List findByMid(Object mid) {
-		return findByProperty(MID, mid);
+	public List findByIllustration(Object illustration) {
+		return findByProperty(ILLUSTRATION, illustration);
 	}
 
-	public List findBySign(Object sign) {
-		return findByProperty(SIGN, sign);
+	public List findByOnlinestu(Object onlinestu) {
+		return findByProperty(ONLINESTU, onlinestu);
 	}
 
-	public List findByStuid(Object stuid) {
-		return findByProperty(STUID, stuid);
+	public List findByLifetimestu(Object lifetimestu) {
+		return findByProperty(LIFETIMESTU, lifetimestu);
 	}
 
-	public List findBySfrom(Object sfrom) {
-		return findByProperty(SFROM, sfrom);
-	}
-
-	public List findByMark(Object mark) {
-		return findByProperty(MARK, mark);
+	public List findByTransrate(Object transrate) {
+		return findByProperty(TRANSRATE, transrate);
 	}
 
 	public List findAll() {
-		log.debug("finding all Student instances");
+		log.debug("finding all Report instances");
 		try {
-			String queryString = "from Student";
+			String queryString = "from Report";
 			Query queryObject = getCurrentSession().createQuery(queryString);
 			return queryObject.list();
 		} catch (RuntimeException re) {
@@ -170,11 +164,11 @@ public class StudentDAO {
 		}
 	}
 
-	public Student merge(Student detachedInstance) {
-		log.debug("merging Student instance");
+	public Report merge(Report detachedInstance) {
+		log.debug("merging Report instance");
 		try {
-			Student result = (Student) getCurrentSession().merge(
-					detachedInstance);
+			Report result = (Report) getCurrentSession()
+					.merge(detachedInstance);
 			log.debug("merge successful");
 			return result;
 		} catch (RuntimeException re) {
@@ -183,8 +177,8 @@ public class StudentDAO {
 		}
 	}
 
-	public void attachDirty(Student instance) {
-		log.debug("attaching dirty Student instance");
+	public void attachDirty(Report instance) {
+		log.debug("attaching dirty Report instance");
 		try {
 			getCurrentSession().saveOrUpdate(instance);
 			log.debug("attach successful");
@@ -194,8 +188,8 @@ public class StudentDAO {
 		}
 	}
 
-	public void attachClean(Student instance) {
-		log.debug("attaching clean Student instance");
+	public void attachClean(Report instance) {
+		log.debug("attaching clean Report instance");
 		try {
 			getCurrentSession().buildLockRequest(LockOptions.NONE).lock(
 					instance);
@@ -206,7 +200,7 @@ public class StudentDAO {
 		}
 	}
 
-	public static StudentDAO getFromApplicationContext(ApplicationContext ctx) {
-		return (StudentDAO) ctx.getBean("StudentDAO");
+	public static ReportDAO getFromApplicationContext(ApplicationContext ctx) {
+		return (ReportDAO) ctx.getBean("ReportDAO");
 	}
 }

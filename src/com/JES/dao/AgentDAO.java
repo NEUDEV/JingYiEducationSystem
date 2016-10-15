@@ -1,6 +1,5 @@
 package com.JES.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.LockOptions;
@@ -177,43 +176,6 @@ public class AgentDAO {
 			return queryObject.list();
 		} catch (RuntimeException re) {
 			log.error("find all failed", re);
-			throw re;
-		}
-	}
-	
-	public List findFirstLevelAgentsByAname(String aname) {
-		try {
-			String queryString = "from Agent agent where(agent.aname='" + aname +"') and (agent.role='1级代理商')"; 
-			Query queryObject = getCurrentSession().createQuery(queryString);
-			return queryObject.list();
-		} catch (RuntimeException re) {
-			throw re;
-		}
-	}
-	public List findFirstLevelAgentsByName(String name) {
-		try {
-			String queryString = "from Agent agent where(agent.name='" + name +"') and (agent.role='1级代理商')"; 
-			Query queryObject = getCurrentSession().createQuery(queryString);
-			return queryObject.list();
-		} catch (RuntimeException re) {
-			throw re;
-		}
-	}
-	public List findFirstLevelAgentsByPhone(String phone) {
-		try {
-			String queryString = "from Agent agent where(agent.phone='" + phone +"') and (agent.role='1级代理商')";
-			Query queryObject = getCurrentSession().createQuery(queryString);
-			return queryObject.list();
-		} catch (RuntimeException re) {
-			throw re;
-		}
-	}
-	public List findFirstLevelAgentsByQq(String qq) {
-		try {
-			String queryString = "from Agent agent where(agent.phone='" + qq +"') and (agent.role='1级代理商')"; 
-			Query queryObject = getCurrentSession().createQuery(queryString);
-			return queryObject.list();
-		} catch (RuntimeException re) {
 			throw re;
 		}
 	}

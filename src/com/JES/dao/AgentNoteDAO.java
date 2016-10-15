@@ -1,6 +1,5 @@
 package com.JES.dao;
 
-import java.util.Date;
 import java.util.List;
 
 import org.hibernate.LockOptions;
@@ -31,6 +30,7 @@ public class AgentNoteDAO {
 	private static final Logger log = LoggerFactory
 			.getLogger(AgentNoteDAO.class);
 	// property constants
+	public static final String NOTETIME = "notetime";
 	public static final String NOTE = "note";
 	public static final String AGENTID = "agentid";
 
@@ -110,6 +110,10 @@ public class AgentNoteDAO {
 			log.error("find by property name failed", re);
 			throw re;
 		}
+	}
+
+	public List findByNotetime(Object notetime) {
+		return findByProperty(NOTETIME, notetime);
 	}
 
 	public List findByNote(Object note) {

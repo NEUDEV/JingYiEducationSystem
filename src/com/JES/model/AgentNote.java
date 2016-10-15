@@ -11,9 +11,8 @@ public class AgentNote implements java.io.Serializable {
 	// Fields
 
 	private String noteid;
-	private Date notetime;
+	private String notetime;
 	private String note;
-	private Date warntime;
 	private String agentid;
 
 	// Constructors
@@ -28,12 +27,10 @@ public class AgentNote implements java.io.Serializable {
 	}
 
 	/** full constructor */
-	public AgentNote(String noteid, Date notetime, String note, Date warntime,
-			String agentid) {
+	public AgentNote(String noteid, String notetime, String note, String agentid) {
 		this.noteid = noteid;
 		this.notetime = notetime;
 		this.note = note;
-		this.warntime = warntime;
 		this.agentid = agentid;
 	}
 
@@ -47,11 +44,11 @@ public class AgentNote implements java.io.Serializable {
 		this.noteid = noteid;
 	}
 
-	public Date getNotetime() {
+	public String getNotetime() {
 		return this.notetime;
 	}
 
-	public void setNotetime(Date notetime) {
+	public void setNotetime(String notetime) {
 		this.notetime = notetime;
 	}
 
@@ -61,14 +58,6 @@ public class AgentNote implements java.io.Serializable {
 
 	public void setNote(String note) {
 		this.note = note;
-	}
-
-	public Date getWarntime() {
-		return this.warntime;
-	}
-
-	public void setWarntime(Date warntime) {
-		this.warntime = warntime;
 	}
 
 	public String getAgentid() {
