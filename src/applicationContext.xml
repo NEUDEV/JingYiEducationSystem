@@ -5,7 +5,7 @@
 	http://www.springframework.org/schema/beans/spring-beans-4.1.xsd 
 	http://www.springframework.org/schema/tx 
 	http://www.springframework.org/schema/tx/spring-tx.xsd"
-	xmlns:tx="http://www.springframework.org/schema/tx" default-autowire="byName">
+	xmlns:tx="http://www.springframework.org/schema/tx">
 
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
@@ -73,13 +73,13 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	
+
 	<bean id="agentNoteDAO" class="com.JES.dao.AgentNoteDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	
+
 	<!-- service -->
 
 	<bean id="managerService" class="com.JES.service.ManagerService"
@@ -117,6 +117,6 @@
 		scope="prototype">
 		<property name="agentService" ref="agentservice"></property>
 	</bean>
-	
+
 
 </beans>

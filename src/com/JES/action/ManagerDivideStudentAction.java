@@ -1,6 +1,5 @@
 package com.JES.action;
 
-import com.JES.dao.StudentDAO;
 import com.JES.model.Student;
 import com.JES.service.ManagerService;
 import com.opensymphony.xwork2.ModelDriven;
@@ -13,22 +12,9 @@ public class ManagerDivideStudentAction extends SuperAction implements
 	private static final long serialVersionUID = 1L;
 	private Student student;
 	private ManagerService managerService;
-	private StudentDAO studentDAO;
-
-	public ManagerService getManagerService() {
-		return managerService;
-	}
 
 	public void setManagerService(ManagerService managerService) {
 		this.managerService = managerService;
-	}
-	
-	public StudentDAO getStudentDAO() {
-		return studentDAO;
-	}
-
-	public void setStudentDAO(StudentDAO studentDAO) {
-		this.studentDAO = studentDAO;
 	}
 
 	public String display() {
@@ -56,7 +42,15 @@ public class ManagerDivideStudentAction extends SuperAction implements
 	public String selectJingyiStudent() {
 		session.setAttribute("JingYiStudents",
 				request.getParameterValues("check"));
-		request.setAttribute("firstLevelAgents", managerService.search("代理商类别", "一级代理商"));
+		request.setAttribute("firstLevelAgents", managerService.searchAgent("代理商类别", "1级代理商"));
+		return "firstLevelAgentDisplay";
+	}
+	
+	public String searchFirstLevelAgent() {
+		request.setAttribute("firstLevelAgents", managerService.searchFirstLevelAgents(
+				request.getParameter("searchType"),
+				request.getParameter("searchValue")));
+		
 		return "firstLevelAgentDisplay";
 	}
 	
@@ -65,10 +59,10 @@ public class ManagerDivideStudentAction extends SuperAction implements
 		String[] JingYiStudents = (String[])session.getAttribute("JingYiStudents");
 		
 		for (String uid : JingYiStudents) {
-			student = studentDAO.findById(uid);
+			student = managerService.findStudentByID(uid);
 			student.setMid(firstLevelAgent);
-			student.setMsign("一级代理商");
-			studentDAO.merge(student);
+			student.setMsign("1级代理商");
+			managerService.updateStudent(student);
 		}
 		
 		return "divideStudentSuccess";
