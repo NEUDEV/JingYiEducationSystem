@@ -2,7 +2,7 @@
 <%@ page import="com.JES.model.Student"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="./agentMemu.jsp"%>
-<%@ taglib prefix="s" uri="/struts-tags" %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -16,7 +16,8 @@
 					type="text" name="qq" />
 			</div> -->
 			<div class="form-group">
-				<img alt="显示图片" src="<s:url action='ShowviewAction'><s:param name='qq' value='2'></s:param></s:url>"></img>
+				<img alt="显示图片" style="height:500px;width: 600px "
+					src="<s:url action='ShowviewAction'><s:param name='qq' value='1354407066'></s:param></s:url>"></img>
 			</div>
 			<button type="submit" class="btn btn-default" id="button">提交</button>
 		</form>

@@ -2,7 +2,6 @@ package com.JES.service;
 
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -22,9 +21,8 @@ import com.JES.model.AgentNote;
 import com.JES.model.Agentupstudent;
 import com.JES.model.Student;
 
-import debug.AgentserviceImpl;
 
-public class AgentService implements AgentserviceImpl{
+public class AgentService {
 	private AgentDAO agentDAO;
 	private AgentupstudentDAO agentupstudentDAO;
 	private StudentDAO studentDAO;
@@ -89,7 +87,8 @@ public class AgentService implements AgentserviceImpl{
 			return false;
 	}
 	
-	public boolean upPhoto(FileInputStream input,Integer length,Agentupstudent upstudent){
+	public boolean upPhoto(FileInputStream input,Integer length,
+			Agentupstudent upstudent,Student student){
 		byte[] bFile = new byte[length];
 		try {
 			input.read(bFile);
@@ -98,8 +97,16 @@ public class AgentService implements AgentserviceImpl{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		Date intime = new Date();
+		student.setIntime(intime);
+		student.setMark(1);   //设置转化指数
+		student.setMid("001"); //设置代理商ID
+		student.setMsign("001");
+		student.setSfrom("群聊");
+		student.setSign("未审核");
 		upstudent.setPhoto(bFile);
 		agentupstudentDAO.save(upstudent);
+		studentDAO.save(student);
 		return true;
 	}
 
@@ -111,7 +118,7 @@ public class AgentService implements AgentserviceImpl{
 		String noteid = UUID.randomUUID().toString();
 		agentnote.setNote(note);
 		agentnote.setNotetime(sDate);
-		agentnote.setAgentid("代理商");
+		agentnote.setAgentid("代理商");//getSession
 		agentnote.setNoteid(noteid);
 		agentnoteDAO.save(agentnote);
 		return true;

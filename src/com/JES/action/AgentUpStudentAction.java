@@ -7,6 +7,7 @@ import java.io.FileOutputStream;
 import org.apache.struts2.ServletActionContext;
 
 import com.JES.model.Agentupstudent;
+import com.JES.model.Student;
 import com.JES.service.AgentService;
 import com.opensymphony.xwork2.ActionSupport;
 
@@ -94,13 +95,19 @@ public class AgentUpStudentAction extends ActionSupport{
     	}
 	FileInputStream input=new FileInputStream(file);
 	Agentupstudent upstudent=new Agentupstudent();
+	Student student =new Student();
 	upstudent.setClass_(class_);
 	upstudent.setName(name);
 	upstudent.setPhone(phone);
-	upstudent.setPhone(phone);
 	upstudent.setQq(qq);
 	upstudent.setWeixin(weixin);
-	agentservice.upPhoto(input, (int) file.length(), upstudent);
+	student.setUid(qq);
+	student.setQq(qq);
+	student.setName(name);
+	student.setPhone(phone);
+	student.setWeixin(weixin);
+	student.setStuid(qq);
+	agentservice.upPhoto(input, (int) file.length(), upstudent,student);
 	return "success";
 	}
 }
