@@ -12,16 +12,16 @@ import com.JES.model.Agentupstudent;
 import com.JES.model.Student;
 
 public class AgentService {
-	private AgentDAO agentdao;
+	private AgentDAO agentDAO;
 	private AgentupstudentDAO agentupstudentDAO;
 	private StudentDAO studentDAO;
 
-	public AgentDAO getAgentdao() {
-		return agentdao;
+	public AgentDAO getAgentDAO() {
+		return agentDAO;
 	}
 
-	public void setAgentdao(AgentDAO agentdao) {
-		this.agentdao = agentdao;
+	public void setAgentDAO(AgentDAO agentDAO) {
+		this.agentDAO = agentDAO;
 	}
 
 	public StudentDAO getStudentDAO() {
