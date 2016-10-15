@@ -24,19 +24,20 @@ public class AgentService {
 		this.agentDAO = agentDAO;
 	}
 
-	public StudentDAO getStudentDAO() {
-		return studentDAO;
-	}
-
-	public void setStudentDAO(StudentDAO studentDAO) {
-		this.studentDAO = studentDAO;
-	}
 	public AgentupstudentDAO getAgentupstudentDAO() {
 		return agentupstudentDAO;
 	}
 
 	public void setAgentupstudentDAO(AgentupstudentDAO agentupstudentDAO) {
 		this.agentupstudentDAO = agentupstudentDAO;
+	}
+
+	public StudentDAO getStudentDAO() {
+		return studentDAO;
+	}
+
+	public void setStudentDAO(StudentDAO studentDAO) {
+		this.studentDAO = studentDAO;
 	}
 
 	@SuppressWarnings("unchecked")

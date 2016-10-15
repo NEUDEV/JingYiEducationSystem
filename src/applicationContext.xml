@@ -24,7 +24,7 @@
 		<property name="mappingResources">
 			<list>
 				<value>jingyi.hbm.xml</value>
-				</list>
+			</list>
 		</property>
 		<property name="hibernateProperties">
 			<props>
@@ -64,11 +64,13 @@
 		</property>
 	</bean>
 	<bean id="StudentDAO" class="com.JES.dao.StudentDAO">
-		<property name="sessionFactory"><ref bean="sessionFactory" />
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
 		</property>
 	</bean>
 	<bean id="AgentupstudentDAO" class="com.JES.dao.AgentupstudentDAO">
-		<property name="sessionFactory"><ref bean="sessionFactory" />
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
 		</property>
 	</bean>
 
@@ -81,17 +83,16 @@
 		<property name="studentDAO" ref="StudentDAO"></property>
 	</bean>
 
-	<bean id="agentservice" class="com.JES.service.AgentService" scope="prototype">
-		<property name="agentDAO"><ref bean="AgentDAO" />
-		</property>
-		<property name="agentupstudentDAO"><ref bean="AgentupstudentDAO" />
-		</property>
-		<property name="studentDAO"><ref bean="StudentDAO" />
-		</property>
+	<bean id="agentservice" class="com.JES.service.AgentService"
+		scope="prototype">
+		<property name="agentDAO" ref="AgentDAO"></property>
+		<property name="agentupstudentDAO" ref="AgentupstudentDAO"></property>
+		<property name="studentDAO" ref="StudentDAO"></property>
 	</bean>
-	
+
 	<bean id="studentservice" class="com.JES.service.StudentService">
-		<property name="studentDAO"><ref bean="StudentDAO" />
+		<property name="studentDAO">
+			<ref bean="StudentDAO" />
 		</property>
 	</bean>
 
@@ -104,8 +105,7 @@
 		scope="prototype">
 	</bean>
 
-	<bean id="agentupstudentDAO"
-		class="com.JES.dao.AgentupstudentDAO">
+	<bean id="agentupstudentDAO" class="com.JES.dao.AgentupstudentDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
@@ -114,4 +114,5 @@
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
-	</bean></beans>
+	</bean>
+</beans>
