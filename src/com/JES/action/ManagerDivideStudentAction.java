@@ -1,5 +1,7 @@
 package com.JES.action;
 
+import java.util.ArrayList;
+
 import com.JES.model.Student;
 import com.JES.service.ManagerService;
 import com.opensymphony.xwork2.ModelDriven;
@@ -57,14 +59,17 @@ public class ManagerDivideStudentAction extends SuperAction implements
 	public String divideJingyiToFirstLevelAgent() {
 		String firstLevelAgent = request.getParameter("radio");
 		String[] JingYiStudents = (String[])session.getAttribute("JingYiStudents");
+		ArrayList<Student> studentList = new ArrayList<Student>();
 		
 		for (String uid : JingYiStudents) {
 			student = managerService.findStudentByID(uid);
 			student.setMid(firstLevelAgent);
 			student.setMsign("1级代理商");
 			managerService.updateStudent(student);
+			studentList.add(student);
 		}
 		
+		request.setAttribute("studentList", studentList);
 		return "divideStudentSuccess";
 	}
 
