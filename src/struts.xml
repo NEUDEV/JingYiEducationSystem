@@ -42,9 +42,9 @@
     	</action>
     	<action name="AgentNoteAction" class="com.JES.action.AgentNoteAction" method="agentnote">  
         	<result name="success">/agent/agentNote.jsp</result>  
-        <!-- <result name="error">/error.jsp</result>  
-        <result name="input">/index.jsp</result>  
-        <param name="savePath">/upload</param> -->  
+    	</action>
+    	<action name="ShowviewAction" class="com.JES.action.ShowviewAction" method="viewImages">  
+        	  
     	</action>
 	</package>
 	

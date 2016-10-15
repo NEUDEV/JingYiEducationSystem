@@ -9,6 +9,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts2.ServletActionContext;
+
 import com.JES.dao.AgentDAO;
 import com.JES.dao.AgentNoteDAO;
 import com.JES.dao.AgentupstudentDAO;
@@ -110,5 +115,29 @@ public class AgentService implements AgentserviceImpl{
 		agentnote.setNoteid(noteid);
 		agentnoteDAO.save(agentnote);
 		return true;
+	}
+	
+	public void shoeView(String qq){
+		HttpServletResponse response = null;
+        ServletOutputStream out = null;
+        Agentupstudent agentupstudent=new Agentupstudent();
+        try {
+            response = ServletActionContext.getResponse();
+            response.setContentType("multipart/form-data");
+            out = response.getOutputStream();
+            agentupstudent = agentupstudentDAO.findById(qq);
+            out.write(agentupstudent.getPhoto()); //换成你自己的图片byte[] 数据就行.
+            out.flush();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (out != null) {
+                try {
+                    out.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        }
 	}
 }
