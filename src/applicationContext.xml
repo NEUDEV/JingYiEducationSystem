@@ -73,7 +73,13 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-
+	
+	<bean id="agentNoteDAO" class="com.JES.dao.AgentNoteDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+	
 	<!-- service -->
 
 	<bean id="managerService" class="com.JES.service.ManagerService"
@@ -104,15 +110,9 @@
 	<bean id="managerAgentManageAction" class="com.JES.action.ManagerAgentManageAction"
 		scope="prototype">
 	</bean>
+	<bean id="agentUpStudentAction" class="com.JES.action.AgentUpStudentAction"
+		scope="prototype">
+		<property name="agentService" ref="agentservice"></property>
+	</bean>
 
-	<bean id="agentupstudentDAO" class="com.JES.dao.AgentupstudentDAO">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
-	</bean>
-	<bean id="agentNoteDAO" class="com.JES.dao.AgentNoteDAO">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
-	</bean>
 </beans>

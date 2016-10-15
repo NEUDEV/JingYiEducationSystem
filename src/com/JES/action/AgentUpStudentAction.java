@@ -11,6 +11,11 @@ import com.JES.service.AgentService;
 import com.opensymphony.xwork2.ActionSupport;
 
 public class AgentUpStudentAction extends ActionSupport{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	
 	private File file;
 	private String qq;
@@ -21,6 +26,7 @@ public class AgentUpStudentAction extends ActionSupport{
 	private String fileFileName;
 	private String fileContentType;
 	
+	private AgentService agentService;
 	
 	public String getQq() {
 		return qq;
@@ -71,6 +77,12 @@ public class AgentUpStudentAction extends ActionSupport{
 		this.fileContentType = fileContentType;
 	}
 	
+	public AgentService getAgentService() {
+		return agentService;
+	}
+	public void setAgentService(AgentService agentService) {
+		this.agentService = agentService;
+	}
 	public String execute() throws Exception{
 	File uploadFile=new File(ServletActionContext.getServletContext().getRealPath("uploadFile"));
 	if(!uploadFile.exists()){  
@@ -78,7 +90,6 @@ public class AgentUpStudentAction extends ActionSupport{
     	}
 	FileInputStream input=new FileInputStream(file);
 	Agentupstudent upstudent=new Agentupstudent();
-	AgentService agentService=new AgentService();
 	upstudent.setClass_(class_);
 	upstudent.setName(name);
 	upstudent.setPhone(phone);
