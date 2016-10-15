@@ -20,8 +20,8 @@
 			
 			<!-- ManagerDivideStudent -->
 			<result name="studentsDisplay">/manager/divideStudent/divideStudent.jsp</result>
-			
-			
+			<result name="firstLevelAgentDisplay">/manager/divideStudent/chooseFirstLevelAgent.jsp</result>
+			<result name="divideStudentSuccess">/manager/divideStudent/divideStudentSuccess.jsp</result>
 			
 		</action>
 	</package>
@@ -39,9 +39,6 @@
         <!-- <result name="error">/error.jsp</result>  
         <result name="input">/index.jsp</result>  
         <param name="savePath">/upload</param> -->  
-    	</action>
-    	<action name="AgentNoteAction" class="com.JES.action.AgentNoteAction" method="agentnote">  
-        	<result name="success">/agent/agentNote.jsp</result>    
     	</action>
 	</package>
 	
