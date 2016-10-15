@@ -102,4 +102,23 @@
             <column name="photo" />
         </property>
     </class>
+    
+    <class name="com.JES.model.AgentNote" table="agent_note" catalog="jingyieducationsystem">
+        <id name="noteid" type="java.lang.String">
+            <column name="noteid" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="notetime" type="java.util.Date">
+            <column name="notetime" length="10" />
+        </property>
+        <property name="note" type="java.lang.String">
+            <column name="note" />
+        </property>
+        <property name="warntime" type="java.util.Date">
+            <column name="warntime" length="10" />
+        </property>
+        <property name="agentid" type="java.lang.String">
+            <column name="agentid" length="45" />
+        </property>
+    </class>
 </hibernate-mapping> 
