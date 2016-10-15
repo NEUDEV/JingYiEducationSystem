@@ -14,7 +14,7 @@
 			value="jdbc:mysql://localhost:3306/jingyieducationsystem">
 		</property>
 		<property name="username" value="root"></property>
-		<property name="password" value="root"></property>
+		<property name="password" value="wuyuhui1020"></property>
 	</bean>
 	<bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
@@ -78,6 +78,10 @@
 	</bean>
 
 	<bean id="agentservice" class="com.JES.service.AgentService">
+		<property name="agentdao"><ref bean="AgentDAO" />
+		</property>
+		<property name="agentupstudentDAO"><ref bean="AgentupstudentDAO" />
+		</property>
 		<property name="studentDAO"><ref bean="StudentDAO" />
 		</property>
 	</bean>

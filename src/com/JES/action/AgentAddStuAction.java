@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.sql.Date;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -23,11 +24,17 @@ public class AgentAddStuAction extends SuperAction{
 	private InputStream inputStream;
 	private String result;
 	private String uid;
-	private String uname;
+	private String msign;
 	private String name;
 	private String phone;
 	private String qq;
-	private String email;
+	private String weixin;
+	private String mid;
+	private String sign;
+	private String stuid;
+	private String sfrom;
+	private Integer mark;
+	private Date intime;
 	private AgentService agentservice;
 	private StudentService studentservice;
 	
@@ -43,12 +50,6 @@ public class AgentAddStuAction extends SuperAction{
 	}
 	public void setUid(String uid) {
 		this.uid = uid;
-	}
-	public String getUname() {
-		return uname;
-	}
-	public void setUname(String uname) {
-		this.uname = uname;
 	}
 	public String getName() {
 		return name;
@@ -67,12 +68,6 @@ public class AgentAddStuAction extends SuperAction{
 	}
 	public void setQq(String qq) {
 		this.qq = qq;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
 	}
 	public AgentService getAgentservice() {
 		return agentservice;

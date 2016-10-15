@@ -50,7 +50,6 @@
 				%>
 				<tr>
 					<td><%=list.get(i).getUid()%></td>
-					<td><%=list.get(i).getMsign()%></td>
 					<td><%=list.get(i).getName()%></td>
 					<td><%=list.get(i).getPhone()%></td>
 					<td><%=list.get(i).getQq()%></td>

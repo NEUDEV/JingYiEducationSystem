@@ -1,8 +1,15 @@
 package com.JES.model;
 
-import java.sql.Date;
+import java.util.Date;
 
-public class Student {
+/**
+ * Student entity. @author MyEclipse Persistence Tools
+ */
+
+public class Student implements java.io.Serializable {
+
+	// Fields
+
 	private String uid;
 	private String msign;
 	private String name;
@@ -15,79 +22,132 @@ public class Student {
 	private String sfrom;
 	private Integer mark;
 	private Date intime;
-	public String getUid() {
-		return uid;
+
+	// Constructors
+
+	/** default constructor */
+	public Student() {
 	}
+
+	/** minimal constructor */
+	public Student(String uid) {
+		this.uid = uid;
+	}
+
+	/** full constructor */
+	public Student(String uid, String msign, String name, String phone,
+			String qq, String weixin, String mid, String sign, String stuid,
+			String sfrom, Integer mark, Date intime) {
+		this.uid = uid;
+		this.msign = msign;
+		this.name = name;
+		this.phone = phone;
+		this.qq = qq;
+		this.weixin = weixin;
+		this.mid = mid;
+		this.sign = sign;
+		this.stuid = stuid;
+		this.sfrom = sfrom;
+		this.mark = mark;
+		this.intime = intime;
+	}
+
+	// Property accessors
+
+	public String getUid() {
+		return this.uid;
+	}
+
 	public void setUid(String uid) {
 		this.uid = uid;
 	}
-	
+
 	public String getMsign() {
-		return msign;
+		return this.msign;
 	}
+
 	public void setMsign(String msign) {
 		this.msign = msign;
 	}
+
 	public String getName() {
-		return name;
+		return this.name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getPhone() {
-		return phone;
+		return this.phone;
 	}
+
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}
+
 	public String getQq() {
-		return qq;
+		return this.qq;
 	}
+
 	public void setQq(String qq) {
 		this.qq = qq;
 	}
-	public String getMid() {
-		return mid;
-	}
-	public void setMid(String mid) {
-		this.mid = mid;
-	}
-	public String getSign() {
-		return sign;
-	}
-	public void setSign(String sign) {
-		this.sign = sign;
-	}
+
 	public String getWeixin() {
-		return weixin;
+		return this.weixin;
 	}
+
 	public void setWeixin(String weixin) {
 		this.weixin = weixin;
 	}
-	public String getStuid() {
-		return stuid;
+
+	public String getMid() {
+		return this.mid;
 	}
+
+	public void setMid(String mid) {
+		this.mid = mid;
+	}
+
+	public String getSign() {
+		return this.sign;
+	}
+
+	public void setSign(String sign) {
+		this.sign = sign;
+	}
+
+	public String getStuid() {
+		return this.stuid;
+	}
+
 	public void setStuid(String stuid) {
 		this.stuid = stuid;
 	}
+
 	public String getSfrom() {
-		return sfrom;
+		return this.sfrom;
 	}
+
 	public void setSfrom(String sfrom) {
 		this.sfrom = sfrom;
 	}
+
 	public Integer getMark() {
-		return mark;
+		return this.mark;
 	}
+
 	public void setMark(Integer mark) {
 		this.mark = mark;
 	}
+
 	public Date getIntime() {
-		return intime;
+		return this.intime;
 	}
+
 	public void setIntime(Date intime) {
 		this.intime = intime;
 	}
-	
-	
+
 }

@@ -16,49 +16,7 @@
 			<li><a href="#">划分成功</a></li>
 		</ul>
 		
-		<nav class="navbar navbar-default navbar-static-top" role="navigation">
-		<div class="collapse navbar-collapse"
-			id="bs-example-navbar-collapse-1">
-			<form class="navbar-form navbar-left" role="search"
-				action="<%=basePath%>Manager/ManagerAgentManage_searchAgent.action"
-				method="post">
-				<select name="searchType" class="form-control">
-					<option>账户名</option>
-					<option>姓名</option>
-					<option>手机号</option>
-					<option>QQ</option>
-				</select>
-				<div class="form-group">
-					<input class="form-control" name="searchValue" type="text" />
-				</div>
-				<button type="submit" class="btn btn-default">查找</button>
-			</form>
-		</div>
-		</nav>
-		<table class="table table table-bordered">
-			<thead>
-				<tr>
-					<th>UID</th>
-					<th>姓名</th>
-					<th>手机号</th>
-					<th>QQ</th>
-					<th>微信号</th>
-					<th>选择</th>
-				</tr>
-			</thead>
-			<tbody>
-				<c:forEach items="${request.studentList}" var="agent">
-					<tr>
-						<td>${student.uid}</td>
-						<td>${student.name}</td>
-						<td>${student.phone}</td>
-						<td>${student.qq}</td>
-						<td>${student.weixin}</td>
-						<td><input name="check" type="checkbox" /></td>
-					</tr>
-				</c:forEach>
-			</tbody>
-		</table>
+		
 	</div>
 </body>
 </html>

@@ -1,14 +1,19 @@
 package com.JES.service;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.JES.dao.AgentDAO;
+import com.JES.dao.AgentupstudentDAO;
 import com.JES.dao.StudentDAO;
+import com.JES.model.Agentupstudent;
 import com.JES.model.Student;
 
 public class AgentService {
 	private AgentDAO agentdao;
+	private AgentupstudentDAO agentupstudentDAO;
 	private StudentDAO studentDAO;
 
 	public AgentDAO getAgentdao() {
@@ -25,6 +30,13 @@ public class AgentService {
 
 	public void setStudentDAO(StudentDAO studentDAO) {
 		this.studentDAO = studentDAO;
+	}
+	public AgentupstudentDAO getAgentupstudentDAO() {
+		return agentupstudentDAO;
+	}
+
+	public void setAgentupstudentDAO(AgentupstudentDAO agentupstudentDAO) {
+		this.agentupstudentDAO = agentupstudentDAO;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -52,4 +64,21 @@ public class AgentService {
 		} else
 			return false;
 	}
+	
+	public boolean upPhoto(FileInputStream input,Integer length,Agentupstudent upstudent){
+		byte[] bFile = new byte[length];
+		try {
+			input.read(bFile);
+			input.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(bFile);
+		upstudent.setPhoto(bFile);
+		agentupstudentDAO.save(upstudent);
+		return true;
+	}
+
+	
 }

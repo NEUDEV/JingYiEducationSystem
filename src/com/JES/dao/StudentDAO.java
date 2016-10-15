@@ -38,7 +38,7 @@ public class StudentDAO {
 	public static final String MID = "mid";
 	public static final String SIGN = "sign";
 	public static final String STUID = "stuid";
-	public static final String FROM = "from";
+	public static final String SFROM = "sfrom";
 	public static final String MARK = "mark";
 
 	private SessionFactory sessionFactory;
@@ -92,8 +92,7 @@ public class StudentDAO {
 	public List findByExample(Student instance) {
 		log.debug("finding Student instance by example");
 		try {
-			List results = getCurrentSession()
-					.createCriteria("com.JES.model.Student")
+			List results = getCurrentSession().createCriteria("com.JES.model.Student")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());
@@ -151,8 +150,8 @@ public class StudentDAO {
 		return findByProperty(STUID, stuid);
 	}
 
-	public List findByFrom(Object from) {
-		return findByProperty(FROM, from);
+	public List findBySfrom(Object sfrom) {
+		return findByProperty(SFROM, sfrom);
 	}
 
 	public List findByMark(Object mark) {

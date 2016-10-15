@@ -1,16 +1,16 @@
 package com.JES.action;
 
-import com.JES.model.Student;
+import com.JES.model.Manager;
 import com.JES.service.ManagerService;
 import com.opensymphony.xwork2.ModelDriven;
 
-public class ManagerDivideStudentAction extends SuperAction implements
-		ModelDriven<Student> {
+public class ManagerDivideStudent extends SuperAction implements
+		ModelDriven<Manager> {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	public Student student;
+	private Manager manager;
 	private ManagerService managerService;
 
 	public ManagerService getManagerService() {
@@ -28,12 +28,12 @@ public class ManagerDivideStudentAction extends SuperAction implements
 	}
 
 	@Override
-	public Student getModel() {
+	public Manager getModel() {
 
-		if (student == null) {
-			student = new Student();
+		if (manager == null) {
+			manager = new Manager();
 		}
 
-		return student;
+		return manager;
 	}
 }
