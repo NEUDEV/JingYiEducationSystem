@@ -20,8 +20,8 @@
 			
 			<!-- ManagerDivideStudent -->
 			<result name="studentsDisplay">/manager/divideStudent/divideStudent.jsp</result>
-			
-			
+			<result name="firstLevelAgentDisplay">/manager/divideStudent/chooseFirstLevelAgent.jsp</result>
+			<result name="divideStudentSuccess">/manager/divideStudent/divideStudent.jsp</result>
 			
 		</action>
 	</package>
