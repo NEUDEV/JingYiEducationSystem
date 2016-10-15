@@ -11,7 +11,7 @@
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<ul class="breadcrumb">
 			<li><a href="<%=basePath%>/index.jsp">主页</a></li>
-			<li class="active">选择鲸艺代理商学员</li>
+			<li class="active">选择一级代理商</li>
 			<li><a href="#">划分</a></li>
 			<li><a href="#">划分成功</a></li>
 		</ul>
@@ -19,10 +19,10 @@
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<form class="navbar-form navbar-left" role="search"
-				action="<%=basePath%>Manager/ManagerDivideStudent_searchStudent.action"
+				action="<%=basePath%>Manager/ManagerDivideStudent_searchFirstLevelAgent.action"
 				method="post">
 				<select name="searchType" class="form-control">
-					<option>UID</option>
+					<option>账户名</option>
 					<option>姓名</option>
 					<option>手机号</option>
 					<option>QQ</option>
@@ -30,21 +30,21 @@
 				<div class="form-group">
 					<input class="form-control" name="searchValue" type="text" />
 				</div>
-				<button type="submit" class="btn btn-default">查找鲸艺学员</button>
+				<button type="submit" class="btn btn-default">查找一级代理商</button>
 			</form>
 		</div>
 		</nav>
 
-		<a>请选择鲸艺代理商学员：</a>
+		<a>请选择目的一级代理商：</a>
 		<input type="button" class="btn btn-default " value="选择完成"
 			onclick="document.getElementById('selectStudentForm').submit();" style="margin-right;"/><br>
 
-		<form action="<%=basePath%>Manager/ManagerDivideStudent_selectJingyiStudent.action"
+		<form action="<%=basePath%>Manager/ManagerDivideStudent_divideJingyiToFirstLevelAgent.action"
 			method="post" id="selectStudentForm">
 			<table class="table table table-bordered">
 				<thead>
 					<tr>
-						<th>UID</th>
+						<th>账户名</th>
 						<th>姓名</th>
 						<th>手机号</th>
 						<th>QQ</th>
@@ -53,15 +53,15 @@
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${request.studentList}" var="student">
+					<c:forEach items="${request.firstLevelAgents}" var="agent">
 						<tr>
-							<td>${student.uid}</td>
-							<td>${student.name}</td>
-							<td>${student.phone}</td>
-							<td>${student.qq}</td>
-							<td>${student.msign}</td>
-							<td><label><input name="check" type="checkbox"
-									value="${student.uid}" /></label></td>
+							<td>${agent.aname}</td>
+							<td>${agent.name}</td>
+							<td>${agent.phone}</td>
+							<td>${agent.qq}</td>
+							<td>${agent.role}</td>
+							<td><label><input name="radio" type="radio"
+									value="${agent.uid}" /></label></td>
 						</tr>
 					</c:forEach>
 				</tbody>

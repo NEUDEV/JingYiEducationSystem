@@ -169,6 +169,38 @@ public class StudentDAO {
 			throw re;
 		}
 	}
+	
+	public List findJingYiByName(String name) {
+		try {
+			String queryString = "from Student student where(student.name='" + name +"') and (student.msign='鲸艺代理商')"; 
+			Query queryObject = getCurrentSession().createQuery(queryString);
+			return queryObject.list();
+		} catch (RuntimeException re) {
+			throw re;
+		}
+	}
+	
+	public List findJingYiByPhone(String phone) {
+		try {
+			String queryString = "from Student student where(student.phone='" + phone +"') and (student.msign='鲸艺代理商')"; 
+			Query queryObject = getCurrentSession().createQuery(queryString);
+			return queryObject.list();
+		} catch (RuntimeException re) {
+			throw re;
+		}
+	}
+	
+	public List findJingYiByQq(String qq) {
+		try {
+			String queryString = "from Student student where(student.qq='" + qq +"') and (student.msign='鲸艺代理商')"; 
+			Query queryObject = getCurrentSession().createQuery(queryString);
+			return queryObject.list();
+		} catch (RuntimeException re) {
+			throw re;
+		}
+	}
+	
+	
 
 	public Student merge(Student detachedInstance) {
 		log.debug("merging Student instance");

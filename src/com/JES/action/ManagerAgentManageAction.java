@@ -34,7 +34,7 @@ public class ManagerAgentManageAction extends SuperAction implements
 	 * @return
 	 */
 	public String searchAgent() {
-		request .setAttribute("agentList", managerService.search(request.getParameter("searchType"), request.getParameter("searchValue")));
+		request .setAttribute("agentList", managerService.searchAgent(request.getParameter("searchType"), request.getParameter("searchValue")));
 		return "agentsDisplay";
 	}
 	
