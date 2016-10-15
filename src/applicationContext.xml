@@ -94,6 +94,7 @@
 		<property name="agentDAO" ref="AgentDAO"></property>
 		<property name="agentupstudentDAO" ref="AgentupstudentDAO"></property>
 		<property name="studentDAO" ref="StudentDAO"></property>
+		<property name="agentnoteDAO" ref="agentNoteDAO"></property>
 	</bean>
 
 	<bean id="studentservice" class="com.JES.service.StudentService">
@@ -111,6 +112,10 @@
 		scope="prototype">
 	</bean>
 	<bean id="agentUpStudentAction" class="com.JES.action.AgentUpStudentAction"
+		scope="prototype">
+		<property name="agentservice" ref="agentservice"></property>
+	</bean>
+	<bean id="agentNoteAction" class="com.JES.action.AgentNoteAction"
 		scope="prototype">
 		<property name="agentservice" ref="agentservice"></property>
 	</bean>

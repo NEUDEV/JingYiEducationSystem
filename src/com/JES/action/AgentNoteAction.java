@@ -6,6 +6,14 @@ import com.JES.service.AgentService;
 
 public class AgentNoteAction {
 	private String note;
+	AgentService agentservice;
+	
+	public AgentService getAgentservice() {
+		return agentservice;
+	}
+	public void setAgentservice(AgentService agentservice) {
+		this.agentservice = agentservice;
+	}
 	public String getNote() {
 		return note;
 	}
@@ -13,7 +21,6 @@ public class AgentNoteAction {
 		this.note = note;
 	}
 	public String agentnote(){
-		AgentService agentservice=new AgentService();
 		agentservice.agentNote(note);
 		return "success";
 	}

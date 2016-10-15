@@ -35,7 +35,13 @@
 			<result name="haveadd">/agent/studentAdmit.jsp</result>
 		</action>
 		<action name="AgentUpStudentAction" class="com.JES.action.AgentUpStudentAction" method="execute">  
-        	<result name="success">/agent/agentAdMyStudent.jsp</result>  
+        	<result name="success">/agent/studentAdmit.jsp</result>  
+        <!-- <result name="error">/error.jsp</result>  
+        <result name="input">/index.jsp</result>  
+        <param name="savePath">/upload</param> -->  
+    	</action>
+    	<action name="AgentNoteAction" class="com.JES.action.AgentNoteAction" method="agentnote">  
+        	<result name="success">/agent/agentNote.jsp</result>  
         <!-- <result name="error">/error.jsp</result>  
         <result name="input">/index.jsp</result>  
         <param name="savePath">/upload</param> -->  
