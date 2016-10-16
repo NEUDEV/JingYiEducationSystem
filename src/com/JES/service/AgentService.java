@@ -76,6 +76,8 @@ public class AgentService {
 			return (List<Student>) studentDAO.findByPhone(value);
 		case "QQ":
 			return (List<Student>) studentDAO.findByQq(value);
+		case "Ñ§ºÅ":
+			return (List<Student>) studentDAO.findByStuid(value);
 		}
 		return null;
 	}

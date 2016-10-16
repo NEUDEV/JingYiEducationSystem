@@ -16,11 +16,10 @@
 				action="AgentStudentsAction.action" method="post">
 				<select name="searchtype" class="form-control">
 					<option>学员UID</option>
-					<option>用户名</option>
 					<option>真实姓名</option>
 					<option>手机号</option>
 					<option>QQ</option>
-					<option>邮箱</option>
+					<option>学号</option>
 				</select>
 				<div class="form-group">
 					<input class="form-control" name="searchvalue" type="text" />
@@ -33,8 +32,8 @@
 		<table class="table">
 			<thead>
 				<tr>
+					<th>序号</th>
 					<th>UID</th>
-					<th>用户名</th>
 					<th>姓名</th>
 					<th>手机号</th>
 					<th>QQ</th>
