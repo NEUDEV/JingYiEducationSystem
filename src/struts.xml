@@ -6,61 +6,79 @@
 			<!-- ManagerLogin -->
 			<result name="managerLoginSuccess">/manager/managerMemu.jsp</result>
 			<result name="managerLoginFailed">/manager/login.jsp</result>
-			
+
 			<!-- ManagerAgentRegister -->
 			<result name="regesterSuccess">/manager/managerMemu.jsp</result>
 			<result name="regesterFail">/manager/agentRegister.jsp</result>
-			
+
 			<!-- ManagerAgentManage -->
 			<result name="agentsDisplay">/manager/chooseAgentAdmit.jsp</result>
 			<result name="toDelete">/manager/managerDeleteAgent.jsp</result>
 			<result name="agentDeleteSuccess">/manager/managerDeleteAgentSuccess.jsp</result>
 			<result name="agentChangeFaild">/manager/mangerAdmitAgent.jsp</result>
 			<result name="agentChangeSuccess">/manager/mangerAdmitSuccess.jsp</result>
-			
+
 			<!-- ManagerDivideStudent -->
 			<result name="studentsDisplay">/manager/divideStudent/divideStudent.jsp</result>
-			<result name="firstLevelAgentDisplay">/manager/divideStudent/chooseFirstLevelAgent.jsp</result>
-			<result name="divideStudentSuccess">/manager/divideStudent/divideStudentSuccess.jsp</result>
-			
+			<result name="firstLevelAgentDisplay">/manager/divideStudent/chooseFirstLevelAgent.jsp
+			</result>
+			<result name="divideStudentSuccess">/manager/divideStudent/divideStudentSuccess.jsp
+			</result>
+
 		</action>
 	</package>
 
+	<package name="Agent" extends="struts-default" namespace="/Agent">
+		<action name="*_*" class="com.JES.action.{1}Action" method="{2}">
+			<!-- AgentLogin -->
+			<result name="agentLoginSuccess">/agent/agentMemu.jsp</result>
+			<result name="agentLoginFailed">/agent/agentLogin.jsp</result>
+
+			<!-- AgentChangePassword -->
+			<result name="changePasswordSuccess">/agent/agentMemu.jsp</result>
+			<result name="changePasswordFailed">/agent/agentChangePassword.jsp</result>
+
+		</action>
+	</package>
+
+
 	<package name="agent" extends="struts-default" namespace="/agent">
-		<action name="AgentStudentsAction" class="com.JES.action.AgentStudentsAction" method="Mystudents">
+		<action name="AgentStudentsAction" class="com.JES.action.AgentStudentsAction"
+			method="Mystudents">
 			<result name="show">/agent/debug.jsp</result>
 			<result name="noshow">/test.jsp</result>
 		</action>
-		<action name="AgentAddStudentsAction" class="com.JES.action.AgentAddStuAction" method="AddStudent">
+		<action name="AgentAddStudentsAction" class="com.JES.action.AgentAddStuAction"
+			method="AddStudent">
 			<result name="haveadd">/agent/studentAdmit.jsp</result>
 		</action>
-		<action name="AgentUpStudentAction" class="com.JES.action.AgentUpStudentAction" method="execute">  
-        	<result name="success">/agent/studentAdmit.jsp</result>  
-        <!-- <result name="error">/error.jsp</result>  
-        <result name="input">/index.jsp</result>  
-        <param name="savePath">/upload</param> -->  
-    	</action>
-    	<action name="AgentNoteAction" class="com.JES.action.AgentNoteAction" method="agentnote">  
-        	<result name="success">/agent/agentNote.jsp</result>  
-    	</action>
-    	<action name="ShowviewAction" class="com.JES.action.ShowviewAction" method="viewImages">  
-        	  
-    	</action>
+		<action name="AgentUpStudentAction" class="com.JES.action.AgentUpStudentAction"
+			method="execute">
+			<result name="success">/agent/studentAdmit.jsp</result>
+			<!-- <result name="error">/error.jsp</result> <result name="input">/index.jsp</result> 
+				<param name="savePath">/upload</param> -->
+		</action>
+		<action name="AgentNoteAction" class="com.JES.action.AgentNoteAction"
+			method="agentnote">
+			<result name="success">/agent/agentNote.jsp</result>
+		</action>
+		<action name="ShowviewAction" class="com.JES.action.ShowviewAction"
+			method="viewImages">
+
+		</action>
 	</package>
-	
-	<package name="ajax" extends="json-default">  
-        <action name="cheakuid" class="com.JES.action.AgentAddStuAction" method="cheakUid">  
-            <!-- <result>/agent/studentAdmit.jsp</result> -->  
-            <result name="SUCCESS" type="json">    
-            </result>  
-        </action>  
-    </package> 
-    <!-- <package name="upload" namespace="/file" extends="struts-default">  
-    <action name="upload" class="com.JES.action.AgentUpStudentAction">  
-        <result name="success">/test.jsp</result>  
-        <result name="error">/error.jsp</result>  
-        <result name="input">/index.jsp</result>  
-        <param name="savePath">/upload</param>  
-    </action>  
-</package>  -->
+
+	<package name="ajax" extends="json-default">
+		<action name="cheakuid" class="com.JES.action.AgentAddStuAction"
+			method="cheakUid">
+			<!-- <result>/agent/studentAdmit.jsp</result> -->
+			<result name="SUCCESS" type="json">
+			</result>
+		</action>
+	</package>
+	<!-- <package name="upload" namespace="/file" extends="struts-default"> 
+		<action name="upload" class="com.JES.action.AgentUpStudentAction"> <result 
+		name="success">/test.jsp</result> <result name="error">/error.jsp</result> 
+		<result name="input">/index.jsp</result> <param name="savePath">/upload</param> 
+		</action> </package> -->
 </struts>    

@@ -37,7 +37,7 @@
 
 		<a>请选择目的一级代理商：</a>
 		<input type="button" class="btn btn-default " value="选择完成"
-			onclick="document.getElementById('selectStudentForm').submit();" style="margin-right;"/><br>
+			onclick="document.getElementById('selectStudentForm').submit();"/><br>
 
 		<form action="<%=basePath%>Manager/ManagerDivideStudent_divideJingyiToFirstLevelAgent.action"
 			method="post" id="selectStudentForm">

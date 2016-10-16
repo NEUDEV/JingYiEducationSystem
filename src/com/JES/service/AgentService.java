@@ -17,8 +17,10 @@ import com.JES.dao.AgentDAO;
 import com.JES.dao.AgentNoteDAO;
 import com.JES.dao.AgentupstudentDAO;
 import com.JES.dao.StudentDAO;
+import com.JES.model.Agent;
 import com.JES.model.AgentNote;
 import com.JES.model.Agentupstudent;
+import com.JES.model.Manager;
 import com.JES.model.Student;
 
 
@@ -147,4 +149,20 @@ public class AgentService {
             }
         }
 	}
+
+	public boolean isLoginSuccess(Agent agent) {
+		List resultList = agentDAO.findByAname(agent.getAname());
+
+		if (resultList.size() != 0) {
+			Agent result = (Agent) resultList.get(0);
+
+			if (agent.getAname().equals(result.getAname())
+					&& agent.getPassword().equals(result.getPassword())) {
+				return true;
+			}
+		}
+
+		return false;
+	}
+	
 }

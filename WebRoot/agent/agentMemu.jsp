@@ -68,7 +68,9 @@
 								<div class="panel-body">个人信息</div>
 								<div class="panel-body">银行信息</div>
 								<div class="panel-body">手机验证</div>
-								<div class="panel-body">修改密码</div>
+								<div class="panel-body">
+									<a href="<%=basePath%>agent/agentChangePassword.jsp">修改密码</a>
+								</div>
 							</div>
 						</div>
 					</div>
