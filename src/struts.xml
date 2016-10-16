@@ -37,7 +37,12 @@
 			<!-- AgentChangePassword -->
 			<result name="changePasswordSuccess">/agent/agentMemu.jsp</result>
 			<result name="changePasswordFailed">/agent/agentChangePassword.jsp</result>
-
+			
+			<result name="returnAgentInfo">/agent/agentChangeInfo.jsp</result>
+			<result name="changeAgentInfoSuccess">/agent/agentChangeInfo.jsp</result>
+			
+			<result name="changeAgentInfo">/agent/agentMemu.jsp</result>
+			
 		</action>
 	</package>
 

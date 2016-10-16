@@ -62,6 +62,59 @@ public class AgentLoginAndInfoAction extends SuperAction implements
 
 	}
 
+	/**
+	 * 获取Agent信息。
+	 * 
+	 * @return
+	 */
+	public String getAgentInfo() {
+		agent = agentservice.getAgentDAO().findById(
+				session.getAttribute("agentID").toString());
+		session.setAttribute("agent", agent);
+		request.setAttribute("agent", agent);
+		return "returnAgentInfo";
+	}
+
+	/**
+	 * 更改代理商信息。
+	 * @return
+	 */
+	public String changeAgentInfo() {
+		Agent oldAgent = (Agent) session.getAttribute("agent");
+
+		if (!"".equals(agent.getAname())) {
+			oldAgent.setAname(agent.getAname());
+		}
+
+		if (!"".equals(agent.getName())) {
+			oldAgent.setName(agent.getName());
+		}
+
+		if (!"".equals(agent.getQq())) {
+			oldAgent.setQq(agent.getQq());
+		}
+
+		if (!"".equals(agent.getPhone())) {
+			oldAgent.setPhone(agent.getPhone());
+		}
+
+		if (!"".equals(agent.getAccount())) {
+			oldAgent.setAccount(agent.getAccount());
+		}
+
+		if (!"".equals(agent.getIdcard())) {
+			oldAgent.setIdcard(agent.getIdcard());
+		}
+
+		if (!"".equals(agent.getBank())) {
+			oldAgent.setBank(agent.getBank());
+		}
+		
+		agentservice.getAgentDAO().merge(oldAgent);
+		
+		return "changeAgentInfo";
+	}
+
 	@Override
 	public Agent getModel() {
 		if (agent == null) {
