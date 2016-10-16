@@ -65,7 +65,9 @@
 									data-parent="#panel-699072" href="#panel-element-16477">我的账户</a>
 							</div>
 							<div id="panel-element-16477" class="panel-collapse collapse">
-								<div class="panel-body">个人信息</div>
+								<div class="panel-body">
+									<a href="<%=basePath%>agent/agentChangePassword.jsp">个人信息</a>
+								</div>
 								<div class="panel-body">银行信息</div>
 								<div class="panel-body">手机验证</div>
 								<div class="panel-body">
