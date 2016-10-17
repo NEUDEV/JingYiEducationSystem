@@ -5,6 +5,24 @@
 <html>
 <head>
 <title>开设代理商账户</title>
+<script type="text/javascript">
+	$(function() {
+		$("#commit").click(function() {
+			if ($("#aname").val() == "") {
+				alert("用户名不能为空");
+			} else if ($("#name").val() == "") {
+				alert("姓名不能为空");
+
+			} else if ($("#phone").val() == "") {
+				alert("电话不能为空");
+			} else if ($("#password").val() == "") {
+				alert("密码不能为空");
+			} else {
+				$('form').submit();
+			}
+		});
+	});
+</script>
 </head>
 
 <body>
@@ -54,7 +72,7 @@
 			<div class="row clearfix">
 				<div class="col-md-12 column">${request.info}</div></br>
 			</div>
-			<button type="submit" class="btn btn-default">提交</button>
+			<input type="button" class="btn btn-default" value="提交" id="commit">
 		</form>
 	</div>
 </body>

@@ -9,7 +9,7 @@
 	$(function() {
 		$("#commit").click(function() {
 			if ($("#aname").val() == "") {
-				alert("用户名不能为空");
+				alert("账户名不能为空");
 			} else if ($("#name").val() == "") {
 				alert("姓名不能为空");
 
