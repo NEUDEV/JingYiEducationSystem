@@ -1,4 +1,4 @@
-package com.JES.dao;
+package com.JES.model;
 
 import java.util.List;
 
@@ -12,26 +12,33 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.JES.model.Manager;
+import com.JES.model.Report;
 
 /**
  * A data access object (DAO) providing persistence and search support for
- * Manager entities. Transaction control of the save(), update() and delete()
+ * Report entities. Transaction control of the save(), update() and delete()
  * operations can directly support Spring container-managed transactions or they
  * can be augmented to handle user-managed Spring transactions. Each of these
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see com.JES.model.Manager
+ * @see com.JES.model.Report
  * @author MyEclipse Persistence Tools
  */
 @Transactional
-public class ManagerDAO {
-	private static final Logger log = LoggerFactory.getLogger(ManagerDAO.class);
+public class ReportDAO {
+	private static final Logger log = LoggerFactory.getLogger(ReportDAO.class);
 	// property constants
-	public static final String MNAME = "mname";
-	public static final String PASSWORD = "password";
-	public static final String REPORT_ID = "reportId";
+	public static final String INFORMALSTU = "informalstu";
+	public static final String PLATESTU = "platestu";
+	public static final String TYPEFACESTU = "typefacestu";
+	public static final String BRANDSTU = "brandstu";
+	public static final String FULLSTU = "fullstu";
+	public static final String ILLUSTRATION = "illustration";
+	public static final String ONLINESTU = "onlinestu";
+	public static final String LIFETIMESTU = "lifetimestu";
+	public static final String TRANSRATE = "transrate";
+	public static final String ROLE = "role";
 
 	private SessionFactory sessionFactory;
 
@@ -47,8 +54,8 @@ public class ManagerDAO {
 		// do nothing
 	}
 
-	public void save(Manager transientInstance) {
-		log.debug("saving Manager instance");
+	public void save(Report transientInstance) {
+		log.debug("saving Report instance");
 		try {
 			getCurrentSession().save(transientInstance);
 			log.debug("save successful");
@@ -58,8 +65,8 @@ public class ManagerDAO {
 		}
 	}
 
-	public void delete(Manager persistentInstance) {
-		log.debug("deleting Manager instance");
+	public void delete(Report persistentInstance) {
+		log.debug("deleting Report instance");
 		try {
 			getCurrentSession().delete(persistentInstance);
 			log.debug("delete successful");
@@ -69,11 +76,11 @@ public class ManagerDAO {
 		}
 	}
 
-	public Manager findById(java.lang.String id) {
-		log.debug("getting Manager instance with id: " + id);
+	public Report findById(java.lang.String id) {
+		log.debug("getting Report instance with id: " + id);
 		try {
-			Manager instance = (Manager) getCurrentSession().get(
-					"com.JES.model.Manager", id);
+			Report instance = (Report) getCurrentSession().get(
+					"com.JES.model.Report", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -81,11 +88,11 @@ public class ManagerDAO {
 		}
 	}
 
-	public List findByExample(Manager instance) {
-		log.debug("finding Manager instance by example");
+	public List findByExample(Report instance) {
+		log.debug("finding Report instance by example");
 		try {
 			List results = getCurrentSession()
-					.createCriteria("com.JES.model.Manager")
+					.createCriteria("com.JES.model.Report")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());
@@ -97,10 +104,10 @@ public class ManagerDAO {
 	}
 
 	public List findByProperty(String propertyName, Object value) {
-		log.debug("finding Manager instance with property: " + propertyName
+		log.debug("finding Report instance with property: " + propertyName
 				+ ", value: " + value);
 		try {
-			String queryString = "from Manager as model where model."
+			String queryString = "from Report as model where model."
 					+ propertyName + "= ?";
 			Query queryObject = getCurrentSession().createQuery(queryString);
 			queryObject.setParameter(0, value);
@@ -111,22 +118,50 @@ public class ManagerDAO {
 		}
 	}
 
-	public List findByMname(Object mname) {
-		return findByProperty(MNAME, mname);
+	public List findByInformalstu(Object informalstu) {
+		return findByProperty(INFORMALSTU, informalstu);
 	}
 
-	public List findByPassword(Object password) {
-		return findByProperty(PASSWORD, password);
+	public List findByPlatestu(Object platestu) {
+		return findByProperty(PLATESTU, platestu);
 	}
 
-	public List findByReportId(Object reportId) {
-		return findByProperty(REPORT_ID, reportId);
+	public List findByTypefacestu(Object typefacestu) {
+		return findByProperty(TYPEFACESTU, typefacestu);
+	}
+
+	public List findByBrandstu(Object brandstu) {
+		return findByProperty(BRANDSTU, brandstu);
+	}
+
+	public List findByFullstu(Object fullstu) {
+		return findByProperty(FULLSTU, fullstu);
+	}
+
+	public List findByIllustration(Object illustration) {
+		return findByProperty(ILLUSTRATION, illustration);
+	}
+
+	public List findByOnlinestu(Object onlinestu) {
+		return findByProperty(ONLINESTU, onlinestu);
+	}
+
+	public List findByLifetimestu(Object lifetimestu) {
+		return findByProperty(LIFETIMESTU, lifetimestu);
+	}
+
+	public List findByTransrate(Object transrate) {
+		return findByProperty(TRANSRATE, transrate);
+	}
+
+	public List findByRole(Object role) {
+		return findByProperty(ROLE, role);
 	}
 
 	public List findAll() {
-		log.debug("finding all Manager instances");
+		log.debug("finding all Report instances");
 		try {
-			String queryString = "from Manager";
+			String queryString = "from Report";
 			Query queryObject = getCurrentSession().createQuery(queryString);
 			return queryObject.list();
 		} catch (RuntimeException re) {
@@ -135,11 +170,11 @@ public class ManagerDAO {
 		}
 	}
 
-	public Manager merge(Manager detachedInstance) {
-		log.debug("merging Manager instance");
+	public Report merge(Report detachedInstance) {
+		log.debug("merging Report instance");
 		try {
-			Manager result = (Manager) getCurrentSession().merge(
-					detachedInstance);
+			Report result = (Report) getCurrentSession()
+					.merge(detachedInstance);
 			log.debug("merge successful");
 			return result;
 		} catch (RuntimeException re) {
@@ -148,8 +183,8 @@ public class ManagerDAO {
 		}
 	}
 
-	public void attachDirty(Manager instance) {
-		log.debug("attaching dirty Manager instance");
+	public void attachDirty(Report instance) {
+		log.debug("attaching dirty Report instance");
 		try {
 			getCurrentSession().saveOrUpdate(instance);
 			log.debug("attach successful");
@@ -159,8 +194,8 @@ public class ManagerDAO {
 		}
 	}
 
-	public void attachClean(Manager instance) {
-		log.debug("attaching clean Manager instance");
+	public void attachClean(Report instance) {
+		log.debug("attaching clean Report instance");
 		try {
 			getCurrentSession().buildLockRequest(LockOptions.NONE).lock(
 					instance);
@@ -171,7 +206,7 @@ public class ManagerDAO {
 		}
 	}
 
-	public static ManagerDAO getFromApplicationContext(ApplicationContext ctx) {
-		return (ManagerDAO) ctx.getBean("ManagerDAO");
+	public static ReportDAO getFromApplicationContext(ApplicationContext ctx) {
+		return (ReportDAO) ctx.getBean("ReportDAO");
 	}
 }

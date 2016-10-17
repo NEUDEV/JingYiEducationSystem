@@ -36,7 +36,7 @@
 							</div>
 							<div id="panel-element-936974" class="panel-collapse collapse">
 								<div class="panel-body">
-									<a href="#">查看系统报表</a>
+									<a href="<%=basePath%>Manager/ManagerViewReport_displayReport.action">查看系统报表</a>
 								</div>
 							</div>
 						</div>

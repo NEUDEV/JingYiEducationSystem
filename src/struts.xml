@@ -24,6 +24,9 @@
 			</result>
 			<result name="divideStudentSuccess">/manager/divideStudent/divideStudentSuccess.jsp
 			</result>
+			
+			<!-- ManagerViewReport -->
+			<result name="displayReport">/manager/report/displayReport.jsp</result>
 
 		</action>
 	</package>

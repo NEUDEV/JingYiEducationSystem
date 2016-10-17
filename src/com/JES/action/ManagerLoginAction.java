@@ -13,7 +13,7 @@ public class ManagerLoginAction extends SuperAction implements
 	private static final long serialVersionUID = 1L;
 	private Manager manager;
 	private ManagerService managerService;
-	
+
 	public ManagerService getManagerService() {
 		return managerService;
 	}
@@ -24,17 +24,22 @@ public class ManagerLoginAction extends SuperAction implements
 
 	/**
 	 * 管理员登陆。
+	 * 
 	 * @return
 	 */
 	public String login() {
 		if (managerService.isLoginSuccess(manager)) {
+			session.setAttribute(
+					"managerId",
+					((Manager) managerService.getManagerDAO()
+							.findByMname(manager.getMname()).get(0)).getUid());
 			return "managerLoginSuccess";
 		}
-		
+
 		request.setAttribute("info", "用户名或密码错误！");
 		return "managerLoginFailed";
 	}
-	
+
 	@Override
 	public Manager getModel() {
 

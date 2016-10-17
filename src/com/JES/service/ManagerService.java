@@ -4,17 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import javax.servlet.http.HttpSession;
+
 import com.JES.dao.AgentDAO;
 import com.JES.dao.ManagerDAO;
+import com.JES.dao.ReportDAO;
 import com.JES.dao.StudentDAO;
 import com.JES.model.Agent;
 import com.JES.model.Manager;
+import com.JES.model.Report;
 import com.JES.model.Student;
 
 public class ManagerService {
 	private ManagerDAO managerDAO;
 	private AgentDAO agentDAO;
 	private StudentDAO studentDAO;
+	private ReportDAO reportDAO;
 
 	public ManagerDAO getManagerDAO() {
 		return managerDAO;
@@ -38,6 +43,14 @@ public class ManagerService {
 
 	public void setStudentDAO(StudentDAO studentDAO) {
 		this.studentDAO = studentDAO;
+	}
+
+	public ReportDAO getReportDAO() {
+		return reportDAO;
+	}
+
+	public void setReportDAO(ReportDAO reportDAO) {
+		this.reportDAO = reportDAO;
 	}
 
 	/**
@@ -110,6 +123,7 @@ public class ManagerService {
 
 	/**
 	 * 查找代理商。
+	 * 
 	 * @param searchType
 	 * @param searchValue
 	 * @return
@@ -130,28 +144,35 @@ public class ManagerService {
 
 		return new ArrayList<Agent>();
 	}
-	
+
 	/**
 	 * 查找一级代理商。
+	 * 
 	 * @param searchType
 	 * @param searchValue
 	 * @return
 	 */
-	public ArrayList<Agent> searchFirstLevelAgents(String searchType, String searchValue) {
+	public ArrayList<Agent> searchFirstLevelAgents(String searchType,
+			String searchValue) {
 		if ("账户名".equals(searchType)) {
-			return (ArrayList<Agent>) agentDAO.findFirstLevelAgentsByAname(searchValue);
+			return (ArrayList<Agent>) agentDAO
+					.findFirstLevelAgentsByAname(searchValue);
 		} else if ("姓名".equals(searchType)) {
-			return (ArrayList<Agent>) agentDAO.findFirstLevelAgentsByName(searchValue);
+			return (ArrayList<Agent>) agentDAO
+					.findFirstLevelAgentsByName(searchValue);
 		} else if ("手机号".equals(searchType)) {
-			return (ArrayList<Agent>) agentDAO.findFirstLevelAgentsByPhone(searchValue);
+			return (ArrayList<Agent>) agentDAO
+					.findFirstLevelAgentsByPhone(searchValue);
 		} else if ("QQ".equals(searchType)) {
-			return (ArrayList<Agent>) agentDAO.findFirstLevelAgentsByQq(searchValue);
-		} 
+			return (ArrayList<Agent>) agentDAO
+					.findFirstLevelAgentsByQq(searchValue);
+		}
 
 		return new ArrayList<Agent>();
 	}
 
-	public ArrayList<Student> searchJingyiStudent(String searchType, String searchValue) {
+	public ArrayList<Student> searchJingyiStudent(String searchType,
+			String searchValue) {
 		if ("UID".equals(searchType)) {
 			ArrayList<Student> students = new ArrayList<Student>();
 			Student student = studentDAO.findById(searchValue);
@@ -160,24 +181,26 @@ public class ManagerService {
 			}
 			return students;
 		} else if ("姓名".equals(searchType)) {
-			return (ArrayList<Student>) studentDAO.findJingYiByName(searchValue);
+			return (ArrayList<Student>) studentDAO
+					.findJingYiByName(searchValue);
 		} else if ("手机号".equals(searchType)) {
-			return (ArrayList<Student>) studentDAO.findJingYiByPhone(searchValue);
+			return (ArrayList<Student>) studentDAO
+					.findJingYiByPhone(searchValue);
 		} else if ("QQ".equals(searchType)) {
 			return (ArrayList<Student>) studentDAO.findJingYiByQq(searchValue);
 		}
 
 		return new ArrayList<Student>();
 	}
-	
+
 	public Student findStudentByID(String id) {
 		return studentDAO.findById(id);
 	}
-	
+
 	public void updateStudent(Student student) {
 		studentDAO.merge(student);
 	}
-	
+
 	public Agent getAgentByID(String uid) {
 		return agentDAO.findById(uid);
 	}
@@ -188,6 +211,51 @@ public class ManagerService {
 
 	public void changeAgent(Agent agent) {
 		agentDAO.merge(agent);
+	}
+
+	public Report dealWithReport(String managerId) {
+		Manager manager = managerDAO.findById(managerId);
+		Report report = new Report(0);
+		ArrayList<Report> reports = (ArrayList<Report>) reportDAO
+				.findByRole("代理商");
+		Integer allOfStudent = 0;
+
+		for (Report item : reports) {
+			report.setBrandstu(report.getBrandstu() + item.getBrandstu());
+			report.setFullstu(report.getFullstu() + item.getFullstu());
+			report.setIllustration(report.getIllustration()
+					+ item.getIllustration());
+			report.setInformalstu(report.getInformalstu()
+					+ item.getInformalstu());
+			report.setLifetimestu(report.getLifetimestu()
+					+ item.getLifetimestu());
+			report.setOnlinestu(report.getOnlinestu() + item.getOnlinestu());
+			report.setPlatestu(report.getPlatestu() + item.getPlatestu());
+			report.setTypefacestu(report.getTypefacestu()
+					+ item.getTypefacestu());
+			// TODO 转换率得重新算。
+			allOfStudent = report.getBrandstu() + report.getFullstu()
+					+ report.getIllustration() + report.getInformalstu()
+					+ report.getLifetimestu() + report.getOnlinestu()
+					+ report.getPlatestu() + report.getTypefacestu();
+
+			report.setTransrate((allOfStudent - report.getInformalstu())
+					/ (double) allOfStudent);
+		}
+
+		if (manager.getReportId() != null
+				&& reportDAO.findById(manager.getReportId()) != null) {
+			reportDAO.delete(reportDAO.findById(manager.getReportId()));
+		}
+
+		String uid = UUID.randomUUID().toString();
+		report.setReportid(uid);
+		report.setRole("管理员");
+		manager.setReportId(report.getReportid());
+		managerDAO.merge(manager);
+		reportDAO.save(report);
+
+		return report;
 	}
 
 }

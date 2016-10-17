@@ -5,6 +5,7 @@
 <html>
 <head>
 <title>开设代理商账户</title>
+<link href="<%=basePath%>resource/css/signin.css" rel="stylesheet">
 </head>
 
 <body>
@@ -30,44 +31,44 @@
 						<td>账号名</td>
 						<td>${agent.aname}</td>
 						<td><input class="form-control" id="aname" type="text"
-							name="aname" /></td>
+							placeholder="不需要修改则不填" name="aname" /></td>
 					</tr>
 					<tr>
 						<td>姓名</td>
 						<td>${agent.name}</td>
 						<td><input class="form-control" id="name" type="text"
-							name="name" /></td>
+							placeholder="不需要修改则不填" name="name" /></td>
 					</tr>
 					<tr>
 
 						<td>QQ</td>
 						<td>${agent.qq}</td>
 						<td><input class="form-control" id="qq" type="number"
-							name="qq" /></td>
+							placeholder="不需要修改则不填" name="qq" /></td>
 					</tr>
 					<tr>
 						<td>手机号</td>
 						<td>${agent.phone}</td>
 						<td><input class="form-control" id="phone" type="number"
-							name="phone" /></td>
+							placeholder="不需要修改则不填" name="phone" /></td>
 					</tr>
 					<tr>
 						<td>身份证号</td>
 						<td>${agent.idcard}</td>
 						<td><input class="form-control" id="idcard" type="text"
-							name="idcard" /></td>
+							placeholder="不需要修改则不填" name="idcard" /></td>
 					</tr>
 					<tr>
 						<td>银行卡号</td>
 						<td>${agent.account}</td>
 						<td><input class="form-control" id="account" type="number"
-							name="account" /></td>
+							placeholder="不需要修改则不填" name="account" /></td>
 					</tr>
 					<tr>
 						<td>所属银行</td>
 						<td>${agent.bank}</td>
 						<td><input class="form-control" id="bank" type="text"
-							name="bank" /></td>
+							placeholder="不需要修改则不填" name="bank" /></td>
 					</tr>
 				</tbody>
 			</table>

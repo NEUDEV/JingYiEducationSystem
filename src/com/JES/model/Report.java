@@ -18,6 +18,7 @@ public class Report implements java.io.Serializable {
 	private Integer onlinestu;
 	private Integer lifetimestu;
 	private Double transrate;
+	private String role;
 
 	// Constructors
 
@@ -28,6 +29,18 @@ public class Report implements java.io.Serializable {
 	/** minimal constructor */
 	public Report(String reportid) {
 		this.reportid = reportid;
+	}
+	
+	public Report(Integer integer) {
+		this.informalstu = 0;
+		this.platestu = 0;
+		this.typefacestu = 0;
+		this.brandstu = 0;
+		this.fullstu = 0;
+		this.illustration = 0;
+		this.onlinestu = 0;
+		this.lifetimestu = 0;
+		this.transrate = 0.0;
 	}
 
 	/** full constructor */
@@ -125,8 +138,16 @@ public class Report implements java.io.Serializable {
 		return this.transrate;
 	}
 
-	public void setTransrate(Double transrate) {
-		this.transrate = transrate;
+	public void setTransrate(Double i) {
+		this.transrate = i;
 	}
 
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+	
 }

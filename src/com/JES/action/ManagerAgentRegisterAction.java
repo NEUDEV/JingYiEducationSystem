@@ -40,6 +40,8 @@ public class ManagerAgentRegisterAction extends SuperAction implements
 			agent.setRole("2级代理商");
 		}
 		
+		// TODO 将agent.manager设置为String类型。
+//		agent.setMannager(session.getAttribute("managerId"));
 		managerService.agentRegister(agent);
 		
 		return "regesterSuccess";
