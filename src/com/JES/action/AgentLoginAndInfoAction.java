@@ -81,8 +81,13 @@ public class AgentLoginAndInfoAction extends SuperAction implements
 	 */
 	public String changeAgentInfo() {
 		Agent oldAgent = (Agent) session.getAttribute("agent");
+		agent.setUid(session.getAttribute("agentID").toString());
 
 		if (!"".equals(agent.getAname())) {
+			if(agentservice.isExistAgent(agent)) {
+				request.setAttribute("info", "账户名已存在");
+				return "changeAgentInfoFailed";
+			}
 			oldAgent.setAname(agent.getAname());
 		}
 
@@ -112,7 +117,7 @@ public class AgentLoginAndInfoAction extends SuperAction implements
 		
 		agentservice.getAgentDAO().merge(oldAgent);
 		
-		return "changeAgentInfo";
+		return "changeAgentInfoSuccess";
 	}
 
 	@Override

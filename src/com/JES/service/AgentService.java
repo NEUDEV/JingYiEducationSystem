@@ -167,4 +167,20 @@ public class AgentService {
 		return false;
 	}
 	
+	public boolean isExistAgent(Agent agent) {
+		List results = agentDAO.findByAname(agent.getAname());
+
+		if (results.size() != 0) {
+
+			Agent a = (Agent) results.get(0);
+			if (agent.getUid().equals(a.getUid())) {
+				return false;
+			}
+
+			return true;
+		}
+
+		return false;
+	}
+	
 }

@@ -15,7 +15,7 @@
 		</ul>
 
 		<form
-			action="<%=basePath%>Manager/AgentLoginAndInfo_changeAgentInfo.action"
+			action="<%=basePath%>Agent/AgentLoginAndInfo_changeAgentInfo.action"
 			id="form" method="post">
 			<table class="table table table-bordered">
 				<thead>
@@ -71,7 +71,10 @@
 					</tr>
 				</tbody>
 			</table>
-
+			<div class="row clearfix">
+				<div class="col-md-12 column">${request.info}</div>
+				</br>
+			</div>
 			<button type="submit" class="btn btn-default">提交</button>
 		</form>
 	</div>
