@@ -137,6 +137,50 @@ public class ManagerService {
 		return new ArrayList<Agent>();
 	}
 
+	/**
+	 * 查找普通班主任。
+	 * 
+	 * @param searchType
+	 * @param searchValue
+	 * @return
+	 */
+	public ArrayList<Agent> searchCommonAgent(String searchType, String searchValue) {
+
+		if ("账户名".equals(searchType)) {
+			return (ArrayList<Agent>) agentDAO.findCommonAgentsByAname(searchValue);
+		} else if ("姓名".equals(searchType)) {
+			return (ArrayList<Agent>) agentDAO.findCommonAgentsByName(searchValue);
+		} else if ("手机号".equals(searchType)) {
+			return (ArrayList<Agent>) agentDAO.findCommonAgentsByPhone(searchValue);
+		} else if ("QQ".equals(searchType)) {
+			return (ArrayList<Agent>) agentDAO.findCommonAgentsByQq(searchValue);
+		} 
+
+		return new ArrayList<Agent>();
+	}
+	
+	/**
+	 * 查找超级班主任。
+	 * 
+	 * @param searchType
+	 * @param searchValue
+	 * @return
+	 */
+	public ArrayList<Agent> searchSuperAgent(String searchType, String searchValue) {
+
+		if ("账户名".equals(searchType)) {
+			return (ArrayList<Agent>) agentDAO.findSuperAgentsByAname(searchValue);
+		} else if ("姓名".equals(searchType)) {
+			return (ArrayList<Agent>) agentDAO.findSuperAgentsByName(searchValue);
+		} else if ("手机号".equals(searchType)) {
+			return (ArrayList<Agent>) agentDAO.findSuperAgentsByPhone(searchValue);
+		} else if ("QQ".equals(searchType)) {
+			return (ArrayList<Agent>) agentDAO.findSuperAgentsByQq(searchValue);
+		} 
+
+		return new ArrayList<Agent>();
+	}
+
 	public ArrayList<Student> searchStudent(String searchType,
 			String searchValue) {
 		if ("UID".equals(searchType)) {
@@ -147,11 +191,9 @@ public class ManagerService {
 			}
 			return students;
 		} else if ("姓名".equals(searchType)) {
-			return (ArrayList<Student>) studentDAO
-					.findByName(searchValue);
+			return (ArrayList<Student>) studentDAO.findByName(searchValue);
 		} else if ("手机号".equals(searchType)) {
-			return (ArrayList<Student>) studentDAO
-					.findByPhone(searchValue);
+			return (ArrayList<Student>) studentDAO.findByPhone(searchValue);
 		} else if ("QQ".equals(searchType)) {
 			return (ArrayList<Student>) studentDAO.findByQq(searchValue);
 		} else if ("学号".equals(searchType)) {
@@ -163,27 +205,27 @@ public class ManagerService {
 
 	public void changeAgent(Agent agent) {
 		Agent otherAgent = agentDAO.findById(agent.getUid());
-		
+
 		if (!agent.getAname().equals(otherAgent.getAname())) {
 			otherAgent.setAname(agent.getAname());
 		}
-		
+
 		if (!agent.getName().equals(otherAgent.getName())) {
 			otherAgent.setName(agent.getName());
 		}
-		
+
 		if (!agent.getQq().equals(otherAgent.getQq())) {
 			otherAgent.setQq(agent.getQq());
-		} 
-		
+		}
+
 		if (!agent.getPhone().equals(otherAgent.getPhone())) {
 			otherAgent.setPhone(agent.getPhone());
 		}
-		
+
 		if (!agent.getRole().equals(otherAgent.getRole())) {
 			otherAgent.setRole(agent.getRole());
 		}
-		
+
 		agentDAO.merge(otherAgent);
 	}
 

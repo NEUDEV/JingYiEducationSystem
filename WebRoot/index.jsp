@@ -23,7 +23,7 @@
 				class="icon-bar"></span><span class="icon-bar"></span>
 		</button>
 		<strong><a class="navbar-brand"
-			href="<%=basePath%>manager/chooseAgentAdmit.jsp">鲸艺教育</a></strong>
+			href="<%=basePath%>manager/agentManage/chooseAgentAdmit.jsp">鲸艺教育</a></strong>
 	</div>
 
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

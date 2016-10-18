@@ -181,36 +181,74 @@ public class AgentDAO {
 		}
 	}
 	
-	public List findFirstLevelAgentsByAname(String aname) {
+	public List findCommonAgentsByAname(String aname) {
 		try {
-			String queryString = "from Agent agent where(agent.aname='" + aname +"') and (agent.role='1级代理商')"; 
+			String queryString = "from Agent agent where(agent.aname='" + aname +"') and (agent.role='班主任')"; 
 			Query queryObject = getCurrentSession().createQuery(queryString);
 			return queryObject.list();
 		} catch (RuntimeException re) {
 			throw re;
 		}
 	}
-	public List findFirstLevelAgentsByName(String name) {
+	public List findCommonAgentsByName(String name) {
 		try {
-			String queryString = "from Agent agent where(agent.name='" + name +"') and (agent.role='1级代理商')"; 
+			String queryString = "from Agent agent where(agent.name='" + name +"') and (agent.role='班主任')"; 
 			Query queryObject = getCurrentSession().createQuery(queryString);
 			return queryObject.list();
 		} catch (RuntimeException re) {
 			throw re;
 		}
 	}
-	public List findFirstLevelAgentsByPhone(String phone) {
+	public List findCommonAgentsByPhone(String phone) {
 		try {
-			String queryString = "from Agent agent where(agent.phone='" + phone +"') and (agent.role='1级代理商')";
+			String queryString = "from Agent agent where(agent.phone='" + phone +"') and (agent.role='班主任')";
 			Query queryObject = getCurrentSession().createQuery(queryString);
 			return queryObject.list();
 		} catch (RuntimeException re) {
 			throw re;
 		}
 	}
-	public List findFirstLevelAgentsByQq(String qq) {
+	public List findCommonAgentsByQq(String qq) {
 		try {
-			String queryString = "from Agent agent where(agent.phone='" + qq +"') and (agent.role='1级代理商')"; 
+			String queryString = "from Agent agent where(agent.phone='" + qq +"') and (agent.role='班主任')"; 
+			Query queryObject = getCurrentSession().createQuery(queryString);
+			return queryObject.list();
+		} catch (RuntimeException re) {
+			throw re;
+		}
+	}
+	
+	public List findSuperAgentsByAname(String aname) {
+		try {
+			String queryString = "from Agent agent where(agent.aname='" + aname +"') and (agent.role='超级班主任')"; 
+			Query queryObject = getCurrentSession().createQuery(queryString);
+			return queryObject.list();
+		} catch (RuntimeException re) {
+			throw re;
+		}
+	}
+	public List findSuperAgentsByName(String name) {
+		try {
+			String queryString = "from Agent agent where(agent.name='" + name +"') and (agent.role='超级班主任')"; 
+			Query queryObject = getCurrentSession().createQuery(queryString);
+			return queryObject.list();
+		} catch (RuntimeException re) {
+			throw re;
+		}
+	}
+	
+	public List findSuperAgentsByPhone(String phone) {
+		try {
+			String queryString = "from Agent agent where(agent.phone='" + phone +"') and (agent.role='超级班主任')";
+			Query queryObject = getCurrentSession().createQuery(queryString);
+			return queryObject.list();
+		} catch (RuntimeException re) {
+			throw re;
+		}
+	}
+	public List findSuperAgentsByQq(String qq) {
+		try {
+			String queryString = "from Agent agent where(agent.phone='" + qq +"') and (agent.role='超级班主任')"; 
 			Query queryObject = getCurrentSession().createQuery(queryString);
 			return queryObject.list();
 		} catch (RuntimeException re) {

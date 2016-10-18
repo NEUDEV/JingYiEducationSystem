@@ -29,6 +29,16 @@
 				</thead>
 				<tbody>
 					<tr>
+						<td>UID</td>
+						<td>${student.uid}</td>
+						<td><a>不能修改</a></td>
+					</tr>
+					<tr>
+						<td>学号</td>
+						<td>${student.stuid}</td>
+						<td><a>不能修改</a></td>
+					</tr>
+					<tr>
 						<td>姓名</td>
 						<td>${student.name}</td>
 						<td><a>不能修改</a></td>

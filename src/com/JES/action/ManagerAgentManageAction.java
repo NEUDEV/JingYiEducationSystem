@@ -4,6 +4,8 @@ import com.JES.model.Agent;
 import com.JES.service.ManagerService;
 import com.opensymphony.xwork2.ModelDriven;
 
+import freemarker.core.ReturnInstruction.Return;
+
 public class ManagerAgentManageAction extends SuperAction implements
 		ModelDriven<Agent> {
 
@@ -80,6 +82,59 @@ public class ManagerAgentManageAction extends SuperAction implements
 		request.setAttribute("agent", agent);
 		managerService.changeAgent(agent);
 		return "agentChangeSuccess";
+	}
+	
+	/**
+	 * 查找班主任。
+	 * @return
+	 */
+	public String searchCommonAgents() {
+		request.setAttribute("agentList", managerService.searchCommonAgent(request.getParameter("searchType"),
+				request.getParameter("searchValue")));
+		request.setAttribute("i", 0);
+		return "returnCommonAgent";
+	}
+	
+	/**
+	 * 显示所有班主任。
+	 * @return
+	 */
+	public String displayCommonAgents() {
+		request.setAttribute("agentList", managerService.getAgentDAO().findByRole("班主任"));
+		request.setAttribute("i", 0);
+		return "returnCommonAgent";
+	}
+	
+	/**
+	 * 查找班主任。
+	 * @return
+	 */
+	public String searchSuperAgents() {
+		request.setAttribute("agentList", managerService.searchSuperAgent(request.getParameter("searchType"),
+				request.getParameter("searchValue")));
+		request.setAttribute("i", 0);
+		return "returnCommonAgent";
+	}
+	
+	/**
+	 * 显示所有超级班主任。
+	 * @return
+	 */
+	public String displaySuperAgents() {
+		session.setAttribute("checkCommonAgents",
+				request.getParameterValues("check"));
+		
+		request.setAttribute("agentList", managerService.getAgentDAO().findByRole("超级班主任"));
+		request.setAttribute("i", 0);
+		return "returnCommonAgent";
+	}
+	
+	/**
+	 * 划分班主任。
+	 * @return
+	 */
+	public String divideAgent() {
+		return "divideAgentSuccess";
 	}
 
 	@Override

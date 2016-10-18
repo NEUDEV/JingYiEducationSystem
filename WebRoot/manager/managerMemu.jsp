@@ -25,7 +25,10 @@
 									<a href="<%=basePath%>Manager/ManagerAgentManage_display.action">班主任管理</a>
 								</div>
 								<div class="panel-body">
-									<a href="<%=basePath%>manager/agentRegister.jsp">开设班主任账户</a>
+									<a href="<%=basePath%>manager/agentManage/agentRegister.jsp">开设班主任账户</a>
+								</div>
+								<div class="panel-body">
+									<a href="<%=basePath%>Manager/ManagerAgentManage_displayCommonAgents.action">班主任划分至超级班主任</a>
 								</div>
 							</div>
 						</div>
@@ -47,7 +50,7 @@
 							</div>
 							<div id="panel-element-936975" class="panel-collapse collapse">
 								<div class="panel-body">
-									<a href="<%=basePath%>manager/divideStudent/divideStudent.jsp">学员划分</a>
+									<a href="<%=basePath%>manager/studentManage/divideStudent/divideStudent.jsp">学员划分</a>
 								</div>
 								<div class="panel-body">
 									<a href="<%=basePath%>manager/studentManage/studentManager.jsp">查看班主任学员信息</a>

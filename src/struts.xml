@@ -9,20 +9,29 @@
 
 			<!-- ManagerAgentRegister -->
 			<result name="regesterSuccess">/manager/managerMemu.jsp</result>
-			<result name="regesterFail">/manager/agentRegister.jsp</result>
+			<result name="regesterFail">/manager/agentManage/agentRegister.jsp</result>
 
 			<!-- ManagerAgentManage -->
-			<result name="agentsDisplay">/manager/chooseAgentAdmit.jsp</result>
-			<result name="toDelete">/manager/managerDeleteAgent.jsp</result>
-			<result name="agentDeleteSuccess">/manager/managerDeleteAgentSuccess.jsp</result>
-			<result name="agentChangeFaild">/manager/mangerAdmitAgent.jsp</result>
-			<result name="agentChangeSuccess">/manager/mangerAdmitSuccess.jsp</result>
+			<result name="agentsDisplay">/manager/agentManage/chooseAgentAdmit.jsp
+			</result>
+			<result name="toDelete">/manager/agentManage/managerDeleteAgent.jsp
+			</result>
+			<result name="agentDeleteSuccess">/manager/agentManage/managerDeleteAgentSuccess.jsp
+			</result>
+			<result name="agentChangeFaild">/manager/agentManage/mangerAdmitAgent.jsp
+			</result>
+			<result name="agentChangeSuccess">/manager/agentManage/mangerAdmitSuccess.jsp
+			</result>
+
+			<!-- ManagerDivideAgent -->
+			<result name="returnCommonAgent">/manager/agentManage/divideAgent/chooseCommonAgent.jsp</result>
 
 			<!-- ManagerDivideStudent -->
-			<result name="studentsDisplay">/manager/divideStudent/divideStudent.jsp</result>
-			<result name="firstLevelAgentDisplay">/manager/divideStudent/chooseFirstLevelAgent.jsp
+			<result name="studentsDisplay">/manager/studentManage/divideStudent/divideStudent.jsp
 			</result>
-			<result name="divideStudentSuccess">/manager/divideStudent/divideStudentSuccess.jsp
+			<result name="firstLevelAgentDisplay">/manager/studentManage/divideStudent/chooseFirstLevelAgent.jsp
+			</result>
+			<result name="divideStudentSuccess">/manager/studentManage/divideStudent/divideStudentSuccess.jsp
 			</result>
 
 			<!-- ManagerStudentManage -->
