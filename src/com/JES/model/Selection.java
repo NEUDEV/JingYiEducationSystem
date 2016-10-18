@@ -1,27 +1,69 @@
 package com.JES.model;
 
-public class Selection {
+/**
+ * Selection entity. @author MyEclipse Persistence Tools
+ */
+
+public class Selection implements java.io.Serializable {
+
+	// Fields
+
 	private String id;
 	private String uid;
-	private String cid;
-	public String getId() {
-		return id;
+	private String cname;
+	private Integer bill;
+
+	// Constructors
+
+	/** default constructor */
+	public Selection() {
 	}
+
+	/** minimal constructor */
+	public Selection(String id) {
+		this.id = id;
+	}
+
+	/** full constructor */
+	public Selection(String id, String uid, String cname, Integer bill) {
+		this.id = id;
+		this.uid = uid;
+		this.cname = cname;
+		this.bill = bill;
+	}
+
+	// Property accessors
+
+	public String getId() {
+		return this.id;
+	}
+
 	public void setId(String id) {
 		this.id = id;
 	}
+
 	public String getUid() {
-		return uid;
+		return this.uid;
 	}
+
 	public void setUid(String uid) {
 		this.uid = uid;
 	}
-	public String getCid() {
-		return cid;
+
+	public String getCname() {
+		return this.cname;
 	}
-	public void setCid(String cid) {
-		this.cid = cid;
+
+	public void setCname(String cname) {
+		this.cname = cname;
 	}
-	
-	
+
+	public Integer getBill() {
+		return this.bill;
+	}
+
+	public void setBill(Integer bill) {
+		this.bill = bill;
+	}
+
 }

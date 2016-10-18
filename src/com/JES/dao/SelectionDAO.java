@@ -31,7 +31,8 @@ public class SelectionDAO {
 			.getLogger(SelectionDAO.class);
 	// property constants
 	public static final String UID = "uid";
-	public static final String CID = "cid";
+	public static final String CNAME = "cname";
+	public static final String BILL = "bill";
 
 	private SessionFactory sessionFactory;
 
@@ -115,8 +116,12 @@ public class SelectionDAO {
 		return findByProperty(UID, uid);
 	}
 
-	public List findByCid(Object cid) {
-		return findByProperty(CID, cid);
+	public List findByCname(Object cname) {
+		return findByProperty(CNAME, cname);
+	}
+
+	public List findByBill(Object bill) {
+		return findByProperty(BILL, bill);
 	}
 
 	public List findAll() {

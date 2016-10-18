@@ -69,11 +69,19 @@
 	</class>
 
 	<class name="com.JES.model.Selection" table="selection">
-		<id name="id" column="id" type="java.lang.String">
-			<generator class="assigned"></generator>
-		</id>
-		<property name="uid" column="uid" type="java.lang.String"></property>
-		<property name="cid" column="cid" type="java.lang.String"></property>
+		<id name="id" type="java.lang.String">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="uid" type="java.lang.String">
+            <column name="uid" />
+        </property>
+        <property name="cname" type="java.lang.String">
+            <column name="cname" />
+        </property>
+        <property name="bill" type="java.lang.Integer">
+            <column name="bill" />
+        </property>
 	</class>
 
 	<class name="com.JES.model.Course" table="course">

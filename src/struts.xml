@@ -112,6 +112,12 @@
 			<result name="success" type="json">
 			</result>
 		</action>
+		<action name="AgentStudentsAction" class="com.JES.action.AgentStudentsAction"
+			method="Mystudents">
+			<!-- <result>/agent/studentAdmit.jsp</result> -->
+			<result type="json">
+			</result>
+		</action>
 	</package>
 	<!-- <package name="upload" namespace="/file" extends="struts-default"> 
 		<action name="upload" class="com.JES.action.AgentUpStudentAction"> <result 

@@ -1,10 +1,13 @@
 package com.JES.action;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
+
+import net.sf.json.JSONArray;
 
 import org.apache.struts2.ServletActionContext;
 
@@ -45,7 +48,11 @@ public class AgentStudentsAction extends SuperAction{
 		return "noshow";*/
 		
 		/*10.17*/
-		int totalRows = studentList.size();
+		
+		String json = JSONArray.fromObject(studentList).toString();
+		writeHtml(json);
+		 
+		/*int totalRows = studentList.size();
 		StringBuffer sb = new StringBuffer();
 		sb.append("{\"totalCount\":\""+totalRows+"\",");  
         sb.append("\"jsonRoot\":[");
@@ -82,8 +89,19 @@ public class AgentStudentsAction extends SuperAction{
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		}*/
         return null;
 	}
+	
+	protected void writeHtml(String strData) {
+		try {
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter pw = response.getWriter();
+		pw.write(strData);
+		pw.flush();
+		pw.close();
+		} catch (IOException e) {
+		}
+		}
 	
 }
