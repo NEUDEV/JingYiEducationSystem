@@ -25,6 +25,8 @@
 
 			<!-- ManagerDivideAgent -->
 			<result name="returnCommonAgent">/manager/agentManage/divideAgent/chooseCommonAgent.jsp</result>
+			<result name="returnSuperAgent">/manager/agentManage/divideAgent/chooseSuperAgent.jsp</result>
+			<result name="divideAgentSuccess">/manager/agentManage/divideAgent/divideAgentSuccess.jsp</result>
 
 			<!-- ManagerDivideStudent -->
 			<result name="studentsDisplay">/manager/studentManage/divideStudent/divideStudent.jsp

@@ -13,7 +13,7 @@ public class Agent {
 	private String bank;
 	private String account;
 	private String role;
-	private Integer mannager;
+	private String mannager;
 	public String getUid() {
 		return uid;
 	}
@@ -86,12 +86,10 @@ public class Agent {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	public Integer getMannager() {
+	public String getMannager() {
 		return mannager;
 	}
-	public void setMannager(Integer mannager) {
+	public void setMannager(String mannager) {
 		this.mannager = mannager;
 	}
-	
-	
 }

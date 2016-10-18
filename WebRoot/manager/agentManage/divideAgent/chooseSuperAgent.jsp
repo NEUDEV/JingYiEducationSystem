@@ -35,13 +35,10 @@
 		</div>
 		</nav>
 
-		<a>请选择班主任：</a> <input type="button" class="btn btn-default "
-			value="选择完成"
-			onclick="document.getElementById('selectStudentForm').submit();"
-			style="margin-right;" /><br>
+		<a>请选择班主任：</a>
 		<form
 			action="<%=basePath%>Manager/ManagerAgentManage_divideAgent.action"
-			method="post" id="selectStudentForm">
+			method="post" id="selectSuperAgentForm">
 			<table class="table table table-bordered">
 				<thead>
 					<tr>
@@ -70,6 +67,9 @@
 				</tbody>
 			</table>
 		</form>
+		<input type="button" class="btn btn-default " value="选择完成"
+			onclick="document.getElementById('selectSuperAgentForm').submit();"
+			style="margin-right;" /><br>
 	</div>
 </body>
 </html>

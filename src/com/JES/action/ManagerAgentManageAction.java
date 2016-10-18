@@ -1,6 +1,9 @@
 package com.JES.action;
 
+import java.util.ArrayList;
+
 import com.JES.model.Agent;
+import com.JES.model.Student;
 import com.JES.service.ManagerService;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -53,8 +56,10 @@ public class ManagerAgentManageAction extends SuperAction implements
 	public String toDelete() {
 		String uid = request.getParameter("uid");
 		session.setAttribute("uid", uid);
-		session.setAttribute("agent", managerService.getAgentDAO().findById(uid));
-		request.setAttribute("agent", managerService.getAgentDAO().findById(uid));
+		session.setAttribute("agent", managerService.getAgentDAO()
+				.findById(uid));
+		request.setAttribute("agent", managerService.getAgentDAO()
+				.findById(uid));
 		return "toDelete";
 	}
 
@@ -83,57 +88,86 @@ public class ManagerAgentManageAction extends SuperAction implements
 		managerService.changeAgent(agent);
 		return "agentChangeSuccess";
 	}
-	
+
 	/**
 	 * 查找班主任。
+	 * 
 	 * @return
 	 */
 	public String searchCommonAgents() {
-		request.setAttribute("agentList", managerService.searchCommonAgent(request.getParameter("searchType"),
-				request.getParameter("searchValue")));
+		request.setAttribute(
+				"agentList",
+				managerService.searchCommonAgent(
+						request.getParameter("searchType"),
+						request.getParameter("searchValue")));
 		request.setAttribute("i", 0);
 		return "returnCommonAgent";
 	}
-	
+
 	/**
 	 * 显示所有班主任。
+	 * 
 	 * @return
 	 */
 	public String displayCommonAgents() {
-		request.setAttribute("agentList", managerService.getAgentDAO().findByRole("班主任"));
+		request.setAttribute("agentList", managerService.getAgentDAO()
+				.findByRole("班主任"));
 		request.setAttribute("i", 0);
 		return "returnCommonAgent";
 	}
-	
+
 	/**
 	 * 查找班主任。
+	 * 
 	 * @return
 	 */
 	public String searchSuperAgents() {
-		request.setAttribute("agentList", managerService.searchSuperAgent(request.getParameter("searchType"),
-				request.getParameter("searchValue")));
+		request.setAttribute(
+				"agentList",
+				managerService.searchSuperAgent(
+						request.getParameter("searchType"),
+						request.getParameter("searchValue")));
 		request.setAttribute("i", 0);
-		return "returnCommonAgent";
+		return "returnSuperAgent";
 	}
-	
+
 	/**
 	 * 显示所有超级班主任。
+	 * 
 	 * @return
 	 */
 	public String displaySuperAgents() {
 		session.setAttribute("checkCommonAgents",
 				request.getParameterValues("check"));
-		
-		request.setAttribute("agentList", managerService.getAgentDAO().findByRole("超级班主任"));
+
+		request.setAttribute("agentList", managerService.getAgentDAO()
+				.findByRole("超级班主任"));
 		request.setAttribute("i", 0);
-		return "returnCommonAgent";
+		return "returnSuperAgent";
 	}
-	
+
 	/**
 	 * 划分班主任。
+	 * 
 	 * @return
 	 */
 	public String divideAgent() {
+		String superAgentID = request.getParameter("radio");
+		String[] checkStudents = (String[]) session
+				.getAttribute("checkCommonAgents");
+		ArrayList<Agent> agentList = new ArrayList<Agent>();
+
+		for (String uid : checkStudents) {
+			agent = managerService.getAgentDAO().findById(uid);
+			agent.setMannager(superAgentID);
+			managerService.getAgentDAO().merge(agent);
+			agentList.add(agent);
+		}
+
+		request.setAttribute("superAgent", managerService.getAgentDAO()
+				.findById(superAgentID));
+		request.setAttribute("agentList", agentList);
+		request.setAttribute("i", 0);
 		return "divideAgentSuccess";
 	}
 

@@ -10,7 +10,7 @@
 <body>
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<ul class="breadcrumb">
-			<li><a href="<%=basePath%>/index.jsp">主页</a></li>
+			<li><a href="<%=basePath%>index.jsp">主页</a></li>
 			<li class="active">选择班主任</li>
 			<li><a href="#">选择超级班主任</a></li>
 			<li><a href="#">划分成功</a></li>
@@ -35,13 +35,10 @@
 		</div>
 		</nav>
 
-		<a>请选择班主任：</a> <input type="button" class="btn btn-default "
-			value="选择完成"
-			onclick="document.getElementById('selectStudentForm').submit();"
-			style="margin-right;" /><br>
+		<a>请选择班主任：</a>
 		<form
 			action="<%=basePath%>Manager/ManagerAgentManage_displaySuperAgents.action"
-			method="post" id="selectStudentForm">
+			method="post" id="selectCommonAgentForm">
 			<table class="table table table-bordered">
 				<thead>
 					<tr>
@@ -70,6 +67,9 @@
 				</tbody>
 			</table>
 		</form>
+		<input type="button" class="btn btn-default " value="选择完成"
+			onclick="document.getElementById('selectCommonAgentForm').submit();"
+			style="margin-right;" /><br>
 	</div>
 </body>
 </html>
