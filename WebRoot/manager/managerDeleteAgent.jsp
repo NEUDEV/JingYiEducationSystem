@@ -4,26 +4,26 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>开设代理商账户</title>
+<title>开设班主任账户</title>
 </head>
 
 <body>
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<ul class="breadcrumb">
 			<li><a href="<%=basePath%>/index.jsp">主页</a></li>
-			<li><a href="#">代理商管理</a></li>
-			<li class="active">删除代理商</li>
+			<li><a href="#">班主任管理</a></li>
+			<li class="active">删除班主任</li>
 			<li><a href="#">删除成功</a></li>
 		</ul>
 
 		<dl>
-			<dt>代理商信息</dt>
+			<dt>班主任信息</dt>
 			</br>
 			<dd>账号： ${agent.aname}</dd>
 			<dd>姓名： ${agent.name}</dd>
 			<dd>QQ： ${agent.qq}</dd>
 			<dd>手机号： ${agent.phone}</dd>
-			<dd>代理商类别： ${agent.role}</dd>
+			<dd>班主任类别： ${agent.role}</dd>
 		</dl>
 
 

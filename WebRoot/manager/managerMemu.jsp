@@ -18,14 +18,14 @@
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<a class="panel-title" data-toggle="collapse"
-									data-parent="#panel-659100" href="#panel-element-24469">代理商管理</a>
+									data-parent="#panel-659100" href="#panel-element-24469">班主任管理</a>
 							</div>
 							<div id="panel-element-24469" class="panel-collapse collapse in">
 								<div class="panel-body">
-									<a href="<%=basePath%>Manager/ManagerAgentManage_display.action">代理商管理</a>
+									<a href="<%=basePath%>Manager/ManagerAgentManage_display.action">班主任管理</a>
 								</div>
 								<div class="panel-body">
-									<a href="<%=basePath%>manager/agentRegister.jsp">开设代理商账户</a>
+									<a href="<%=basePath%>manager/agentRegister.jsp">开设班主任账户</a>
 								</div>
 							</div>
 						</div>
@@ -47,7 +47,10 @@
 							</div>
 							<div id="panel-element-936975" class="panel-collapse collapse">
 								<div class="panel-body">
-									<a href="<%=basePath%>Manager/ManagerDivideStudent_display.action">划分学员</a>
+									<a href="<%=basePath%>manager/divideStudent/divideStudent.jsp">学员划分</a>
+								</div>
+								<div class="panel-body">
+									<a href="<%=basePath%>manager/studentManage/studentManager.jsp">查看班主任学员信息</a>
 								</div>
 							</div>
 						</div>

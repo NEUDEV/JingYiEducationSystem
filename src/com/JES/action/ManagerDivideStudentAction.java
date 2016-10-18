@@ -18,20 +18,9 @@ public class ManagerDivideStudentAction extends SuperAction implements
 	public void setManagerService(ManagerService managerService) {
 		this.managerService = managerService;
 	}
-
-	public String display() {
-		request.setAttribute("studentList", managerService.getJingyiStudents());
-
-		return "studentsDisplay";
-	}
-
-	/**
-	 * 查询鲸艺学员。
-	 * 
-	 * @return
-	 */
+	
 	public String searchStudent() {
-		request.setAttribute("studentList", managerService.searchJingyiStudent(
+		request.setAttribute("studentList", managerService.searchStudent(
 				request.getParameter("searchType"),
 				request.getParameter("searchValue")));
 		return "studentsDisplay";
@@ -42,14 +31,15 @@ public class ManagerDivideStudentAction extends SuperAction implements
 	 * @return
 	 */
 	public String selectJingyiStudent() {
-		session.setAttribute("JingYiStudents",
+		session.setAttribute("checkStudents",
 				request.getParameterValues("check"));
 		request.setAttribute("firstLevelAgents", managerService.searchAgent("代理商类别", "1级代理商"));
 		return "firstLevelAgentDisplay";
 	}
 	
-	public String searchFirstLevelAgent() {
-		request.setAttribute("firstLevelAgents", managerService.searchFirstLevelAgents(
+	
+	public String searchAgent() {
+		request.setAttribute("Agents", managerService.searchAgent(
 				request.getParameter("searchType"),
 				request.getParameter("searchValue")));
 		
@@ -57,15 +47,15 @@ public class ManagerDivideStudentAction extends SuperAction implements
 	}
 	
 	public String divideJingyiToFirstLevelAgent() {
-		String firstLevelAgent = request.getParameter("radio");
-		String[] JingYiStudents = (String[])session.getAttribute("JingYiStudents");
+		String agentID = request.getParameter("radio");
+		String[] checkStudents = (String[])session.getAttribute("checkStudents");
 		ArrayList<Student> studentList = new ArrayList<Student>();
 		
-		for (String uid : JingYiStudents) {
-			student = managerService.findStudentByID(uid);
-			student.setMid(firstLevelAgent);
-			student.setMsign("1级代理商");
-			managerService.updateStudent(student);
+		for (String uid : checkStudents) {
+			student = managerService.getStudentDAO().findById(uid);
+			student.setMid(agentID);
+			student.setMsign(managerService.getAgentDAO().findById(agentID).getRole());
+			managerService.getStudentDAO().merge(student);
 			studentList.add(student);
 		}
 		

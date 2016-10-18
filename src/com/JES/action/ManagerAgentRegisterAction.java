@@ -32,12 +32,10 @@ public class ManagerAgentRegisterAction extends SuperAction implements
 			return "regesterFail";
 		} 
 		
-		if ("鲸艺代理商".equals(role)) {
-			agent.setRole("鲸艺代理商");
-		} else if ("1级代理商".equals(role)) {
-			agent.setRole("1级代理商");
-		} else if ("2级代理商".equals(role)) {
-			agent.setRole("2级代理商");
+		if ("班主任".equals(role)) {
+			agent.setRole("班主任");
+		} else if ("超级班主任".equals(role)) {
+			agent.setRole("超级班主任");
 		}
 		
 		// TODO 将agent.manager设置为String类型。

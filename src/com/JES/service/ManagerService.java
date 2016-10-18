@@ -76,10 +76,10 @@ public class ManagerService {
 	}
 
 	/**
-	 * 是否存在代理商。
+	 * 是否存在班主任。
 	 * 
 	 * @param agent
-	 *            代理商对象。
+	 *            班主任对象。
 	 * @return
 	 */
 	public boolean isExistAgent(Agent agent) {
@@ -99,7 +99,7 @@ public class ManagerService {
 	}
 
 	/**
-	 * 代理商注册。
+	 * 班主任注册。
 	 * 
 	 * @param agent
 	 */
@@ -113,16 +113,8 @@ public class ManagerService {
 		return (ArrayList<Agent>) agentDAO.findAll();
 	}
 
-	public ArrayList<Student> getJingyiStudents() {
-		ArrayList<Student> students = new ArrayList<Student>();
-
-		students = (ArrayList<Student>) studentDAO.findByMsign("鲸艺代理商");
-
-		return students;
-	}
-
 	/**
-	 * 查找代理商。
+	 * 查找班主任。
 	 * 
 	 * @param searchType
 	 * @param searchValue
@@ -138,86 +130,68 @@ public class ManagerService {
 			return (ArrayList<Agent>) agentDAO.findByPhone(searchValue);
 		} else if ("QQ".equals(searchType)) {
 			return (ArrayList<Agent>) agentDAO.findByQq(searchValue);
-		} else if ("代理商类别".equals(searchType)) {
+		} else if ("班主任类别".equals(searchType)) {
 			return (ArrayList<Agent>) agentDAO.findByRole(searchValue);
 		}
 
 		return new ArrayList<Agent>();
 	}
 
-	/**
-	 * 查找一级代理商。
-	 * 
-	 * @param searchType
-	 * @param searchValue
-	 * @return
-	 */
-	public ArrayList<Agent> searchFirstLevelAgents(String searchType,
-			String searchValue) {
-		if ("账户名".equals(searchType)) {
-			return (ArrayList<Agent>) agentDAO
-					.findFirstLevelAgentsByAname(searchValue);
-		} else if ("姓名".equals(searchType)) {
-			return (ArrayList<Agent>) agentDAO
-					.findFirstLevelAgentsByName(searchValue);
-		} else if ("手机号".equals(searchType)) {
-			return (ArrayList<Agent>) agentDAO
-					.findFirstLevelAgentsByPhone(searchValue);
-		} else if ("QQ".equals(searchType)) {
-			return (ArrayList<Agent>) agentDAO
-					.findFirstLevelAgentsByQq(searchValue);
-		}
-
-		return new ArrayList<Agent>();
-	}
-
-	public ArrayList<Student> searchJingyiStudent(String searchType,
+	public ArrayList<Student> searchStudent(String searchType,
 			String searchValue) {
 		if ("UID".equals(searchType)) {
 			ArrayList<Student> students = new ArrayList<Student>();
 			Student student = studentDAO.findById(searchValue);
-			if ((student != null) && "鲸艺代理商".equals(student.getMsign())) {
+			if (student != null) {
 				students.add(student);
 			}
 			return students;
 		} else if ("姓名".equals(searchType)) {
 			return (ArrayList<Student>) studentDAO
-					.findJingYiByName(searchValue);
+					.findByName(searchValue);
 		} else if ("手机号".equals(searchType)) {
 			return (ArrayList<Student>) studentDAO
-					.findJingYiByPhone(searchValue);
+					.findByPhone(searchValue);
 		} else if ("QQ".equals(searchType)) {
-			return (ArrayList<Student>) studentDAO.findJingYiByQq(searchValue);
+			return (ArrayList<Student>) studentDAO.findByQq(searchValue);
+		} else if ("学号".equals(searchType)) {
+			return (ArrayList<Student>) studentDAO.findByStuid(searchValue);
 		}
 
 		return new ArrayList<Student>();
 	}
 
-	public Student findStudentByID(String id) {
-		return studentDAO.findById(id);
-	}
-
-	public void updateStudent(Student student) {
-		studentDAO.merge(student);
-	}
-
-	public Agent getAgentByID(String uid) {
-		return agentDAO.findById(uid);
-	}
-
-	public void deleteAgent(Agent agent) {
-		agentDAO.delete(agent);
-	}
-
 	public void changeAgent(Agent agent) {
-		agentDAO.merge(agent);
+		Agent otherAgent = agentDAO.findById(agent.getUid());
+		
+		if (!agent.getAname().equals(otherAgent.getAname())) {
+			otherAgent.setAname(agent.getAname());
+		}
+		
+		if (!agent.getName().equals(otherAgent.getName())) {
+			otherAgent.setName(agent.getName());
+		}
+		
+		if (!agent.getQq().equals(otherAgent.getQq())) {
+			otherAgent.setQq(agent.getQq());
+		} 
+		
+		if (!agent.getPhone().equals(otherAgent.getPhone())) {
+			otherAgent.setPhone(agent.getPhone());
+		}
+		
+		if (!agent.getRole().equals(otherAgent.getRole())) {
+			otherAgent.setRole(agent.getRole());
+		}
+		
+		agentDAO.merge(otherAgent);
 	}
 
 	public Report dealWithReport(String managerId) {
 		Manager manager = managerDAO.findById(managerId);
 		Report report = new Report(0);
 		ArrayList<Report> reports = (ArrayList<Report>) reportDAO
-				.findByRole("代理商");
+				.findByRole("班主任");
 		Integer allOfStudent = 0;
 
 		for (Report item : reports) {

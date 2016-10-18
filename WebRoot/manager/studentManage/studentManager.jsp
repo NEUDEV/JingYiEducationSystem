@@ -1,28 +1,23 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@ page import="com.JES.model.Student"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ include file="./managerMemu.jsp"%>
+<%@ include file="../managerMemu.jsp"%>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>开设班主任账户</title>
 </head>
-
 <body>
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-		<ul class="breadcrumb">
-			<li><a href="<%=basePath%>/index.jsp">主页</a></li>
-			<li class="active">选择班主任</li>
-			<li><a href="#">登记班主任信息</a></li>
-			<li><a href="#">登记成功</a></li>
-		</ul>
 		<nav class="navbar navbar-default navbar-static-top" role="navigation">
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<form class="navbar-form navbar-left" role="search"
-				action="<%=basePath%>Manager/ManagerAgentManage_searchAgent.action"
+				action="<%=basePath%>Manager/ManagerStudentManage_searchStudent.action"
 				method="post">
 				<select name="searchType" class="form-control">
-					<option>账户名</option>
+					<option>UID</option>
+					<option>学号</option>
 					<option>姓名</option>
 					<option>手机号</option>
 					<option>QQ</option>
@@ -30,40 +25,47 @@
 				<div class="form-group">
 					<input class="form-control" name="searchValue" type="text" />
 				</div>
-				<button type="submit" class="btn btn-default">查找</button>
+				<button type="submit" class="btn btn-default">查找班主任学员信息</button>
 			</form>
 		</div>
+
 		</nav>
-		<table class="table table table-bordered">
+		<table class="table">
 			<thead>
 				<tr>
-					<th>账户名</th>
+					<th>序号</th>
+					<th>UID</th>
+					<th>学号</th>
 					<th>姓名</th>
 					<th>手机号</th>
 					<th>QQ</th>
-					<th>班主任类别</th>
+					<th>微信</th>
+					<th>来源</th>
+					<th>状态</th>
+					<th>录入时间</th>
 					<th>操作</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${request.agentList}" var="agent">
-					<tr>
-						<td>${agent.aname}</td>
-						<td>${agent.name}</td>
-						<td>${agent.phone}</td>
-						<td>${agent.qq}</td>
-						<td>${agent.role}</td>
+
+				<c:forEach items="${request.studentList}" var="student">
+					<tr><td>${i=i+1}</td>
+						<td>${student.uid}</td>
+						<td>${student.stuid}</td>
+						<td>${student.name}</td>
+						<td>${student.phone}</td>
+						<td>${student.qq}</td>
+						<td>${student.weixin}</td>
+						<td>${student.sfrom}</td>
+						<td>${student.sign}</td>
+						<td>${student.intime}</td>
+						<td>${student.mark}</td>
 						<td><a
-							href="<%=basePath%>manager/mangerAdmitAgent.jsp?uid=${agent.uid}">修改
-						</a> <a
-							href="<%=basePath%>Manager/ManagerAgentManage_toDelete.action?uid=${agent.uid}">删除
+							href="<%=basePath%>Manager/ManagerStudentManage_searchStudentById.action?uid=${student.uid}">修改
 						</a></td>
-					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
 </body>
 </html>
-
-

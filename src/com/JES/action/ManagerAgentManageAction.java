@@ -28,53 +28,55 @@ public class ManagerAgentManageAction extends SuperAction implements
 		request.setAttribute("agentList", managerService.getAgents());
 		return "agentsDisplay";
 	}
-	
+
 	/**
 	 * 查询代理商。
+	 * 
 	 * @return
 	 */
 	public String searchAgent() {
-		request .setAttribute("agentList", managerService.searchAgent(request.getParameter("searchType"), request.getParameter("searchValue")));
+		request.setAttribute("agentList", managerService.searchAgent(
+				request.getParameter("searchType"),
+				request.getParameter("searchValue")));
 		return "agentsDisplay";
 	}
-	
+
 	public String toChange() {
 		String uid = request.getParameter("uid");
 		session.setAttribute("uid", uid);
-		
+
 		return "toChange";
 	}
-	
+
 	public String toDelete() {
 		String uid = request.getParameter("uid");
 		session.setAttribute("uid", uid);
-		session.setAttribute("agent", managerService.getAgentByID(uid));
-		request.setAttribute("agent", managerService.getAgentByID(uid));
+		session.setAttribute("agent", managerService.getAgentDAO().findById(uid));
+		request.setAttribute("agent", managerService.getAgentDAO().findById(uid));
 		return "toDelete";
 	}
-	
+
 	public String delete() {
-		managerService.deleteAgent((Agent)session.getAttribute("agent"));
+		managerService.getAgentDAO().delete(
+				((Agent) session.getAttribute("agent")));
 		return "agentDeleteSuccess";
 	}
-	
+
 	public String change() {
 		agent.setUid(request.getParameter("uid"));
-		
+
 		if (managerService.isExistAgent(agent)) {
 			request.setAttribute("info", "账号已存在。");
 			return "agentChangeFaild";
 		}
-		
+
 		String role = request.getParameter("selectRole");
-		if ("鲸艺代理商".equals(role)) {
-			agent.setRole("鲸艺代理商");
-		} else if ("1级代理商".equals(role)) {
-			agent.setRole("1级代理商");
-		} else if ("2级代理商".equals(role)) {
-			agent.setRole("2级代理商");
+		if ("班主任".equals(role)) {
+			agent.setRole("班主任");
+		} else if ("超级班主任".equals(role)) {
+			agent.setRole("超级班主任");
 		}
-		
+
 		request.setAttribute("agent", agent);
 		managerService.changeAgent(agent);
 		return "agentChangeSuccess";

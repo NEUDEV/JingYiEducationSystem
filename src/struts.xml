@@ -24,7 +24,15 @@
 			</result>
 			<result name="divideStudentSuccess">/manager/divideStudent/divideStudentSuccess.jsp
 			</result>
-			
+
+			<!-- ManagerStudentManage -->
+			<result name="searchStudentSuccess">/manager/studentManage/studentManager.jsp
+			</result>
+			<result name="returnStudentInfo">/manager/studentManage/studentInfoUpdate.jsp
+			</result>
+			<result name="changeStudentInfoSuccess">/manager/managerMemu.jsp
+			</result>
+
 			<!-- ManagerViewReport -->
 			<result name="displayReport">/manager/report/displayReport.jsp</result>
 
@@ -40,10 +48,11 @@
 			<!-- AgentChangePassword -->
 			<result name="changePasswordSuccess">/agent/agentMemu.jsp</result>
 			<result name="changePasswordFailed">/agent/agentChangePassword.jsp</result>
-			
+
 			<result name="returnAgentInfo">/agent/agentChangeInfo.jsp</result>
 			<result name="changeAgentInfoSuccess">/agent/agentMemu.jsp</result>
 			<result name="changeAgentInfoFailed">/agent/agentChangeInfo.jsp</result>
+
 		</action>
 	</package>
 

@@ -4,15 +4,15 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>开设代理商账户</title>
+<title>开设班主任账户</title>
 </head>
 
 <body>
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<ul class="breadcrumb">
 			<li><a href="<%=basePath%>/index.jsp">主页</a></li>
-			<li><a href="#">选择代理商</a></li>
-			<li class="active">登记代理商信息</li>
+			<li><a href="#">选择班主任</a></li>
+			<li class="active">登记班主任信息</li>
 			<li><a href="#">登记成功</a></li>
 		</ul>
 
@@ -32,11 +32,10 @@
 					type="number" name="phone" size="11" />
 			</div>
 			<div class="form-group">
-				<label for="role">变更代理商级别:</label> <select name="selectRole"
+				<label for="role">变更班主任类型:</label> <select name="selectRole"
 					class="form-control">
-					<option>鲸艺代理商</option>
-					<option>1级代理商</option>
-					<option>2级代理商</option>
+					<option>班主任</option>
+					<option>班主任</option>
 				</select>
 			</div>
 			<div class="col-md-12 column">${request.info}</div>

@@ -4,12 +4,12 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>开设代理商账户</title>
+<title>开设班主任账户</title>
 <script type="text/javascript">
 	$(function() {
 		$("#commit").click(function() {
 			if ($("#aname").val() == "") {
-				alert("账户名不能为空");
+				alert("用户名不能为空");
 			} else if ($("#name").val() == "") {
 				alert("姓名不能为空");
 
@@ -27,7 +27,7 @@
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<ul class="breadcrumb">
 			<li><a href="<%=basePath%>/index.jsp">主页</a></li>
-			<li class="active">注册代理商</li>
+			<li class="active">注册班主任</li>
 			<li><a href="#">注册成功</a></li>
 		</ul>
 
@@ -51,11 +51,10 @@
 					type="number" name="phone" size="11" />
 			</div>
 			<div class="form-group">
-				<label for="role">选择代理商级别:</label> <select name="selectRole"
+				<label for="role">选择班主任级别:</label> <select name="selectRole"
 					class="form-control">
-					<option>鲸艺代理商</option>
-					<option>1级代理商</option>
-					<option>2级代理商</option>
+					<option>班主任</option>
+					<option>超级班主任</option>
 				</select>
 			</div>
 

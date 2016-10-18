@@ -11,7 +11,7 @@
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<ul class="breadcrumb">
 			<li><a href="<%=basePath%>/index.jsp">主页</a></li>
-			<li class="active">选择一级代理商</li>
+			<li class="active">选择班主任</li>
 			<li><a href="#">划分</a></li>
 			<li><a href="#">划分成功</a></li>
 		</ul>
@@ -19,7 +19,7 @@
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<form class="navbar-form navbar-left" role="search"
-				action="<%=basePath%>Manager/ManagerDivideStudent_searchFirstLevelAgent.action"
+				action="<%=basePath%>Manager/ManagerDivideStudent_searchAgent.action"
 				method="post">
 				<select name="searchType" class="form-control">
 					<option>账户名</option>
@@ -30,12 +30,12 @@
 				<div class="form-group">
 					<input class="form-control" name="searchValue" type="text" />
 				</div>
-				<button type="submit" class="btn btn-default">查找一级代理商</button>
+				<button type="submit" class="btn btn-default">查找班主任</button>
 			</form>
 		</div>
 		</nav>
 
-		<a>请选择目的一级代理商：</a>
+		<a>请选择目的班主任：</a>
 		<input type="button" class="btn btn-default " value="选择完成"
 			onclick="document.getElementById('selectStudentForm').submit();"/><br>
 
@@ -48,12 +48,12 @@
 						<th>姓名</th>
 						<th>手机号</th>
 						<th>QQ</th>
-						<th>代理商类别</th>
+						<th>班主任类别</th>
 						<th>操作</th>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${request.firstLevelAgents}" var="agent">
+					<c:forEach items="${request.Agents}" var="agent">
 						<tr>
 							<td>${agent.aname}</td>
 							<td>${agent.name}</td>

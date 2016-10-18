@@ -11,13 +11,14 @@
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<ul class="breadcrumb">
 			<li><a href="<%=basePath%>/index.jsp">主页</a></li>
-			<li class="active">选择鲸艺代理商学员</li>
+			<li class="active">选择班主任学员</li>
 			<li><a href="#">划分</a></li>
 			<li><a href="#">划分成功</a></li>
 		</ul>
 		<nav class="navbar navbar-default navbar-static-top" role="navigation">
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
+			
 			<form class="navbar-form navbar-left" role="search"
 				action="<%=basePath%>Manager/ManagerDivideStudent_searchStudent.action"
 				method="post">
@@ -30,12 +31,12 @@
 				<div class="form-group">
 					<input class="form-control" name="searchValue" type="text" />
 				</div>
-				<button type="submit" class="btn btn-default">查找鲸艺学员</button>
+				<button type="submit" class="btn btn-default">查找学员</button>
 			</form>
 		</div>
 		</nav>
 
-		<a>请选择鲸艺代理商学员：</a>
+		<a>请选择班主任学员：</a>
 		<input type="button" class="btn btn-default " value="选择完成"
 			onclick="document.getElementById('selectStudentForm').submit();" style="margin-right;"/><br>
 
@@ -48,7 +49,7 @@
 						<th>姓名</th>
 						<th>手机号</th>
 						<th>QQ</th>
-						<th>代理商类别</th>
+						<th>班主任类别</th>
 						<th>操作</th>
 					</tr>
 				</thead>
