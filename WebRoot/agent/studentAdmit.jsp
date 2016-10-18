@@ -32,27 +32,34 @@
                  return false;  
                 }  
                 });      
-     }  
+     };
      
      
      function cheackblock(){
      	var name=$("#name").val();
      	var qq=$("#qq").val();
      	var s=document.form.file.value;
+     	//alert(name+qq+s);
      	if(name!=""&&qq!=""&&s!=""){
-        	document.getElementsByName("form")[0].submit();
+     		alert("不空");
+        	document.getElementById("form").submit();
         }else{
      	if(name==""){
-     		$("#name").innerHTML="请填入姓名";
+     		$("#name").innerHTML="name";
+     		document.getElementById("name").focus();
+     		return false; 
      	}
      	else $("#name").innerHTML="";
      	if(qq==""){
-     		$("#qq").innerHTML="请填入QQ";
+     		$("#qq").innerHTML="QQ";
+     		document.getElementById("qq").focus();
+     		return false;
      	}
      	else $("#qq").innerHTML="";
      	if(s==""){
                 alert("请选择一张图片");
-                document.form.uploadFileCtrl.focus();
+                document.getElementById("file").focus();
+                return false;
             }
          }
      }
@@ -88,7 +95,7 @@
 				<input type="file" name="file" id="file">  
 				<input type="reset" class="btn1" value="取消">
 			</div>
-			<button type="button" class="btn btn-default" id="submit" onclick="cheackblock()">提交</button>
+			<button type="submit" class="btn btn-default" id="submit" onclick="cheackblock()">提交</button>
 		</form>
 	</div>
 </body>
