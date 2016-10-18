@@ -38,8 +38,8 @@
 		<property name="mark" type="java.lang.Integer">
 			<column name="mark" />
 		</property>
-		<property name="intime" type="java.util.Date">
-			<column name="intime" length="10" />
+		<property name="intime" type="java.lang.String">
+			<column name="intime" length="45" />
 		</property>
 	</class>
 	<class name="com.JES.model.Agent" table="agent">

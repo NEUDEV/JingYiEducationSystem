@@ -21,7 +21,7 @@ public class Student implements java.io.Serializable {
 	private String stuid;
 	private String sfrom;
 	private Integer mark;
-	private Date intime;
+	private String intime;
 
 	// Constructors
 
@@ -37,7 +37,7 @@ public class Student implements java.io.Serializable {
 	/** full constructor */
 	public Student(String uid, String msign, String name, String phone,
 			String qq, String weixin, String mid, String sign, String stuid,
-			String sfrom, Integer mark, Date intime) {
+			String sfrom, Integer mark, String intime) {
 		this.uid = uid;
 		this.msign = msign;
 		this.name = name;
@@ -142,11 +142,11 @@ public class Student implements java.io.Serializable {
 		this.mark = mark;
 	}
 
-	public Date getIntime() {
+	public String getIntime() {
 		return this.intime;
 	}
 
-	public void setIntime(Date intime) {
+	public void setIntime(String intime) {
 		this.intime = intime;
 	}
 

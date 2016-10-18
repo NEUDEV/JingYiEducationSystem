@@ -72,6 +72,9 @@
 			method="viewImages">
 
 		</action>
+		<action name="StudentMassageFileOutAction" class="com.JES.action.StudentMassageFileOutAction"
+			method="massageout">
+		</action>
 	</package>
 
 	<package name="ajax" extends="json-default">

@@ -25,6 +25,7 @@
 					<input class="form-control" name="searchvalue" type="text" />
 				</div>
 				<button type="submit" class="btn btn-default">Submit</button>
+				<a href="StudentMassageFileOutAction">导出所有学员信息</a>
 			</form>
 		</div>
 
@@ -34,10 +35,15 @@
 				<tr>
 					<th>序号</th>
 					<th>UID</th>
+					<th>学号</th>
 					<th>姓名</th>
 					<th>手机号</th>
 					<th>QQ</th>
+					<th>微信</th>
+					<th>来源</th>
 					<th>状态</th>
+					<th>录入时间</th>
+					<th>学员转化指数</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -48,11 +54,17 @@
 						for (int i = 0; i < list.size(); i++) {
 				%>
 				<tr>
+					<td><%=i+1%></td>
 					<td><%=list.get(i).getUid()%></td>
+					<td><%=list.get(i).getStuid()%></td>
 					<td><%=list.get(i).getName()%></td>
 					<td><%=list.get(i).getPhone()%></td>
 					<td><%=list.get(i).getQq()%></td>
+					<td><%=list.get(i).getWeixin()%></td>
+					<td><%=list.get(i).getSfrom()%></td>
 					<td><%=list.get(i).getSign()%></td>
+					<td><%=list.get(i).getIntime()%></td>
+					<td><%=list.get(i).getMark()%></td>
 				</tr>
 				<%
 					}
