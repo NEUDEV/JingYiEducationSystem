@@ -101,7 +101,7 @@
 			<column name="class" />
 		</property>
 		<property name="photo" type="binary">
-			<column name="photo" />
+			<column name="photo"/>
 		</property>
 	</class>
 

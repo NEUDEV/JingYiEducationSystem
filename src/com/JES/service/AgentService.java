@@ -193,6 +193,13 @@ public class AgentService {
 
 		return false;
 	}
+	
+	public boolean cheakQq(String qq){
+		List<Student> student =studentDAO.findByQq(qq);
+		if(student.size()!=0)
+			return true;
+		else return false;
+	}
 
 	@SuppressWarnings("deprecation")
 	public String studentmsout() throws Exception {

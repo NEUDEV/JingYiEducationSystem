@@ -78,10 +78,10 @@
 	</package>
 
 	<package name="ajax" extends="json-default">
-		<action name="cheakuid" class="com.JES.action.AgentAddStuAction"
-			method="cheakUid">
+		<action name="cheakqq" class="com.JES.action.CheakQqAction"
+			method="execute">
 			<!-- <result>/agent/studentAdmit.jsp</result> -->
-			<result name="SUCCESS" type="json">
+			<result name="success" type="json">
 			</result>
 		</action>
 	</package>
