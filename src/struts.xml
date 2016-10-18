@@ -69,7 +69,7 @@
 	<package name="agent" extends="struts-default" namespace="/agent">
 		<action name="AgentStudentsAction" class="com.JES.action.AgentStudentsAction"
 			method="Mystudents">
-			<result name="show">/agent/debug.jsp</result>
+			<result name="show">/agent/studentShow.jsp</result>
 			<result name="noshow">/test.jsp</result>
 		</action>
 		<action name="AgentAddStudentsAction" class="com.JES.action.AgentAddStuAction"
@@ -92,6 +92,14 @@
 		</action>
 		<action name="StudentMassageFileOutAction" class="com.JES.action.StudentMassageFileOutAction"
 			method="massageout">
+		</action>
+
+		<action name="studentList" class="com.JES.action.AgentStudentsAction" method="Mystudents">
+			<!--plaintext用于显示页面原始代码的结果类型 -->
+			<result type="plainText">
+				<param name="charSet">UTF-8</param>
+				<param name="location">/WEB-INF/agent/studentShow_test.jsp</param>
+			</result>
 		</action>
 	</package>
 
