@@ -1,5 +1,5 @@
 
-    package forchange;  
+    package com.JES.json;  
     import java.beans.IntrospectionException;  
     import java.beans.Introspector;  
     import java.beans.PropertyDescriptor;  
@@ -15,7 +15,7 @@
             if (object == null) {  
                 json.append("\"\"");  
             } else if (object instanceof String || object instanceof Integer || object instanceof Double) {  
-                json.append("\"").append((String)object).append("\"");  
+                json.append("\"").append(object.toString()).append("\"");  
             } else {  
                 json.append(beanToJson(object));  
             }  
@@ -64,17 +64,17 @@
          */  
         public static String listToJson(List<?> list) {  
             StringBuilder json = new StringBuilder();  
-            json.append("{"); 
+            json.append("["); 
             if (list != null && list.size() > 0) {  
                 for (Object obj : list) {  
                     json.append(objectToJson(obj));  
                     json.append(",");  
                 }  
-                json.setCharAt(json.length() - 1, '}');  
+                json.setCharAt(json.length() - 1, ']');  
             } else {  
-                json.append("}"); 
+                json.append("]"); 
             }  
             System.out.println(json.toString());  
-            return json.toString();  
+            return json.toString(); 
         }  
     }  

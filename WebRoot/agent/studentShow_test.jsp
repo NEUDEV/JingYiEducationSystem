@@ -16,16 +16,12 @@
 			datatype: "json",
 			contentType: "application/json",
 			success : function(json) {
-			var aa=json.jsonResult;
-			var data=JSON.parse(aa);
-			alert(data[0].uid);
-			$.each(json,function(index,order){
-				alert(index);
-					if(index==0)
-					return true;
-				alert("uid:"+json.uid);	
-				alert("uid:"+order.uid);})
-				alert("success:"+order[0].uid);
+			alert(typeof(json.jsonResult));
+			var order = $.parseJSON(json.jsonResult);
+			alert(typeof(order));
+			//var data=JSON.parse(aa);
+			alert(order[0].uid);
+				alert("success:"+order[0].name);
 				var result = "";
 				if (order == null) {
 					alert('order is null');
@@ -58,7 +54,6 @@
 					result += "<td >" + order[i].sfrom + "</td>";
 					result += "<td >" + order[i].sign + "</td>";
 					result += "<td >" + order[i].intime + "</td>";
-					result += "<td >" + order[i].class_ + "</td>";
 					result += "<td >" + order[i].mark + "</td>";
 					result += "</tr>";
 				}
