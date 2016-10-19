@@ -18,47 +18,43 @@
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<a class="panel-title collapsed" data-toggle="collapse"
-									data-parent="#panel-699072" href="#panel-element-16476">我的佣金</a>
+									data-parent="#panel-699072" href="#panel-element-16476">我的学员</a>
 							</div>
 							<div id="panel-element-16476" class="panel-collapse collapse">
-								<div class="panel-body">我的佣金</div>
-								<div class="panel-body">结算记录</div>
+								<div class="panel-body">
+									<a href="<%=basePath%>agent/studentAdmit.jsp">添加学员</a>
+								</div>
+								<div class="panel-body">
+									<a href="<%=basePath%>agent/debug.jsp">我的学员</a>
+								</div>
+								<div class="panel-body">
+									<a href="#">信息导出</a>
+								</div>
 							</div>
 						</div>
 
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<a class="panel-title" data-toggle="collapse"
-									data-parent="#panel-699072" href="#panel-element-724199">我的业绩</a>
+									data-parent="#panel-699072" href="#panel-element-724199">我的团队</a>
 							</div>
 							<div id="panel-element-724199" class="panel-collapse in">
 								<div class="panel-body">
-									<a href="#">业绩订单</a>
+									<a href="#">团队成员</a>
 								</div>
-								<div class="panel-body">班长订单</div>
-								<div class="panel-body">业绩汇总</div>
-								<div class="panel-body">我的工单</div>
 							</div>
 						</div>
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<a class="panel-title" data-toggle="collapse"
-									data-parent="#panel-699072" href="#panel-element-724200">我的学员</a>
+									data-parent="#panel-699072" href="#panel-element-724200">我的业绩</a>
 							</div>
 							<div id="panel-element-724200" class="panel-collapse in">
-								<div class="panel-body">我的学员</div>
+								<div class="panel-body">我的业绩</div>
+								<div class="panel-body">班主任业绩</div>
+								<div class="panel-body">业绩汇总</div>
 							</div>
 						</div>
-						<div class="panel panel-default">
-							<div class="panel-heading">
-								<a class="panel-title" data-toggle="collapse"
-									data-parent="#panel-699072" href="#panel-element-724201">我的团队</a>
-							</div>
-							<div id="panel-element-724201" class="panel-collapse in">
-								<div class="panel-body">我的推广员</div>
-							</div>
-						</div>
-
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<a class="panel-title collapsed" data-toggle="collapse"
@@ -66,10 +62,10 @@
 							</div>
 							<div id="panel-element-16477" class="panel-collapse collapse">
 								<div class="panel-body">
-									<a href="<%=basePath%>Agent/AgentLoginAndInfo_getAgentInfo.action">个人信息修改</a>
+									<a
+										href="<%=basePath%>Agent/AgentLoginAndInfo_getAgentInfo.action">个人信息</a>
 								</div>
-								<div class="panel-body">银行信息</div>
-								<div class="panel-body">手机验证</div>
+								<div class="panel-body">银行卡信息</div>
 								<div class="panel-body">
 									<a href="<%=basePath%>agent/agentChangePassword.jsp">修改密码</a>
 								</div>

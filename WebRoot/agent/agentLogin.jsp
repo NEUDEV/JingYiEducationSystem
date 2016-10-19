@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>代理商登录</title>
+<title>班主任登录</title>
 <link href="<%=basePath%>resource/css/signin.css" rel="stylesheet">
 </head>
 
@@ -15,7 +15,7 @@
 				<form class="form-signin" role="form"
 					action="<%=basePath%>Agent/AgentLoginAndInfo_login.action"
 					method="post">
-					<h3 class="form-signin-heading">代理商登录</h3>
+					<h3 class="form-signin-heading">班主任登录</h3>
 
 					<input class="form-control" placeholder="账号名" required=""
 						autofocus="" type="text" name="aname"> <input

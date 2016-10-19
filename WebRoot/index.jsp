@@ -32,9 +32,9 @@
 				data-toggle="dropdown">登录<strong class="caret"></strong></a>
 				<ul class="dropdown-menu">
 					<li><a href="<%=basePath%>manager/login.jsp">管理员登录</a></li>
-					<li><a href="<%=basePath%>agent/agentLogin.jsp">代理商登录</a></li>
+					<li><a href="<%=basePath%>agent/agentLogin.jsp">班主任登录</a></li>
 				</ul></li>
-			<li><a href="<%=basePath%>agent/debug.jsp">代理商</a></li>
+			<li><a href="<%=basePath%>agent/debug.jsp">班主任</a></li>
 		</ul>
 	</div>
 	</nav>

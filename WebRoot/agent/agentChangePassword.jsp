@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>开设代理商账户</title>
+<title>班主任密码修改</title>
 </head>
 
 <body>
