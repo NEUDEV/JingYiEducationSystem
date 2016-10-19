@@ -10,7 +10,7 @@
 <script type="text/javascript">  
      function clickFunctino() {  
             //alert($("#xm").val());  
-            var params = $("#qq").val();           
+            var params = $("#qq").val();        
             $.ajax({  
                 type: "post",  
                 url: "cheakqq.action",  
@@ -28,7 +28,7 @@
                     	  }
                 },  
                 error: function(data){  
-                    alert("验证QQ号失败");  
+                    alert("后台验证QQ号失败");  
                  return false;  
                 }  
                 });      

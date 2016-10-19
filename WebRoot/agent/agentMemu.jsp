@@ -25,7 +25,7 @@
 									<a href="<%=basePath%>agent/studentAdmit.jsp">添加学员</a>
 								</div>
 								<div class="panel-body">
-									<a href="<%=basePath%>agent/debug.jsp">我的学员</a>
+									<a href="<%=basePath%>agent/studentShow.jsp">我的学员</a>
 								</div>
 							</div>
 						</div>

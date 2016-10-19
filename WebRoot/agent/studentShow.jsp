@@ -9,12 +9,14 @@
 <script type="text/javascript" src="jquery/JS/jquery-2.1.1.min.js"></script>
 <script type="text/javascript">
 	function getJSONData() {
+		var type = $("#searchtype").val();
+		var value = $("#searchvalue").val();
 		$.ajax({
 			type : "post",
 			url : "AgentStudentsAction1.action",
-			data: "",
+			data: {'searchtype':type,'searchvalue':value},
 			datatype: "json",
-			contentType: "application/json",
+			//contentType: "application/json",
 			success : function(json) {
 			//alert(typeof(json.jsonResult));
 			var order = $.parseJSON(json.jsonResult);
@@ -72,9 +74,9 @@
 		<nav class="navbar navbar-default navbar-static-top" role="navigation">
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
-			<form class="navbar-form navbar-left" role="search" action=""
+			<form class="navbar-form navbar-left" role="search" 
 				method="post">
-				<select name="searchtype" class="form-control">
+				<select name="searchtype" id="searchtype" class="form-control">
 					<option>学员UID</option>
 					<option>真实姓名</option>
 					<option>手机号</option>
@@ -82,10 +84,9 @@
 					<option>学号</option>
 				</select>
 				<div class="form-group">
-					<input class="form-control" name="searchvalue" type="text" />
+					<input class="form-control" name="searchvalue" id="searchvalue" type="text" />
 				</div>
-				<button type="submit" class="btn btn-default">Submit</button>
-				<a href="StudentMassageFileOutAction">导出所有学员信息</a>
+				<button type="button" class="btn btn-default" onclick="getJSONData()">Submit</button>
 			</form>
 		</div>
 		</nav>

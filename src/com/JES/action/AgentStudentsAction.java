@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONArray;
@@ -50,7 +51,7 @@ public class AgentStudentsAction extends SuperAction{
 	public String Mystudents(){
 		try{
 		List<Student> studentList = new ArrayList<Student>();
-		studentList=agentservice.showAllStudents();
+		studentList=agentservice.searchStudents(searchtype,searchvalue);
 		jsonResult = JsonUtil.listToJson(studentList);  
 		System.out.println();
             ServletActionContext.getResponse().setContentType("text/xml");  

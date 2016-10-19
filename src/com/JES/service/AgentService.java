@@ -82,6 +82,8 @@ public class AgentService {
 
 	@SuppressWarnings("unchecked")
 	public List<Student> searchStudents(String type, String value) {
+		if(value.equals("")||value==null) 
+			return (List<Student>) studentDAO.findAll();
 		List<Student> slist = new ArrayList<Student>();
 		switch (type) {
 		case "ѧԱUID":
