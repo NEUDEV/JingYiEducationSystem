@@ -100,6 +100,10 @@ public class AgentService {
 		}
 		return null;
 	}
+	
+	public List<Student> showAllStudents(){
+		return (List<Student>) studentDAO.findAll();
+	}
 
 	public boolean addStudent(Student student) {
 		Student stu = studentDAO.findById(student.getUid());
