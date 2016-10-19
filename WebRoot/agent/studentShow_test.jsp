@@ -16,15 +16,15 @@
 			datatype: "json",
 			contentType: "application/json",
 			success : function(json) {
-			alert(typeof(json.jsonResult));
+			//alert(typeof(json.jsonResult));
 			var order = $.parseJSON(json.jsonResult);
-			alert(typeof(order));
+			//alert(typeof(order));
 			//var data=JSON.parse(aa);
-			alert(order[0].uid);
-				alert("success:"+order[0].name);
+			//alert(order[0].uid);
+				//alert("success:"+order[0].name);
 				var result = "";
 				if (order == null) {
-					alert('order is null');
+					//alert('order is null');
 					return;
 				}
 				result += "<thead>";
@@ -61,13 +61,13 @@
 				$("#courseList").html(result);
 			},
 			error : function(text) {
-				alert("erro:"+responseMsg);
+				alert("erro");
 			}
 		});
 	}
 </script>
 </head>
-<body>
+<body onload="getJSONData()">
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<nav class="navbar navbar-default navbar-static-top" role="navigation">
 		<div class="collapse navbar-collapse"
@@ -142,8 +142,6 @@
 				id=".page-num" name=".page-num" type="text" /> <input
 				id="page-jump" name="page-jump" type="button" value="跳转—>" /> <label
 				id=".page-count" name=".page-count"></label> -->
-			<input id="show" name="show" type="button" value="显示"
-				onclick="getJSONData()" />
 		</div>
 	</div>
 </body>

@@ -27,9 +27,6 @@
 								<div class="panel-body">
 									<a href="<%=basePath%>agent/debug.jsp">我的学员</a>
 								</div>
-								<div class="panel-body">
-									<a href="#">信息导出</a>
-								</div>
 							</div>
 						</div>
 
