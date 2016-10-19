@@ -1,4 +1,4 @@
-package com.JES.model;
+package com.JES.dao;
 
 import java.util.List;
 
@@ -12,33 +12,26 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.JES.model.Report;
+import com.JES.model.Account;
 
 /**
  * A data access object (DAO) providing persistence and search support for
- * Report entities. Transaction control of the save(), update() and delete()
+ * Account entities. Transaction control of the save(), update() and delete()
  * operations can directly support Spring container-managed transactions or they
  * can be augmented to handle user-managed Spring transactions. Each of these
  * methods provides additional information for how to configure it for the
  * desired type of transaction control.
  * 
- * @see com.JES.model.Report
+ * @see com.JES.model.Account
  * @author MyEclipse Persistence Tools
  */
 @Transactional
-public class ReportDAO {
-	private static final Logger log = LoggerFactory.getLogger(ReportDAO.class);
+public class AccountDAO {
+	private static final Logger log = LoggerFactory.getLogger(AccountDAO.class);
 	// property constants
-	public static final String INFORMALSTU = "informalstu";
-	public static final String PLATESTU = "platestu";
-	public static final String TYPEFACESTU = "typefacestu";
-	public static final String BRANDSTU = "brandstu";
-	public static final String FULLSTU = "fullstu";
-	public static final String ILLUSTRATION = "illustration";
-	public static final String ONLINESTU = "onlinestu";
-	public static final String LIFETIMESTU = "lifetimestu";
-	public static final String TRANSRATE = "transrate";
-	public static final String ROLE = "role";
+	public static final String BANK = "bank";
+	public static final String ACCOUNT = "account";
+	public static final String AGENT = "agent";
 
 	private SessionFactory sessionFactory;
 
@@ -54,8 +47,8 @@ public class ReportDAO {
 		// do nothing
 	}
 
-	public void save(Report transientInstance) {
-		log.debug("saving Report instance");
+	public void save(Account transientInstance) {
+		log.debug("saving Account instance");
 		try {
 			getCurrentSession().save(transientInstance);
 			log.debug("save successful");
@@ -65,8 +58,8 @@ public class ReportDAO {
 		}
 	}
 
-	public void delete(Report persistentInstance) {
-		log.debug("deleting Report instance");
+	public void delete(Account persistentInstance) {
+		log.debug("deleting Account instance");
 		try {
 			getCurrentSession().delete(persistentInstance);
 			log.debug("delete successful");
@@ -76,11 +69,11 @@ public class ReportDAO {
 		}
 	}
 
-	public Report findById(java.lang.String id) {
-		log.debug("getting Report instance with id: " + id);
+	public Account findById(java.lang.String id) {
+		log.debug("getting Account instance with id: " + id);
 		try {
-			Report instance = (Report) getCurrentSession().get(
-					"com.JES.model.Report", id);
+			Account instance = (Account) getCurrentSession().get(
+					"com.JES.model.Account", id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -88,11 +81,11 @@ public class ReportDAO {
 		}
 	}
 
-	public List findByExample(Report instance) {
-		log.debug("finding Report instance by example");
+	public List findByExample(Account instance) {
+		log.debug("finding Account instance by example");
 		try {
 			List results = getCurrentSession()
-					.createCriteria("com.JES.model.Report")
+					.createCriteria("com.JES.model.Account")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());
@@ -104,10 +97,10 @@ public class ReportDAO {
 	}
 
 	public List findByProperty(String propertyName, Object value) {
-		log.debug("finding Report instance with property: " + propertyName
+		log.debug("finding Account instance with property: " + propertyName
 				+ ", value: " + value);
 		try {
-			String queryString = "from Report as model where model."
+			String queryString = "from Account as model where model."
 					+ propertyName + "= ?";
 			Query queryObject = getCurrentSession().createQuery(queryString);
 			queryObject.setParameter(0, value);
@@ -118,50 +111,22 @@ public class ReportDAO {
 		}
 	}
 
-	public List findByInformalstu(Object informalstu) {
-		return findByProperty(INFORMALSTU, informalstu);
+	public List findByBank(Object bank) {
+		return findByProperty(BANK, bank);
 	}
 
-	public List findByPlatestu(Object platestu) {
-		return findByProperty(PLATESTU, platestu);
+	public List findByAccount(Object account) {
+		return findByProperty(ACCOUNT, account);
 	}
 
-	public List findByTypefacestu(Object typefacestu) {
-		return findByProperty(TYPEFACESTU, typefacestu);
-	}
-
-	public List findByBrandstu(Object brandstu) {
-		return findByProperty(BRANDSTU, brandstu);
-	}
-
-	public List findByFullstu(Object fullstu) {
-		return findByProperty(FULLSTU, fullstu);
-	}
-
-	public List findByIllustration(Object illustration) {
-		return findByProperty(ILLUSTRATION, illustration);
-	}
-
-	public List findByOnlinestu(Object onlinestu) {
-		return findByProperty(ONLINESTU, onlinestu);
-	}
-
-	public List findByLifetimestu(Object lifetimestu) {
-		return findByProperty(LIFETIMESTU, lifetimestu);
-	}
-
-	public List findByTransrate(Object transrate) {
-		return findByProperty(TRANSRATE, transrate);
-	}
-
-	public List findByRole(Object role) {
-		return findByProperty(ROLE, role);
+	public List findByAgent(Object agent) {
+		return findByProperty(AGENT, agent);
 	}
 
 	public List findAll() {
-		log.debug("finding all Report instances");
+		log.debug("finding all Account instances");
 		try {
-			String queryString = "from Report";
+			String queryString = "from Account";
 			Query queryObject = getCurrentSession().createQuery(queryString);
 			return queryObject.list();
 		} catch (RuntimeException re) {
@@ -170,11 +135,11 @@ public class ReportDAO {
 		}
 	}
 
-	public Report merge(Report detachedInstance) {
-		log.debug("merging Report instance");
+	public Account merge(Account detachedInstance) {
+		log.debug("merging Account instance");
 		try {
-			Report result = (Report) getCurrentSession()
-					.merge(detachedInstance);
+			Account result = (Account) getCurrentSession().merge(
+					detachedInstance);
 			log.debug("merge successful");
 			return result;
 		} catch (RuntimeException re) {
@@ -183,8 +148,8 @@ public class ReportDAO {
 		}
 	}
 
-	public void attachDirty(Report instance) {
-		log.debug("attaching dirty Report instance");
+	public void attachDirty(Account instance) {
+		log.debug("attaching dirty Account instance");
 		try {
 			getCurrentSession().saveOrUpdate(instance);
 			log.debug("attach successful");
@@ -194,8 +159,8 @@ public class ReportDAO {
 		}
 	}
 
-	public void attachClean(Report instance) {
-		log.debug("attaching clean Report instance");
+	public void attachClean(Account instance) {
+		log.debug("attaching clean Account instance");
 		try {
 			getCurrentSession().buildLockRequest(LockOptions.NONE).lock(
 					instance);
@@ -206,7 +171,7 @@ public class ReportDAO {
 		}
 	}
 
-	public static ReportDAO getFromApplicationContext(ApplicationContext ctx) {
-		return (ReportDAO) ctx.getBean("ReportDAO");
+	public static AccountDAO getFromApplicationContext(ApplicationContext ctx) {
+		return (AccountDAO) ctx.getBean("AccountDAO");
 	}
 }

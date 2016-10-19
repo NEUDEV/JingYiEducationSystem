@@ -166,4 +166,19 @@
 		</property>
 
 	</class>
+	 <class name="com.JES.model.Account" table="account" catalog="jingyieducationsystem">
+        <id name="bid" type="java.lang.String">
+            <column name="bid" length="45" />
+            <generator class="assigned" />
+        </id>
+        <property name="bank" type="java.lang.String">
+            <column name="bank" length="20" not-null="true" />
+        </property>
+        <property name="account" type="java.lang.String">
+            <column name="account" length="45" not-null="true" />
+        </property>
+        <property name="agent" type="java.lang.String">
+            <column name="agent" length="45" not-null="true" />
+        </property>
+    </class>
 </hibernate-mapping> 

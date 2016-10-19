@@ -5,7 +5,7 @@
 		<action name="*_*" class="com.JES.action.{1}Action" method="{2}">
 			<!-- ManagerLoginNotYet -->
 			<result name="LoginNotYet">/manager/login.jsp</result>
-			
+
 			<!-- ManagerLogin -->
 			<result name="managerLoginSuccess">/manager/managerMemu.jsp</result>
 			<result name="managerLoginFailed">/manager/login.jsp</result>
@@ -27,9 +27,12 @@
 			</result>
 
 			<!-- ManagerDivideAgent -->
-			<result name="returnCommonAgent">/manager/agentManage/divideAgent/chooseCommonAgent.jsp</result>
-			<result name="returnSuperAgent">/manager/agentManage/divideAgent/chooseSuperAgent.jsp</result>
-			<result name="divideAgentSuccess">/manager/agentManage/divideAgent/divideAgentSuccess.jsp</result>
+			<result name="returnCommonAgent">/manager/agentManage/divideAgent/chooseCommonAgent.jsp
+			</result>
+			<result name="returnSuperAgent">/manager/agentManage/divideAgent/chooseSuperAgent.jsp
+			</result>
+			<result name="divideAgentSuccess">/manager/agentManage/divideAgent/divideAgentSuccess.jsp
+			</result>
 
 			<!-- ManagerDivideStudent -->
 			<result name="studentsDisplay">/manager/studentManage/divideStudent/divideStudent.jsp
@@ -51,7 +54,7 @@
 			<result name="displayReport">/manager/report/displayReport.jsp</result>
 
 		</action>
-	</package>
+	</package> 	 	    
 
 	<package name="Agent" extends="struts-default" namespace="/Agent">
 		<action name="*_*" class="com.JES.action.{1}Action" method="{2}">
@@ -63,9 +66,17 @@
 			<result name="changePasswordSuccess">/agent/agentMemu.jsp</result>
 			<result name="changePasswordFailed">/agent/agentChangePassword.jsp</result>
 
+			<!-- agentInfoManage -->
+			<result name="displayAgentInfo">/agent/agentInfo.jsp</result>
 			<result name="returnAgentInfo">/agent/agentChangeInfo.jsp</result>
 			<result name="changeAgentInfoSuccess">/agent/agentMemu.jsp</result>
 			<result name="changeAgentInfoFailed">/agent/agentChangeInfo.jsp</result>
+			
+			<!-- accountManage -->
+			<result name="displayAccountInfo">/agent/agentAccoutInfo.jsp</result>
+			<result name="deleteAccountSuccess">/agent/agentAccoutInfo.jsp</result>
+			<result name="addAccountSuccess">/agent/agentAccoutInfo.jsp</result>
+			<result name="addAccountFaild">/agent/agentAccoutInfo.jsp</result>
 
 		</action>
 	</package>
@@ -99,7 +110,8 @@
 			method="massageout">
 		</action>
 
-		<action name="studentList" class="com.JES.action.AgentStudentsAction" method="Mystudents">
+		<action name="studentList" class="com.JES.action.AgentStudentsAction"
+			method="Mystudents">
 			<!--plaintext用于显示页面原始代码的结果类型 -->
 			<result type="plainText">
 				<param name="charSet">UTF-8</param>

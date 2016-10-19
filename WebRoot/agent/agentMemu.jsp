@@ -63,9 +63,12 @@
 							<div id="panel-element-16477" class="panel-collapse collapse">
 								<div class="panel-body">
 									<a
-										href="<%=basePath%>Agent/AgentLoginAndInfo_getAgentInfo.action">个人信息</a>
+										href="<%=basePath%>Agent/AgentLoginAndInfo_displayAgentInfo.action">个人信息</a>
 								</div>
-								<div class="panel-body">银行卡信息</div>
+								<div class="panel-body">
+									<a
+										href="<%=basePath%>Agent/AgentLoginAndInfo_getAccountInfo.action">银行卡信息</a>
+								</div>
 								<div class="panel-body">
 									<a href="<%=basePath%>agent/agentChangePassword.jsp">修改密码</a>
 								</div>

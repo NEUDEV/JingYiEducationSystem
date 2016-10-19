@@ -22,6 +22,7 @@ import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.struts2.ServletActionContext;
 
+import com.JES.dao.AccountDAO;
 import com.JES.dao.AgentDAO;
 import com.JES.dao.AgentNoteDAO;
 import com.JES.dao.AgentupstudentDAO;
@@ -37,6 +38,7 @@ public class AgentService {
 	private AgentupstudentDAO agentupstudentDAO;
 	private StudentDAO studentDAO;
 	private AgentNoteDAO agentnoteDAO;
+	private AccountDAO accountDAO;
 
 	public AgentNoteDAO getAgentnoteDAO() {
 		return agentnoteDAO;
@@ -68,6 +70,14 @@ public class AgentService {
 
 	public void setStudentDAO(StudentDAO studentDAO) {
 		this.studentDAO = studentDAO;
+	}
+
+	public AccountDAO getAccountDAO() {
+		return accountDAO;
+	}
+
+	public void setAccountDAO(AccountDAO accountDAO) {
+		this.accountDAO = accountDAO;
 	}
 
 	@SuppressWarnings("unchecked")
