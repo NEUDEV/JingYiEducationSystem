@@ -18,6 +18,10 @@ public class ManagerStudentManageAction extends SuperAction implements
 	}
 
 	public String searchStudent() {
+		if (session.getAttribute("managerId") == null) {
+			return "LoginNotYet";
+		}
+		
 		request.setAttribute("studentList", managerService.searchStudent(
 				request.getParameter("searchType"),
 				request.getParameter("searchValue")));
@@ -25,6 +29,10 @@ public class ManagerStudentManageAction extends SuperAction implements
 	}
 
 	public String searchStudentById() {
+		if (session.getAttribute("managerId") == null) {
+			return "LoginNotYet";
+		}
+		
 		student = managerService.getStudentDAO().findById(student.getUid());
 		request.setAttribute("student", student);
 		request.setAttribute("i", 0);
@@ -33,6 +41,10 @@ public class ManagerStudentManageAction extends SuperAction implements
 	}
 
 	public String changeStudentInfo() {
+		if (session.getAttribute("managerId") == null) {
+			return "LoginNotYet";
+		}
+		
 		Student oldStudent = (Student) session.getAttribute("student");
 		
 		if (!"".equals(student.getQq())) {

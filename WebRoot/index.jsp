@@ -22,8 +22,7 @@
 			<span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
 				class="icon-bar"></span><span class="icon-bar"></span>
 		</button>
-		<strong><a class="navbar-brand"
-			href="<%=basePath%>manager/agentManage/chooseAgentAdmit.jsp">鲸艺教育</a></strong>
+		<img class="navbar-brand img-thumbnail" src="<%=basePath%>image/logo.jpg" /> 
 	</div>
 
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

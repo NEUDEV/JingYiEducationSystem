@@ -19,6 +19,10 @@ public class ManagerViewReportAction extends SuperAction {
 	}
 
 	public String displayReport() {
+		if (session.getAttribute("managerId") == null) {
+			return "LoginNotYet";
+		}
+		
 		request.setAttribute("report", managerService.dealWithReport(session
 				.getAttribute("managerId").toString()));
 

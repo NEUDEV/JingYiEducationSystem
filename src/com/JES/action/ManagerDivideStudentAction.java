@@ -31,6 +31,10 @@ public class ManagerDivideStudentAction extends SuperAction implements
 	 * @return
 	 */
 	public String selectJingyiStudent() {
+		if (session.getAttribute("managerId") == null) {
+			return "LoginNotYet";
+		}
+		
 		session.setAttribute("checkStudents",
 				request.getParameterValues("check"));
 		request.setAttribute("firstLevelAgents", managerService.searchAgent("代理商类别", "1级代理商"));
@@ -39,6 +43,10 @@ public class ManagerDivideStudentAction extends SuperAction implements
 	
 	
 	public String searchAgent() {
+		if (session.getAttribute("managerId") == null) {
+			return "LoginNotYet";
+		}
+		
 		request.setAttribute("Agents", managerService.searchAgent(
 				request.getParameter("searchType"),
 				request.getParameter("searchValue")));
@@ -47,6 +55,10 @@ public class ManagerDivideStudentAction extends SuperAction implements
 	}
 	
 	public String divideJingyiToFirstLevelAgent() {
+		if (session.getAttribute("managerId") == null) {
+			return "LoginNotYet";
+		}
+		
 		String agentID = request.getParameter("radio");
 		String[] checkStudents = (String[])session.getAttribute("checkStudents");
 		ArrayList<Student> studentList = new ArrayList<Student>();

@@ -20,6 +20,10 @@ public class ManagerAgentRegisterAction extends SuperAction implements
 	}
 
 	public String register() {
+		if (session.getAttribute("managerId") == null) {
+			return "LoginNotYet";
+		}
+		
 		String confirmPassword = request.getParameter("confirmPassword");
 		String role = request.getParameter("selectRole");
 		agent.setUid("");
