@@ -14,11 +14,21 @@ import org.apache.struts2.ServletActionContext;
 import com.JES.model.Student;
 import com.JES.service.AgentService;
 
+import forchange.JsonUtil;
+
 @SuppressWarnings("serial")
 public class AgentStudentsAction extends SuperAction{
 	private String searchtype;
 	private String searchvalue;
 	private AgentService agentservice;
+	private String jsonResult;
+	
+	public String getJsonResult() {
+		return jsonResult;
+	}
+	public void setJsonResult(String jsonResult) {
+		this.jsonResult = jsonResult;
+	}
 	public String getSearchtype() {
 		return searchtype;
 	}
@@ -39,8 +49,10 @@ public class AgentStudentsAction extends SuperAction{
 	}
 	
 	public String Mystudents(){
+		try{
 		List<Student> studentList = new ArrayList<Student>();
-		studentList=agentservice.searchStudents(searchtype, searchvalue);
+		//studentList=agentservice.searchStudents(searchtype, searchvalue);
+		studentList=agentservice.showAllStudents();
 		/*if(studentList!=null){
 			request.setAttribute("mystudent", studentList);
 			return "show";
@@ -49,8 +61,14 @@ public class AgentStudentsAction extends SuperAction{
 		
 		/*10.17*/
 		
-		String json = JSONArray.fromObject(studentList).toString();
-		writeHtml(json);
+		jsonResult = JsonUtil.listToJson(studentList);  
+		System.out.println();
+        //申明返回的结果，不然页面上不能显示  
+            ServletActionContext.getResponse().setContentType("text/xml");  
+        }catch(Exception e){    
+            e.fillInStackTrace();  
+        }  
+        return SUCCESS;
 		 
 		/*int totalRows = studentList.size();
 		StringBuffer sb = new StringBuffer();
@@ -90,18 +108,8 @@ public class AgentStudentsAction extends SuperAction{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}*/
-        return null;
 	}
 	
-	protected void writeHtml(String strData) {
-		try {
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter pw = response.getWriter();
-		pw.write(strData);
-		pw.flush();
-		pw.close();
-		} catch (IOException e) {
-		}
-		}
+	
 	
 }
