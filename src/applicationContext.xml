@@ -48,7 +48,7 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<bean id="CourseDAO" class="com.JES.dao.CourseDAO">
+	<bean id="courseDAO" class="com.JES.dao.CourseDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
@@ -107,7 +107,8 @@
 		<property name="studentDAO" ref="studentDAO"></property>
 		<property name="agentnoteDAO" ref="agentNoteDAO"></property>
 		<property name="accountDAO" ref="AccountDAO"></property>
-		
+		<property name="courseDAO" ref="courseDAO"></property>
+		<property name="selectionDAO" ref="SelectionDAO"></property>
 	</bean>
 
 	<bean id="studentservice" class="com.JES.service.StudentService">

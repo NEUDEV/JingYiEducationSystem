@@ -113,9 +113,14 @@
 		<action name="studentList" class="com.JES.action.AgentStudentsAction"
 			method="Mystudents">
 			<!--plaintext用于显示页面原始代码的结果类型 -->
+			<result name="SUCCESS">/agent/studentShow.jsp</result>
+		</action>
+		<action name="AgentBillAction" class="com.JES.action.AgentBillAction"
+			method="billup">
+			<!--plaintext用于显示页面原始代码的结果类型 -->
 			<result type="plainText">
 				<param name="charSet">UTF-8</param>
-				<param name="location">/WEB-INF/agent/studentShow_test.jsp</param>
+				<param name="location">/WEB-INF/agent/studentShow.jsp</param>
 			</result>
 		</action>
 	</package>
@@ -129,7 +134,11 @@
 		</action>
 		<action name="AgentStudentsAction1" class="com.JES.action.AgentStudentsAction"
 			method="Mystudents">
-			<!-- <result>/agent/studentAdmit.jsp</result> -->
+			<result type="json">
+			</result>
+		</action>
+		<action name="GetCourseAction" class="com.JES.action.GetCourseAction"
+			method="courses">
 			<result type="json">
 			</result>
 		</action>

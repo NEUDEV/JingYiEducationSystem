@@ -59,7 +59,8 @@ public class Student implements java.io.Serializable {
 	}
 
 	public void setUid(String uid) {
-		this.uid = uid;
+		if(uid==null) this.uid="";
+		else this.uid = uid;
 	}
 
 	public String getMsign() {
@@ -67,7 +68,8 @@ public class Student implements java.io.Serializable {
 	}
 
 	public void setMsign(String msign) {
-		this.msign = msign;
+		if(msign==null) this.msign="";
+		else this.msign = msign;
 	}
 
 	public String getName() {
@@ -75,7 +77,8 @@ public class Student implements java.io.Serializable {
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		if(name==null) this.name="";
+		else this.name = name;
 	}
 
 	public String getPhone() {
@@ -83,7 +86,8 @@ public class Student implements java.io.Serializable {
 	}
 
 	public void setPhone(String phone) {
-		this.phone = phone;
+		if(phone==null) this.phone="";
+		else this.phone = phone;
 	}
 
 	public String getQq() {
@@ -91,7 +95,8 @@ public class Student implements java.io.Serializable {
 	}
 
 	public void setQq(String qq) {
-		this.qq = qq;
+		if(qq==null) this.qq="";
+		else this.qq = qq;
 	}
 
 	public String getWeixin() {
@@ -99,7 +104,8 @@ public class Student implements java.io.Serializable {
 	}
 
 	public void setWeixin(String weixin) {
-		this.weixin = weixin;
+		if(weixin==null) this.weixin="";
+		else this.weixin = weixin;
 	}
 
 	public String getMid() {
@@ -107,7 +113,8 @@ public class Student implements java.io.Serializable {
 	}
 
 	public void setMid(String mid) {
-		this.mid = mid;
+		if(mid==null) this.mid="";
+		else this.mid = mid;
 	}
 
 	public String getSign() {
@@ -115,7 +122,8 @@ public class Student implements java.io.Serializable {
 	}
 
 	public void setSign(String sign) {
-		this.sign = sign;
+		if(sign==null) this.sign="";
+		else this.sign = sign;
 	}
 
 	public String getStuid() {
@@ -123,7 +131,8 @@ public class Student implements java.io.Serializable {
 	}
 
 	public void setStuid(String stuid) {
-		this.stuid = stuid;
+		if(stuid==null) this.stuid="";
+		else this.stuid = stuid;
 	}
 
 	public String getSfrom() {
@@ -131,7 +140,8 @@ public class Student implements java.io.Serializable {
 	}
 
 	public void setSfrom(String sfrom) {
-		this.sfrom = sfrom;
+		if(sfrom==null) this.sfrom="";
+		else this.sfrom = sfrom;
 	}
 
 	public Integer getMark() {
@@ -139,7 +149,8 @@ public class Student implements java.io.Serializable {
 	}
 
 	public void setMark(Integer mark) {
-		this.mark = mark;
+		if(mark==null) this.mark=1;
+		else this.mark = mark;
 	}
 
 	public String getIntime() {
@@ -147,7 +158,8 @@ public class Student implements java.io.Serializable {
 	}
 
 	public void setIntime(String intime) {
-		this.intime = intime;
+		if(intime==null) this.intime="";
+		else this.intime = intime;
 	}
 
 }

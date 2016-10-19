@@ -61,32 +61,59 @@
             }
          }
      }
+     
+     function course(){
+		$.ajax({
+			type : "post",
+			url : "GetCourseAction.action",
+			data: "",
+			datatype: "json",
+			success : function(json) {
+			var order = $.parseJSON(json.jsonResult);
+				var result = "";
+				if (order == null) {
+					return;
+				}
+				result += "<label for='class_'>报名科目</label>";
+				result += "<select name='class_' class='form-control'>";
+				for (var i = 0; i < order.length; i++) {
+					result += "<option>" + order[i].cname + "</option>";
+				}
+				result+="</select>";
+				$("#courseshow").html(result);
+				$("#courseshow").innerHTML="123";
+			},
+			error : function(text) {
+				alert("erro");
+			}
+		});
+     }
 </script>  
 </head>
-<body>
+<body onload="course()">
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-		<form action="AgentUpStudentAction" name="form" id="form" method="post" enctype="multipart/form-data">
+		<form action="AgentBillAction" name="form" id="form" method="post" enctype="multipart/form-data">
 			<div class="form-group">
 				<label for="stuid">学号*</label><input class="form-control" id="stuid"
-					type="text" name="stuid" />
+					type="text" name="stuid" disabled=true value=<%=request.getParameter("stuid") %>></input>
 			</div>
 			<div class="form-group">
 				<label for="name">姓名*</label><input class="form-control" id="name"
-					type="text" name="name" />
+					type="text" name="name" disabled=true value=<%=request.getParameter("name") %>></input>
 			</div>
 			<div class="form-group">
 				<label for="phone">电话</label> <input class="form-control" id="phone"
-					type="text" name="phone" />
+					type="text" name="phone" value=<%=request.getParameter("phone") %>></input>
 			</div>
 			<div class="form-group">
 				<label for="qq">QQ*</label><input class="form-control" id="qq"
-					type="text" name="qq" onblur="clickFunctino()"/>
+					type="text" name="qq" disabled=true value=<%=request.getParameter("qq") %>></input>
 					
 			</div>
 			<div><label id="qqms"></label></div>
 			<div class="form-group">
 				<label for="weixin">微信</label> <input class="form-control" id="weixin"
-					type="text" name="weixin" />
+					type="text" name="weixin" value=<%=request.getParameter("qq") %>></input>
 			</div>
 			<div class="form-group">
 				<label for="sign">状态</label> <select name="sign" class="form-control">
@@ -94,12 +121,12 @@
 					<option>非正式学员</option>
 				</select>
 			</div>
-			<div class="form-group">
-				<label for="class_">报名科目</label> 
+			<div class="form-group" id="courseshow">
+				<!-- <label for="class_">报名科目</label> 
 				<select name="class_" class="form-control">
 					<option>科目A</option>
 					<option>科目B</option>
-				</select>
+				</select> -->
 			</div>
 			<div class="form-group">
 				<label for="bill">学费</label> <input class="form-control" id="bill"

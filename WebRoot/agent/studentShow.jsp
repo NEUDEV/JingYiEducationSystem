@@ -40,6 +40,7 @@
 				result += "<th>来源</th>";
 				result += "<th>状态</th>";
 				result += "<th>录入时间</th>";
+				result += "<th>操作</th>";
 				result += "<th>学员转化指数</th>";
 				result += "</tr>";
 				result += "</thead>";
@@ -56,6 +57,8 @@
 					result += "<td >" + order[i].sfrom + "</td>";
 					result += "<td >" + order[i].sign + "</td>";
 					result += "<td >" + order[i].intime + "</td>";
+					result += "<td ><a href=\"billstudent.jsp?stuid=" + order[i].stuid + "&name="
+						+order[i].name+"&qq="+order[i].qq+"&weixin="+order[i].weixin+"&phone="+order[i].phone+"\">提单</a>";
 					result += "<td >" + order[i].mark + "</td>";
 					result += "</tr>";
 				}
@@ -91,47 +94,9 @@
 		</div>
 		</nav>
 		<table class="table" id="courseList">
-			<!-- <thead>
-				<tr>
-					<th>序号</th>
-					<th>UID</th>
-					<th>学号</th>
-					<th>姓名</th>
-					<th>手机号</th>
-					<th>QQ</th>
-					<th>微信</th>
-					<th>来源</th>
-					<th>状态</th>
-					<th>录入时间</th>
-					<th>学员转化指数</th>
-				</tr>
-			</thead> -->
+			
 			<tbody id="courseList">
-				<%-- <%
-					List<Student> list = (List<Student>) request
-							.getAttribute("mystudent");
-					if (list != null) {
-						for (int i = 0; i < list.size(); i++) {
-				%> --%>
-				<%-- <tr>
-					<td><%=i + 1%></td>
-					<td><%=list.get(i).getUid()%></td>
-					<td><%=list.get(i).getStuid()%></td>
-					<td><%=list.get(i).getName()%></td>
-					<td><%=list.get(i).getPhone()%></td>
-					<td><%=list.get(i).getQq()%></td>
-					<td><%=list.get(i).getWeixin()%></td>
-					<td><%=list.get(i).getSfrom()%></td>
-					<td><%=list.get(i).getSign()%></td>
-					<td><%=list.get(i).getIntime()%></td>
-					<td><%=list.get(i).getMark()%></td>
-				</tr> --%>
-				<%-- <%
-					}
-						session.putValue("mystudent", null);
-					}
-				%> --%>
-
+				
 			</tbody>
 		</table>
 

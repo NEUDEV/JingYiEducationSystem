@@ -26,11 +26,15 @@ import com.JES.dao.AccountDAO;
 import com.JES.dao.AgentDAO;
 import com.JES.dao.AgentNoteDAO;
 import com.JES.dao.AgentupstudentDAO;
+import com.JES.dao.CourseDAO;
+import com.JES.dao.SelectionDAO;
 import com.JES.dao.StudentDAO;
 import com.JES.model.Agent;
 import com.JES.model.AgentNote;
 import com.JES.model.Agentupstudent;
+import com.JES.model.Course;
 import com.JES.model.Manager;
+import com.JES.model.Selection;
 import com.JES.model.Student;
 
 public class AgentService {
@@ -39,6 +43,25 @@ public class AgentService {
 	private StudentDAO studentDAO;
 	private AgentNoteDAO agentnoteDAO;
 	private AccountDAO accountDAO;
+	private CourseDAO courseDAO;
+	private SelectionDAO selectionDAO;
+	
+	
+	public SelectionDAO getSelectionDAO() {
+		return selectionDAO;
+	}
+
+	public void setSelectionDAO(SelectionDAO selectionDAO) {
+		this.selectionDAO = selectionDAO;
+	}
+
+	public CourseDAO getCourseDAO() {
+		return courseDAO;
+	}
+
+	public void setCourseDAO(CourseDAO courseDAO) {
+		this.courseDAO = courseDAO;
+	}
 
 	public AgentNoteDAO getAgentnoteDAO() {
 		return agentnoteDAO;
@@ -103,10 +126,10 @@ public class AgentService {
 		return null;
 	}
 	
-	public List<Student> showAllStudents(){
+	/*public List<Student> showAllStudents(){
 		return (List<Student>) studentDAO.findAll();
 	}
-
+*/
 	public boolean addStudent(Student student) {
 		Student stu = studentDAO.findById(student.getUid());
 		if (stu == null) {
@@ -133,8 +156,8 @@ public class AgentService {
 		student.setMark(1);   //设置转化指数
 		student.setMid("001"); //设置代理商ID
 		student.setMsign("001");
-		student.setSfrom("群聊");
-		student.setSign("未审核");
+		student.setSfrom("");
+		student.setSign("非正式学员");
 		upstudent.setPhoto(bFile);
 		agentupstudentDAO.save(upstudent);
 		studentDAO.save(student);
@@ -215,6 +238,30 @@ public class AgentService {
 		if(student.size()!=0)
 			return true;
 		else return false;
+	}
+	
+	public List<Course> allcourse(){
+		return (List<Course>)courseDAO.findAll();
+	}
+	
+	public boolean billUp(String phone,String weixin,String sign,Integer bill,Integer mark,String class_){
+		Student student=(Student)studentDAO.findByWeixin(weixin).get(0);
+		Selection selection=new Selection();
+		String uid=UUID.randomUUID().toString();
+		student.setPhone(phone);
+		student.setMark(mark);
+		student.setSign(sign);
+		student.setWeixin(weixin);
+		studentDAO.merge(student);
+		selection.setUid(student.getUid());
+		selection.setBill(bill);
+		selection.setCname(class_);
+		selection.setId(uid);
+		
+		//报表
+		
+		selectionDAO.save(selection);
+		return true;
 	}
 
 	@SuppressWarnings("deprecation")
