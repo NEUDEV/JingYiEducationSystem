@@ -31,10 +31,10 @@
 				}
 				result += "<thead>";
 				result += "<tr class='thead'>";
-				result += "<th>UID</th>";
-				result += "<th>学号</th>";
-				result += "<th>姓名</th>";
-				result += "<th>手机号</th>";
+				result += "<th>新增非正式学员</th>";
+				result += "<th>版式学员</th>";
+				result += "<th>字体学员</th>";
+				result += "<th></th>";
 				result += "<th>QQ</th>";
 				result += "<th>微信</th>";
 				result += "<th>来源</th>";

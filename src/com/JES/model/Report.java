@@ -19,6 +19,7 @@ public class Report implements java.io.Serializable {
 	private Integer lifetimestu;
 	private Double transrate;
 	private String role;
+	private Integer allinnum;
 
 	// Constructors
 
@@ -30,24 +31,12 @@ public class Report implements java.io.Serializable {
 	public Report(String reportid) {
 		this.reportid = reportid;
 	}
-	
-	public Report(Integer integer) {
-		this.informalstu = 0;
-		this.platestu = 0;
-		this.typefacestu = 0;
-		this.brandstu = 0;
-		this.fullstu = 0;
-		this.illustration = 0;
-		this.onlinestu = 0;
-		this.lifetimestu = 0;
-		this.transrate = 0.0;
-	}
 
 	/** full constructor */
 	public Report(String reportid, Integer informalstu, Integer platestu,
 			Integer typefacestu, Integer brandstu, Integer fullstu,
 			Integer illustration, Integer onlinestu, Integer lifetimestu,
-			Double transrate) {
+			Double transrate, String role, Integer allinnum) {
 		this.reportid = reportid;
 		this.informalstu = informalstu;
 		this.platestu = platestu;
@@ -58,6 +47,8 @@ public class Report implements java.io.Serializable {
 		this.onlinestu = onlinestu;
 		this.lifetimestu = lifetimestu;
 		this.transrate = transrate;
+		this.role = role;
+		this.allinnum = allinnum;
 	}
 
 	// Property accessors
@@ -138,16 +129,24 @@ public class Report implements java.io.Serializable {
 		return this.transrate;
 	}
 
-	public void setTransrate(Double i) {
-		this.transrate = i;
+	public void setTransrate(Double transrate) {
+		this.transrate = transrate;
 	}
 
 	public String getRole() {
-		return role;
+		return this.role;
 	}
 
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
+
+	public Integer getAllinnum() {
+		return this.allinnum;
+	}
+
+	public void setAllinnum(Integer allinnum) {
+		this.allinnum = allinnum;
+	}
+
 }

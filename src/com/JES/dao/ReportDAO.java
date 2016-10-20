@@ -39,6 +39,7 @@ public class ReportDAO {
 	public static final String LIFETIMESTU = "lifetimestu";
 	public static final String TRANSRATE = "transrate";
 	public static final String ROLE = "role";
+	public static final String ALLINNUM = "allinnum";
 
 	private SessionFactory sessionFactory;
 
@@ -79,8 +80,8 @@ public class ReportDAO {
 	public Report findById(java.lang.String id) {
 		log.debug("getting Report instance with id: " + id);
 		try {
-			Report instance = (Report) getCurrentSession().get(
-					"com.JES.model.Report", id);
+			Report instance = (Report) getCurrentSession().get("com.JES.model.Report",
+					id);
 			return instance;
 		} catch (RuntimeException re) {
 			log.error("get failed", re);
@@ -91,8 +92,7 @@ public class ReportDAO {
 	public List findByExample(Report instance) {
 		log.debug("finding Report instance by example");
 		try {
-			List results = getCurrentSession()
-					.createCriteria("com.JES.model.Report")
+			List results = getCurrentSession().createCriteria("com.JES.model.Report")
 					.add(Example.create(instance)).list();
 			log.debug("find by example successful, result size: "
 					+ results.size());
@@ -156,6 +156,10 @@ public class ReportDAO {
 
 	public List findByRole(Object role) {
 		return findByProperty(ROLE, role);
+	}
+
+	public List findByAllinnum(Object allinnum) {
+		return findByProperty(ALLINNUM, allinnum);
 	}
 
 	public List findAll() {

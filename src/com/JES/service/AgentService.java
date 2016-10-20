@@ -247,6 +247,9 @@ public class AgentService {
 	public boolean billUp(String uid,String phone,String weixin,String sign,Integer bill,Integer mark,String class_){
 		Student student=(Student)studentDAO.findById(uid);
 		Selection selection=new Selection();
+		Date nDate = new Date();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String sDate = sdf.format(nDate);
 		String id=UUID.randomUUID().toString();
 		student.setPhone(phone);
 		student.setMark(mark);
@@ -255,6 +258,7 @@ public class AgentService {
 		studentDAO.merge(student);
 		selection.setUid(student.getUid());
 		selection.setBill(bill);
+		selection.setSelecttime(sDate);
 		selection.setCname(class_);
 		selection.setId(id);
 		
