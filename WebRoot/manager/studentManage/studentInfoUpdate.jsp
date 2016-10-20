@@ -19,7 +19,7 @@
 		<form
 			action="<%=basePath%>Manager/ManagerStudentManage_changeStudentInfo.action"
 			id="form" method="post">
-			<table class="table table table-bordered">
+			<table class="table table-striped">
 				<thead>
 					<tr>
 						<th>字段</th>

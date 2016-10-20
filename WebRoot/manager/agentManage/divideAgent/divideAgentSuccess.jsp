@@ -16,7 +16,7 @@
 			<li><a href="#">划分成功</a></li>
 		</ul>
 		<a>划分至超级班主任${request.superAgent.name}下的班主任如下：</a>
-			<table class="table table table-bordered">
+			<table class="table table-striped">
 				<thead>
 					<tr>
 						<th>序号</th>

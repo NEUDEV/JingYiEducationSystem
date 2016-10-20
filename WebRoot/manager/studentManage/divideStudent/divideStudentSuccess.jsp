@@ -16,7 +16,7 @@
 			<li><a href="#">划分成功</a></li>
 		</ul>
 		<a>从班主任划分至其他班主任学员如下：</a>
-		<table class="table table table-bordered">
+		<table class="table table-striped">
 			<thead>
 				<tr>
 					<th>UID</th>

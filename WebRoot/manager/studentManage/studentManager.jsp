@@ -30,7 +30,7 @@
 		</div>
 
 		</nav>
-		<table class="table">
+		<table class="table table-striped">
 			<thead>
 				<tr>
 					<th>序号</th>

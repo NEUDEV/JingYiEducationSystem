@@ -41,7 +41,7 @@
 
 		<form action="<%=basePath%>Manager/ManagerDivideStudent_divideJingyiToFirstLevelAgent.action"
 			method="post" id="selectStudentForm">
-			<table class="table table table-bordered">
+			<table class="table table-striped">
 				<thead>
 					<tr>
 						<th>账户名</th>

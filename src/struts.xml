@@ -21,6 +21,8 @@
 			</result>
 			<result name="toDelete">/manager/agentManage/managerDeleteAgent.jsp
 			</result>
+			<result name="toDisplay">/manager/agentManage/mangerAdmitSuccess.jsp
+			</result>
 			<result name="agentDeleteSuccess">/manager/agentManage/managerDeleteAgentSuccess.jsp
 			</result>
 			<result name="agentChangeFaild">/manager/agentManage/mangerAdmitAgent.jsp

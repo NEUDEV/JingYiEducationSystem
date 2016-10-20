@@ -25,7 +25,7 @@ public class ManagerAgentManageAction extends SuperAction implements
 	}
 
 	/**
-	 * 显示所有代理商。
+	 * 显示所有班主任。
 	 * 
 	 * @return
 	 */
@@ -39,7 +39,7 @@ public class ManagerAgentManageAction extends SuperAction implements
 	}
 
 	/**
-	 * 查询代理商。
+	 * 查询班主任。
 	 * 
 	 * @return
 	 */
@@ -54,6 +54,10 @@ public class ManagerAgentManageAction extends SuperAction implements
 		return "agentsDisplay";
 	}
 
+	/**
+	 * 修改班主任。
+	 * @return
+	 */
 	public String toChange() {
 		if (session.getAttribute("managerId") == null) {
 			return "LoginNotYet";
@@ -64,7 +68,26 @@ public class ManagerAgentManageAction extends SuperAction implements
 
 		return "toChange";
 	}
+	
+	/**
+	 * 查看班主任。
+	 * @return
+	 */
+	public String toDisplay() {
+		if (session.getAttribute("managerId") == null) {
+			return "LoginNotYet";
+		}
+		
+		String uid = request.getParameter("uid");
+		request.setAttribute("agent", managerService.getAgentDAO()
+				.findById(uid));
+		return "toDisplay";
+	}
 
+	/**
+	 * 删除班主任。
+	 * @return
+	 */
 	public String toDelete() {
 		if (session.getAttribute("managerId") == null) {
 			return "LoginNotYet";

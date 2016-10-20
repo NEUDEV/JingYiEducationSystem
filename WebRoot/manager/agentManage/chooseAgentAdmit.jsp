@@ -34,7 +34,7 @@
 			</form>
 		</div>
 		</nav>
-		<table class="table table table-bordered">
+		<table class="table table-striped">
 			<thead>
 				<tr>
 					<th>账户名</th>
@@ -57,6 +57,8 @@
 							href="<%=basePath%>manager/agentManage/mangerAdmitAgent.jsp?uid=${agent.uid}">修改
 						</a> <a
 							href="<%=basePath%>Manager/ManagerAgentManage_toDelete.action?uid=${agent.uid}">删除
+						</a><a
+							href="<%=basePath%>Manager/ManagerAgentManage_toDisplay.action?uid=${agent.uid}">查看
 						</a></td>
 					</tr>
 				</c:forEach>

@@ -91,6 +91,8 @@ public class AgentLoginAndInfoAction extends SuperAction implements
 				session.getAttribute("agentID").toString());
 		session.setAttribute("agent", agent);
 		request.setAttribute("agent", agent);
+		request.setAttribute("superAgent",
+				agentservice.getAgentDAO().findById(agent.getMannager()));
 
 		return "displayAgentInfo";
 	}

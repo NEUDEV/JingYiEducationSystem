@@ -42,7 +42,7 @@
 
 		<form action="<%=basePath%>Manager/ManagerDivideStudent_selectJingyiStudent.action"
 			method="post" id="selectStudentForm">
-			<table class="table table table-bordered">
+			<table class="table table-striped">
 				<thead>
 					<tr>
 						<th>UID</th>

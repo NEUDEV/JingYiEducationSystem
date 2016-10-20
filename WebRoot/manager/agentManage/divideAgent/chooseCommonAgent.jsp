@@ -39,7 +39,7 @@
 		<form
 			action="<%=basePath%>Manager/ManagerAgentManage_displaySuperAgents.action"
 			method="post" id="selectCommonAgentForm">
-			<table class="table table table-bordered">
+			<table class="table table-striped">
 				<thead>
 					<tr>
 						<th>序号</th>

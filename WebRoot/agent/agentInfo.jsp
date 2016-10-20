@@ -16,14 +16,15 @@
 			<li><a href="#">修改个人信息</a></li>
 		</ul>
 		<dl>
-			<dt>我的个人信息：</dt>
+			<dt><font size="4">个人信息：</font></dt>
 			</br>
-			<dd>账号： ${agent.aname}</dd>
-			<dd>姓名： ${agent.name}</dd>
-			<dd>QQ： ${agent.qq}</dd>
-			<dd>手机号： ${agent.phone}</dd>
-			<dd>身份证号： ${agent.idcard}</dd>
-			<dd>班主任类别： ${agent.role}</dd>
+			<dd><font size="3">账号： ${agent.aname}</font></dd><br>
+			<dd><font size="3">姓名： ${agent.name}</font></dd><br>
+			<dd><font size="3">QQ： ${agent.qq}</font></dd><br>
+			<dd><font size="3">手机号： ${agent.phone}</font></dd><br>
+			<dd><font size="3">身份证号： ${agent.idcard}</font></dd><br>
+			<dd><font size="3">班主任类别： ${agent.role}</font></dd><br>
+			<dd><font size="3">超级班主任： ${superAgent.name}</font></dd><br>
 		</dl>
 		<a class="btn btn-default"
 			href="<%=basePath%>Agent/AgentLoginAndInfo_getAgentInfo.action"
