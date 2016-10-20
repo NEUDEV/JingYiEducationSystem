@@ -14,6 +14,8 @@ public class Agent {
 	private String account;
 	private String role;
 	private String mannager;
+	private String reportId;
+	
 	public String getUid() {
 		return uid;
 	}
@@ -91,5 +93,11 @@ public class Agent {
 	}
 	public void setMannager(String mannager) {
 		this.mannager = mannager;
+	}
+	public String getReportId() {
+		return reportId;
+	}
+	public void setReportId(String reportId) {
+		this.reportId = reportId;
 	}
 }

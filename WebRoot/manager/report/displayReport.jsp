@@ -9,14 +9,34 @@
 
 <body>
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-	<ul class="breadcrumb">
+		<nav class="navbar navbar-default navbar-static-top" role="navigation">
+		<div class="collapse navbar-collapse"
+			id="bs-example-navbar-collapse-1">
+			<form class="navbar-form navbar-left" role="search"
+				action="<%=basePath%>Manager/ManagerViewReport_displayReportByAgent.action"
+				method="post">
+				<select name="searchType" class="form-control">
+					<option>账户名</option>
+					<option>姓名</option>
+					<option>手机号</option>
+					<option>QQ</option>
+				</select>
+				<div class="form-group">
+					<input class="form-control" name="searchValue" type="text" />
+				</div>
+				<button type="submit" class="btn btn-default">查找</button>
+			</form>
+		</div>
+		</nav>
+
+		<ul class="breadcrumb">
 			<li><a href="<%=basePath%>/index.jsp">主页</a></li>
 			<li class="active">查看系统报表</li>
 		</ul>
 		<table class="table table table-bordered">
 			<thead>
 				<tr>
-					<th>报表</th>
+					<th>序号</th>
 					<th>新增非正式学员</th>
 					<th>板式学员</th>
 					<th>字体学员</th>
@@ -28,19 +48,34 @@
 					<th>转化率</th>
 				</tr>
 			</thead>
+
 			<tbody>
-				<tr>
+				<c:forEach items="${request.reports}" var="report">
+					<tr>
+						<td>${i = i + 1}</td>
+						<td>${report.informalstu}</td>
+						<td>${report.platestu}</td>
+						<td>${report.typefacestu}</td>
+						<td>${report.brandstu}</td>
+						<td>${report.fullstu}</td>
+						<td>${report.illustration}</td>
+						<td>${report.onlinestu}</td>
+						<td>${report.lifetimestu}</td>
+						<td>${report.transrate}</td>
+					</tr>
+				</c:forEach>
+				<%-- <tr>
 					<td>合计</td>
-					<td>${report.informalstu}人</td>
-					<td>${report.platestu}人</td>
-					<td>${report.typefacestu}人</td>
-					<td>${report.brandstu}人</td>
-					<td>${report.fullstu}人</td>
-					<td>${report.illustration}人</td>
-					<td>${report.onlinestu}人</td>
-					<td>${report.lifetimestu}人</td>
+					<td>${report.informalstu}</td>
+					<td>${report.platestu}</td>
+					<td>${report.typefacestu}</td>
+					<td>${report.brandstu}</td>
+					<td>${report.fullstu}</td>
+					<td>${report.illustration}</td>
+					<td>${report.onlinestu}</td>
+					<td>${report.lifetimestu}</td>
 					<td>${report.transrate}</td>
-				</tr>
+				</tr> --%>
 			</tbody>
 		</table>
 	</div>

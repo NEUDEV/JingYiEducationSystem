@@ -4,7 +4,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>管理员菜单</title>
 <link href="<%=basePath%>resource/css/dashboard.css" rel="stylesheet">
 <script src="<%=basePath%>resource/js/warning.js"></script>
 </head>

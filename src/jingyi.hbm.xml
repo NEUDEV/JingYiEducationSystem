@@ -58,6 +58,7 @@
 		<property name="account" column="account" type="java.lang.String"></property>
 		<property name="role" column="role" type="java.lang.String"></property>
 		<property name="mannager" column="mannager" type="java.lang.String"></property>
+		<property name="reportId" column="reportId" type="java.lang.String"></property>
 	</class>
 	<class name="com.JES.model.Manager" table="manager">
 		<id name="uid" column="uid" type="java.lang.String">

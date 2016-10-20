@@ -229,7 +229,13 @@ public class ManagerService {
 		agentDAO.merge(otherAgent);
 	}
 
-	public Report dealWithReport(String managerId) {
+	/**
+	 * ·µ»Ø±¨±í¡£
+	 * @param managerId
+	 * @return
+	 */
+	public ArrayList<Report> dealWithReport(String managerId) {
+		ArrayList<Report> reportList = new ArrayList<Report>();
 		Manager manager = managerDAO.findById(managerId);
 		Report report = new Report(0);
 		ArrayList<Report> reports = (ArrayList<Report>) reportDAO
@@ -270,8 +276,9 @@ public class ManagerService {
 		manager.setReportId(report.getReportid());
 		managerDAO.merge(manager);
 		reportDAO.save(report);
-
-		return report;
+		reportList.add(report);
+		
+		return reportList;
 	}
 
 }
