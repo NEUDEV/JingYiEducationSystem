@@ -57,7 +57,7 @@
 					result += "<td >" + order[i].sfrom + "</td>";
 					result += "<td >" + order[i].sign + "</td>";
 					result += "<td >" + order[i].intime + "</td>";
-					result += "<td ><a href=\"billstudent.jsp?stuid=" + order[i].stuid + "&uid="+order[i].uid+ "&name="
+					result += "<td ><a href=\"billstudent.jsp?stuid=" + order[i].stuid + "&name="
 						+order[i].name+"&qq="+order[i].qq+"&weixin="+order[i].weixin+"&phone="+order[i].phone+"\">提单</a>";
 					result += "<td >" + order[i].mark + "</td>";
 					result += "</tr>";

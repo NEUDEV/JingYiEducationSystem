@@ -118,7 +118,10 @@
 		<action name="AgentBillAction" class="com.JES.action.AgentBillAction"
 			method="billup">
 			<!--plaintext用于显示页面原始代码的结果类型 -->
-			<result name="SUCCESS">/agent/studentShow.jsp</result>
+			<result type="plainText">
+				<param name="charSet">UTF-8</param>
+				<param name="location">/WEB-INF/agent/studentShow.jsp</param>
+			</result>
 		</action>
 	</package>
 
