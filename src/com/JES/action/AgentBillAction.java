@@ -5,20 +5,28 @@ import com.JES.service.AgentService;
 
 @SuppressWarnings("serial")
 public class AgentBillAction extends SuperAction{
-	private String qq;
+	private String sqq;
 	private String phone;
 	private String weixin;
 	private String sign;
 	private Integer bill;
 	private Integer mark;
 	private String class_;
+	private String uid;
 	
 	
-	public String getQq() {
-		return qq;
+	public String getUid() {
+		return uid;
 	}
-	public void setQq(String qq) {
-		this.qq = qq;
+	public void setUid(String uid) {
+		this.uid = uid;
+	}
+	
+	public String getSqq() {
+		return sqq;
+	}
+	public void setSqq(String sqq) {
+		this.sqq = sqq;
 	}
 	public String getClass_() {
 		return class_;
@@ -67,8 +75,7 @@ public class AgentBillAction extends SuperAction{
 	}
 	
 	public String billup(){
-		System.out.println(qq);
-		agentservice.billUp(phone,weixin,sign,bill,mark,class_);
-		return SUCCESS;
+		agentservice.billUp(uid,phone,weixin,sign,bill,mark,class_);
+		return "SUCCESS";
 	}
 }

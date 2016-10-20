@@ -244,10 +244,10 @@ public class AgentService {
 		return (List<Course>)courseDAO.findAll();
 	}
 	
-	public boolean billUp(String phone,String weixin,String sign,Integer bill,Integer mark,String class_){
-		Student student=(Student)studentDAO.findByWeixin(weixin).get(0);
+	public boolean billUp(String uid,String phone,String weixin,String sign,Integer bill,Integer mark,String class_){
+		Student student=(Student)studentDAO.findById(uid);
 		Selection selection=new Selection();
-		String uid=UUID.randomUUID().toString();
+		String id=UUID.randomUUID().toString();
 		student.setPhone(phone);
 		student.setMark(mark);
 		student.setSign(sign);
@@ -256,7 +256,7 @@ public class AgentService {
 		selection.setUid(student.getUid());
 		selection.setBill(bill);
 		selection.setCname(class_);
-		selection.setId(uid);
+		selection.setId(id);
 		
 		//±¨±í
 		
@@ -264,7 +264,7 @@ public class AgentService {
 		return true;
 	}
 
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings("unchecked")
 	public String studentmsout() throws Exception {
 		List<Student> studentList = new ArrayList<Student>();
 		studentList = studentDAO.findAll();

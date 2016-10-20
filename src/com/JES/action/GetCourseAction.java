@@ -35,7 +35,6 @@ public class GetCourseAction extends SuperAction{
 		List<Course> courseList = new ArrayList<Course>();
 		courseList=agentservice.allcourse();
 		jsonResult = JsonUtil.listToJson(courseList);  
-		System.out.println(jsonResult);
             ServletActionContext.getResponse().setContentType("text/xml");  
         }catch(Exception e){    
             e.fillInStackTrace();  
