@@ -143,6 +143,11 @@
 			<result type="json">
 			</result>
 		</action>
+		<action name="MyCpReportAction" class="com.JES.action.MyCpReportAction"
+			method="MyCps">
+			<result type="json">
+			</result>
+		</action>
 	</package>
 	<!-- <package name="upload" namespace="/file" extends="struts-default"> 
 		<action name="upload" class="com.JES.action.AgentUpStudentAction"> <result 
