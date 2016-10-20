@@ -40,6 +40,7 @@ public class ReportDAO {
 	public static final String TRANSRATE = "transrate";
 	public static final String ROLE = "role";
 	public static final String ALLINNUM = "allinnum";
+	public static final String ALLBILLS = "allbills";
 
 	private SessionFactory sessionFactory;
 
@@ -160,6 +161,10 @@ public class ReportDAO {
 
 	public List findByAllinnum(Object allinnum) {
 		return findByProperty(ALLINNUM, allinnum);
+	}
+
+	public List findByAllbills(Object allbills) {
+		return findByProperty(ALLBILLS, allbills);
 	}
 
 	public List findAll() {

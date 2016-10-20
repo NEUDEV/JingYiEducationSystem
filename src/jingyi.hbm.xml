@@ -171,6 +171,9 @@
         <property name="allinnum" type="java.lang.Integer">
             <column name="allinnum" />
         </property>
+        <property name="allbills" type="java.lang.Double">
+            <column name="allbills" precision="22" scale="0" />
+        </property>
 
 	</class>
 	 <class name="com.JES.model.Account" table="account" catalog="jingyieducationsystem">

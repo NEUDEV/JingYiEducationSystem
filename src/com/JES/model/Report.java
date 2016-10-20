@@ -20,6 +20,7 @@ public class Report implements java.io.Serializable {
 	private Double transrate;
 	private String role;
 	private Integer allinnum;
+	private Double allbills;
 
 	// Constructors
 
@@ -36,7 +37,7 @@ public class Report implements java.io.Serializable {
 	public Report(String reportid, Integer informalstu, Integer platestu,
 			Integer typefacestu, Integer brandstu, Integer fullstu,
 			Integer illustration, Integer onlinestu, Integer lifetimestu,
-			Double transrate, String role, Integer allinnum) {
+			Double transrate, String role, Integer allinnum, Double allbills) {
 		this.reportid = reportid;
 		this.informalstu = informalstu;
 		this.platestu = platestu;
@@ -49,6 +50,7 @@ public class Report implements java.io.Serializable {
 		this.transrate = transrate;
 		this.role = role;
 		this.allinnum = allinnum;
+		this.allbills = allbills;
 	}
 
 	// Property accessors
@@ -147,6 +149,14 @@ public class Report implements java.io.Serializable {
 
 	public void setAllinnum(Integer allinnum) {
 		this.allinnum = allinnum;
+	}
+
+	public Double getAllbills() {
+		return this.allbills;
+	}
+
+	public void setAllbills(Double allbills) {
+		this.allbills = allbills;
 	}
 
 }
