@@ -107,6 +107,17 @@ public class SelectionDAO  {
          throw re;
       }
 	}
+    
+    public Double sumbills(String uid,String selecttime){
+    	try {
+            String queryString = "select sum(model.bill) from Selection as model where model.uid= ?";
+            Query queryObject = getCurrentSession().createQuery(queryString);
+   		 queryObject.setParameter(0, uid);
+   		 return (Double)queryObject.list().get(0);
+         } catch (RuntimeException re) {
+            throw re;
+         }
+    }
 
 	public List findByUid(Object uid
 	) {

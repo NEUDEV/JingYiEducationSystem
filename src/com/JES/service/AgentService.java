@@ -36,6 +36,7 @@ import com.JES.model.Agentupstudent;
 import com.JES.model.Course;
 import com.JES.model.Manager;
 import com.JES.model.Report;
+import com.JES.model.ReportShowItem;
 import com.JES.model.Selection;
 import com.JES.model.Student;
 
@@ -280,40 +281,74 @@ public class AgentService {
 	}
 	
 	
-	public List<Report> MyCpReports(String type,String value,String mid){
-		List<Report> reportList=new ArrayList<Report>();
-		List<String> reportIdList=new ArrayList<String>();
+	public List<ReportShowItem> MyCpReports(String type,String value,String mid){
+		List<Agent> agentList=new ArrayList<Agent>();
+		List<ReportShowItem> rItemList=new ArrayList<ReportShowItem>();
 		Integer len;
+		ReportShowItem rItem=new ReportShowItem();
 		if(value.equals("")||value==null) {
-			reportIdList.addAll((List<String>)agentDAO.findReportIdByMannager(mid));
-			len=reportIdList.size();
+			agentList.addAll((List<Agent>)agentDAO.findByMannager(mid));
+			len=agentList.size();
 			for(int i=0;i<len;i++){
-				reportList.add(reportDAO.findById(reportIdList.get(i).toString()));
+				rItem.setReportShowITEM(reportDAO.findById(agentList.get(i).getReportId()),agentList.get(i));
+				rItemList.add(rItem);
 			}
-			return reportList;
+			return rItemList;
 		}
 		else switch (type) {
 		case "班主任姓名":
-			reportIdList.addAll((List<String>)agentDAO.findReportIdByName(value, mid));
-			len=reportIdList.size();
+			agentList.addAll((List<Agent>)agentDAO.findReportByName(value, mid));
+			len=agentList.size();
 			for(int i=0;i<len;i++){
-				reportList.add(reportDAO.findById(reportIdList.get(i).toString()));
+				rItem.setReportShowITEM(reportDAO.findById(agentList.get(i).getReportId()),agentList.get(i));
+				rItemList.add(rItem);
 			}
-			return reportList;
+			return rItemList;
 		case "班主任QQ":
-			reportIdList.addAll((List<String>)agentDAO.findReportIdByQq(value, mid));
-			len=reportIdList.size();
+			agentList.addAll((List<Agent>)agentDAO.findReportByQq(value, mid));
+			len=agentList.size();
 			for(int i=0;i<len;i++){
-				reportList.add(reportDAO.findById(reportIdList.get(i).toString()));
+				rItem.setReportShowITEM(reportDAO.findById(agentList.get(i).getReportId()),agentList.get(i));
+				rItemList.add(rItem);
 			}
-			return reportList;
+			return rItemList;
 		case "班主任手机号":
-			reportIdList.addAll((List<String>)agentDAO.findReportIdByPhone(value, mid));
-			len=reportIdList.size();
+			agentList.addAll((List<Agent>)agentDAO.findReportByPhone(value, mid));
+			len=agentList.size();
 			for(int i=0;i<len;i++){
-				reportList.add(reportDAO.findById(reportIdList.get(i).toString()));
+				rItem.setReportShowITEM(reportDAO.findById(agentList.get(i).getReportId()),agentList.get(i));
+				rItemList.add(rItem);
 			}
+			return rItemList;
+		}
+		return null;
+	}
+	
+	
+	public List<Report> MyReports(String selecttype,String aid){
+		List<Report> reportList=new ArrayList<Report>();
+		Report report=new Report();
+		switch (selecttype) {
+		case "全部":
+			reportList.addAll((List<Report>)reportDAO.findById(agentDAO.findById(aid).getReportId()));
 			return reportList;
+		/*case "周业绩":
+			
+			agentList.addAll((List<Agent>)agentDAO.findReportByQq(value, mid));
+			len=agentList.size();
+			for(int i=0;i<len;i++){
+				rItem.setReportShowITEM(reportDAO.findById(agentList.get(i).getReportId()),agentList.get(i));
+				rItemList.add(rItem);
+			}
+			return rItemList;
+		case "月业绩":
+			agentList.addAll((List<Agent>)agentDAO.findReportByPhone(value, mid));
+			len=agentList.size();
+			for(int i=0;i<len;i++){
+				rItem.setReportShowITEM(reportDAO.findById(agentList.get(i).getReportId()),agentList.get(i));
+				rItemList.add(rItem);
+			}
+			return rItemList;*/
 		}
 		return null;
 	}

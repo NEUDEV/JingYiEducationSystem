@@ -121,7 +121,7 @@ public class AgentDAO {
 		}
 	}
 
-	public List findReportIdByMannager(String mannager){
+	/*public List findReportIdByMannager(String mannager){
 		try{
 			String queryString = "select model.reportId from Agent as model where model."
 					+ MANNAGER + "= ?";
@@ -131,11 +131,11 @@ public class AgentDAO {
 		}catch(RuntimeException re){
 			throw re;
 		}
-	}
+	}*/
 	
-	public List findReportIdByProperty(String propertyName,String value,String mid){
+	public List findReportByProperty(String propertyName,String value,String mid){
 		try{
-			String queryString = "select model.reportId from Agent as model where model."
+			String queryString = "from Agent as model where model."
 					+ MANNAGER + "="+mid+"and "+propertyName+"= ?";
 			Query queryObject = getCurrentSession().createQuery(queryString);
 			queryObject.setParameter(0, value);
@@ -145,16 +145,16 @@ public class AgentDAO {
 		}
 	}
 	
-	public List findReportIdByName(String value,String mid){
-		return findReportIdByProperty(NAME,value, mid);
+	public List findReportByName(String value,String mid){
+		return findReportByProperty(NAME,value, mid);
 	}
 	
-	public List findReportIdByQq(String value,String mid){
-		return findReportIdByProperty(QQ,value, mid);
+	public List findReportByQq(String value,String mid){
+		return findReportByProperty(QQ,value, mid);
 	}
 	
-	public List findReportIdByPhone(String value,String mid){
-		return findReportIdByProperty(PHONE,value, mid);
+	public List findReportByPhone(String value,String mid){
+		return findReportByProperty(PHONE,value, mid);
 	}
 	
 	public List findByAname(Object aname) {

@@ -8,15 +8,12 @@
 <head>
 <script type="text/javascript" src="jquery/JS/jquery-2.1.1.min.js"></script>
 <script type="text/javascript">
-	function getJSONData() {
-		var type = $("#searchtype").val();
-		var value = $("#searchvalue").val();
+	function getJSONData(value) {
 		$.ajax({
 			type : "post",
-			url : "MyCpReportAction.action",
+			url : "",
 			data : {
-				'searchtype' : type,
-				'searchvalue' : value
+				'selecttype' : value
 			},
 			datatype : "json",
 			//contentType: "application/json",
@@ -35,9 +32,6 @@
 				}
 				result += "<thead>";
 				result += "<tr class='thead'>";
-				result += "<th>班主任姓名</th>";
-				result += "<th>QQ</th>";
-				result += "<th>电话</th>";
 				result += "<th>新增非正式学员</th>";
 				result += "<th>版式学员</th>";
 				result += "<th>字体学员</th>";
@@ -54,9 +48,6 @@
 				//这里的order[i]就相当于list中的order,起属性也是一一对应的  
 				for (var i = 0; i < order.length; i++) {
 					result += "<tr >";
-					result += "<td>" + order[i].aname + "</td>";
-					result += "<td>" + order[i].aqq + "</td>";
-					result += "<td>" + order[i].aphone + "</td>";
 					result += "<td>" + order[i].informalstu + "</td>";
 					result += "<td>" + order[i].platestu + "</td>";
 					result += "<td>" + order[i].typefacestu + "</td>";
@@ -82,23 +73,21 @@
 	}
 </script>
 </head>
-<body onload="getJSONData()">
+<body onload="getJSONData(selecttype1.value)">
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<nav class="navbar navbar-default navbar-static-top" role="navigation">
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<form class="navbar-form navbar-left" role="search" method="post">
-				<select name="searchtype" id="searchtype" class="form-control">
-					<option>班主任姓名</option>
-					<option>班主任QQ</option>
-					<option>班主任手机号</option>
-				</select>
+				<div>
+				<input type="radio" checked="checked" name="selecttype1" value="全部" onselect="getJSONData(this.value)"/>全部<br />
+				<input type="radio"  name="selecttype2" value="周业绩" onselect="getJSONData(this.value)"/>周业绩<br />
+				<input type="radio"  name="selecttype3" value="月业绩" onselect="getJSONData(this.value)" />月业绩<br />
+				</div>
 				<div class="form-group">
 					<input class="form-control" name="searchvalue" id="searchvalue"
 						type="text" />
 				</div>
-				<button type="button" class="btn btn-default"
-					onclick="getJSONData()">Submit</button>
 			</form>
 		</div>
 		</nav>

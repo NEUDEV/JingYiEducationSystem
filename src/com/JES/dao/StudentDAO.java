@@ -117,6 +117,28 @@ public class StudentDAO {
 			throw re;
 		}
 	}
+	
+	public Integer countunifStudent(String mid){
+		try {
+			String queryString = "select count(*) from Student as model where model.sign='非正式学员' and model.mid= ?";
+			Query queryObject = getCurrentSession().createQuery(queryString);
+			queryObject.setParameter(0, mid);
+			return (Integer)queryObject.list().get(0);
+		} catch (RuntimeException re) {
+			throw re;
+		}
+	}
+	
+	public List mystudentList(String mid){
+		try {
+			String queryString = "select model.uid from Student as model where model.mid= ?";
+			Query queryObject = getCurrentSession().createQuery(queryString);
+			queryObject.setParameter(0, mid);
+			return queryObject.list();
+		} catch (RuntimeException re) {
+			throw re;
+		}
+	}
 
 	public List findByMsign(Object msign) {
 		return findByProperty(MSIGN, msign);
