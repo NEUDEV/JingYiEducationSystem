@@ -28,8 +28,13 @@
 
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		<ul class="nav navbar-nav navbar-right">
-			<li><a href="#">${session.loginMessage}</a></li>
-			<li><a href="<%=basePath%>Manager/ManagerLogin_logout.action">${session.logout}</a></li>
+			<li class="dropdown"><a href="#" class="dropdown-toggle"
+				data-toggle="dropdown">登录<strong class="caret"></strong></a>
+				<ul class="dropdown-menu">
+					<li><a href="<%=basePath%>manager/login.jsp">管理员登录</a></li>
+					<li><a href="<%=basePath%>agent/agentLogin.jsp">班主任登录</a></li>
+				</ul></li>
+			<li><a href="<%=basePath%>agent/debug.jsp">班主任</a></li>
 		</ul>
 	</div>
 	</nav>

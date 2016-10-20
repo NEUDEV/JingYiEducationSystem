@@ -1,6 +1,9 @@
 package com.JES.action;
 
+import java.util.UUID;
+
 import com.JES.model.Agent;
+import com.JES.model.Report;
 import com.JES.service.ManagerService;
 import com.opensymphony.xwork2.ModelDriven;
 
@@ -42,9 +45,13 @@ public class ManagerAgentRegisterAction extends SuperAction implements
 			agent.setRole("超级班主任");
 		}
 		
-		// TODO 将agent.manager设置为String类型。
-//		agent.setMannager(session.getAttribute("managerId"));
+		String reportId=UUID.randomUUID().toString();
+		agent.setReportId(reportId);
 		managerService.agentRegister(agent);
+		
+		Report report = new Report(0);
+		report.setReportid(reportId);
+		managerService.getReportDAO().save(report);
 		
 		return "regesterSuccess";
 	}
