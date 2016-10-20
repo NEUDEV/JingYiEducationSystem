@@ -3,6 +3,7 @@ package com.JES.action;
 import com.JES.model.Manager;
 import com.JES.service.ManagerService;
 import com.opensymphony.xwork2.ModelDriven;
+import com.sun.mail.util.LogOutputStream;
 
 public class ManagerLoginAction extends SuperAction implements
 		ModelDriven<Manager> {
@@ -29,15 +30,30 @@ public class ManagerLoginAction extends SuperAction implements
 	 */
 	public String login() {
 		if (managerService.isLoginSuccess(manager)) {
-			session.setAttribute(
-					"managerId",
-					((Manager) managerService.getManagerDAO()
-							.findByMname(manager.getMname()).get(0)).getUid());
+			manager = (Manager) managerService.getManagerDAO()
+			.findByMname(manager.getMname()).get(0);
+			session.setAttribute("managerId",manager.getUid());
+			session.setAttribute("loginMessage", "您好：" + manager.getMname() + " [管理员]");
+			session.setAttribute("logout", "注销");
+			
 			return "managerLoginSuccess";
 		}
 
 		request.setAttribute("info", "用户名或密码错误！");
 		return "managerLoginFailed";
+	}
+	
+	public String logout() {
+		
+		if (session.getAttribute("managerId") != null) {
+			session.setAttribute("managerId", null);
+		} else {
+			session.setAttribute("agentID", null);
+		}
+		
+		session.setAttribute("loginMessage", null);
+		session.setAttribute("logout", null);
+		return "logout";
 	}
 
 	@Override

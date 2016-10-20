@@ -52,6 +52,20 @@ public class Report implements java.io.Serializable {
 		this.allinnum = allinnum;
 		this.allbills = allbills;
 	}
+	
+	public Report(Integer integer) {
+		this.informalstu = 0;
+		this.platestu = 0;
+		this.typefacestu = 0;
+		this.brandstu = 0;
+		this.fullstu = 0;
+		this.illustration = 0;
+		this.onlinestu = 0;
+		this.lifetimestu = 0;
+		this.transrate = 0.0;
+		this.allinnum = 0;
+		this.allbills = 0.0;
+	}
 
 	// Property accessors
 

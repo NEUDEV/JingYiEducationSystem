@@ -22,7 +22,8 @@
 			<span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span
 				class="icon-bar"></span><span class="icon-bar"></span>
 		</button>
-		<img class="navbar-brand img-thumbnail" src="<%=basePath%>image/logo.jpg" /> 
+		<img class="navbar-brand img-thumbnail"
+			src="<%=basePath%>image/logo.jpg" />
 	</div>
 
 	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -34,6 +35,8 @@
 					<li><a href="<%=basePath%>agent/agentLogin.jsp">班主任登录</a></li>
 				</ul></li>
 			<li><a href="<%=basePath%>agent/debug.jsp">班主任</a></li>
+			<li><a href="#">${session.loginMessage}</a></li>
+			<li><a href="<%=basePath%>Manager/ManagerLogin_logout.action">${session.logout}</a></li>
 		</ul>
 	</div>
 	</nav>

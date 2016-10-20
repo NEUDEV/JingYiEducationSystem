@@ -9,6 +9,8 @@
 			<!-- ManagerLogin -->
 			<result name="managerLoginSuccess">/manager/managerMemu.jsp</result>
 			<result name="managerLoginFailed">/manager/login.jsp</result>
+			
+			<result name="logout">/index.jsp</result>
 
 			<!-- ManagerAgentRegister -->
 			<result name="regesterSuccess">/manager/managerMemu.jsp</result>

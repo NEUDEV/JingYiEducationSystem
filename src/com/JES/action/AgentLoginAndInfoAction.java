@@ -35,8 +35,12 @@ public class AgentLoginAndInfoAction extends SuperAction implements
 	 */
 	public String login() {
 		if (agentservice.isLoginSuccess(agent)) {
-			session.setAttribute("agentID", ((Agent) agentservice.getAgentDAO()
-					.findByAname(agent.getAname()).get(0)).getUid());
+			agent = (Agent) agentservice.getAgentDAO()
+					.findByAname(agent.getAname()).get(0);
+			session.setAttribute("agentID", agent.getUid());
+			session.setAttribute("loginMessage", "您好：" + agent.getAname()
+					+ " [" + agent.getRole() + "]");
+			session.setAttribute("logout", "注销");
 			return "agentLoginSuccess";
 		}
 
@@ -139,6 +143,7 @@ public class AgentLoginAndInfoAction extends SuperAction implements
 
 	/**
 	 * 获得银行卡信息。
+	 * 
 	 * @return
 	 */
 	public String getAccountInfo() {
@@ -152,6 +157,7 @@ public class AgentLoginAndInfoAction extends SuperAction implements
 
 	/**
 	 * 删除账户。
+	 * 
 	 * @return
 	 */
 	public String deleteAccount() {
@@ -165,12 +171,13 @@ public class AgentLoginAndInfoAction extends SuperAction implements
 
 	/**
 	 * 添加账户。
+	 * 
 	 * @return
 	 */
 	public String addAccount() {
 		Account account = new Account();
-		if (agentservice.getAccountDAO().findByAccount(request.getParameter("account"))
-				.size() > 0) {
+		if (agentservice.getAccountDAO()
+				.findByAccount(request.getParameter("account")).size() > 0) {
 			getAccountInfo();
 			request.setAttribute("info", "账号已存在！");
 			return "addAccountFaild";
@@ -181,7 +188,7 @@ public class AgentLoginAndInfoAction extends SuperAction implements
 		account.setBank(request.getParameter("selectBank"));
 		account.setAgent(session.getAttribute("agentID").toString());
 		agentservice.getAccountDAO().save(account);
-		
+
 		getAccountInfo();
 		return "addAccountSuccess";
 	}
