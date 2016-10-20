@@ -83,6 +83,9 @@
         <property name="bill" type="java.lang.Integer">
             <column name="bill" />
         </property>
+        <property name="selecttime" type="java.lang.String">
+            <column name="selecttime" length="45" />
+        </property>
 	</class>
 
 	<class name="com.JES.model.Course" table="course">

@@ -1,69 +1,92 @@
 package com.JES.model;
 
+
+
 /**
  * Selection entity. @author MyEclipse Persistence Tools
  */
 
-public class Selection implements java.io.Serializable {
+public class Selection  implements java.io.Serializable {
 
-	// Fields
 
-	private String id;
-	private String uid;
-	private String cname;
-	private Integer bill;
+    // Fields    
 
-	// Constructors
+     private String id;
+     private String uid;
+     private String cname;
+     private Integer bill;
+     private String selecttime;
 
-	/** default constructor */
-	public Selection() {
-	}
+
+    // Constructors
+
+    /** default constructor */
+    public Selection() {
+    }
 
 	/** minimal constructor */
-	public Selection(String id) {
-		this.id = id;
-	}
+    public Selection(String id) {
+        this.id = id;
+    }
+    
+    /** full constructor */
+    public Selection(String id, String uid, String cname, Integer bill, String selecttime) {
+        this.id = id;
+        this.uid = uid;
+        this.cname = cname;
+        this.bill = bill;
+        this.selecttime = selecttime;
+    }
 
-	/** full constructor */
-	public Selection(String id, String uid, String cname, Integer bill) {
-		this.id = id;
-		this.uid = uid;
-		this.cname = cname;
-		this.bill = bill;
-	}
+   
+    // Property accessors
 
-	// Property accessors
+    public String getId() {
+        return this.id;
+    }
+    
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public String getId() {
-		return this.id;
-	}
+    public String getUid() {
+        return this.uid;
+    }
+    
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public String getCname() {
+        return this.cname;
+    }
+    
+    public void setCname(String cname) {
+        this.cname = cname;
+    }
 
-	public String getUid() {
-		return this.uid;
-	}
+    public Integer getBill() {
+        return this.bill;
+    }
+    
+    public void setBill(Integer bill) {
+        this.bill = bill;
+    }
 
-	public void setUid(String uid) {
-		this.uid = uid;
-	}
+    public String getSelecttime() {
+        return this.selecttime;
+    }
+    
+    public void setSelecttime(String selecttime) {
+        this.selecttime = selecttime;
+    }
+   
 
-	public String getCname() {
-		return this.cname;
-	}
 
-	public void setCname(String cname) {
-		this.cname = cname;
-	}
 
-	public Integer getBill() {
-		return this.bill;
-	}
 
-	public void setBill(Integer bill) {
-		this.bill = bill;
-	}
+
+
+
 
 }
