@@ -27,6 +27,7 @@ import com.JES.dao.AgentDAO;
 import com.JES.dao.AgentNoteDAO;
 import com.JES.dao.AgentupstudentDAO;
 import com.JES.dao.CourseDAO;
+import com.JES.dao.ReportDAO;
 import com.JES.dao.SelectionDAO;
 import com.JES.dao.StudentDAO;
 import com.JES.model.Agent;
@@ -34,6 +35,7 @@ import com.JES.model.AgentNote;
 import com.JES.model.Agentupstudent;
 import com.JES.model.Course;
 import com.JES.model.Manager;
+import com.JES.model.Report;
 import com.JES.model.Selection;
 import com.JES.model.Student;
 
@@ -45,8 +47,17 @@ public class AgentService {
 	private AccountDAO accountDAO;
 	private CourseDAO courseDAO;
 	private SelectionDAO selectionDAO;
+	private ReportDAO reportDAO;
 	
 	
+	public ReportDAO getReportDAO() {
+		return reportDAO;
+	}
+
+	public void setReportDAO(ReportDAO reportDAO) {
+		this.reportDAO = reportDAO;
+	}
+
 	public SelectionDAO getSelectionDAO() {
 		return selectionDAO;
 	}
@@ -266,6 +277,45 @@ public class AgentService {
 		
 		selectionDAO.save(selection);
 		return true;
+	}
+	
+	
+	public List<Report> MyCpReports(String type,String value,String mid){
+		List<Report> reportList=new ArrayList<Report>();
+		List<String> reportIdList=new ArrayList<String>();
+		Integer len;
+		if(value.equals("")||value==null) {
+			reportIdList.addAll((List<String>)agentDAO.findReportIdByMannager(mid));
+			len=reportIdList.size();
+			for(int i=0;i<len;i++){
+				reportList.add(reportDAO.findById(reportIdList.get(i).toString()));
+			}
+			return reportList;
+		}
+		else switch (type) {
+		case "班主任姓名":
+			reportIdList.addAll((List<String>)agentDAO.findReportIdByName(value, mid));
+			len=reportIdList.size();
+			for(int i=0;i<len;i++){
+				reportList.add(reportDAO.findById(reportIdList.get(i).toString()));
+			}
+			return reportList;
+		case "班主任QQ":
+			reportIdList.addAll((List<String>)agentDAO.findReportIdByQq(value, mid));
+			len=reportIdList.size();
+			for(int i=0;i<len;i++){
+				reportList.add(reportDAO.findById(reportIdList.get(i).toString()));
+			}
+			return reportList;
+		case "班主任手机号":
+			reportIdList.addAll((List<String>)agentDAO.findReportIdByPhone(value, mid));
+			len=reportIdList.size();
+			for(int i=0;i<len;i++){
+				reportList.add(reportDAO.findById(reportIdList.get(i).toString()));
+			}
+			return reportList;
+		}
+		return null;
 	}
 
 	@SuppressWarnings("unchecked")

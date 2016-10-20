@@ -109,6 +109,7 @@
 		<property name="accountDAO" ref="AccountDAO"></property>
 		<property name="courseDAO" ref="courseDAO"></property>
 		<property name="selectionDAO" ref="SelectionDAO"></property>
+		<property name="reportDAO" ref="ReportDAO"></property>
 	</bean>
 
 	<bean id="studentservice" class="com.JES.service.StudentService">

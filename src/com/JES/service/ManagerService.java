@@ -237,7 +237,8 @@ public class ManagerService {
 	public ArrayList<Report> dealWithReport(String managerId) {
 		ArrayList<Report> reportList = new ArrayList<Report>();
 		Manager manager = managerDAO.findById(managerId);
-		Report report = new Report(0);
+		//Report report = new Report(0);
+		Report report = new Report();
 		ArrayList<Report> reports = (ArrayList<Report>) reportDAO
 				.findByRole("°àÖ÷ÈÎ");
 		Integer allOfStudent = 0;

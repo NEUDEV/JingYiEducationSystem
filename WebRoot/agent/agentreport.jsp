@@ -13,7 +13,7 @@
 		var value = $("#searchvalue").val();
 		$.ajax({
 			type : "post",
-			url : "AgentStudentsAction1.action",
+			url : "MyCpReportAction.action",
 			data : {
 				'searchtype' : type,
 				'searchvalue' : value
@@ -22,8 +22,8 @@
 			//contentType: "application/json",
 			success : function(json) {
 				//alert(typeof(json.jsonResult));
-				var order = $.parseJSON(json.jsonResult.report);
-				var mybills = $.parseJSON(json.jsonResult.bills);
+				var order = $.parseJSON(json.jsonResult);
+				//var mybills = $.parseJSON(json.jsonResult.bills);
 				//alert(typeof(order));
 				//var data=JSON.parse(aa);
 				//alert(order[0].uid);
@@ -63,7 +63,7 @@
 					/* result += "<td ><a href=\"showstudentmassage.jsp?qq=" + order[i].qq + "\">查看|</a>";
 					result += "<a href=\"billstudent.jsp?stuid=" + order[i].stuid + "&uid="+order[i].uid+ "&name="
 						+order[i].name+"&qq="+order[i].qq+"&weixin="+order[i].weixin+"&phone="+order[i].phone+"\">提单</a></td>"; */
-					result += "<td >" + mybills.bills + "</td>";
+					result += "<td >" + order[i].allbills + "</td>";
 					result += "</tr>";
 				}
 				result += "</tbody>";
@@ -83,11 +83,9 @@
 			id="bs-example-navbar-collapse-1">
 			<form class="navbar-form navbar-left" role="search" method="post">
 				<select name="searchtype" id="searchtype" class="form-control">
-					<option>班主任UID</option>
-					<option>真实姓名</option>
-					<option>手机号</option>
-					<option>QQ</option>
-					<option>学号</option>
+					<option>班主任姓名</option>
+					<option>班主任QQ</option>
+					<option>班主任手机号</option>
 				</select>
 				<div class="form-group">
 					<input class="form-control" name="searchvalue" id="searchvalue"
