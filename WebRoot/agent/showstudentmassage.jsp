@@ -17,7 +17,7 @@
 			</div> -->
 			<div class="form-group">
 				<img alt="显示图片" style="height:500px;width: 600px "
-					src="<s:url action='ShowviewAction'><s:param name='qq' value='1354407066'></s:param></s:url>"></img>
+					src="<s:url action='ShowviewAction'><s:param name='qq' value='1'></s:param></s:url>"></img>
 			</div>
 			<button type="submit" class="btn btn-default" id="button">提交</button>
 		</form>

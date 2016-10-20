@@ -57,8 +57,9 @@
 					result += "<td >" + order[i].sfrom + "</td>";
 					result += "<td >" + order[i].sign + "</td>";
 					result += "<td >" + order[i].intime + "</td>";
-					result += "<td ><a href=\"billstudent.jsp?stuid=" + order[i].stuid + "&uid="+order[i].uid+ "&name="
-						+order[i].name+"&qq="+order[i].qq+"&weixin="+order[i].weixin+"&phone="+order[i].phone+"\">提单</a>";
+					result += "<td ><a href=\"showstudentmassage.jsp?qq=" + order[i].qq + "\">查看|</a>";
+					result += "<a href=\"billstudent.jsp?stuid=" + order[i].stuid + "&uid="+order[i].uid+ "&name="
+						+order[i].name+"&qq="+order[i].qq+"&weixin="+order[i].weixin+"&phone="+order[i].phone+"\">提单</a></td>";
 					result += "<td >" + order[i].mark + "</td>";
 					result += "</tr>";
 				}
