@@ -36,7 +36,7 @@
 		</ul>
 
 		<form
-			action="<%=basePath%>Manager/ManagerAgentRegister_register.action"
+			action="<%=basePath%>Manager/ManagerAgentManage_register.action"
 			id="form" method="post">
 			<div class="form-group">
 				<label for="aname">账户名</label><input class="form-control" id="aname"

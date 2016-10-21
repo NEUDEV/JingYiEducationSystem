@@ -25,7 +25,7 @@
 				<div class="form-group">
 					<input class="form-control" name="searchValue" type="text" />
 				</div>
-				<button type="submit" class="btn btn-default">查找班主任学员信息</button>
+				<button type="submit" class="btn btn-default">查找学员信息</button>
 			</form>
 		</div>
 

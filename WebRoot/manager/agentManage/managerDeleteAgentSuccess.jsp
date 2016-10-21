@@ -20,7 +20,7 @@
 			<dd>班主任${agent.aname} 删除成功</dd>
 		</dl>
 
-		<a class="btn btn-default" href="<%=basePath%>manager/managerMemu.jsp">返回</a>
+		<a class="btn btn-default" href="<%=basePath%>Manager/ManagerAgentManage_display.action">返回</a>
 	</div>
 </body>
 </html>

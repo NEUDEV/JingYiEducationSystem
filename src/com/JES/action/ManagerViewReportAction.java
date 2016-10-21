@@ -58,8 +58,7 @@ public class ManagerViewReportAction extends SuperAction {
 		}
 
 		request.setAttribute("i", 0);
-		request.setAttribute("reports", managerService.dealWithReport(session
-				.getAttribute("managerId").toString()));
+		request.setAttribute("reports", managerService.dealWithReport());
 
 		return "displayReport";
 	}

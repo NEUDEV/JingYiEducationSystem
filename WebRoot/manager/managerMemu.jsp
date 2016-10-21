@@ -52,7 +52,7 @@
 									<a href="<%=basePath%>manager/studentManage/divideStudent/divideStudent.jsp">学员划分</a>
 								</div>
 								<div class="panel-body">
-									<a href="<%=basePath%>manager/studentManage/studentManager.jsp">查看班主任学员信息</a>
+									<a href="<%=basePath%>manager/studentManage/studentManager.jsp">学员管理</a>
 								</div>
 							</div>
 						</div>

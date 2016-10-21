@@ -59,6 +59,8 @@
 							href="<%=basePath%>Manager/ManagerAgentManage_toDelete.action?uid=${agent.uid}">删除
 						</a><a
 							href="<%=basePath%>Manager/ManagerAgentManage_toDisplay.action?uid=${agent.uid}">查看
+						</a><a
+							href="<%=basePath%>Manager/ManagerAgentManage_displayStudentByAgent.action?uid=${agent.uid}">学员信息
 						</a></td>
 					</tr>
 				</c:forEach>

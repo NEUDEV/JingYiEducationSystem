@@ -13,7 +13,7 @@
 			<result name="logout">/welcome.jsp</result>
 
 			<!-- ManagerAgentRegister -->
-			<result name="regesterSuccess">/manager/managerMemu.jsp</result>
+			<result name="regesterSuccess">/manager/agentManage/mangerAdmitSuccess.jsp</result>
 			<result name="regesterFail">/manager/agentManage/agentRegister.jsp</result>
 
 			<!-- ManagerAgentManage -->
@@ -29,6 +29,9 @@
 			</result>
 			<result name="agentChangeSuccess">/manager/agentManage/mangerAdmitSuccess.jsp
 			</result>
+			<result name="displayStudentByAgentSuccess">/manager/studentManage/studentManager.jsp
+			</result>
+			
 			
 			<!-- AgentChangePassword -->
 			<result name="changePasswordSuccess">/manager/managerMemu.jsp</result>

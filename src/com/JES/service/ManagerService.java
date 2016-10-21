@@ -144,21 +144,26 @@ public class ManagerService {
 	 * @param searchValue
 	 * @return
 	 */
-	public ArrayList<Agent> searchCommonAgent(String searchType, String searchValue) {
+	public ArrayList<Agent> searchCommonAgent(String searchType,
+			String searchValue) {
 
 		if ("账户名".equals(searchType)) {
-			return (ArrayList<Agent>) agentDAO.findCommonAgentsByAname(searchValue);
+			return (ArrayList<Agent>) agentDAO
+					.findCommonAgentsByAname(searchValue);
 		} else if ("姓名".equals(searchType)) {
-			return (ArrayList<Agent>) agentDAO.findCommonAgentsByName(searchValue);
+			return (ArrayList<Agent>) agentDAO
+					.findCommonAgentsByName(searchValue);
 		} else if ("手机号".equals(searchType)) {
-			return (ArrayList<Agent>) agentDAO.findCommonAgentsByPhone(searchValue);
+			return (ArrayList<Agent>) agentDAO
+					.findCommonAgentsByPhone(searchValue);
 		} else if ("QQ".equals(searchType)) {
-			return (ArrayList<Agent>) agentDAO.findCommonAgentsByQq(searchValue);
-		} 
+			return (ArrayList<Agent>) agentDAO
+					.findCommonAgentsByQq(searchValue);
+		}
 
 		return new ArrayList<Agent>();
 	}
-	
+
 	/**
 	 * 查找超级班主任。
 	 * 
@@ -166,17 +171,21 @@ public class ManagerService {
 	 * @param searchValue
 	 * @return
 	 */
-	public ArrayList<Agent> searchSuperAgent(String searchType, String searchValue) {
+	public ArrayList<Agent> searchSuperAgent(String searchType,
+			String searchValue) {
 
 		if ("账户名".equals(searchType)) {
-			return (ArrayList<Agent>) agentDAO.findSuperAgentsByAname(searchValue);
+			return (ArrayList<Agent>) agentDAO
+					.findSuperAgentsByAname(searchValue);
 		} else if ("姓名".equals(searchType)) {
-			return (ArrayList<Agent>) agentDAO.findSuperAgentsByName(searchValue);
+			return (ArrayList<Agent>) agentDAO
+					.findSuperAgentsByName(searchValue);
 		} else if ("手机号".equals(searchType)) {
-			return (ArrayList<Agent>) agentDAO.findSuperAgentsByPhone(searchValue);
+			return (ArrayList<Agent>) agentDAO
+					.findSuperAgentsByPhone(searchValue);
 		} else if ("QQ".equals(searchType)) {
 			return (ArrayList<Agent>) agentDAO.findSuperAgentsByQq(searchValue);
-		} 
+		}
 
 		return new ArrayList<Agent>();
 	}
@@ -231,16 +240,13 @@ public class ManagerService {
 
 	/**
 	 * 返回报表。
+	 * 
 	 * @param managerId
 	 * @return
 	 */
-	public ArrayList<Report> dealWithReport(String managerId) {
-		ArrayList<Report> reportList = new ArrayList<Report>();
-		Manager manager = managerDAO.findById(managerId);
-		//Report report = new Report(0);
-		Report report = new Report();
-		ArrayList<Report> reports = (ArrayList<Report>) reportDAO
-				.findByAllbills("班主任");
+	public ArrayList<Report> dealWithReport() {
+		Report report = new Report(0);
+		ArrayList<Report> reports = (ArrayList<Report>) reportDAO.findAll();
 		Integer allOfStudent = 0;
 
 		for (Report item : reports) {
@@ -256,30 +262,15 @@ public class ManagerService {
 			report.setPlatestu(report.getPlatestu() + item.getPlatestu());
 			report.setTypefacestu(report.getTypefacestu()
 					+ item.getTypefacestu());
-			// TODO 转换率得重新算。
-			allOfStudent = report.getBrandstu() + report.getFullstu()
-					+ report.getIllustration() + report.getInformalstu()
-					+ report.getLifetimestu() + report.getOnlinestu()
-					+ report.getPlatestu() + report.getTypefacestu();
-
-			report.setTransrate((allOfStudent - report.getInformalstu())
-					/ (double) allOfStudent);
+			report.setAllinnum(report.getAllinnum() + item.getAllinnum());
+			report.setAllbills(report.getAllbills() + item.getAllbills());
+			report.setTransrate((report.getAllinnum())
+					/ (double) report.getAllinnum() + report.getInformalstu());
 		}
-
-		if (manager.getReportId() != null
-				&& reportDAO.findById(manager.getReportId()) != null) {
-			reportDAO.delete(reportDAO.findById(manager.getReportId()));
-		}
-
-		String uid = UUID.randomUUID().toString();
-		report.setReportid(uid);
-//		report.setRole("管理员");
-		manager.setReportId(report.getReportid());
-		managerDAO.merge(manager);
-		reportDAO.save(report);
-		reportList.add(report);
 		
-		return reportList;
+		reports.add(report);
+
+		return reports;
 	}
 
 }

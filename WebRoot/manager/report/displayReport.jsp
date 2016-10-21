@@ -38,6 +38,7 @@
 				<tr>
 					<th>序号</th>
 					<th>新增非正式学员</th>
+					<th>正式学员</th>
 					<th>板式学员</th>
 					<th>字体学员</th>
 					<th>品牌学员</th>
@@ -45,6 +46,7 @@
 					<th>插画学员</th>
 					<th>电商学员</th>
 					<th>终身学员</th>
+					<th>金额</th>
 					<th>转化率</th>
 				</tr>
 			</thead>
@@ -54,6 +56,7 @@
 					<tr>
 						<td>${i = i + 1}</td>
 						<td>${report.informalstu}</td>
+						<td>${report.allinnum}</td>
 						<td>${report.platestu}</td>
 						<td>${report.typefacestu}</td>
 						<td>${report.brandstu}</td>
@@ -61,12 +64,14 @@
 						<td>${report.illustration}</td>
 						<td>${report.onlinestu}</td>
 						<td>${report.lifetimestu}</td>
+						<td>${report.allbills}</td>
 						<td>${report.transrate}</td>
 					</tr>
 				</c:forEach>
-				<%-- <tr>
+		<%-- 		<tr>
 					<td>合计</td>
 					<td>${report.informalstu}</td>
+					<td>${report.allinnum}</td>
 					<td>${report.platestu}</td>
 					<td>${report.typefacestu}</td>
 					<td>${report.brandstu}</td>
@@ -74,6 +79,7 @@
 					<td>${report.illustration}</td>
 					<td>${report.onlinestu}</td>
 					<td>${report.lifetimestu}</td>
+					<td>${report.allbills}</td>
 					<td>${report.transrate}</td>
 				</tr> --%>
 			</tbody>

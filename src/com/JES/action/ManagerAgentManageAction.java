@@ -1,8 +1,10 @@
 package com.JES.action;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 import com.JES.model.Agent;
+import com.JES.model.Report;
 import com.JES.model.Student;
 import com.JES.service.ManagerService;
 import com.opensymphony.xwork2.ModelDriven;
@@ -22,6 +24,41 @@ public class ManagerAgentManageAction extends SuperAction implements
 
 	public void setManagerService(ManagerService managerService) {
 		this.managerService = managerService;
+	}
+
+	public String register() {
+		if (session.getAttribute("managerId") == null) {
+			return "LoginNotYet";
+		}
+
+		String confirmPassword = request.getParameter("confirmPassword");
+		String role = request.getParameter("selectRole");
+		agent.setUid("");
+
+		if (managerService.isExistAgent(agent)) {
+			request.setAttribute("info", "代理商账号已存在！");
+			return "regesterFail";
+		} else if (!agent.getPassword().equals(confirmPassword)) {
+			request.setAttribute("info", "两次密码不一致！");
+			return "regesterFail";
+		}
+
+		if ("班主任".equals(role)) {
+			agent.setRole("班主任");
+		} else if ("超级班主任".equals(role)) {
+			agent.setRole("超级班主任");
+		}
+
+		String reportId = UUID.randomUUID().toString();
+		agent.setReportId(reportId);
+		managerService.agentRegister(agent);
+
+		Report report = new Report(0);
+		report.setReportid(reportId);
+		managerService.getReportDAO().save(report);
+		request.setAttribute("agent", agent);
+
+		return "regesterSuccess";
 	}
 
 	/**
@@ -110,8 +147,11 @@ public class ManagerAgentManageAction extends SuperAction implements
 			return "LoginNotYet";
 		}
 
-		managerService.getAgentDAO().delete(
-				((Agent) session.getAttribute("agent")));
+		agent = (Agent) session.getAttribute("agent");
+		managerService.getAgentDAO().delete(agent);
+		Report report = managerService.getReportDAO().findById(
+				agent.getReportId());
+		managerService.getReportDAO().delete(report);
 		return "agentDeleteSuccess";
 	}
 
@@ -148,7 +188,7 @@ public class ManagerAgentManageAction extends SuperAction implements
 		if (session.getAttribute("managerId") == null) {
 			return "LoginNotYet";
 		}
-		
+
 		String chPassword = request.getParameter("chPassword");
 		String confirmPassword = request.getParameter("confirmPassword");
 		if (!chPassword.equals(confirmPassword)) {
@@ -158,7 +198,7 @@ public class ManagerAgentManageAction extends SuperAction implements
 			agent = managerService.getAgentDAO().findById(agent.getUid());
 			agent.setPassword(chPassword);
 			managerService.getAgentDAO().merge(agent);
-			return "changePasswordSuccess";
+			return toDisplay();
 		}
 
 		return "changePasswordFailed";
@@ -173,7 +213,7 @@ public class ManagerAgentManageAction extends SuperAction implements
 		if (session.getAttribute("managerId") == null) {
 			return "LoginNotYet";
 		}
-		
+
 		request.setAttribute(
 				"agentList",
 				managerService.searchCommonAgent(
@@ -192,7 +232,7 @@ public class ManagerAgentManageAction extends SuperAction implements
 		if (session.getAttribute("managerId") == null) {
 			return "LoginNotYet";
 		}
-		
+
 		request.setAttribute("agentList", managerService.getAgentDAO()
 				.findByRole("班主任"));
 		request.setAttribute("i", 0);
@@ -208,7 +248,7 @@ public class ManagerAgentManageAction extends SuperAction implements
 		if (session.getAttribute("managerId") == null) {
 			return "LoginNotYet";
 		}
-		
+
 		request.setAttribute(
 				"agentList",
 				managerService.searchSuperAgent(
@@ -227,7 +267,7 @@ public class ManagerAgentManageAction extends SuperAction implements
 		if (session.getAttribute("managerId") == null) {
 			return "LoginNotYet";
 		}
-		
+
 		session.setAttribute("checkCommonAgents",
 				request.getParameterValues("check"));
 
@@ -246,7 +286,7 @@ public class ManagerAgentManageAction extends SuperAction implements
 		if (session.getAttribute("managerId") == null) {
 			return "LoginNotYet";
 		}
-		
+
 		String superAgentID = request.getParameter("radio");
 		String[] checkStudents = (String[]) session
 				.getAttribute("checkCommonAgents");
@@ -264,6 +304,20 @@ public class ManagerAgentManageAction extends SuperAction implements
 		request.setAttribute("agentList", agentList);
 		request.setAttribute("i", 0);
 		return "divideAgentSuccess";
+	}
+
+	/**
+	 * 
+	 * @return
+	 */
+	public String displayStudentByAgent() {
+		if (session.getAttribute("managerId") == null) {
+			return "LoginNotYet";
+		}
+
+		request.setAttribute("studentList", (ArrayList<Student>) managerService
+				.getStudentDAO().findByMid(agent.getUid()));
+		return "displayStudentByAgentSuccess";
 	}
 
 	@Override
