@@ -139,6 +139,17 @@ public class StudentDAO {
 			throw re;
 		}
 	}
+	
+	public Integer countmystudent(String mid,String time){
+		try {
+			String queryString = "select count(*) from Student as model where cast(model.intime as date)>=cast('"+time+"' as date) and model.mid= ?";
+			Query queryObject = getCurrentSession().createQuery(queryString);
+			queryObject.setParameter(0, mid);
+			return ((Integer)queryObject.uniqueResult());
+		} catch (RuntimeException re) {
+			throw re;
+		}
+	}
 
 	public List findByMsign(Object msign) {
 		return findByProperty(MSIGN, msign);

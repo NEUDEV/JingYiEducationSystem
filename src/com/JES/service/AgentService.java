@@ -287,6 +287,7 @@ public class AgentService {
 		Integer len;
 		ReportShowItem rItem=new ReportShowItem();
 		if(value.equals("")||value==null) {
+			System.out.println("周业绩统计"+studentDAO.countmystudent("001","2016-10-18 00:00"));
 			agentList.addAll((List<Agent>)agentDAO.findByMannager(mid));
 			len=agentList.size();
 			for(int i=0;i<len;i++){
@@ -331,17 +332,17 @@ public class AgentService {
 		switch (selecttype) {
 		case "全部":
 			reportList.addAll((List<Report>)reportDAO.findById(agentDAO.findById(aid).getReportId()));
+			
 			return reportList;
 		/*case "周业绩":
-			
 			agentList.addAll((List<Agent>)agentDAO.findReportByQq(value, mid));
 			len=agentList.size();
 			for(int i=0;i<len;i++){
 				rItem.setReportShowITEM(reportDAO.findById(agentList.get(i).getReportId()),agentList.get(i));
 				rItemList.add(rItem);
 			}
-			return rItemList;
-		case "月业绩":
+			return rItemList;*/
+		/*case "月业绩":
 			agentList.addAll((List<Agent>)agentDAO.findReportByPhone(value, mid));
 			len=agentList.size();
 			for(int i=0;i<len;i++){
