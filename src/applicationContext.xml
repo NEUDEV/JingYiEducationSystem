@@ -142,4 +142,8 @@
 		<property name="agentupstudentDAO" ref="agentupstudentDAO"></property>
 	</bean>
 
-</beans>
+	<bean id="StudentDAO" class="com.JES.dao.StudentDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean></beans>

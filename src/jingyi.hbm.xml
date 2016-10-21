@@ -5,42 +5,45 @@
 <hibernate-mapping>
 	<class name="com.JES.model.Student" table="student">
 		<id name="uid" type="java.lang.String">
-			<column name="uid" />
-			<generator class="assigned" />
-		</id>
-		<property name="msign" type="java.lang.String">
-			<column name="msign" />
-		</property>
-		<property name="name" type="java.lang.String">
-			<column name="name" />
-		</property>
-		<property name="phone" type="java.lang.String">
-			<column name="phone" />
-		</property>
-		<property name="qq" type="java.lang.String">
-			<column name="qq" />
-		</property>
-		<property name="weixin" type="java.lang.String">
-			<column name="weixin" />
-		</property>
-		<property name="mid" type="java.lang.String">
-			<column name="mid" />
-		</property>
-		<property name="sign" type="java.lang.String">
-			<column name="sign" />
-		</property>
-		<property name="stuid" type="java.lang.String">
-			<column name="stuid" length="45" />
-		</property>
-		<property name="sfrom" type="java.lang.String">
-			<column name="sfrom" length="45" />
-		</property>
-		<property name="mark" type="java.lang.Integer">
-			<column name="mark" />
-		</property>
-		<property name="intime" type="java.lang.String">
-			<column name="intime" length="45" />
-		</property>
+            <column name="uid" />
+            <generator class="assigned" />
+        </id>
+        <property name="msign" type="java.lang.String">
+            <column name="msign" />
+        </property>
+        <property name="name" type="java.lang.String">
+            <column name="name" />
+        </property>
+        <property name="phone" type="java.lang.String">
+            <column name="phone" />
+        </property>
+        <property name="qq" type="java.lang.String">
+            <column name="qq" />
+        </property>
+        <property name="weixin" type="java.lang.String">
+            <column name="weixin" />
+        </property>
+        <property name="mid" type="java.lang.String">
+            <column name="mid" />
+        </property>
+        <property name="sign" type="java.lang.String">
+            <column name="sign" />
+        </property>
+        <property name="stuid" type="java.lang.String">
+            <column name="stuid" length="45" />
+        </property>
+        <property name="sfrom" type="java.lang.String">
+            <column name="sfrom" length="45" />
+        </property>
+        <property name="mark" type="java.lang.Integer">
+            <column name="mark" />
+        </property>
+        <property name="intime" type="java.lang.String">
+            <column name="intime" length="45" />
+        </property>
+        <property name="note" type="java.lang.String">
+            <column name="note" />
+        </property>
 	</class>
 	<class name="com.JES.model.Agent" table="agent">
 		<id name="uid" column="uid" type="java.lang.String">

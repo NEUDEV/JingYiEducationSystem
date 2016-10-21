@@ -1,7 +1,5 @@
 package com.JES.model;
 
-import java.util.Date;
-
 /**
  * Student entity. @author MyEclipse Persistence Tools
  */
@@ -22,6 +20,7 @@ public class Student implements java.io.Serializable {
 	private String sfrom;
 	private Integer mark;
 	private String intime;
+	private String note;
 
 	// Constructors
 
@@ -37,7 +36,7 @@ public class Student implements java.io.Serializable {
 	/** full constructor */
 	public Student(String uid, String msign, String name, String phone,
 			String qq, String weixin, String mid, String sign, String stuid,
-			String sfrom, Integer mark, String intime) {
+			String sfrom, Integer mark, String intime, String note) {
 		this.uid = uid;
 		this.msign = msign;
 		this.name = name;
@@ -50,6 +49,7 @@ public class Student implements java.io.Serializable {
 		this.sfrom = sfrom;
 		this.mark = mark;
 		this.intime = intime;
+		this.note = note;
 	}
 
 	// Property accessors
@@ -59,8 +59,7 @@ public class Student implements java.io.Serializable {
 	}
 
 	public void setUid(String uid) {
-		if(uid==null) this.uid="";
-		else this.uid = uid;
+		this.uid = uid;
 	}
 
 	public String getMsign() {
@@ -68,8 +67,7 @@ public class Student implements java.io.Serializable {
 	}
 
 	public void setMsign(String msign) {
-		if(msign==null) this.msign="";
-		else this.msign = msign;
+		this.msign = msign;
 	}
 
 	public String getName() {
@@ -77,8 +75,7 @@ public class Student implements java.io.Serializable {
 	}
 
 	public void setName(String name) {
-		if(name==null) this.name="";
-		else this.name = name;
+		this.name = name;
 	}
 
 	public String getPhone() {
@@ -86,8 +83,7 @@ public class Student implements java.io.Serializable {
 	}
 
 	public void setPhone(String phone) {
-		if(phone==null) this.phone="";
-		else this.phone = phone;
+		this.phone = phone;
 	}
 
 	public String getQq() {
@@ -95,8 +91,7 @@ public class Student implements java.io.Serializable {
 	}
 
 	public void setQq(String qq) {
-		if(qq==null) this.qq="";
-		else this.qq = qq;
+		this.qq = qq;
 	}
 
 	public String getWeixin() {
@@ -104,8 +99,7 @@ public class Student implements java.io.Serializable {
 	}
 
 	public void setWeixin(String weixin) {
-		if(weixin==null) this.weixin="";
-		else this.weixin = weixin;
+		this.weixin = weixin;
 	}
 
 	public String getMid() {
@@ -113,8 +107,7 @@ public class Student implements java.io.Serializable {
 	}
 
 	public void setMid(String mid) {
-		if(mid==null) this.mid="";
-		else this.mid = mid;
+		this.mid = mid;
 	}
 
 	public String getSign() {
@@ -122,8 +115,7 @@ public class Student implements java.io.Serializable {
 	}
 
 	public void setSign(String sign) {
-		if(sign==null) this.sign="";
-		else this.sign = sign;
+		this.sign = sign;
 	}
 
 	public String getStuid() {
@@ -131,8 +123,7 @@ public class Student implements java.io.Serializable {
 	}
 
 	public void setStuid(String stuid) {
-		if(stuid==null) this.stuid="";
-		else this.stuid = stuid;
+		this.stuid = stuid;
 	}
 
 	public String getSfrom() {
@@ -140,8 +131,7 @@ public class Student implements java.io.Serializable {
 	}
 
 	public void setSfrom(String sfrom) {
-		if(sfrom==null) this.sfrom="";
-		else this.sfrom = sfrom;
+		this.sfrom = sfrom;
 	}
 
 	public Integer getMark() {
@@ -149,8 +139,7 @@ public class Student implements java.io.Serializable {
 	}
 
 	public void setMark(Integer mark) {
-		if(mark==null) this.mark=1;
-		else this.mark = mark;
+		this.mark = mark;
 	}
 
 	public String getIntime() {
@@ -158,8 +147,15 @@ public class Student implements java.io.Serializable {
 	}
 
 	public void setIntime(String intime) {
-		if(intime==null) this.intime="";
-		else this.intime = intime;
+		this.intime = intime;
+	}
+
+	public String getNote() {
+		return this.note;
+	}
+
+	public void setNote(String note) {
+		this.note = note;
 	}
 
 }
