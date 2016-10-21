@@ -117,6 +117,18 @@ public class ReportDAO {
 			throw re;
 		}
 	}
+	
+	public List findreportbymid(String mid){
+		try {
+			String queryString = "select model from Report as model,Agent as agt where agt.mannager= ?"
+									+" and agt.reportId=model.reportid";
+			Query queryObject = getCurrentSession().createQuery(queryString);
+			queryObject.setParameter(0, mid);
+			return queryObject.list();
+		} catch (RuntimeException re) {
+			throw re;
+		}
+	}
 
 	public List findByInformalstu(Object informalstu) {
 		return findByProperty(INFORMALSTU, informalstu);

@@ -116,9 +116,9 @@ public class AgentService {
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Student> searchStudents(String type, String value) {
+	public List<Student> searchStudents(String type, String value,String mid) {
 		if(value.equals("")||value==null) 
-			return (List<Student>) studentDAO.findAll();
+			return (List<Student>) studentDAO.findByMid(mid);
 		List<Student> slist = new ArrayList<Student>();
 		switch (type) {
 		case "学员UID":
@@ -127,13 +127,27 @@ public class AgentService {
 				slist.add(student);
 			return slist;
 		case "真实姓名":
-			return (List<Student>) studentDAO.findByName(value);
+			return (List<Student>) studentDAO.findByNameWithMid(value,mid);
 		case "手机号":
-			return (List<Student>) studentDAO.findByPhone(value);
+			return (List<Student>) studentDAO.findByPhoneWithMid(value,mid);
 		case "QQ":
-			return (List<Student>) studentDAO.findByQq(value);
+			return (List<Student>) studentDAO.findByQqWithMid(value,mid);
 		case "学号":
-			return (List<Student>) studentDAO.findByStuid(value);
+			return (List<Student>) studentDAO.findByStuidWithMid(value,mid);
+		}
+		return null;
+	}
+	
+	public List<Agent> searchAgents(String type, String value,String aid){
+		if(value.equals("")||value==null) 
+			return (List<Agent>) agentDAO.findByAid(aid);
+		switch (type) {
+		case "班主任姓名":
+			return (List<Agent>) agentDAO.findByNameWithAid(value,aid);
+		case "班主任手机号":
+			return (List<Agent>) agentDAO.findByPhoneWithAid(value,aid);
+		case "班主任QQ":
+			return (List<Agent>) agentDAO.findByQqWithAid(value,aid);
 		}
 		return null;
 	}
@@ -256,6 +270,29 @@ public class AgentService {
 		return (List<Course>)courseDAO.findAll();
 	}
 	
+	public List<Report> allreport(String mid){
+		List<Report> reportList=new ArrayList<Report>();
+		Report report=new Report(0);
+		report=reportDAO.findById(agentDAO.findById(mid).getReportId());
+		reportList.addAll(reportDAO.findreportbymid(mid));
+		for(int i=0;i<reportList.size();i++){
+			report.setInformalstu(report.getInformalstu()+reportList.get(i).getInformalstu());
+			report.setPlatestu(report.getPlatestu()+reportList.get(i).getPlatestu());
+			report.setTypefacestu(report.getTypefacestu()+reportList.get(i).getTypefacestu());
+			report.setBrandstu(report.getBrandstu()+reportList.get(i).getBrandstu());
+			report.setFullstu(report.getFullstu()+reportList.get(i).getFullstu());
+			report.setIllustration(report.getIllustration()+reportList.get(i).getIllustration());
+			report.setOnlinestu(report.getOnlinestu()+reportList.get(i).getOnlinestu());
+			report.setLifetimestu(report.getLifetimestu()+reportList.get(i).getLifetimestu());
+			report.setAllinnum(report.getAllinnum()+reportList.get(i).getAllinnum());
+			report.setAllbills(report.getAllbills()+reportList.get(i).getAllbills());
+		}
+		report.setTransrate(Double.parseDouble(report.getAllinnum().toString())/(report.getInformalstu()+report.getAllinnum()));
+		reportList.clear();
+		reportList.add(report);
+		return reportList;
+	}
+	
 	public boolean billUp(String uid,String phone,String weixin,String sign,Integer bill,Integer mark,String class_){
 		Student student=(Student)studentDAO.findById(uid);
 		Selection selection=new Selection();
@@ -288,15 +325,6 @@ public class AgentService {
 		ReportShowItem rItem=new ReportShowItem();
 		if(value.equals("")||value==null) {
 			
-			//System.out.println(selectionDAO.sumbills("001", "2016-10-02 00:34:29"));
-			
-			//List<Object> classlist=new ArrayList<Object>();
-			/*List<Object> cList=new ArrayList<Object>();
-			cList.addAll(selectionDAO.countclasstype("001", "2016-10-01 00:34:29"));
-			for(int i=0;i<cList.size();i++){
-				Object[] obj=(Object[])cList.get(i);
-				System.out.println(obj[0].toString()+Integer.parseInt(String.valueOf(obj[1])));
-			}*/
 			agentList.addAll((List<Agent>)agentDAO.findByMannager(mid));
 			len=agentList.size();
 			for(int i=0;i<len;i++){
@@ -360,7 +388,7 @@ public class AgentService {
 			date.set(Calendar.DATE, date.get(Calendar.DATE) - 1);
 		else if(subday.equals(1))
 			date.add(Calendar.MONTH, -1);
-		System.out.println(dft.format(beginDate)+"-"+dft.format(date.getTime()));
+		//System.out.println(dft.format(beginDate)+"-"+dft.format(date.getTime()));
 		String selectiontime=dft.format(date.getTime());
 		List<Object> cList=new ArrayList<Object>();
 		cList.addAll(selectionDAO.countclasstype("001", selectiontime));

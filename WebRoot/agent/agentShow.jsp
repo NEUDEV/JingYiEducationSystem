@@ -13,7 +13,7 @@
 		var value = $("#searchvalue").val();
 		$.ajax({
 			type : "post",
-			url : "AgentStudentsAction1.action",
+			url : "MyCompanyAction.action",
 			data: {'searchtype':type,'searchvalue':value},
 			datatype: "json",
 			//contentType: "application/json",
@@ -31,42 +31,35 @@
 				}
 				result += "<thead>";
 				result += "<tr class='thead'>";
-				result += "<th>UID</th>";
-				result += "<th>学号</th>";
+				result += "<th>昵称</th>";
 				result += "<th>姓名</th>";
 				result += "<th>手机号</th>";
 				result += "<th>QQ</th>";
-				result += "<th>微信</th>";
-				result += "<th>来源</th>";
-				result += "<th>状态</th>";
-				result += "<th>录入时间</th>";
-				result += "<th>操作</th>";
-				result += "<th>学员转化指数</th>";
+				result += "<th>身份证</th>";
+				result += "<th>开户银行</th>";
+				result += "<th>银行卡号</th>";
 				result += "</tr>";
 				result += "</thead>";
 				result += "<tbody>";
 				//这里的order[i]就相当于list中的order,起属性也是一一对应的  
 				for (var i = 0; i < order.length; i++) {
 					result += "<tr >";
-					result += "<td>" + order[i].uid + "</td>";
-					result += "<td>" + order[i].stuid + "</td>";
+					result += "<td>" + order[i].aname + "</td>";
 					result += "<td>" + order[i].name + "</td>";
 					result += "<td >" + order[i].phone + "</td>";
 					result += "<td >" + order[i].qq + "</td>";
-					result += "<td >" + order[i].weixin + "</td>";
-					result += "<td >" + order[i].sfrom + "</td>";
-					result += "<td >" + order[i].sign + "</td>";
-					result += "<td >" + order[i].intime + "</td>";
-					result += "<td ><a href=\"showstudentmassage.jsp?stuid=" + order[i].stuid + "&uid="+order[i].uid+ "&name="
+					result += "<td >" + order[i].idcard + "</td>";
+					result += "<td >" + order[i].bank + "</td>";
+					result += "<td >" + order[i].account + "</td>";
+					/* result += "<td ><a href=\"showstudentmassage.jsp?stuid=" + order[i].stuid + "&uid="+order[i].uid+ "&name="
 						+order[i].name+"&qq="+order[i].qq+"&weixin="+order[i].weixin+"&phone="+order[i].phone+"&note="+order[i].note+
 						"&sfrom="+order[i].sfrom+"&intime="+order[i].intime+"&sign="+order[i].sign+"\">查看|</a>";
 					result += "<a href=\"billstudent.jsp?stuid=" + order[i].stuid + "&uid="+order[i].uid+ "&name="
-						+order[i].name+"&qq="+order[i].qq+"&weixin="+order[i].weixin+"&phone="+order[i].phone+"\">提单</a></td>";
-					result += "<td >" + order[i].mark + "</td>";
+						+order[i].name+"&qq="+order[i].qq+"&weixin="+order[i].weixin+"&phone="+order[i].phone+"\">提单</a></td>"; */
 					result += "</tr>";
 				}
 				result += "</tbody>";
-				$("#courseList").html(result);
+				$("#agentList").html(result);
 			},
 			error : function(text) {
 				alert("erro");
@@ -83,11 +76,9 @@
 			<form class="navbar-form navbar-left" role="search" 
 				method="post">
 				<select name="searchtype" id="searchtype" class="form-control">
-					<option>学员UID</option>
-					<option>真实姓名</option>
-					<option>手机号</option>
-					<option>QQ</option>
-					<option>学号</option>
+					<option>班主任姓名</option>
+					<option>班主任手机号</option>
+					<option>班主任QQ</option>
 				</select>
 				<div class="form-group">
 					<input class="form-control" name="searchvalue" id="searchvalue" type="text" />
@@ -96,11 +87,11 @@
 			</form>
 		</div>
 		</nav>
-		<table class="table" id="courseList">
+		<table class="table" id="agentList">
 			
-			<tbody id="courseList">
+			<!-- <tbody id="courseList">
 				
-			</tbody>
+			</tbody> -->
 		</table>
 
 		<div>

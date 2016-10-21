@@ -120,6 +120,18 @@ public class AgentDAO {
 			throw re;
 		}
 	}
+	
+	public List findByPropertyWithAid(String propertyName, Object value,String aid) {
+		try {
+			String queryString = "select model from Agent as model where model."
+					+ propertyName + "= ? and model.aid='"+aid+"'";
+			Query queryObject = getCurrentSession().createQuery(queryString);
+			queryObject.setParameter(0, value);
+			return queryObject.list();
+		} catch (RuntimeException re) {
+			throw re;
+		}
+	}
 
 	/*public List findReportIdByMannager(String mannager){
 		try{
@@ -203,6 +215,18 @@ public class AgentDAO {
 
 	public List findByMannager(Object mannager) {
 		return findByProperty(MANNAGER, mannager);
+	}
+	
+	public List findByNameWithAid(Object name,String aid) {
+		return findByPropertyWithAid(NAME, name,aid);
+	}
+	
+	public List findByPhoneWithAid(Object phone,String aid) {
+		return findByPropertyWithAid(PHONE, phone,aid);
+	}
+	
+	public List findByQqWithAid(Object qq,String aid) {
+		return findByPropertyWithAid(QQ, qq,aid);
 	}
 
 	public List findAll() {

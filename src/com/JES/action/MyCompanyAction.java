@@ -6,12 +6,11 @@ import java.util.List;
 import org.apache.struts2.ServletActionContext;
 
 import com.JES.json.JsonUtil;
-import com.JES.model.Report;
-import com.JES.model.ReportShowItem;
+import com.JES.model.Agent;
 import com.JES.model.Student;
 import com.JES.service.AgentService;
 
-public class MyCpReportAction extends SuperAction{
+public class MyCompanyAction extends SuperAction{
 	private String searchtype;
 	private String searchvalue;
 	private AgentService agentservice;
@@ -42,18 +41,18 @@ public class MyCpReportAction extends SuperAction{
 		this.agentservice = agentservice;
 	}
 	
-	public String MyCps(){
+	public String Myagents(){
 		try{
-		List<ReportShowItem> reportItemList = new ArrayList<ReportShowItem>();
-		//String mid = session.getAttribute("agentID").toString();
-		String aid="1";
-		reportItemList=agentservice.MyCpReports(searchtype,searchvalue,aid);
-		jsonResult = JsonUtil.listToJson(reportItemList); 
-		//System.out.println(jsonResult);
-        ServletActionContext.getResponse().setContentType("text/xml");  
+		List<Agent> agenttList = new ArrayList<Agent>();
+		String mannager="1";
+		agenttList=agentservice.searchAgents(searchtype,searchvalue,mannager);
+		jsonResult = JsonUtil.listToJson(agenttList);  
+		System.out.println();
+            ServletActionContext.getResponse().setContentType("text/xml");  
         }catch(Exception e){    
             e.fillInStackTrace();  
         }  
         return SUCCESS;
 	}
+	
 }

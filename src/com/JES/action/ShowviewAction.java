@@ -9,7 +9,7 @@ import com.JES.dao.AgentupstudentDAO;
 import com.JES.model.Agentupstudent;
 
 public class ShowviewAction {
-	String qq;
+	private String qq;
 	AgentupstudentDAO agentupstudentDAO;
 
 	
@@ -22,7 +22,6 @@ public class ShowviewAction {
 		this.agentupstudentDAO = agentupstudentDAO;
 	}
 	
-
 	public String getQq() {
 		return qq;
 	}

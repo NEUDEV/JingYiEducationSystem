@@ -27,6 +27,9 @@
 								<div class="panel-body">
 									<a href="<%=basePath%>agent/studentShow.jsp">我的学员</a>
 								</div>
+								<div class="panel-body">
+									<a href="StudentMassageFileOutAction.action">导出学员</a>
+								</div>
 							</div>
 						</div>
 
@@ -37,7 +40,7 @@
 							</div>
 							<div id="panel-element-724199" class="panel-collapse in">
 								<div class="panel-body">
-									<a href="#">团队成员</a>
+									<a href="<%=basePath%>agent/agentShow.jsp"">团队成员</a>
 								</div>
 							</div>
 						</div>
@@ -48,9 +51,13 @@
 							</div>
 							<div id="panel-element-724200" class="panel-collapse in">
 								<div class="panel-body">
-								<a class="panel-body" href="<%=basePath%>agent/myreport.jsp">我的业绩</a>
-								<a class="panel-body" href="<%=basePath%>agent/agentreport.jsp">班主任业绩</a>
-								<a class="panel-body" href="#">业绩汇总</a>
+								<a  href="<%=basePath%>agent/myreport.jsp">我的业绩</a>
+								</div>
+								<div class="panel-body">
+								<a  href="<%=basePath%>agent/agentreport.jsp">班主任业绩</a>
+								</div>
+								<div class="panel-body">
+								<a  href="<%=basePath%>agent/all_report.jsp">业绩汇总</a>
 								</div>
 							</div>
 						</div>

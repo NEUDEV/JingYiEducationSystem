@@ -44,7 +44,8 @@ public class AgentStudentsAction extends SuperAction{
 	public String Mystudents(){
 		try{
 		List<Student> studentList = new ArrayList<Student>();
-		studentList=agentservice.searchStudents(searchtype,searchvalue);
+		String mid="001";
+		studentList=agentservice.searchStudents(searchtype,searchvalue,mid);
 		jsonResult = JsonUtil.listToJson(studentList);  
 		System.out.println();
             ServletActionContext.getResponse().setContentType("text/xml");  

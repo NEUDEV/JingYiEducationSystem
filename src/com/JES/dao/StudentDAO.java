@@ -118,6 +118,19 @@ public class StudentDAO {
 		}
 	}
 	
+	public List findByPropertyWithMid(String propertyName, Object value, String mid){
+		try {
+			String queryString = "from Student as model where model."
+					+ propertyName + "= ? and model.mid='"+mid+"'";
+			Query queryObject = getCurrentSession().createQuery(queryString);
+			queryObject.setParameter(0, value);
+			return queryObject.list();
+		} catch (RuntimeException re) {
+			log.error("find by property name failed", re);
+			throw re;
+		}
+	}
+	
 	/*public Integer countunifStudent(String mid){
 		try {
 			String queryString = "select count(*) from Student as model where model.sign='非正式学员' and model.mid= ?";
@@ -213,6 +226,22 @@ public class StudentDAO {
 			log.error("find all failed", re);
 			throw re;
 		}
+	}
+	
+	public List findByNameWithMid(Object name,String mid){
+		return findByPropertyWithMid(MARK, name,mid);
+	}
+	
+	public List findByPhoneWithMid(Object phone,String mid){
+		return findByPropertyWithMid(PHONE, phone,mid);
+	}
+	
+	public List findByQqWithMid(Object Qq,String mid){
+		return findByPropertyWithMid(QQ, Qq,mid);
+	}
+	
+	public List findByStuidWithMid(Object stuid,String mid){
+		return findByPropertyWithMid(STUID, stuid,mid);
 	}
 	
 	public List findJingYiByName(String name) {

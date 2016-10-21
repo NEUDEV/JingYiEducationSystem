@@ -76,7 +76,7 @@
 			
 			<div class="form-group">
 				<label for="weixin">微信</label> <input class="form-control" id="weixin"
-					type="text" name="weixin" value=<%=request.getParameter("qq") %>></input>
+					type="text" name="weixin" value=<%=request.getParameter("weixin") %>></input>
 			</div>
 			<div class="form-group">
 				<label for="sign">状态</label> <select name="sign" class="form-control">
@@ -92,9 +92,10 @@
 				</select> -->
 			</div>
 			<div class="form-group">
-				<label for="bill">学费*</label><label id="billms" style="color:red"></label>
+				<label for="bill">学费</label><label style="color:red">*</label>
+				<label id="billms" style="color:red"></label>
 				<input class="form-control" id="bill"
-					type="text" name="bill" onblur="cheackblock()"/>
+					type="number" name="bill" onblur="cheackblock()"/>
 			</div>
 			<div><label id="billms"></label></div>
 			<div class="form-group">
@@ -106,6 +107,7 @@
 				<div><input type="radio"  name="mark" value="5" />5星<br /></div>
 			</div>
 			<button type="submit" disabled=true class="btn btn-default" id="submit1" name="submit1">提交</button>
+			<label >带*为必填项</label>
 		</form>
 	</div>
 </body>

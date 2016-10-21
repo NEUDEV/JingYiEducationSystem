@@ -160,6 +160,16 @@
 			<result type="json">
 			</result>
 		</action>
+		<action name="AllReportAction" class="com.JES.action.AllReportAction"
+			method="AllReport">
+			<result type="json">
+			</result>
+		</action>
+		<action name="MyCompanyAction" class="com.JES.action.MyCompanyAction"
+			method="Myagents">
+			<result type="json">
+			</result>
+		</action>
 	</package>
 	<!-- <package name="upload" namespace="/file" extends="struts-default"> 
 		<action name="upload" class="com.JES.action.AgentUpStudentAction"> <result 
