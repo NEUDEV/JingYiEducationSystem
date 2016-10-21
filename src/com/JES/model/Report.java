@@ -18,7 +18,6 @@ public class Report implements java.io.Serializable {
 	private Integer onlinestu;
 	private Integer lifetimestu;
 	private Double transrate;
-	private String role;
 	private Integer allinnum;
 	private Double allbills;
 
@@ -48,7 +47,6 @@ public class Report implements java.io.Serializable {
 		this.onlinestu = onlinestu;
 		this.lifetimestu = lifetimestu;
 		this.transrate = transrate;
-		this.role = role;
 		this.allinnum = allinnum;
 		this.allbills = allbills;
 	}
@@ -147,14 +145,6 @@ public class Report implements java.io.Serializable {
 
 	public void setTransrate(Double transrate) {
 		this.transrate = transrate;
-	}
-
-	public String getRole() {
-		return this.role;
-	}
-
-	public void setRole(String role) {
-		this.role = role;
 	}
 
 	public Integer getAllinnum() {

@@ -38,7 +38,6 @@ public class ReportDAO {
 	public static final String ONLINESTU = "onlinestu";
 	public static final String LIFETIMESTU = "lifetimestu";
 	public static final String TRANSRATE = "transrate";
-	public static final String ROLE = "role";
 	public static final String ALLINNUM = "allinnum";
 	public static final String ALLBILLS = "allbills";
 
@@ -153,10 +152,6 @@ public class ReportDAO {
 
 	public List findByTransrate(Object transrate) {
 		return findByProperty(TRANSRATE, transrate);
-	}
-
-	public List findByRole(Object role) {
-		return findByProperty(ROLE, role);
 	}
 
 	public List findByAllinnum(Object allinnum) {

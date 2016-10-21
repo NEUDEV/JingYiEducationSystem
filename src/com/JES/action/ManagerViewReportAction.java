@@ -63,5 +63,4 @@ public class ManagerViewReportAction extends SuperAction {
 
 		return "displayReport";
 	}
-
 }

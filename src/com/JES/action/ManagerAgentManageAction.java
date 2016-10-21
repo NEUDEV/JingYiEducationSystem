@@ -145,6 +145,10 @@ public class ManagerAgentManageAction extends SuperAction implements
 	 * @return
 	 */
 	public String changePassword() {
+		if (session.getAttribute("managerId") == null) {
+			return "LoginNotYet";
+		}
+		
 		String chPassword = request.getParameter("chPassword");
 		String confirmPassword = request.getParameter("confirmPassword");
 		if (!chPassword.equals(confirmPassword)) {
@@ -166,6 +170,10 @@ public class ManagerAgentManageAction extends SuperAction implements
 	 * @return
 	 */
 	public String searchCommonAgents() {
+		if (session.getAttribute("managerId") == null) {
+			return "LoginNotYet";
+		}
+		
 		request.setAttribute(
 				"agentList",
 				managerService.searchCommonAgent(
@@ -181,6 +189,10 @@ public class ManagerAgentManageAction extends SuperAction implements
 	 * @return
 	 */
 	public String displayCommonAgents() {
+		if (session.getAttribute("managerId") == null) {
+			return "LoginNotYet";
+		}
+		
 		request.setAttribute("agentList", managerService.getAgentDAO()
 				.findByRole("°àÖ÷ÈÎ"));
 		request.setAttribute("i", 0);
@@ -193,6 +205,10 @@ public class ManagerAgentManageAction extends SuperAction implements
 	 * @return
 	 */
 	public String searchSuperAgents() {
+		if (session.getAttribute("managerId") == null) {
+			return "LoginNotYet";
+		}
+		
 		request.setAttribute(
 				"agentList",
 				managerService.searchSuperAgent(
@@ -208,6 +224,10 @@ public class ManagerAgentManageAction extends SuperAction implements
 	 * @return
 	 */
 	public String displaySuperAgents() {
+		if (session.getAttribute("managerId") == null) {
+			return "LoginNotYet";
+		}
+		
 		session.setAttribute("checkCommonAgents",
 				request.getParameterValues("check"));
 
@@ -223,6 +243,10 @@ public class ManagerAgentManageAction extends SuperAction implements
 	 * @return
 	 */
 	public String divideAgent() {
+		if (session.getAttribute("managerId") == null) {
+			return "LoginNotYet";
+		}
+		
 		String superAgentID = request.getParameter("radio");
 		String[] checkStudents = (String[]) session
 				.getAttribute("checkCommonAgents");

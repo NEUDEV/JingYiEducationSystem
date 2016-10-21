@@ -165,9 +165,6 @@
         <property name="transrate" type="java.lang.Double">
             <column name="transrate" precision="22" scale="0" />
         </property>
-        <property name="role" type="java.lang.String">
-            <column name="role" length="45" />
-        </property>
         <property name="allinnum" type="java.lang.Integer">
             <column name="allinnum" />
         </property>

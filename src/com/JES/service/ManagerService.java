@@ -240,7 +240,7 @@ public class ManagerService {
 		//Report report = new Report(0);
 		Report report = new Report();
 		ArrayList<Report> reports = (ArrayList<Report>) reportDAO
-				.findByRole("班主任");
+				.findByAllbills("班主任");
 		Integer allOfStudent = 0;
 
 		for (Report item : reports) {
@@ -273,7 +273,7 @@ public class ManagerService {
 
 		String uid = UUID.randomUUID().toString();
 		report.setReportid(uid);
-		report.setRole("管理员");
+//		report.setRole("管理员");
 		manager.setReportId(report.getReportid());
 		managerDAO.merge(manager);
 		reportDAO.save(report);
