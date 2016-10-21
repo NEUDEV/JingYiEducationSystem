@@ -106,6 +106,7 @@ public class ManagerService {
 	public void agentRegister(Agent agent) {
 		String uid = UUID.randomUUID().toString();
 		agent.setUid(uid);
+		agent.setMannager("");
 		agentDAO.save(agent);
 	}
 
