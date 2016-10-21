@@ -33,7 +33,7 @@ public class ManagerAgentManageAction extends SuperAction implements
 		if (session.getAttribute("managerId") == null) {
 			return "LoginNotYet";
 		}
-		
+
 		request.setAttribute("agentList", managerService.getAgents());
 		return "agentsDisplay";
 	}
@@ -47,7 +47,7 @@ public class ManagerAgentManageAction extends SuperAction implements
 		if (session.getAttribute("managerId") == null) {
 			return "LoginNotYet";
 		}
-		
+
 		request.setAttribute("agentList", managerService.searchAgent(
 				request.getParameter("searchType"),
 				request.getParameter("searchValue")));
@@ -56,28 +56,30 @@ public class ManagerAgentManageAction extends SuperAction implements
 
 	/**
 	 * 修改班主任。
+	 * 
 	 * @return
 	 */
 	public String toChange() {
 		if (session.getAttribute("managerId") == null) {
 			return "LoginNotYet";
 		}
-		
+
 		String uid = request.getParameter("uid");
 		session.setAttribute("uid", uid);
 
 		return "toChange";
 	}
-	
+
 	/**
 	 * 查看班主任。
+	 * 
 	 * @return
 	 */
 	public String toDisplay() {
 		if (session.getAttribute("managerId") == null) {
 			return "LoginNotYet";
 		}
-		
+
 		String uid = request.getParameter("uid");
 		request.setAttribute("agent", managerService.getAgentDAO()
 				.findById(uid));
@@ -86,13 +88,14 @@ public class ManagerAgentManageAction extends SuperAction implements
 
 	/**
 	 * 删除班主任。
+	 * 
 	 * @return
 	 */
 	public String toDelete() {
 		if (session.getAttribute("managerId") == null) {
 			return "LoginNotYet";
 		}
-		
+
 		String uid = request.getParameter("uid");
 		session.setAttribute("uid", uid);
 		session.setAttribute("agent", managerService.getAgentDAO()
@@ -106,7 +109,7 @@ public class ManagerAgentManageAction extends SuperAction implements
 		if (session.getAttribute("managerId") == null) {
 			return "LoginNotYet";
 		}
-		
+
 		managerService.getAgentDAO().delete(
 				((Agent) session.getAttribute("agent")));
 		return "agentDeleteSuccess";
@@ -116,7 +119,7 @@ public class ManagerAgentManageAction extends SuperAction implements
 		if (session.getAttribute("managerId") == null) {
 			return "LoginNotYet";
 		}
-		
+
 		agent.setUid(request.getParameter("uid"));
 
 		if (managerService.isExistAgent(agent)) {
@@ -134,6 +137,27 @@ public class ManagerAgentManageAction extends SuperAction implements
 		request.setAttribute("agent", agent);
 		managerService.changeAgent(agent);
 		return "agentChangeSuccess";
+	}
+
+	/**
+	 * 修改密码。
+	 * 
+	 * @return
+	 */
+	public String changePassword() {
+		String chPassword = request.getParameter("chPassword");
+		String confirmPassword = request.getParameter("confirmPassword");
+		if (!chPassword.equals(confirmPassword)) {
+			request.setAttribute("info", "两次密码不一致，请重新输入！");
+
+		} else {
+			agent = managerService.getAgentDAO().findById(agent.getUid());
+			agent.setPassword(chPassword);
+			managerService.getAgentDAO().merge(agent);
+			return "changePasswordSuccess";
+		}
+
+		return "changePasswordFailed";
 	}
 
 	/**

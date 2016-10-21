@@ -29,6 +29,10 @@
 			</result>
 			<result name="agentChangeSuccess">/manager/agentManage/mangerAdmitSuccess.jsp
 			</result>
+			
+			<!-- AgentChangePassword -->
+			<result name="changePasswordSuccess">/manager/managerMemu.jsp</result>
+			<result name="changePasswordFailed">/manager/agentManage/agentChangePassword.jsp</result>
 
 			<!-- ManagerDivideAgent -->
 			<result name="returnCommonAgent">/manager/agentManage/divideAgent/chooseCommonAgent.jsp
