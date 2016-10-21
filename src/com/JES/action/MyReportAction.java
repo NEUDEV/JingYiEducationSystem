@@ -34,7 +34,7 @@ public class MyReportAction extends SuperAction{
 		this.agentservice = agentservice;
 	}
 	
-	public String MyCps(){
+	public String MyReport(){
 		try{
 		List<Report> reportList = new ArrayList<Report>();
 		//String aid = session.getAttribute("agentID").toString();

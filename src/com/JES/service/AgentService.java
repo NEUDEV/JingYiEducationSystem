@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -49,7 +50,6 @@ public class AgentService {
 	private CourseDAO courseDAO;
 	private SelectionDAO selectionDAO;
 	private ReportDAO reportDAO;
-	
 	
 	public ReportDAO getReportDAO() {
 		return reportDAO;
@@ -287,7 +287,16 @@ public class AgentService {
 		Integer len;
 		ReportShowItem rItem=new ReportShowItem();
 		if(value.equals("")||value==null) {
-			System.out.println("周业绩统计"+studentDAO.countmystudent("001","2016-10-18 00:00"));
+			
+			//System.out.println(selectionDAO.sumbills("001", "2016-10-02 00:34:29"));
+			
+			//List<Object> classlist=new ArrayList<Object>();
+			/*List<Object> cList=new ArrayList<Object>();
+			cList.addAll(selectionDAO.countclasstype("001", "2016-10-01 00:34:29"));
+			for(int i=0;i<cList.size();i++){
+				Object[] obj=(Object[])cList.get(i);
+				System.out.println(obj[0].toString()+Integer.parseInt(String.valueOf(obj[1])));
+			}*/
 			agentList.addAll((List<Agent>)agentDAO.findByMannager(mid));
 			len=agentList.size();
 			for(int i=0;i<len;i++){
@@ -328,30 +337,75 @@ public class AgentService {
 	
 	public List<Report> MyReports(String selecttype,String aid){
 		List<Report> reportList=new ArrayList<Report>();
-		Report report=new Report();
 		switch (selecttype) {
 		case "全部":
-			reportList.addAll((List<Report>)reportDAO.findById(agentDAO.findById(aid).getReportId()));
-			
+			reportList.add(reportDAO.findById(agentDAO.findById(aid).getReportId()));
 			return reportList;
-		/*case "周业绩":
-			agentList.addAll((List<Agent>)agentDAO.findReportByQq(value, mid));
-			len=agentList.size();
-			for(int i=0;i<len;i++){
-				rItem.setReportShowITEM(reportDAO.findById(agentList.get(i).getReportId()),agentList.get(i));
-				rItemList.add(rItem);
-			}
-			return rItemList;*/
-		/*case "月业绩":
-			agentList.addAll((List<Agent>)agentDAO.findReportByPhone(value, mid));
-			len=agentList.size();
-			for(int i=0;i<len;i++){
-				rItem.setReportShowITEM(reportDAO.findById(agentList.get(i).getReportId()),agentList.get(i));
-				rItemList.add(rItem);
-			}
-			return rItemList;*/
+		case "周业绩":
+			return achieve(7,0);
+		case "月业绩":
+			return achieve(29,1);
 		}
 		return null;
+	}
+	
+	public List<Report> achieve(Integer day,Integer subday){
+		List<Report> reportList=new ArrayList<Report>();
+		Report report=new Report(0);
+		SimpleDateFormat dft = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		Date beginDate = new Date();
+		Calendar date = Calendar.getInstance();
+		date.setTime(beginDate);
+		if(subday.equals(0))
+			date.set(Calendar.DATE, date.get(Calendar.DATE) - 1);
+		else if(subday.equals(1))
+			date.add(Calendar.MONTH, -1);
+		System.out.println(dft.format(beginDate)+"-"+dft.format(date.getTime()));
+		String selectiontime=dft.format(date.getTime());
+		List<Object> cList=new ArrayList<Object>();
+		cList.addAll(selectionDAO.countclasstype("001", selectiontime));
+		report.setInformalstu(studentDAO.countunifStudentbyTime("001", selectiontime));
+		for(int i=0;i<cList.size();i++){
+			Object[] obj=(Object[])cList.get(i);
+			Integer num=Integer.parseInt(String.valueOf(obj[1]));
+			switch (obj[0].toString()) {
+			case "版式学员":
+				report.setPlatestu(report.getPlatestu()+num);
+				report.setAllinnum(report.getAllinnum()+num);
+				break;
+			case "字体学员":
+				report.setTypefacestu(report.getTypefacestu()+num);
+				report.setAllinnum(report.getAllinnum()+num);
+				break;
+			case "品牌学员":
+				report.setBrandstu(report.getBrandstu()+num);
+				report.setAllinnum(report.getAllinnum()+num);
+				break;
+			case "全科班学员":
+				report.setFullstu(report.getFullstu()+num);
+				report.setAllinnum(report.getAllinnum()+num);
+				break;
+			case "插画学员":
+				report.setIllustration(report.getIllustration()+num);
+				report.setAllinnum(report.getAllinnum()+num);
+				break;
+			case "电商学员":
+				report.setOnlinestu(report.getOnlinestu()+num);
+				report.setAllinnum(report.getAllinnum()+num);
+				break;
+			case "终身学员":
+				report.setLifetimestu(report.getLifetimestu()+num);
+				report.setAllinnum(report.getAllinnum()+num);
+				break;
+			default:
+				break;
+			}
+			System.out.println(obj[0].toString()+Integer.parseInt(String.valueOf(obj[1])));
+		}
+		report.setAllbills(Double.parseDouble(String.valueOf(selectionDAO.sumbills("001", selectiontime))));
+		report.setTransrate(Double.parseDouble(report.getAllinnum().toString())/(report.getInformalstu()+report.getAllinnum()));
+		reportList.add(report);
+		return reportList;
 	}
 
 	@SuppressWarnings("unchecked")

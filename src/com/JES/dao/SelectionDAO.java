@@ -30,6 +30,7 @@ public class SelectionDAO  {
 	public static final String CNAME = "cname";
 	public static final String BILL = "bill";
 	public static final String SELECTTIME = "selecttime";
+	
 
 
 
@@ -108,12 +109,28 @@ public class SelectionDAO  {
       }
 	}
     
-    public Double sumbills(String uid,String selecttime){
+    public Object sumbills(String mid,String selecttime){
     	try {
-            String queryString = "select sum(model.bill) from Selection as model where model.uid= ?";
-            Query queryObject = getCurrentSession().createQuery(queryString);
-   		 queryObject.setParameter(0, uid);
-   		 return (Double)queryObject.list().get(0);
+            String queryString = "select sum(model.bill) from Selection as model, Student as stu"
+            						+" where  stu.mid=? and stu.uid=model.uid and cast(model.selecttime as date)>=cast('"+selecttime+"' as date)";
+    		/*String queryString = "select sum(model.bill) from Selection as model, Student as stu"
+					+" where stu.uid=model.uid and model.selecttime>='"+selecttime+"' and stu.mid=?";*/
+    		Query queryObject = getCurrentSession().createQuery(queryString);
+   		 queryObject.setParameter(0, mid);
+   		 return queryObject.list().get(0);
+         } catch (RuntimeException re) {
+            throw re;
+         }
+    }
+    
+    public List countclasstype(String mid,String selecttime){
+    	try {
+            String queryString = "select model.cname,count(model) from Selection as model, Student as stu"
+            						+" where stu.mid=? and  stu.uid=model.uid and cast(model.selecttime as date)>=cast('"+selecttime+"' as date) "
+            						+"group by model.cname";
+    		Query queryObject = getCurrentSession().createQuery(queryString);
+   		 queryObject.setParameter(0, mid);
+   		 return queryObject.list();
          } catch (RuntimeException re) {
             throw re;
          }

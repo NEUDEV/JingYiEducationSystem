@@ -47,9 +47,11 @@
 									data-parent="#panel-699072" href="#panel-element-724200">我的业绩</a>
 							</div>
 							<div id="panel-element-724200" class="panel-collapse in">
-								<div class="panel-body">我的业绩</div>
-								<div class="panel-body">班主任业绩</div>
-								<div class="panel-body">业绩汇总</div>
+								<div class="panel-body">
+								<a class="panel-body" href="<%=basePath%>agent/myreport.jsp">我的业绩</a>
+								<a class="panel-body" href="<%=basePath%>agent/agentreport.jsp">班主任业绩</a>
+								<a class="panel-body" href="#">业绩汇总</a>
+								</div>
 							</div>
 						</div>
 						<div class="panel panel-default">

@@ -11,7 +11,7 @@
 	function getJSONData(value) {
 		$.ajax({
 			type : "post",
-			url : "",
+			url : "MyReportAction.action",
 			data : {
 				'selecttype' : value
 			},
@@ -73,21 +73,18 @@
 	}
 </script>
 </head>
-<body onload="getJSONData(selecttype1.value)">
+<body onload="getJSONData('全部')">
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<nav class="navbar navbar-default navbar-static-top" role="navigation">
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<form class="navbar-form navbar-left" role="search" method="post">
 				<div>
-				<input type="radio" checked="checked" name="selecttype1" value="全部" onselect="getJSONData(this.value)"/>全部<br />
-				<input type="radio"  name="selecttype2" value="周业绩" onselect="getJSONData(this.value)"/>周业绩<br />
-				<input type="radio"  name="selecttype3" value="月业绩" onselect="getJSONData(this.value)" />月业绩<br />
+				<input type="radio" checked="checked" name="selecttype" value="全部" onclick="getJSONData(this.value)"/>全部<br />
+				<input type="radio"  name="selecttype" value="周业绩" onclick="getJSONData(this.value)"/>周业绩<br />
+				<input type="radio"  name="selecttype" value="月业绩" onclick="getJSONData(this.value)" />月业绩<br />
 				</div>
-				<div class="form-group">
-					<input class="form-control" name="searchvalue" id="searchvalue"
-						type="text" />
-				</div>
+				
 			</form>
 		</div>
 		</nav>

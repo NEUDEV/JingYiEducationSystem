@@ -118,12 +118,24 @@ public class StudentDAO {
 		}
 	}
 	
-	public Integer countunifStudent(String mid){
+	/*public Integer countunifStudent(String mid){
 		try {
 			String queryString = "select count(*) from Student as model where model.sign='非正式学员' and model.mid= ?";
 			Query queryObject = getCurrentSession().createQuery(queryString);
 			queryObject.setParameter(0, mid);
 			return (Integer)queryObject.list().get(0);
+		} catch (RuntimeException re) {
+			throw re;
+		}
+	}
+	*/
+	public Integer countunifStudentbyTime(String mid,String limittime){
+		try {
+			String queryString = "select count(*) from Student as model where model.sign='非正式学员' and model.mid= ?"
+					+" and cast(model.intime as date)>=cast('"+limittime+"' as date)";
+			Query queryObject = getCurrentSession().createQuery(queryString);
+			queryObject.setParameter(0, mid);
+			return Integer.parseInt(String.valueOf(queryObject.list().get(0)));
 		} catch (RuntimeException re) {
 			throw re;
 		}
@@ -140,12 +152,12 @@ public class StudentDAO {
 		}
 	}
 	
-	public Integer countmystudent(String mid,String time){
+	public Object countmystudent(String mid,String time){
 		try {
-			String queryString = "select count(*) from Student as model where cast(model.intime as date)>=cast('"+time+"' as date) and model.mid= ?";
+			String queryString = "select count(model) from Student as model where cast(model.intime as date)>=cast('"+time+"' as date) and model.mid= ?";
 			Query queryObject = getCurrentSession().createQuery(queryString);
 			queryObject.setParameter(0, mid);
-			return ((Integer)queryObject.uniqueResult());
+			return queryObject.list().get(0);
 		} catch (RuntimeException re) {
 			throw re;
 		}
