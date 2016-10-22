@@ -1,10 +1,14 @@
 package com.JES.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import javax.servlet.http.HttpSession;
+
+import net.sf.json.JSONObject;
 
 import com.JES.dao.AgentDAO;
 import com.JES.dao.ManagerDAO;
@@ -103,11 +107,38 @@ public class ManagerService {
 	 * 
 	 * @param agent
 	 */
-	public void agentRegister(Agent agent) {
+	public String agentRegister(Agent agent, String confirmPassword) {
+		Map<String, String> map = new HashMap<String, String>();
+		agent.setUid("");
+
+		if (isExistAgent(agent)) {
+			map.put("info", "代理商账号已存在");
+			return JSONObject.fromObject(map).toString();
+		} else if (!agent.getPassword().equals(confirmPassword)) {
+			map.put("info", "两次密码不一致");
+			return JSONObject.fromObject(map).toString();
+		} else if ("班主任".equals(agent.getRole())) {
+			agent.setRole("班主任");
+		} else if ("超级班主任".equals(agent.getRole())) {
+			agent.setRole("超级班主任");
+		}
+
+		String reportId = UUID.randomUUID().toString();
+		agent.setReportId(reportId);
+		
 		String uid = UUID.randomUUID().toString();
 		agent.setUid(uid);
 		agent.setMannager("");
 		agentDAO.save(agent);
+
+		Report report = new Report(0);
+		report.setReportid(reportId);
+		reportDAO.save(report);
+		
+		map.put("info", "OK");
+		map.put("uid", agent.getUid());
+		return JSONObject.fromObject(map).toString();
+		
 	}
 
 	public ArrayList<Agent> getAgents() {

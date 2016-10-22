@@ -17,6 +17,7 @@ public class ManagerAgentManageAction extends SuperAction implements
 	private static final long serialVersionUID = 1L;
 	private Agent agent;
 	private ManagerService managerService;
+	private String result;
 
 	public ManagerService getManagerService() {
 		return managerService;
@@ -26,39 +27,23 @@ public class ManagerAgentManageAction extends SuperAction implements
 		this.managerService = managerService;
 	}
 
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
+	}
+
 	public String register() {
 		if (session.getAttribute("managerId") == null) {
 			return "LoginNotYet";
 		}
 
-		String confirmPassword = request.getParameter("confirmPassword");
-		String role = request.getParameter("selectRole");
-		agent.setUid("");
-
-		if (managerService.isExistAgent(agent)) {
-			request.setAttribute("info", "代理商账号已存在！");
-			return "regesterFail";
-		} else if (!agent.getPassword().equals(confirmPassword)) {
-			request.setAttribute("info", "两次密码不一致！");
-			return "regesterFail";
-		}
-
-		if ("班主任".equals(role)) {
-			agent.setRole("班主任");
-		} else if ("超级班主任".equals(role)) {
-			agent.setRole("超级班主任");
-		}
-
-		String reportId = UUID.randomUUID().toString();
-		agent.setReportId(reportId);
-		managerService.agentRegister(agent);
-
-		Report report = new Report(0);
-		report.setReportid(reportId);
-		managerService.getReportDAO().save(report);
-		request.setAttribute("agent", agent);
-
-		return "regesterSuccess";
+		result = managerService.agentRegister(agent,
+				request.getParameter("confirmPassword"));
+		System.out.println(result);
+		return "agentReigster";
 	}
 
 	/**
