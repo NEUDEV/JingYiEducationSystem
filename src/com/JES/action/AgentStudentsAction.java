@@ -42,9 +42,13 @@ public class AgentStudentsAction extends SuperAction{
 	}
 	
 	public String Mystudents(){
+		if (session.getAttribute("agentID") == null) {
+			return "LoginNotYet";
+		}
 		try{
 		List<Student> studentList = new ArrayList<Student>();
-		String mid="001";
+		
+		String mid=session.getAttribute("agentID").toString();
 		studentList=agentservice.searchStudents(searchtype,searchvalue,mid);
 		jsonResult = JsonUtil.listToJson(studentList);  
 		System.out.println();

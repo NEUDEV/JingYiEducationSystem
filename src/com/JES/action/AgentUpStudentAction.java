@@ -2,7 +2,8 @@ package com.JES.action;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileOutputStream;
+
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.struts2.ServletActionContext;
 
@@ -11,7 +12,7 @@ import com.JES.model.Student;
 import com.JES.service.AgentService;
 import com.opensymphony.xwork2.ActionSupport;
 
-public class AgentUpStudentAction extends ActionSupport{
+public class AgentUpStudentAction extends SuperAction{
 	/**
 	 * 
 	 */
@@ -89,6 +90,9 @@ public class AgentUpStudentAction extends ActionSupport{
 		return serialVersionUID;
 	}
 	public String execute() throws Exception{
+	if (session.getAttribute("agentID") == null) {
+			return "LoginNotYet";
+		}
 	File uploadFile=new File(ServletActionContext.getServletContext().getRealPath("uploadFile"));
 	if(!uploadFile.exists()){  
         uploadFile.mkdir(); //创建该目录  
@@ -107,7 +111,7 @@ public class AgentUpStudentAction extends ActionSupport{
 	student.setPhone(phone);
 	student.setWeixin(weixin);
 	student.setStuid(qq);
-	agentservice.upPhoto(input, (int) file.length(), upstudent,student);
+	agentservice.upPhoto(input, (int) file.length(), upstudent,student,session.getAttribute("agentID").toString());
 	return "success";
 	}
 }

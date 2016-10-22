@@ -12,6 +12,7 @@ import java.util.UUID;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFCellStyle;
@@ -138,16 +139,16 @@ public class AgentService {
 		return null;
 	}
 	
-	public List<Agent> searchAgents(String type, String value,String aid){
+	public List<Agent> searchAgents(String type, String value,String mannager){
 		if(value.equals("")||value==null) 
-			return (List<Agent>) agentDAO.findByAid(aid);
+			return (List<Agent>) agentDAO.findByMannager(mannager);
 		switch (type) {
 		case "班主任姓名":
-			return (List<Agent>) agentDAO.findByNameWithAid(value,aid);
+			return (List<Agent>) agentDAO.findByNameWithMannager(value,mannager);
 		case "班主任手机号":
-			return (List<Agent>) agentDAO.findByPhoneWithAid(value,aid);
+			return (List<Agent>) agentDAO.findByPhoneWithMannager(value,mannager);
 		case "班主任QQ":
-			return (List<Agent>) agentDAO.findByQqWithAid(value,aid);
+			return (List<Agent>) agentDAO.findByQqWithMannager(value,mannager);
 		}
 		return null;
 	}
@@ -166,7 +167,7 @@ public class AgentService {
 	}
 
 	public boolean upPhoto(FileInputStream input,Integer length,
-			Agentupstudent upstudent,Student student){
+			Agentupstudent upstudent,Student student,String mid){
 		byte[] bFile = new byte[length];
 		try {
 			input.read(bFile);
@@ -180,8 +181,8 @@ public class AgentService {
 		String sDate = sdf.format(intime);
 		student.setIntime(sDate);
 		student.setMark(1);   //设置转化指数
-		student.setMid("001"); //设置代理商ID
-		student.setMsign("001");
+		student.setMid(mid); //设置代理商ID
+		student.setMsign("");
 		student.setSfrom("");
 		student.setSign("非正式学员");
 		upstudent.setPhoto(bFile);
@@ -370,14 +371,14 @@ public class AgentService {
 			reportList.add(reportDAO.findById(agentDAO.findById(aid).getReportId()));
 			return reportList;
 		case "周业绩":
-			return achieve(7,0);
+			return achieve(0);
 		case "月业绩":
-			return achieve(29,1);
+			return achieve(1);
 		}
 		return null;
 	}
 	
-	public List<Report> achieve(Integer day,Integer subday){
+	public List<Report> achieve(Integer subday){
 		List<Report> reportList=new ArrayList<Report>();
 		Report report=new Report(0);
 		SimpleDateFormat dft = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -428,7 +429,7 @@ public class AgentService {
 			default:
 				break;
 			}
-			System.out.println(obj[0].toString()+Integer.parseInt(String.valueOf(obj[1])));
+			//System.out.println(obj[0].toString()+Integer.parseInt(String.valueOf(obj[1])));
 		}
 		report.setAllbills(Double.parseDouble(String.valueOf(selectionDAO.sumbills("001", selectiontime))));
 		report.setTransrate(Double.parseDouble(report.getAllinnum().toString())/(report.getInformalstu()+report.getAllinnum()));

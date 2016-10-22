@@ -42,9 +42,12 @@ public class MyCompanyAction extends SuperAction{
 	}
 	
 	public String Myagents(){
+		if (session.getAttribute("agentID") == null) {
+			return "LoginNotYet";
+		}
 		try{
 		List<Agent> agenttList = new ArrayList<Agent>();
-		String mannager="1";
+		String mannager=session.getAttribute("agentID").toString();
 		agenttList=agentservice.searchAgents(searchtype,searchvalue,mannager);
 		jsonResult = JsonUtil.listToJson(agenttList);  
 		System.out.println();

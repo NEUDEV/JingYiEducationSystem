@@ -35,10 +35,12 @@ public class MyReportAction extends SuperAction{
 	}
 	
 	public String MyReport(){
+		if (session.getAttribute("agentID") == null) {
+			return "LoginNotYet";
+		}
 		try{
 		List<Report> reportList = new ArrayList<Report>();
-		//String aid = session.getAttribute("agentID").toString();
-		String aid="1";
+		String aid = session.getAttribute("agentID").toString();
 		reportList=agentservice.MyReports(selecttype,aid);
 		jsonResult = JsonUtil.listToJson(reportList); 
 		System.out.println(jsonResult);

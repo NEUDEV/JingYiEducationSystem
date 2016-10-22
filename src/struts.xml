@@ -96,21 +96,25 @@
 	<package name="agent" extends="struts-default" namespace="/agent">
 		<action name="AgentStudentsAction" class="com.JES.action.AgentStudentsAction"
 			method="Mystudents">
+			<result name="LoginNotYet">/agent/agentLogin.jsp</result>
 			<result name="show">/agent/studentShow.jsp</result>
 			<result name="noshow">/test.jsp</result>
 		</action>
 		<action name="AgentAddStudentsAction" class="com.JES.action.AgentAddStuAction"
 			method="AddStudent">
+			<result name="LoginNotYet">/agent/agentLogin.jsp</result>
 			<result name="haveadd">/agent/studentAdmit.jsp</result>
 		</action>
 		<action name="AgentUpStudentAction" class="com.JES.action.AgentUpStudentAction"
 			method="execute">
+			<result name="LoginNotYet">/agent/agentLogin.jsp</result>
 			<result name="success">/agent/studentAdmit.jsp</result>
 			<!-- <result name="error">/error.jsp</result> <result name="input">/index.jsp</result> 
 				<param name="savePath">/upload</param> -->
 		</action>
 		<action name="AgentNoteAction" class="com.JES.action.AgentNoteAction"
 			method="agentnote">
+			<result name="LoginNotYet">/agent/agentLogin.jsp</result>
 			<result name="success">/agent/agentNote.jsp</result>
 		</action>
 		<action name="ShowviewAction" class="com.JES.action.ShowviewAction"
@@ -119,15 +123,18 @@
 		</action>
 		<action name="StudentMassageFileOutAction" class="com.JES.action.StudentMassageFileOutAction"
 			method="massageout">
+			<result name="LoginNotYet">/agent/agentLogin.jsp</result>
 		</action>
 
 		<action name="studentList" class="com.JES.action.AgentStudentsAction"
 			method="Mystudents">
+			<result name="LoginNotYet">/agent/agentLogin.jsp</result>
 			<!--plaintext用于显示页面原始代码的结果类型 -->
 			<result name="SUCCESS">/agent/studentShow.jsp</result>
 		</action>
 		<action name="AgentBillAction" class="com.JES.action.AgentBillAction"
 			method="billup">
+			<result name="LoginNotYet">/agent/agentLogin.jsp</result>
 			<!--plaintext用于显示页面原始代码的结果类型 -->
 			<result name="SUCCESS">/agent/studentShow.jsp</result>
 		</action>
@@ -136,37 +143,44 @@
 	<package name="ajax" extends="json-default">
 		<action name="cheakqq" class="com.JES.action.CheakQqAction"
 			method="execute">
+			<result name="LoginNotYet">/agent/agentLogin.jsp</result>
 			<!-- <result>/agent/studentAdmit.jsp</result> -->
 			<result name="success" type="json">
 			</result>
 		</action>
 		<action name="AgentStudentsAction1" class="com.JES.action.AgentStudentsAction"
 			method="Mystudents">
+			<result name="LoginNotYet">/agent/agentLogin.jsp</result>
 			<result type="json">
 			</result>
 		</action>
 		<action name="GetCourseAction" class="com.JES.action.GetCourseAction"
 			method="courses">
+			<result name="LoginNotYet">/agent/agentLogin.jsp</result>
 			<result type="json">
 			</result>
 		</action>
 		<action name="MyCpReportAction" class="com.JES.action.MyCpReportAction"
 			method="MyCps">
+			<result name="LoginNotYet">/agent/agentLogin.jsp</result>
 			<result type="json">
 			</result>
 		</action>
 		<action name="MyReportAction" class="com.JES.action.MyReportAction"
 			method="MyReport">
+			<result name="LoginNotYet">/agent/agentLogin.jsp</result>
 			<result type="json">
 			</result>
 		</action>
 		<action name="AllReportAction" class="com.JES.action.AllReportAction"
 			method="AllReport">
+			<result name="LoginNotYet">/agent/agentLogin.jsp</result>
 			<result type="json">
 			</result>
 		</action>
 		<action name="MyCompanyAction" class="com.JES.action.MyCompanyAction"
 			method="Myagents">
+			<result name="LoginNotYet">/agent/agentLogin.jsp</result>
 			<result type="json">
 			</result>
 		</action>

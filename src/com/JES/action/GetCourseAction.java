@@ -31,6 +31,9 @@ public class GetCourseAction extends SuperAction{
 	}
 
 	public String courses(){
+		if (session.getAttribute("agentID") == null) {
+			return "LoginNotYet";
+		}
 		try{
 		List<Course> courseList = new ArrayList<Course>();
 		courseList=agentservice.allcourse();

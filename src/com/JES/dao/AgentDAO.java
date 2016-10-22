@@ -121,10 +121,10 @@ public class AgentDAO {
 		}
 	}
 	
-	public List findByPropertyWithAid(String propertyName, Object value,String aid) {
+	public List findByPropertyWithMannager(String propertyName, Object value,String mannager) {
 		try {
 			String queryString = "select model from Agent as model where model."
-					+ propertyName + "= ? and model.aid='"+aid+"'";
+					+ propertyName + "= ? and model.mannager='"+mannager+"'";
 			Query queryObject = getCurrentSession().createQuery(queryString);
 			queryObject.setParameter(0, value);
 			return queryObject.list();
@@ -217,16 +217,16 @@ public class AgentDAO {
 		return findByProperty(MANNAGER, mannager);
 	}
 	
-	public List findByNameWithAid(Object name,String aid) {
-		return findByPropertyWithAid(NAME, name,aid);
+	public List findByNameWithMannager(Object name,String mannager) {
+		return findByPropertyWithMannager(NAME, name,mannager);
 	}
 	
-	public List findByPhoneWithAid(Object phone,String aid) {
-		return findByPropertyWithAid(PHONE, phone,aid);
+	public List findByPhoneWithMannager(Object phone,String mannager) {
+		return findByPropertyWithMannager(PHONE, phone,mannager);
 	}
 	
-	public List findByQqWithAid(Object qq,String aid) {
-		return findByPropertyWithAid(QQ, qq,aid);
+	public List findByQqWithMannager(Object qq,String mannager) {
+		return findByPropertyWithMannager(QQ, qq,mannager);
 	}
 
 	public List findAll() {

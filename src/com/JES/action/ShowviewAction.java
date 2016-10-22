@@ -8,7 +8,7 @@ import org.apache.struts2.ServletActionContext;
 import com.JES.dao.AgentupstudentDAO;
 import com.JES.model.Agentupstudent;
 
-public class ShowviewAction {
+public class ShowviewAction extends SuperAction{
 	private String qq;
 	AgentupstudentDAO agentupstudentDAO;
 
@@ -33,6 +33,9 @@ public class ShowviewAction {
 
 
 	public String viewImages() {
+		if (session.getAttribute("agentID") == null) {
+			return "LoginNotYet";
+		}
         HttpServletResponse response = null;
         ServletOutputStream out = null;
         Agentupstudent agentupstudent=new Agentupstudent();

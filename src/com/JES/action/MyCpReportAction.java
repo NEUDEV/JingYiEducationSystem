@@ -43,10 +43,12 @@ public class MyCpReportAction extends SuperAction{
 	}
 	
 	public String MyCps(){
+		if (session.getAttribute("agentID") == null) {
+			return "LoginNotYet";
+		}
 		try{
 		List<ReportShowItem> reportItemList = new ArrayList<ReportShowItem>();
-		//String mid = session.getAttribute("agentID").toString();
-		String aid="1";
+		String aid = session.getAttribute("agentID").toString();
 		reportItemList=agentservice.MyCpReports(searchtype,searchvalue,aid);
 		jsonResult = JsonUtil.listToJson(reportItemList); 
 		//System.out.println(jsonResult);

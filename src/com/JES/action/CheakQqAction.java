@@ -6,7 +6,7 @@ import org.apache.struts2.ServletActionContext;
 
 import com.JES.service.AgentService;
 
-public class CheakQqAction {
+public class CheakQqAction extends SuperAction{
 	private String qq;
 	private String result;
 	private AgentService agentservice;
@@ -30,8 +30,9 @@ public class CheakQqAction {
 	}
 	
 	public String execute() throws Exception {
-	    HttpServletRequest request = ServletActionContext.getRequest();
-	    //获取ajax传过来的数据直接使用前台的属性名即可获取。
+		if (session.getAttribute("agentID") == null) {
+			return "LoginNotYet";
+		}
 	    if(agentservice.cheakQq(qq)){
 	      //返回给ajax的数据
 	      this.result = "true";

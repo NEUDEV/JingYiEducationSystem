@@ -2,7 +2,7 @@ package com.JES.action;
 
 import com.JES.service.AgentService;
 
-public class StudentMassageFileOutAction {
+public class StudentMassageFileOutAction extends SuperAction{
 	private AgentService agentservice;
 
 	public AgentService getAgentservice() {
@@ -14,6 +14,9 @@ public class StudentMassageFileOutAction {
 	}
 	public String massageout()
     {
+		if (session.getAttribute("agentID") == null) {
+			return "LoginNotYet";
+		}
         try {
         	agentservice.studentmsout();
         } catch (Exception e) {

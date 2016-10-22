@@ -86,13 +86,16 @@ public class AgentAddStuAction extends SuperAction{
         return inputStream;  
     }
 	public String AddStudent(){
+		if (session.getAttribute("agentID") == null) {
+			return "LoginNotYet";
+		}
 		Student student=new Student();
-		//String mid=(String)session.getAttribute("");
+		String mid=session.getAttribute("agentID").toString();
 		student.setUid(uid);
 		student.setName(name);
 		student.setPhone(phone);
 		student.setQq(qq);
-		//student.setMid(mid);
+		student.setMid(mid);
 		student.setMid("Œ“");
 		student.setSign("Œ¥…Û∫À");
 		if(agentservice.addStudent(student)){

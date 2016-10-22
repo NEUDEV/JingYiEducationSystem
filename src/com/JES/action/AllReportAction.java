@@ -27,6 +27,9 @@ public class AllReportAction extends SuperAction{
 	}
 	
 	public String AllReport(){
+		if (session.getAttribute("agentID") == null) {
+			return "LoginNotYet";
+		}
 		try{
 		List<Report> reportList = new ArrayList<Report>();
 		String aid="1";
