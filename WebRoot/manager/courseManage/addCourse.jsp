@@ -1,17 +1,25 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="../managerMemu.jsp"%>
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>课程管理</title>
+<link href="<%=basePath%>resource/css/bootstrap-datetimepicker.min.css"
+	rel="stylesheet" media="screen">
+<script type="text/javascript"
+	src="<%=basePath%>resource/js/bootstrap-datetimepicker.js"
+	charset="UTF-8"></script>
+<script type="text/javascript"
+	src="<%=basePath%>resource/js/locales/bootstrap-datetimepicker.fr.js"
+	charset="UTF-8"></script>
 <script type="text/javascript">
 	$(function() {
 		$("#commit").click(function() {
 			if ($("#cname").val() == "") {
 				alert("账户不能为空");
 			} else if ($("#starttime").val() == "") {
-				alert("开课 不能为空");
+				alert("开课时间不能为空");
 			} else if ($("#endtime").val() == "") {
 				alert("结课时间不能为空");
 			} else if ($("#referencebill").val() == "") {
@@ -40,14 +48,25 @@
 					id="cname" type="text" name="cname" value="" />
 			</div>
 			<div class="form-group">
-				<label for="starttime">开课时间：</label><input class="form-control"
-					id="starttime" type="date" name="starttime" />
+				<label for="starttime">开课时间：</label>
+
+				<div class="controls input-append date form_date form-group"
+					data-date="" data-date-format="yyyy-mm-dd">
+					<input size="16" type="text" value="" readonly class="form-control"
+						name="starttime" id="starttime"> <span class="add-on"><i
+						class="icon-remove"></i></span> <span class="add-on"><i
+						class="icon-th"></i></span>
+				</div>
 			</div>
 			<div class="form-group">
 				<label for="endtime">结课时间：</label>
-				
-				<input class="form-control"
-					id="endtime" type="date" name="endtime" size="11" />
+				<div class="controls input-append date form_date form-group"
+					data-date="" data-date-format="yyyy-mm-dd">
+					<input size="16" type="text" value="" readonly class="form-control"
+						id="endtime" name="endtime"> <span class="add-on"><i
+						class="icon-remove"></i></span> <span class="add-on"><i
+						class="icon-th"></i></span>
+				</div>
 			</div>
 			<div class="form-group">
 				<label for="referencebill">参考价格：</label><input class="form-control"
@@ -56,7 +75,21 @@
 			<div class="col-md-12 column">${request.info}</div>
 			<input type="button" class="btn btn-default" value="提交" id="commit">
 		</form>
-	</div>
+
+
+		<br />
+		<script type="text/javascript">
+			$('.form_date').datetimepicker({
+				language : 'fr',
+				weekStart : 1,
+				todayBtn : 1,
+				autoclose : 1,
+				todayHighlight : 1,
+				startView : 2,
+				minView : 2,
+				forceParse : 0
+			});
+		</script>
 </body>
 </html>
 
