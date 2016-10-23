@@ -11,50 +11,96 @@ import javax.servlet.http.HttpSession;
 import net.sf.json.JSONObject;
 
 import com.JES.dao.AgentDAO;
+import com.JES.dao.CourseDAO;
 import com.JES.dao.ManagerDAO;
 import com.JES.dao.ReportDAO;
 import com.JES.dao.StudentDAO;
 import com.JES.model.Agent;
+import com.JES.model.Course;
 import com.JES.model.Manager;
 import com.JES.model.Report;
 import com.JES.model.Student;
 
+/**
+ * 管理员Service。
+ * @author 刘鑫伟
+ *
+ */
 public class ManagerService {
 	private ManagerDAO managerDAO;
 	private AgentDAO agentDAO;
 	private StudentDAO studentDAO;
 	private ReportDAO reportDAO;
+	private CourseDAO courseDAO;
 
+	/**
+	 * @return the managerDAO
+	 */
 	public ManagerDAO getManagerDAO() {
 		return managerDAO;
 	}
 
+	/**
+	 * @param managerDAO the managerDAO to set
+	 */
 	public void setManagerDAO(ManagerDAO managerDAO) {
 		this.managerDAO = managerDAO;
 	}
 
+	/**
+	 * @return the agentDAO
+	 */
 	public AgentDAO getAgentDAO() {
 		return agentDAO;
 	}
 
+	/**
+	 * @param agentDAO the agentDAO to set
+	 */
 	public void setAgentDAO(AgentDAO agentDAO) {
 		this.agentDAO = agentDAO;
 	}
 
+	/**
+	 * @return the studentDAO
+	 */
 	public StudentDAO getStudentDAO() {
 		return studentDAO;
 	}
 
+	/**
+	 * @param studentDAO the studentDAO to set
+	 */
 	public void setStudentDAO(StudentDAO studentDAO) {
 		this.studentDAO = studentDAO;
 	}
 
+	/**
+	 * @return the reportDAO
+	 */
 	public ReportDAO getReportDAO() {
 		return reportDAO;
 	}
 
+	/**
+	 * @param reportDAO the reportDAO to set
+	 */
 	public void setReportDAO(ReportDAO reportDAO) {
 		this.reportDAO = reportDAO;
+	}
+
+	/**
+	 * @return the courseDAO
+	 */
+	public CourseDAO getCourseDAO() {
+		return courseDAO;
+	}
+
+	/**
+	 * @param courseDAO the courseDAO to set
+	 */
+	public void setCourseDAO(CourseDAO courseDAO) {
+		this.courseDAO = courseDAO;
 	}
 
 	/**
@@ -334,6 +380,18 @@ public class ManagerService {
 			student.setMsign(null);
 			studentDAO.merge(student);
 		}
+	}
+	
+	/*********************************课程管理*****************************/
+	
+	/**
+	 * 添加课程。
+	 * @param course
+	 */
+	public void addCourse(Course course) {
+		String cid = UUID.randomUUID().toString();
+		course.setCid(cid);
+		courseDAO.save(course);
 	}
 
 }

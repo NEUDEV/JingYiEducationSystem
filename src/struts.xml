@@ -65,6 +65,11 @@
 
 			<!-- ManagerViewReport -->
 			<result name="displayReport">/manager/report/displayReport.jsp</result>
+			
+			<!-- ManagerCourseManage -->
+			<result name="displayCourse">/manager/courseManage/displayCourse.jsp</result>
+			<result name="addCourse">/manager/courseManage/addCourseSuccess.jsp</result>
+			<result name="deleteCourse">/manager/courseManage/deleteCourseSuccess.jsp</result>
 
 		</action>
 	</package>

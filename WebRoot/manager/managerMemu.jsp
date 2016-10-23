@@ -59,14 +59,14 @@
 						<div class="panel panel-default">
 							<div class="panel-heading">
 								<a class="panel-title" data-toggle="collapse"
-									data-parent="#panel-659100" href="#panel-element-936975">课程管理</a>
+									data-parent="#panel-659101" href="#panel-element-936980">课程管理</a>
 							</div>
-							<div id="panel-element-936975" class="panel-collapse collapse">
+							<div id="panel-element-936980" class="panel-collapse collapse">
 								<div class="panel-body">
-									<a href="<%=basePath%>Manager/ManagerAgentManage_displayCourse.action">课程管理</a>
+									<a href="<%=basePath%>Manager/ManagerCourseManage_displayCourse.action">课程管理</a>
 								</div>
 								<div class="panel-body">
-									<a href="<%=basePath%>Manager/ManagerAgentManage_addCourse.action">增加课程</a>
+									<a href="<%=basePath%>manager/courseManage/addCourse.jsp">增加课程</a>
 								</div>
 							</div>
 						</div>
