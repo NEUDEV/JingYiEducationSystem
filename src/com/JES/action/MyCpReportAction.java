@@ -51,7 +51,6 @@ public class MyCpReportAction extends SuperAction{
 		String aid = session.getAttribute("agentID").toString();
 		reportItemList=agentservice.MyCpReports(searchtype,searchvalue,aid);
 		jsonResult = JsonUtil.listToJson(reportItemList); 
-		//System.out.println(jsonResult);
         ServletActionContext.getResponse().setContentType("text/xml");  
         }catch(Exception e){    
             e.fillInStackTrace();  

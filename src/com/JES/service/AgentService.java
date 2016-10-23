@@ -168,6 +168,7 @@ public class AgentService {
 
 	public boolean upPhoto(FileInputStream input,Integer length,
 			Agentupstudent upstudent,Student student,String mid){
+		Report report=new Report();
 		byte[] bFile = new byte[length];
 		try {
 			input.read(bFile);
@@ -188,6 +189,9 @@ public class AgentService {
 		upstudent.setPhoto(bFile);
 		agentupstudentDAO.save(upstudent);
 		studentDAO.save(student);
+		report=reportDAO.findById(agentDAO.findById(mid).getReportId());
+		report.setInformalstu(report.getInformalstu()+1);
+		reportDAO.merge(report);
 		return true;
 	}
 
@@ -294,7 +298,7 @@ public class AgentService {
 		return reportList;
 	}
 	
-	public boolean billUp(String uid,String phone,String weixin,String sign,Integer bill,Integer mark,String class_){
+	public boolean billUp(String uid,String phone,String weixin,String sign,Integer bill,Integer mark,String class_,String mid){
 		Student student=(Student)studentDAO.findById(uid);
 		Selection selection=new Selection();
 		Date nDate = new Date();
@@ -311,10 +315,38 @@ public class AgentService {
 		selection.setSelecttime(sDate);
 		selection.setCname(class_);
 		selection.setId(id);
-		
-		//报表
-		
 		selectionDAO.save(selection);
+		
+		Report report=new Report(0);
+		report=reportDAO.findById(agentDAO.findById(mid).getReportId());
+		switch (class_) {
+		case "版式学员":
+			report.setPlatestu(report.getPlatestu()+1);
+			break;
+		case "字体学员":
+			report.setTypefacestu(report.getTypefacestu()+1);
+			break;
+		case "品牌学员":
+			report.setBrandstu(report.getBrandstu()+1);
+			break;
+		case "全科班学员":
+			report.setFullstu(report.getFullstu()+1);
+			break;
+		case "插画学员":
+			report.setIllustration(report.getIllustration()+1);
+			break;
+		case "电商学员":
+			report.setOnlinestu(report.getOnlinestu()+1);
+			break;
+		case "终身学员":
+			report.setLifetimestu(report.getLifetimestu()+1);
+			break;
+		default:
+			break;
+		}
+		report.setAllbills(report.getAllbills()+1);
+		report.setAllinnum(report.getAllinnum()+1);
+		report.setTransrate(Double.parseDouble(report.getAllinnum().toString())/(report.getInformalstu()+report.getAllinnum()));
 		return true;
 	}
 	

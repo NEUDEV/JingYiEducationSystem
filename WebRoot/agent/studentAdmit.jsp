@@ -31,6 +31,9 @@
      	}
      } 
      
+     function clearnote(){
+     	$('#note').val("");
+     }
 
      function clickQqFunctino() {  
             //alert($("#xm").val());  
@@ -89,7 +92,7 @@
 				<label for="name">备注：</label>
 			</div>
 			<div class="form-group">
-				<textarea name="note" style="height:80px;" maxlength=100 draggable=false>这里写备注</textarea>
+				<textarea name="note" id="note" style="height:80px;" maxlength=100 draggable=false onclick="clearnote()">这里写备注</textarea>
 			</div>
 			<div class="form-group">
 				<label for="class_">上传截图*</label>

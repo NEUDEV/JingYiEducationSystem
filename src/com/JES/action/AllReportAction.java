@@ -35,7 +35,6 @@ public class AllReportAction extends SuperAction{
 		String aid="1";
 		reportList=agentservice.allreport(aid);
 		jsonResult = JsonUtil.listToJson(reportList); 
-		//System.out.println(jsonResult);
         ServletActionContext.getResponse().setContentType("text/xml");  
         }catch(Exception e){    
             e.fillInStackTrace();  

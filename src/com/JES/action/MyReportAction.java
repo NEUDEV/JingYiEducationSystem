@@ -43,7 +43,6 @@ public class MyReportAction extends SuperAction{
 		String aid = session.getAttribute("agentID").toString();
 		reportList=agentservice.MyReports(selecttype,aid);
 		jsonResult = JsonUtil.listToJson(reportList); 
-		System.out.println(jsonResult);
         ServletActionContext.getResponse().setContentType("text/xml");  
         }catch(Exception e){    
             e.fillInStackTrace();  

@@ -78,7 +78,7 @@ public class AgentBillAction extends SuperAction{
 		if (session.getAttribute("agentID") == null) {
 			return "LoginNotYet";
 		}
-		agentservice.billUp(uid,phone,weixin,sign,bill,mark,class_);
+		agentservice.billUp(uid,phone,weixin,sign,bill,mark,class_,session.getAttribute("agentID").toString());
 		return "SUCCESS";
 	}
 }
