@@ -41,7 +41,7 @@ public class ManagerCourseManageAction extends SuperAction implements
 		request.setAttribute("i", 0);
 		request.setAttribute("courseList", managerService.getCourseDAO()
 				.findAll());
-		
+
 		return "displayCourse";
 	}
 
@@ -51,9 +51,9 @@ public class ManagerCourseManageAction extends SuperAction implements
 	 * @return
 	 */
 	public String addCourse() {
-		managerService.addCourse(course);
+		course = managerService.addCourse(course);
 		request.setAttribute("course", course);
-		
+
 		return "addCourse";
 	}
 
@@ -67,7 +67,7 @@ public class ManagerCourseManageAction extends SuperAction implements
 				request.getAttribute("cid").toString());
 		managerService.getCourseDAO().delete(course);
 		request.setAttribute("course", course);
-		
+
 		return "deleteCourse";
 	}
 

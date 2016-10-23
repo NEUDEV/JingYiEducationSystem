@@ -25,15 +25,15 @@
 			</dd>
 			<br>
 			<dd>
-				<font size="3">开课时间： ${course.starttime}</font>
+				<font size="3">开课时间： ${course.starttime.toString().substring(0,10)}</font>
 			</dd>
 			<br>
 			<dd>
-				<font size="3">结课时间：${course.endtime}</font>
+				<font size="3">结课时间：${course.endtime.toString().substring(0,10)}</font>
 			</dd>
 			<br>
 			<dd>
-				<font size="3">参考价格： ${course.referencebill}</font>
+				<font size="3">参考价格： ${course.referencebill}元</font>
 			</dd>
 			<br>
 		</dl>

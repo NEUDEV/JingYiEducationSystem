@@ -388,10 +388,11 @@ public class ManagerService {
 	 * Ìí¼Ó¿Î³Ì¡£
 	 * @param course
 	 */
-	public void addCourse(Course course) {
+	public Course addCourse(Course course) {
 		String cid = UUID.randomUUID().toString();
 		course.setCid(cid);
 		courseDAO.save(course);
+		return courseDAO.findById(cid);
 	}
 
 }

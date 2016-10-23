@@ -30,9 +30,9 @@
 					<tr>
 						<td>${i = i + 1}</td>
 						<td>${course.cname}</td>
-						<td>${course.starttime}</td>
-						<td>${course.endtime}</td>
-						<td>${course.referencebill}</td>
+						<td>${course.starttime.toString().substring(0,10)}</td>
+						<td>${course.endtime.toString().substring(0,10)}</td>
+						<td>${course.referencebill}元</td>
 						<td><a
 							href="<%=basePath%>Manager/ManagerCourseManage_deleteCourse.action?cid=${course.cid}">删除
 						</a></td>
