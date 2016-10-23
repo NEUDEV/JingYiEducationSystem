@@ -125,7 +125,7 @@ public class ManagerService {
 
 		String reportId = UUID.randomUUID().toString();
 		agent.setReportId(reportId);
-		
+
 		String uid = UUID.randomUUID().toString();
 		agent.setUid(uid);
 		agent.setMannager("");
@@ -134,11 +134,11 @@ public class ManagerService {
 		Report report = new Report(0);
 		report.setReportid(reportId);
 		reportDAO.save(report);
-		
+
 		map.put("info", "OK");
 		map.put("uid", agent.getUid());
 		return JSONObject.fromObject(map).toString();
-		
+
 	}
 
 	public ArrayList<Agent> getAgents() {
@@ -222,6 +222,13 @@ public class ManagerService {
 		return new ArrayList<Agent>();
 	}
 
+	/**
+	 * 查找学生。
+	 * 
+	 * @param searchType
+	 * @param searchValue
+	 * @return 学生集合。
+	 */
 	public ArrayList<Student> searchStudent(String searchType,
 			String searchValue) {
 		if ("UID".equals(searchType)) {
@@ -244,7 +251,13 @@ public class ManagerService {
 		return new ArrayList<Student>();
 	}
 
+	/**
+	 * 修改班主任。
+	 * 
+	 * @param agent
+	 */
 	public void changeAgent(Agent agent) {
+		
 		Agent otherAgent = agentDAO.findById(agent.getUid());
 
 		if (!agent.getAname().equals(otherAgent.getAname())) {
@@ -299,10 +312,28 @@ public class ManagerService {
 			report.setTransrate((report.getAllinnum())
 					/ (double) report.getAllinnum() + report.getInformalstu());
 		}
-		
+
 		reports.add(report);
 
 		return reports;
+	}
+
+	/**
+	 * 删除班主任。
+	 * 
+	 * @return
+	 */
+	public void deleteAgent(Agent agent) {
+		agentDAO.delete(agent);
+		Report report = reportDAO.findById(agent.getReportId());
+		reportDAO.delete(report);
+		
+		ArrayList<Student> students = (ArrayList<Student>) studentDAO.findByMid(agent.getUid());
+		for (Student student : students) {
+			student.setMid(null);
+			student.setMsign(null);
+			studentDAO.merge(student);
+		}
 	}
 
 }

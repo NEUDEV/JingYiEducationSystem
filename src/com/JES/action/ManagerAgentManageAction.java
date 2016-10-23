@@ -11,6 +11,11 @@ import com.opensymphony.xwork2.ModelDriven;
 
 import freemarker.core.ReturnInstruction.Return;
 
+/**
+ * 管理员管理班主任类。
+ * @author 刘鑫伟
+ *
+ */
 public class ManagerAgentManageAction extends SuperAction implements
 		ModelDriven<Agent> {
 
@@ -35,6 +40,10 @@ public class ManagerAgentManageAction extends SuperAction implements
 		this.result = result;
 	}
 
+	/**
+	 * 班主任注册。
+	 * @return
+	 */
 	public String register() {
 		if (session.getAttribute("managerId") == null) {
 			return "LoginNotYet";
@@ -44,20 +53,6 @@ public class ManagerAgentManageAction extends SuperAction implements
 				request.getParameter("confirmPassword"));
 		System.out.println(result);
 		return "agentReigster";
-	}
-
-	/**
-	 * 显示所有班主任。
-	 * 
-	 * @return
-	 */
-	public String display() {
-		if (session.getAttribute("managerId") == null) {
-			return "LoginNotYet";
-		}
-
-		request.setAttribute("agentList", managerService.getAgents());
-		return "agentsDisplay";
 	}
 
 	/**
@@ -77,7 +72,7 @@ public class ManagerAgentManageAction extends SuperAction implements
 	}
 
 	/**
-	 * 修改班主任。
+	 * 修改班主任预处理。
 	 * 
 	 * @return
 	 */
@@ -109,7 +104,7 @@ public class ManagerAgentManageAction extends SuperAction implements
 	}
 
 	/**
-	 * 删除班主任。
+	 * 删除班主任预处理。
 	 * 
 	 * @return
 	 */
@@ -127,19 +122,37 @@ public class ManagerAgentManageAction extends SuperAction implements
 		return "toDelete";
 	}
 
+	/**
+	 * 显示所有班主任。
+	 * 
+	 * @return
+	 */
+	public String display() {
+		if (session.getAttribute("managerId") == null) {
+			return "LoginNotYet";
+		}
+
+		request.setAttribute("agentList", managerService.getAgents());
+		return "agentsDisplay";
+	}
+	
+	/**
+	 * 班主任删除。
+	 * @return
+	 */
 	public String delete() {
 		if (session.getAttribute("managerId") == null) {
 			return "LoginNotYet";
 		}
 
-		agent = (Agent) session.getAttribute("agent");
-		managerService.getAgentDAO().delete(agent);
-		Report report = managerService.getReportDAO().findById(
-				agent.getReportId());
-		managerService.getReportDAO().delete(report);
+		managerService.deleteAgent((Agent) session.getAttribute("agent"));
 		return "agentDeleteSuccess";
 	}
 
+	/**
+	 * 班主任修改信息。
+	 * @return
+	 */
 	public String change() {
 		if (session.getAttribute("managerId") == null) {
 			return "LoginNotYet";
@@ -292,6 +305,7 @@ public class ManagerAgentManageAction extends SuperAction implements
 	}
 
 	/**
+	 * 显示班主任下属学员。
 	 * 
 	 * @return
 	 */
