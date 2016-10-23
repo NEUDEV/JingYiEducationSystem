@@ -145,6 +145,27 @@
 			<!--plaintext用于显示页面原始代码的结果类型 -->
 			<result name="SUCCESS">/agent/studentShow.jsp</result>
 		</action>
+		
+		<action name="downestudents" class="com.JES.action.StudentUpAction"
+			method="download">
+			<param name="inputPath">/WEB-INF/downloadfile/StudentModel.xlsx</param>
+			<result name="success" type="stream">
+				<param name="contentType">application/xlsx</param>
+				<param name="inputName">inputStream</param>
+				<param name="contentDisposition">filename="StudentModel.xlsx"</param>
+				<param name="bufferSize">2048</param>
+			</result>
+		</action>
+		
+		<action name="upstudents" class="com.JES.action.StudentUpAction"
+			method="upload">
+
+			<result name="success">/agent/upanddownload.jsp</result>
+
+			<result name="fail">/agent/showms.jsp</result>
+
+		</action>
+		
 	</package>
 
 	<package name="ajax" extends="json-default">

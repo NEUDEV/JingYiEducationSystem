@@ -31,13 +31,11 @@
      	}
      } 
      
-     function clearnote(){
-     	$('#note').val("");
-     }
 
      function clickQqFunctino() {  
             //alert($("#xm").val());  
-            var params = $("#qq").val();        
+            var params = $("#qq").val();
+                    
             $.ajax({  
                 type: "post",  
                 url: "cheakqq.action",  
@@ -67,6 +65,12 @@
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<form action="AgentUpStudentAction" name="form" id="form" method="post" enctype="multipart/form-data" >
 			<div class="form-group">
+				<label >电子表格录入</label><br>
+				<a href=""></a>
+			</div>
+			<div>
+			<label >手动录入</label><br>
+			<div class="form-group">
 				<label for="name">姓名*</label><input class="form-control" id="name"
 					type="text" name="name" onblur="cheackblock(this.value)"/>
 			</div>
@@ -83,22 +87,19 @@
 			<div class="form-group">
 				<label for="phone">电话</label> <input class="form-control" id="phone"
 					type="text" name="phone" />
-			</div>
-			 <div class="form-group">
-				<label for="class_">课程</label> <input class="form-control" id="class_"
-					type="text" name="class_" />
 			</div> 
 			<div class="form-group">
 				<label for="name">备注：</label>
 			</div>
 			<div class="form-group">
-				<textarea name="note" id="note" style="height:80px;" maxlength=100 draggable=false onclick="clearnote()">这里写备注</textarea>
+				<textarea name="note" id="note" style="height:80px;" maxlength=100 draggable=false >输入&#13;&#10;即可成功换行</textarea>
 			</div>
 			<div class="form-group">
 				<label for="class_">上传截图*</label>
 				<input type="file" name="file" id="file" onblur="cheackfileblock()">  
 			</div>
 			<button type="submit" disabled="disabled" class="btn btn-default" id="submit" onclick="cheackblock()">提交</button>
+			</div>
 		</form>
 	</div>
 </body>

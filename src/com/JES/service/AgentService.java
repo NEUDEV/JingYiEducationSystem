@@ -271,6 +271,10 @@ public class AgentService {
 		else return false;
 	}
 	
+	public void updateorsaveStudent(Student student){
+		studentDAO.merge(student);
+	}
+	
 	public List<Course> allcourse(){
 		return (List<Course>)courseDAO.findAll();
 	}
