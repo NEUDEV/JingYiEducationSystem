@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>开设班主任账户</title>
+<title>班主任划分</title>
 </head>
 
 <body>
@@ -30,12 +30,12 @@
 				<div class="form-group">
 					<input class="form-control" name="searchValue" type="text" />
 				</div>
-				<button type="submit" class="btn btn-default">查找</button>
+				<button type="submit" class="btn btn-default">查找班主任</button>
 			</form>
 		</div>
 		</nav>
 
-		<a>请选择班主任：</a>
+		<a>请选择班主任：（可多选）</a>
 		<form
 			action="<%=basePath%>Manager/ManagerAgentManage_displaySuperAgents.action"
 			method="post" id="selectCommonAgentForm">

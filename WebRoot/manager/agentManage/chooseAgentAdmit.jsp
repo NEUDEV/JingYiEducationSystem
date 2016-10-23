@@ -30,7 +30,7 @@
 				<div class="form-group">
 					<input class="form-control" name="searchValue" type="text" />
 				</div>
-				<button type="submit" class="btn btn-default">查找</button>
+				<button type="submit" class="btn btn-default">查找班主任</button>
 			</form>
 		</div>
 		</nav>

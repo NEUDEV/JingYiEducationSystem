@@ -9,6 +9,10 @@
 </head>
 <body>
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		<ul class="breadcrumb">
+			<li><a href="<%=basePath%>/index.jsp">主页</a></li>
+			<li class="active">学员管理</li>
+		</ul>
 		<nav class="navbar navbar-default navbar-static-top" role="navigation">
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
@@ -25,7 +29,7 @@
 				<div class="form-group">
 					<input class="form-control" name="searchValue" type="text" />
 				</div>
-				<button type="submit" class="btn btn-default">查找学员信息</button>
+				<button type="submit" class="btn btn-default">查找学员</button>
 			</form>
 		</div>
 
@@ -49,7 +53,8 @@
 			<tbody>
 
 				<c:forEach items="${request.studentList}" var="student">
-					<tr><td>${i=i+1}</td>
+					<tr>
+						<td>${i=i+1}</td>
 						<td>${student.uid}</td>
 						<td>${student.stuid}</td>
 						<td>${student.name}</td>

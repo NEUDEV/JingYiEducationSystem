@@ -4,15 +4,15 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>开设班主任账户</title>
+<title>班主任划分</title>
 </head>
 
 <body>
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<ul class="breadcrumb">
 			<li><a href="<%=basePath%>/index.jsp">主页</a></li>
-			<li class="active">选择班主任</li>
-			<li><a href="#">选择超级班主任</a></li>
+			<li><a href="#">选择班主任</a></li>
+			<li class="active">选择超级班主任</li>
 			<li><a href="#">划分成功</a></li>
 		</ul>
 		<nav class="navbar navbar-default navbar-static-top" role="navigation">
@@ -30,12 +30,12 @@
 				<div class="form-group">
 					<input class="form-control" name="searchValue" type="text" />
 				</div>
-				<button type="submit" class="btn btn-default">查找</button>
+				<button type="submit" class="btn btn-default">查找超级班主任</button>
 			</form>
 		</div>
 		</nav>
 
-		<a>请选择班主任：</a>
+		<a>请选择超级班主任：（单选）</a>
 		<form
 			action="<%=basePath%>Manager/ManagerAgentManage_divideAgent.action"
 			method="post" id="selectSuperAgentForm">
