@@ -91,12 +91,24 @@
         </property>
 	</class>
 
-	<class name="com.JES.model.Course" table="course">
-		<id name="cid" column="cid" type="java.lang.String">
-			<generator class="assigned"></generator>
-		</id>
-		<property name="cname" column="cname" type="java.lang.String"></property>
-	</class>
+	<class name="com.JES.model.Course" table="course" catalog="jingyieducationsystem">
+        <id name="cid" type="java.lang.String">
+            <column name="cid" />
+            <generator class="assigned" />
+        </id>
+        <property name="cname" type="java.lang.String">
+            <column name="cname" />
+        </property>
+        <property name="starttime" type="java.util.Date">
+            <column name="starttime" length="10" />
+        </property>
+        <property name="endtime" type="java.util.Date">
+            <column name="endtime" length="10" />
+        </property>
+        <property name="referencebill" type="java.lang.Integer">
+            <column name="referencebill" />
+        </property>
+    </class>
 	<class name="com.JES.model.Agentupstudent" table="agentupstudent"
 		catalog="jingyieducationsystem">
 		<id name="qq" type="java.lang.String">

@@ -1,5 +1,6 @@
 package com.JES.dao;
 
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.LockOptions;
@@ -30,6 +31,7 @@ public class CourseDAO {
 	private static final Logger log = LoggerFactory.getLogger(CourseDAO.class);
 	// property constants
 	public static final String CNAME = "cname";
+	public static final String REFERENCEBILL = "referencebill";
 
 	private SessionFactory sessionFactory;
 
@@ -111,6 +113,10 @@ public class CourseDAO {
 
 	public List findByCname(Object cname) {
 		return findByProperty(CNAME, cname);
+	}
+
+	public List findByReferencebill(Object referencebill) {
+		return findByProperty(REFERENCEBILL, referencebill);
 	}
 
 	public List findAll() {

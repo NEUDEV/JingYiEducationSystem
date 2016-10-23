@@ -24,7 +24,7 @@
 		<property name="mappingResources">
 			<list>
 				<value>jingyi.hbm.xml</value>
-				</list>
+			</list>
 		</property>
 		<property name="hibernateProperties">
 			<props>
@@ -48,11 +48,6 @@
 			<ref bean="sessionFactory" />
 		</property>
 	</bean>
-	<bean id="courseDAO" class="com.JES.dao.CourseDAO">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
-	</bean>
 	<bean id="ManagerDAO" class="com.JES.dao.ManagerDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
@@ -69,11 +64,6 @@
 		</property>
 	</bean>
 	<bean id="AccountDAO" class="com.JES.dao.AccountDAO">
-		<property name="sessionFactory">
-			<ref bean="sessionFactory" />
-		</property>
-	</bean>
-	<bean id="studentDAO" class="com.JES.dao.StudentDAO">
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
@@ -100,8 +90,7 @@
 		<property name="reportDAO" ref="ReportDAO"></property>
 	</bean>
 
-	<bean id="agentservice" class="com.JES.service.AgentService"
-		>
+	<bean id="agentservice" class="com.JES.service.AgentService">
 		<property name="agentDAO" ref="AgentDAO"></property>
 		<property name="agentupstudentDAO" ref="agentupstudentDAO"></property>
 		<property name="studentDAO" ref="studentDAO"></property>
@@ -146,4 +135,10 @@
 		<property name="sessionFactory">
 			<ref bean="sessionFactory" />
 		</property>
-	</bean></beans>
+	</bean>
+	<bean id="CourseDAO" class="com.JES.dao.CourseDAO">
+		<property name="sessionFactory">
+			<ref bean="sessionFactory" />
+		</property>
+	</bean>
+</beans>
