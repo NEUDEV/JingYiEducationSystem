@@ -105,6 +105,7 @@ public class StudentUpAction extends SuperAction{
 		}
 		}
 	
+	@SuppressWarnings("resource")
 	public void loadstudentsecxel(String uploadFileFileName){  
         String targetDirectory = ServletActionContext.getServletContext().getRealPath("/students");  
         File target = new File(targetDirectory,uploadFileFileName);
@@ -112,7 +113,7 @@ public class StudentUpAction extends SuperAction{
         Integer errmsnum=0;
         try{  
             FileInputStream fi = new FileInputStream(target);  
-            Workbook wb =(Workbook) new HSSFWorkbook(fi);  
+            Workbook wb = new HSSFWorkbook(fi);  
             Sheet sheet = wb.getSheetAt(0);    
             int rowNum = sheet.getLastRowNum()+1;  
             for(int i=1;i<rowNum;i++){  
@@ -121,21 +122,17 @@ public class StudentUpAction extends SuperAction{
                 Row row = sheet.getRow(i);
                 int cellNum = row.getLastCellNum();
                 boolean isenabel=true;
-                for(int j=0;j<cellNum;j++){  
-                    Cell cell = row.getCell(j);  
+                for(int len=0;len<cellNum;len++){  
+                    Cell cell = row.getCell(len);  
                     String cellValue = cell.getStringCellValue() ;      
-                    switch(j){//通过列数来判断对应插如的字段   
+                    switch(len){//通过列数来判断对应插如的字段   
                         case 0 : 
                         	if(agentservice.cheakQq(cellValue)){
                         		errmsnum++;
                         		errstudentms+=errmsnum.toString()+": "+cellValue;
-                        		for(int k=1;k<4;k++){
-                        			cell = row.getCell(k);
-                        			errstudentms+=" , "+cell.getStringCellValue();
-                        		}
                         		errstudentms+="&#13;&#10;";
                         		isenabel=false;
-                        		j=Integer.MAX_VALUE;
+                        		System.out.println(len);
                         	}
                         	else student.setQq(cellValue);
                         	break;  
